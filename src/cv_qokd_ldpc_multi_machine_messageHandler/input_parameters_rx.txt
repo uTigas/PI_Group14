@@ -1,7 +1,7 @@
 //------------INPUTPARAMETERS-------------
 //
 //---------GENERAL CONFIGURATION---------
-keyType=1
+keyType=0
 verboseMode=false
 saveSignals=true
 saveSymmetricKeys=false

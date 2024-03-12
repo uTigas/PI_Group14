@@ -29,24 +29,58 @@ if [ "$user_input" == "0" ] || [ "$user_input" == "1" ]; then
     make -f $MAKEFILE_TX $TX_EXECUTABLE
     make -f $MAKEFILE_RX $RX_EXECUTABLE
 
-    # Verify if the file was well compiled
-    if [ -f "$TX_EXECUTABLE" ]; then
-        # Execute TX in terminal
-        gnome-terminal -- ./"$TX_EXECUTABLE"
 
-        # wait 1.5 sec
+    if [ -n "$INSIDE_CONTAINER" ] && [ "$INSIDE_CONTAINER" == "true" ]; then
+
+        if [ -f "$TX_EXECUTABLE" ]; then
+            # Create a new tmux session
+            tmux new-session -d -s my_session
+
+            # Split the window vertically
+            tmux split-window -h
+
+            # Execute TX in the first pane
+            tmux send-keys -t my_session:0.0 "./$TX_EXECUTABLE" Enter
+
+            # wait 1.5 sec
             sleep 1.5
 
-        # Verify if the file was well compiled
-        if [ -f "$RX_EXECUTABLE" ]; then
-            # Execute RX in terminal
-            gnome-terminal -- ./"$RX_EXECUTABLE";
+            # Verify if the file was well compiled
+            if [ -f "$RX_EXECUTABLE" ]; then
+                # Execute RX in the second pane
+                tmux send-keys -t my_session:0.1 "./$RX_EXECUTABLE" Enter
+                tmux a -t my_session
+            else
+                echo "Error during $RX_EXECUTABLE compiling. Check the make output for more details."
+            fi
         else
-            echo "Error during $RX_EXECUTABLE compiling. Check the make output for more details."
+            echo "Error during $TX_EXECUTABLE compiling. Check the make output for more details."
         fi
+
     else
-        echo "Error during $TX_EXECUTABLE compiling. Check the make output for more details."
+
+        if [ -f "$TX_EXECUTABLE" ]; then
+            # Execute TX in terminal
+            $TERMINAL -- ./"$TX_EXECUTABLE"
+
+            # wait 1.5 sec
+                sleep 1.5
+
+            # Verify if the file was well compiled
+            if [ -f "$RX_EXECUTABLE" ]; then
+                # Execute RX in terminal
+                $TERMINAL -- ./"$RX_EXECUTABLE";
+            else
+                echo "Error during $RX_EXECUTABLE compiling. Check the make output for more details."
+            fi
+        else
+            echo "Error during $TX_EXECUTABLE compiling. Check the make output for more details."
+        fi
+
     fi
+
+
+
 else
     echo "Invalid value. Use 0 for Oblivious Keys or 1 for Symmetric Keys."
 fi

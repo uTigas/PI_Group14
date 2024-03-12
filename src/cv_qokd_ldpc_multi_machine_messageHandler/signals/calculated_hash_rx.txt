@@ -77,15 +77,3 @@ Sindrome Match: true
 Received Hash:   ÈÕYU@^¥gˆsÈ›ÑÏ¦
 Calculated Hash: ÈÕYU@^¥gˆsÈ›ÑÏ¦
 Sindrome Match: true
-Received Hash:   şf¯”¿vğÑÇ–99‹Ş;îÀ
-Calculated Hash: şf¯”¿vğÑÇ–99‹Ş;îÀ
-Sindrome Match: true
-Received Hash:   €f,jêóD™ŸÏ¹eB%§ÓVS
-Calculated Hash: €f,jêóD™ŸÏ¹eB%§ÓVS
-Sindrome Match: true
-Received Hash:   Ãtcò	{ÆêË—™Ñ4$ã5Ôº
-Calculated Hash: Ãtcò	{ÆêË—™Ñ4$ã5Ôº
-Sindrome Match: true
-Received Hash:   ˜ÒB°)7"§º/”_Úœß3†·
-Calculated Hash: ˜ÒB°)7"§º/”_Úœß3†·
-Sindrome Match: true

@@ -1,88 +1,0 @@
-Received Hash:   ÏwJè¤Ûf&¢KÉ-Æ
-Calculated Hash: ÏwJè¤Ûf&¢KÉ-Æ
-Sindrome Match: true
-Received Hash:   ZôğO‰·95áÑr’âápå©^
-Calculated Hash: ZôğO‰·95áÑr’âápå©^
-Sindrome Match: true
-Received Hash:   	ÕlùÚgLÇÅa¨O¸äPëfÈ
-Calculated Hash: 	ÕlùÚgLÇÅa¨O¸äPëfÈ
-Sindrome Match: true
-Received Hash:   bèÙ`Œo`ĞÌ˜é<‹­½\*ë«
-Calculated Hash: ğ¨”»Ç8«1TJü‡·­l²j¡
-Sindrome Match: false
-Received Hash:   Œ€b—9[!6ÌŠ‚öªSY|¤^
-Calculated Hash: Œ€b—9[!6ÌŠ‚öªSY|¤^
-Sindrome Match: true
-Received Hash:   õÊm@ ‹ÕÑÑüÏrY_i±˜
-Calculated Hash: õÊm@ ‹ÕÑÑüÏrY_i±˜
-Sindrome Match: true
-Received Hash:   ğ{=QF'‘AlryÉÑõ­>
-Calculated Hash: ğ{=QF'‘AlryÉÑõ­>
-Sindrome Match: true
-Received Hash:   ¡-
-Ó?.şŒßİ¸ÈûL9ù¯Zg
-Calculated Hash: ¡-
-Ó?.şŒßİ¸ÈûL9ù¯Zg
-Sindrome Match: true
-Received Hash:   ¦İmÖ…TÌÆC¡`ªÚôÙ“=M
-Calculated Hash: ¦İmÖ…TÌÆC¡`ªÚôÙ“=M
-Sindrome Match: true
-Received Hash:   $ë¥!™‹Nš
-¢•G?¸ªâ¨\N
-Calculated Hash: $ë¥!™‹Nš
-¢•G?¸ªâ¨\N
-Sindrome Match: true
-Received Hash:   7mü×s¹"XNµ:HmÌ/ìœ
-Calculated Hash: 7mü×s¹"XNµ:HmÌ/ìœ
-Sindrome Match: true
-Received Hash:   hF†®ÀT<IÙQÊJÊ@»
-Calculated Hash: hF†®ÀT<IÙQÊJÊ@»
-Sindrome Match: true
-Received Hash:   «¯OâÏïŒ·LfvÄqšíşŸ`×
-Calculated Hash: «¯OâÏïŒ·LfvÄqšíşŸ`×
-Sindrome Match: true
-Received Hash:   ü’ôKÊ²e¶_$È»Ôê
-Calculated Hash: ü’ôKÊ²e¶_$È»Ôê
-Sindrome Match: true
-Received Hash:   é ªÃov#ÆöCIÍËYµËá
-Calculated Hash: é ªÃov#ÆöCIÍËYµËá
-Sindrome Match: true
-Received Hash:   n3™‘~0gdÖ©¹YkÚŸÈy;
-Calculated Hash: n3™‘~0gdÖ©¹YkÚŸÈy;
-Sindrome Match: true
-Received Hash:   ªRò`F¡h¦d¬Ål„„u
-Calculated Hash: ªRò`F¡h¦d¬Ål„„u
-Sindrome Match: true
-Received Hash:   aÚ´6ÇÍı-5]…¤¿Ûë@:
-Calculated Hash: aÚ´6ÇÍı-5]…¤¿Ûë@:
-Sindrome Match: true
-Received Hash:   ¼GÄÊ­ƒ6éü…­µ$æ®,*ë
-Calculated Hash: ¼GÄÊ­ƒ6éü…­µ$æ®,*ë
-Sindrome Match: true
-Received Hash:   ÕTwk#Ğ¤›s€… –™êV“ò¹
-Calculated Hash: ÕTwk#Ğ¤›s€… –™êV“ò¹
-Sindrome Match: true
-Received Hash:   ÖÔ8‚ˆä°öÑÌ±f‹¹Å¾ƒ*‹
-Calculated Hash: ÖÔ8‚ˆä°öÑÌ±f‹¹Å¾ƒ*‹
-Sindrome Match: true
-Received Hash:   ƒmjl9XÔôVZ¢y0½ã`{Œ
-Calculated Hash: ƒmjl9XÔôVZ¢y0½ã`{Œ
-Sindrome Match: true
-Received Hash:   ÆDúdáÃ—‹’Q¬”‰	aT
-Calculated Hash: ÆDúdáÃ—‹’Q¬”‰	aT
-Sindrome Match: true
-Received Hash:   ³šŸb´ö@¥0^$çEiå–
-Calculated Hash: ³šŸb´ö@¥0^$çEiå–
-Sindrome Match: true
-Received Hash:   ÈÕYU@^¥gˆsÈ›ÑÏ¦
-Calculated Hash: ÈÕYU@^¥gˆsÈ›ÑÏ¦
-Sindrome Match: true
-Received Hash:   şf¯”¿vğÑÇ–99‹Ş;îÀ
-Calculated Hash: şf¯”¿vğÑÇ–99‹Ş;îÀ
-Sindrome Match: true
-Received Hash:   €f,jêóD™ŸÏ¹eB%§ÓVS
-Calculated Hash: €f,jêóD™ŸÏ¹eB%§ÓVS
-Sindrome Match: true
-Received Hash:   Ãtcò	{ÆêË—™Ñ4$ã5Ôº
-Calculated Hash: Ãtcò	{ÆêË—™Ñ4$ã5Ôº
-Sindrome Match: true

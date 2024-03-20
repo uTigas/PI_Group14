@@ -1,0 +1,6 @@
+Received Hash:   ÏwJè¤Ûf&¢KÉ-Æ
+Calculated Hash: ÏwJè¤Ûf&¢KÉ-Æ
+Sindrome Match: true
+Received Hash:   ZôğO‰·95áÑr’âápå©^
+Calculated Hash: ZôğO‰·95áÑr’âápå©^
+Sindrome Match: true

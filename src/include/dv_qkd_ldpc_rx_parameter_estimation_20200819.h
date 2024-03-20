@@ -60,6 +60,7 @@ public:
 	t_real getThreshold(void) { return threshold; }
 
 	double getTotalNumberOfInputBits(void) const { return totalNumberOfInputBits; }
+	double getTransmitSpeed(void) const { return transmitSpeed; }
 	double getTotalNumberOfOutputBits(void) const { return totalNumberOfOutputBits; }
 	t_real getAverageEstimatedBER(void) const { return averageBER; }
 	t_real getLatestEstimatedBER(void) const { return BER; }
@@ -114,6 +115,7 @@ private:
 
 	t_real numberOfEstimations{ 0 };
 	t_real totalNumberOfInputBits{ 0 };
+	t_real transmitSpeed{ 0 };
 	t_real totalNumberOfOutputBits{ 0 };
 
 	bool doEstimation{ false };

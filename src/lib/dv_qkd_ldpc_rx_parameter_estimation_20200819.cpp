@@ -1,11 +1,16 @@
 #include "dv_qkd_ldpc_rx_parameter_estimation_20200819.h"
+clock_t init_start, partial_end;
+
 
 void DvQkdLdpcRxParameterEstimation::initialize(void) 
 {
 	outputSignals[0]->setSymbolPeriod(inputSignals[0]->getSymbolPeriod());
 	outputSignals[0]->setSamplingPeriod(inputSignals[0]->getSamplingPeriod());
 	outputSignals[0]->setFirstValueToBeSaved(inputSignals[0]->getFirstValueToBeSaved());
-
+	
+	init_start = clock();     // Timer Start
+	
+	
 	if (outputSignals.size() >= 6)
 	{
 		outputSignals[5]->setSymbolPeriod(numberOfBitsPerEstimationBlock * inputSignals[0]->getSymbolPeriod());
@@ -63,7 +68,12 @@ bool DvQkdLdpcRxParameterEstimation::runBlock(void)
 			t_binary dataIn{ 0 };
 			inputSignals[0]->bufferGet((t_binary*)&dataIn);
 			outputSignals[0]->bufferPut(dataIn);
+
+			partial_end = clock();
 			totalNumberOfInputBits++;
+
+			// Speed Calculation
+			transmitSpeed = totalNumberOfInputBits/(double(partial_end - init_start) / double(CLOCKS_PER_SEC));
 		}
 
 		for (auto k = 1; k <= 4; k++)
@@ -249,6 +259,7 @@ bool DvQkdLdpcRxParameterEstimation::runBlock(void)
 		myfile << "Number of estimations=        " << numberOfEstimations << "\n";
 		myfile << "Number of received bits=     " << totalNumberOfInputBits << "\n";
 		myfile << "Number of sent bits=         " << totalNumberOfOutputBits << "\n";
+		myfile << "Transmit Speed= 					" << transmitSpeed << "\n";
 
 		myfile << "Number of Bits Per estimation Block= " << numberOfBitsPerEstimationBlock << "\n";
 		myfile << "Bits used for estimation=    " << numberOfEstimations * numberOfBitsPerEstimationBlock << "\n";

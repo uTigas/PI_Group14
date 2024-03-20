@@ -214,8 +214,8 @@ namespace rx
 		BlockGetFunction<std::_Mem_fn<double (DvQkdLdpcRxParameterEstimation::*)() const>, DvQkdLdpcRxParameterEstimation, double> Estimated_BER_{ &DvQkdLdpcRxParameterEstimation_Rx, std::mem_fn(&DvQkdLdpcRxParameterEstimation::getAverageEstimatedBER) };
 		Console_.addGetFunction("Estimated BER", &Estimated_BER_, value_type::t_double);
 
-		// BlockGetFunction<std::_Mem_fn<double (DvQkdLdpcRxParameterEstimation::*)() const>, DvQkdLdpcRxParameterEstimation, double> Transmit_Speed_{ &DvQkdLdpcRxParameterEstimation_Rx, std::mem_fn(&DvQkdLdpcRxParameterEstimation::getTransmitSpeed) };
-		// Console_.addGetFunction("Speed (Bits/Sec)", &Transmit_Speed_, value_type::t_double);
+		BlockGetFunction<std::_Mem_fn<double (DvQkdLdpcRxParameterEstimation::*)() const>, DvQkdLdpcRxParameterEstimation, double> Transmit_Speed_{ &DvQkdLdpcRxParameterEstimation_Rx, std::mem_fn(&DvQkdLdpcRxParameterEstimation::getTransmitSpeed) };
+		Console_.addGetFunction("Speed (Bits/Sec)", &Transmit_Speed_, value_type::t_double);
 
 		BlockGetFunction<std::_Mem_fn<unsigned long int (CvQokdLdpcRxSindromeReconciliation::*)() const>, CvQokdLdpcRxSindromeReconciliation, unsigned long int> NumberOfCalculatedSindromes_Rx{ &CvQokdLdpcRxSindromeReconciliation_Rx, std::mem_fn(&CvQokdLdpcRxSindromeReconciliation::getNumberOfCalculatedSindromes) };
 		Console_.addGetFunction("Rx: Number Of Calculated Sindromes", &NumberOfCalculatedSindromes_Rx, value_type::t_unsigned_long_int);

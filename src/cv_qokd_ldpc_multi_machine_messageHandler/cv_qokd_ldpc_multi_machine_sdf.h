@@ -2,6 +2,7 @@
 #define DV_QKD_LDPC_SDF_H
 
 #include "netxpto_20200819.h"
+#include "load_etsi_004_20200819.h"
 
 
 class MainSystem : public System
@@ -25,6 +26,15 @@ public:
 	t_string rxIpAddress{ "127.0.0.1" };
 	t_integer txReceivingPort{ 54000 };
 	t_integer rxReceivingPort{ 54001 };
+	t_integer etsiPort{ 24300 };
+	t_string etsiAddress{ "127.0.0.1" };
+	t_string node1_uuid{ "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" };
+	t_string node2_uuid{ "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb" };
+	t_string App{ "AtoB" };
+	t_string keyStreamId{ "" };
+	t_string keySource{ "ascii" };
+	t_string rawKeyFolder{ "rawKeys" };
+	t_bool saveKeys{ true };
 
 	t_string defaultInputFname{ "input_parameters_0.txt" };
 	t_bool verboseMode{ true };

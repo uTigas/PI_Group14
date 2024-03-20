@@ -1,6 +1,7 @@
 #include "netxpto_20200819.h"
 #include "cv_qokd_ldpc_multi_machine_sdf.h"
 #include "load_ascii_20200819.h"
+#include "load_etsi_004_20200819.h"
 #include "dv_qkd_ldpc_tx_parameter_estimation_20200819.h"
 #include "cv_qokd_ldpc_tx_sindrome_reconciliation_20200819.h"
 #include "save_ascii_20200819.h"
@@ -35,8 +36,6 @@ namespace rx
 		DvQkdLdpcInputParameters param = DvQkdLdpcInputParameters();
 		param.setInputParametersFileName("input_parameters_rx.txt");
 		param.readSystemInputParameters();
-
-
 
 		Signal::t_write_mode sWriteMode{ Signal::t_write_mode::Ascii };
 		Signal::t_header_type hType{ Signal::t_header_type::noHeader };
@@ -88,10 +87,15 @@ namespace rx
 
 		Message MessagesToTx_Rx{ "S4_MessagesFromRx.sgn", 10, hType, sWriteMode };
 		HandlerMessage MessagesToTx_Rx_{ "S4_MessagesFromRx.sgn", 10, hType, sWriteMode };
-		// ####################################################################
 
 		Message MessagesFromTx{ "S0_MessagesFromTx.sgn", 10, hType, sWriteMode };
 		HandlerMessage MessagesFromTx_{ "S0_MessagesFromTx.sgn", 10, hType, sWriteMode };
+
+		Message MessagesToLoadFile_Rx{ "S17_MessagesFromRx.sgn", 10, hType, sWriteMode };
+		HandlerMessage MessagesToLoadFile_Rx_{ "S17_MessagesFromRx.sgn", 10, hType, sWriteMode };
+
+		Message MessagesFromLoadFile_Tx{ "S18_MessagesFromTx.sgn", 10, hType, sWriteMode };
+		HandlerMessage MessagesFromLoadFile_Tx_{ "S18_MessagesFromTx.sgn", 10, hType, sWriteMode };
 
 		// #####################################################################################################
 		// ########################### Rx Blocks Declaration and Inicialization ###################################
@@ -107,7 +111,7 @@ namespace rx
 		DvQkdLdpcTxMessageProcessorReceiver_Rx.setHashLength(param.hashLength);
 
 		LoadAscii LoadAscii_Rx{ {},{&Raw_Rx} };
-		LoadAscii_Rx.setAsciiFileName("rx_raw");
+		LoadAscii_Rx.setAsciiFileName("raw_keys/rx_raw");
 		LoadAscii_Rx.setAsciiFileNameTailNumber("0");
 		LoadAscii_Rx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
@@ -146,6 +150,7 @@ namespace rx
 		CvQokdLdpcRxSindromeReconciliation_Rx.setKeyType(param.keyType);
 
 		SaveAscii SaveAscii_Rx{ {&Key_Rx}, {} };
+		SaveAscii_Rx.setAsciiFolderName("generated_keys");
 		SaveAscii_Rx.setAsciiFileName("rx_key");
 		SaveAscii_Rx.setAsciiFileNameTailNumber("0");
 		SaveAscii_Rx.setAsciiFileNameTailNumberModulos(0);
@@ -157,6 +162,10 @@ namespace rx
 		IPTunnel_Client_Rx.setRemoteMachineIpAddress(param.txIpAddress);
 		IPTunnel_Client_Rx.setRemoteMachinePort(param.txReceivingPort);
 		IPTunnel_Client_Rx.setVerboseMode(param.verboseMode);
+
+		DvQkdLdpcTxMessageProcessorTransmitter DvQkdLdpcTxMessageProcessorTransmitterLoadFile_Rx{ {&BasesAckToRx_Rx, &DvQkdLdpcTxParameterEstimation_SeedToRx_Rx, &DvQkdLdpcTxParameterEstimation_RatioToRx_Rx, &DvQkdLdpcTxParameterEstimation_NumberOfBitsPerEstimationBlock_Rx, &DvQkdLdpcTxParameterEstimation_DataToRx_Rx,  &SindromeToTx_Rx, &HashToTx_Rx}, {&MessagesToLoadFile_Rx} };
+		DvQkdLdpcTxMessageProcessorReceiver DvQkdLdpcTxMessageProcessorReceiverLoadFile_Rx{ {&MessagesFromLoadFile_Tx}, {&BasesFromRx_Rx, &DvQkdLdpcTxParameterEstimation_SeedFromRx_Rx, &DvQkdLdpcTxParameterEstimation_RatioFromRx_Rx, &DvQkdLdpcTxParameterEstimation_NumberOfBitsPerEstimationBlockFromRx_Rx, &DvQkdLdpcTxParameterEstimation_DataFromRx_Rx, &SindromeFromTx_Rx, &PermutationsFromRx_Rx, &ToggleBERChange_Rx} };
+
 
 		// #####################################################################################################
 		// ########################### System Declaration and Inicialization ###################################
@@ -174,8 +183,7 @@ namespace rx
 			&DvQkdLdpcTxMessageProcessorTransmitter_Rx,
 			&IPTunnel_Client_Rx,
 			&DvQkdLdpcTxMessageProcessorTransmitter_Rx_,
-			&DvQkdLdpcTxMessageProcessorReceiver_Rx_,
-
+			&DvQkdLdpcTxMessageProcessorReceiver_Rx_
 			}
 		};
 
@@ -196,12 +204,6 @@ namespace rx
 
 		BlockGetFunction<std::_Mem_fn<int (IPTunnel::*)() const>, IPTunnel, int> Remote_Machine_Port_{ &IPTunnel_Client_Rx, std::mem_fn(&IPTunnel::getRemoteMachinePort) };
 		Console_.addGetFunction("Remote Machine Receiving Port", &Remote_Machine_Port_, value_type::t_int);
-
-		BlockGetFunction<std::_Mem_fn<std::string (LoadAscii::*)() const>, LoadAscii, std::string> Load_File_Name_{ &LoadAscii_Rx, std::mem_fn(&LoadAscii::getAsciiFileFullName) };
-		Console_.addGetFunction("Load File Name", &Load_File_Name_, value_type::t_string);
-
-		BlockGetFunction<std::_Mem_fn<unsigned long int (LoadAscii::*)() const>, LoadAscii, unsigned long int> Number_Of_Loaded_Values_{ &LoadAscii_Rx, std::mem_fn(&LoadAscii::getNumberOfLoadedValues) };
-		Console_.addGetFunction("Number of Loaded Values", &Number_Of_Loaded_Values_, value_type::t_unsigned_long_int);
 		
 		BlockGetFunction<std::_Mem_fn<bool (DvQkdLdpcRxParameterEstimation::*)() const>, DvQkdLdpcRxParameterEstimation, bool> Bypass_Parameter_Estimation_{ &DvQkdLdpcRxParameterEstimation_Rx, std::mem_fn(&DvQkdLdpcRxParameterEstimation::getBypassParameterEstimation) };
 		Console_.addGetFunction("Bypass Parameter Estimation", &Bypass_Parameter_Estimation_, value_type::t_bool);

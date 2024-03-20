@@ -1,6 +1,6 @@
 
 # I DONT CARE ABOUT THEM KEYS
-src/cv_qokd_ldpc_multi_machine_messageHandler/*_key*
+# src/cv_qokd_ldpc_multi_machine_messageHandler/*_key*
 
 # Node artifact files
 node_modules/

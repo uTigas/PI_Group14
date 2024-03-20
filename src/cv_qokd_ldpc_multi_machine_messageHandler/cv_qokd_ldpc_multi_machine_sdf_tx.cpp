@@ -1,6 +1,7 @@
 #include "netxpto_20200819.h"
 #include "cv_qokd_ldpc_multi_machine_sdf.h"
 #include "load_ascii_20200819.h"
+#include "load_etsi_004_20200819.h"
 #include "dv_qkd_ldpc_tx_parameter_estimation_20200819.h"
 #include "cv_qokd_ldpc_tx_sindrome_reconciliation_20200819.h"
 #include "save_ascii_20200819.h"
@@ -80,12 +81,18 @@ namespace tx
 
 		Binary BasesFromRx_Tx{ "S16_BasesFromRx_Tx.sgn", (t_unsigned_long)param.buffSize, hType, sWriteMode };
 
+		Message MessagesToLoadFile_Tx{ "S17_MessagesToRx.sgn", 10, hType, sWriteMode };
+		HandlerMessage MessagesToLoadFile_Tx_{ "S17_MessagesToRx.sgn", 10, hType, sWriteMode };
+
+		Message MessagesFromLoadFile_Tx{ "S18_Tx_MessagesFromRx.sgn", 10, hType, sWriteMode };
+		HandlerMessage MessagesFromLoadFile_Tx_{ "S18_Tx_MessagesFromRx.sgn", 10, hType, sWriteMode };
+
 		// #####################################################################################################
 		// ########################### Tx Blocks Declaration and Inicialization ###################################
 		// #####################################################################################################
 
 		LoadAscii LoadAscii_Tx{ {},{&Raw_Tx} };
-		LoadAscii_Tx.setAsciiFileName("tx_raw");
+		LoadAscii_Tx.setAsciiFileName("raw_keys/tx_raw");
 		LoadAscii_Tx.setAsciiFileNameTailNumber("0");
 		LoadAscii_Tx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
@@ -103,8 +110,8 @@ namespace tx
 		CvQokdLdpcTxSindromeReconciliation_Tx.setNumberOfDummyBitsPerBitFillingPeriod(param.numberOfDummyBitsPerBitFillingPeriod);
 		CvQokdLdpcTxSindromeReconciliation_Tx.setKeyType(param.keyType);
 
-		// Oblivious keys
 		SaveAscii SaveAscii_Tx{ {&Key_Tx}, {} };
+		SaveAscii_Tx.setAsciiFolderName("generated_keys");
 		SaveAscii_Tx.setAsciiFileName("tx_key");
 		SaveAscii_Tx.setAsciiFileNameTailNumber("0");
 		SaveAscii_Tx.setAsciiFileNameTailNumberModulos(0);
@@ -160,7 +167,7 @@ namespace tx
 				&IPTunnel_Server_Tx,
 				&DvQkdLdpcTxMessageProcessorReceiver_Tx,
 				&DvQkdLdpcTxMessageProcessorTransmitter_Tx_,
-				&DvQkdLdpcTxMessageProcessorReceiver_Tx_,
+				&DvQkdLdpcTxMessageProcessorReceiver_Tx_
 			}
 		};
 
@@ -181,12 +188,6 @@ namespace tx
 
 		BlockGetFunction<std::_Mem_fn<int (IPTunnel::*)() const>, IPTunnel, int> Remote_Machine_Port_{ &IPTunnel_Client_Tx, std::mem_fn(&IPTunnel::getRemoteMachinePort) };
 		Console_.addGetFunction("Remote Machine Receiving Port", &Remote_Machine_Port_, value_type::t_int);
-
-		BlockGetFunction<std::_Mem_fn<std::string(LoadAscii::*)() const>, LoadAscii, std::string> Load_File_Name_{ &LoadAscii_Tx, std::mem_fn(&LoadAscii::getAsciiFileFullName) };
-		Console_.addGetFunction("Load File Name", &Load_File_Name_, value_type::t_string);
-
-		BlockGetFunction<std::_Mem_fn<unsigned long int (LoadAscii::*)() const>, LoadAscii, unsigned long int> Number_Of_Loaded_Values_{ &LoadAscii_Tx, std::mem_fn(&LoadAscii::getNumberOfLoadedValues) };
-		Console_.addGetFunction("Number of Loaded Values", &Number_Of_Loaded_Values_, value_type::t_unsigned_long_int);
 
 		BlockGetFunction<std::_Mem_fn<bool (DvQkdLdpcTxParameterEstimation::*)() const>, DvQkdLdpcTxParameterEstimation, bool> Bypass_Parameter_Estimation_{ &DvQkdLdpcTxParameterEstimation_Tx, std::mem_fn(&DvQkdLdpcTxParameterEstimation::getBypassParameterEstimation) };
 		Console_.addGetFunction("Bypass Parameter Estimation", &Bypass_Parameter_Estimation_, value_type::t_bool);

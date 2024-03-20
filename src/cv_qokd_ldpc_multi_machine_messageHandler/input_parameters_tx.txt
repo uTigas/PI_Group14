@@ -1,7 +1,7 @@
 //------------INPUTPARAMETERS-------------
 //C:\netxpto\LinkPlanner20200819\sdf\cv_qkd_ldpc\cv_qkd_ldpc_multi_machine_qscripted\input_parameters_tx.txt
 //---------GENERAL CONFIGURATION---------
-keyType=0
+keyType=1
 verboseMode=false
 saveSignals=true
 saveSymmetricKeys=true

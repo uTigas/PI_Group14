@@ -1,5 +1,5 @@
 # Define variables
-DIRECTORY_MultiMachine_MessageHandler="cv_qokd_ldpc_multi_machine_messageHandler" 
+DIRECTORY_MultiMachine_MessageHandler="cv_qokd_ldpc_multi_machine_messageHandler"
 EXECUTABLE_MultiMachine_MessageHandler="compile_run_cv_qokd_ldpc_message_handler.sh"
 parent_terminal_pid=$(ps -o ppid= -p $$)
 
@@ -15,8 +15,7 @@ else
 fi
 
 # Set your terminal
-
-#TERMINAL=kitty
+TERMINAL=gnome-terminal
 
 # Run the script
 $TERMINAL -- bash -c "cd $DIRECTORY_MultiMachine_MessageHandler && chmod +x $EXECUTABLE_MultiMachine_MessageHandler && ./$EXECUTABLE_MultiMachine_MessageHandler; exec bash"

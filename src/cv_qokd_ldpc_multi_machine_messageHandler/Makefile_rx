@@ -1,8 +1,8 @@
 OBJDIR=./obj
-IDIR=../../../include
-LDIR=../../../lib
-IDIR2=../../../eigen/Eigen
-IDIR3=../../../cryptopp850
+IDIR=../include
+LDIR=../lib
+IDIR2=../eigen/Eigen
+IDIR3=../cryptopp850
 CC=g++ -std=c++17 -Wall
 CFLAGS=-I $(IDIR) -I $(IDIR2) -I $(IDIR3) -Wall -g -w
 CRYPTOFLAGS=-L/usr/lib/ -lcryptopp -lpthread

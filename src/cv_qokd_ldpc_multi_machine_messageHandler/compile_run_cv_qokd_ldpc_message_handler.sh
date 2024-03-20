@@ -6,6 +6,8 @@ TX_EXECUTABLE="cv_qokd_ldpc_tx_linux"
 CONFIG_FILE_TX="input_parameters_tx.txt"
 CONFIG_FILE_RX="input_parameters_rx.txt"
 
+TERMINAL=gnome-terminal
+
 # Delete old executables before compiling new ones
 [ -f "$TX_EXECUTABLE" ] && rm "$TX_EXECUTABLE"
 [ -f "$RX_EXECUTABLE" ] && rm "$RX_EXECUTABLE"

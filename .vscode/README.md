@@ -1,0 +1,1 @@
+Tasks Shell Input extension required for running launch configuration.

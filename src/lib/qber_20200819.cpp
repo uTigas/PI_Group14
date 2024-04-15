@@ -48,7 +48,7 @@ bool QBer::runBlock(void) {
 
 	if (numberOfSamplesToProcess == 0 || process <=0) return false;
 
-	
+
 
 	for (auto k = 0; k < process; k++) { // process all demands contained in the buffer
 		t_binary dataAlice{ 0 };

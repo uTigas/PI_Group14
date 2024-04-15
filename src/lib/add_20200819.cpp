@@ -73,6 +73,21 @@ bool Add::runBlock(void){
 			}
 			break;
 		}
+
+	case signal_value_type::t_binary:
+		{
+			for (int k = 0; k < process; k++) {
+				t_binary inBinaryValue1;
+				inputSignals[0]->bufferGet(&inBinaryValue1);
+				t_binary inBinaryValue2;
+				inputSignals[1]->bufferGet(&inBinaryValue2);
+				// xor signal 0+0=0 0+1=1 1+0=1 1+1=1
+				t_binary outValue = inBinaryValue1 ^ inBinaryValue2; 
+				outputSignals[0]->bufferPut(outValue);
+			}
+			break;
+		}
+
 	}
 
 	return true;

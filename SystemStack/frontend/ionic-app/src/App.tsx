@@ -40,6 +40,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Home from './pages/Home';
+import Connections from './pages/Connections';
 
 setupIonicReact();
 
@@ -61,8 +62,8 @@ const App: React.FC = () => (
           <Route exact path="/tab1">
             <Tab1 />
           </Route>
-          <Route exact path="/tab2">
-            <Tab2 />
+          <Route exact path="/connections">
+            <Connections />
           </Route>
           <Route path="/chats">
             <Chats />
@@ -77,7 +78,7 @@ const App: React.FC = () => (
             <IonIcon aria-hidden="true" icon={home} />
             <IonLabel>Homepage</IonLabel>
           </IonTabButton>
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="connections" href="/connections">
             <IonIcon aria-hidden="true" icon={people} />
             <IonLabel>Connections</IonLabel>
           </IonTabButton>

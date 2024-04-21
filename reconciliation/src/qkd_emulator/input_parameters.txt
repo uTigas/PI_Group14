@@ -1,0 +1,9 @@
+keyType=Binary
+fileType=ASCII
+counterFirstValue=0
+counterLastValue=MAX_INT 
+txFilesName=bin_tx_
+rxFilesName=bin_rx_
+numberOfValuesPerFile=1024
+qber=40
+seed=123456789

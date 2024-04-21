@@ -1,8 +1,15 @@
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
 
-# Create your views here.
+
+def check_authentication(request):
+    if request.user.is_authenticated:
+        return JsonResponse({'is_authenticated': True})
+    else:
+        return JsonResponse({'is_authenticated': False})
 
 def register(response):
     form = RegisterForm()
@@ -10,11 +17,13 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
-            return redirect('http://localhost:8100')
+            return redirect('/login')
             
     return render(response, "register/register.html", {"form":form})
 
 def systemLogin(request):
+    next = request.GET.get('next')
+    messages = []
     form = LoginForm()
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -24,5 +33,15 @@ def systemLogin(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('http://localhost:8100')  # Assuming this is your React app URL
-    return render(request, "login/login.html", {"form": form})
+                if next == None:
+                    response = redirect('http://localhost:8100')  
+                else:
+                    response = redirect(next)  
+                return response  
+        messages.append("Invalid Credentials!")
+    return render(request, "login/login.html", {"form": form, "messages": messages})
+
+@login_required
+def systemLogout(request):
+    logout(request)
+    return redirect('http://localhost:8100')  

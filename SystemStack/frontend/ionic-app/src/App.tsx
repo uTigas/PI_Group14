@@ -1,6 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+  IonButton,
   IonCol,
   IonGrid,
   IonIcon,
@@ -41,16 +42,46 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Home from './pages/Home';
 import Connections from './pages/Connections';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 setupIonicReact();
+const backendURI="http://localhost:8000"
 
-const App: React.FC = () => (
+const App: React.FC = () => {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkAuthentication = async () => {
+      console.log("Checking authentication...")
+      try {
+        const response = await axios.get('http://localhost:8000/check-authentication', {withCredentials: true});
+        console.log("Is user authenticated? " + response.data.is_authenticated)
+        setLoggedIn(response.data.is_authenticated);
+      } catch (error) {
+        console.error('Error checking authentication:', error);
+      }
+    };
+
+    checkAuthentication();
+  }, []); 
+
+  return (
   <IonApp>
     <IonToolbar>
       <IonGrid>
         <IonRow>
           <IonCol size='auto'>
             <IonTitle>Vault</IonTitle>
+            {loggedIn ? (
+              <IonCol size='auto'>
+                <IonButton fill='clear'>Logout</IonButton>
+              </IonCol>
+            ) : (
+              <IonCol size='auto'>
+                <IonButton href='/login' fill='clear'>Login</IonButton>
+              </IonCol>
+            )}
           </IonCol>
         </IonRow>
       </IonGrid>
@@ -94,6 +125,7 @@ const App: React.FC = () => (
       </IonTabs>
     </IonReactRouter>
   </IonApp>
-);
+  );
+};
 
 export default App;

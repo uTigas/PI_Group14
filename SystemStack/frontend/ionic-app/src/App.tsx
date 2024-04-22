@@ -17,9 +17,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, home, lockClosed, mail, people, person, square, triangle } from 'ionicons/icons';
+import { ellipse, help, home, lockClosed, mail, people, person, square, triangle } from 'ionicons/icons';
 import Tab1 from './pages/Tab1';
-import Tab2 from './pages/Tab2';
 import Chats from './pages/Chats';
 
 /* Core CSS required for Ionic components to work properly */
@@ -44,9 +43,11 @@ import Home from './pages/Home';
 import Connections from './pages/Connections';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AboutUs from './pages/AboutUs';
+import Dashboard from './pages/Dashboard';
 
 setupIonicReact();
-const backendURI="http://localhost:8000"
+const backendURI="http://localhost:8000/"
 
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -70,19 +71,19 @@ const App: React.FC = () => {
   <IonApp>
     <IonToolbar>
       <IonGrid>
-        <IonRow>
-          <IonCol size='auto'>
+        <IonRow className="ion-align-items-center">
+          <IonCol size='auto' className="ion-text-center">
             <IonTitle>Vault</IonTitle>
-            {loggedIn ? (
-              <IonCol size='auto'>
-                <IonButton fill='clear'>Logout</IonButton>
-              </IonCol>
-            ) : (
-              <IonCol size='auto'>
-                <IonButton href='/login' fill='clear'>Login</IonButton>
-              </IonCol>
-            )}
           </IonCol>
+          {loggedIn ? (
+            <IonCol className="ion-text-end">
+              <IonButton href={backendURI + "logout"} color="danger">Logout</IonButton>
+            </IonCol>
+          ) : (
+            <IonCol className="ion-text-end">
+              <IonButton href={backendURI + "login"} color="success">Login</IonButton>
+            </IonCol>
+          )}
         </IonRow>
       </IonGrid>
     </IonToolbar>
@@ -99,29 +100,47 @@ const App: React.FC = () => {
           <Route path="/chats">
             <Chats />
           </Route>
+          <Route exact path="/aboutUs">
+            <AboutUs />
+          </Route>
+          <Route exact path="/dashboard">
+            <Dashboard />
+          </Route>
           <Route exact path="/">
-            <Home />
+            <Home logged={loggedIn} uri={backendURI} />
           </Route>
         </IonRouterOutlet>
-        
-        <IonTabBar slot="bottom">
-        <IonTabButton tab="home" href="/home">
-            <IonIcon aria-hidden="true" icon={home} />
-            <IonLabel>Homepage</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="connections" href="/connections">
-            <IonIcon aria-hidden="true" icon={people} />
-            <IonLabel>Connections</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={lockClosed} />
-            <IonLabel>Vault</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="chats" href="/chats">
-            <IonIcon aria-hidden="true" icon={mail} />
-            <IonLabel>Chats</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
+        {loggedIn ?(
+          <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/">
+              <IonIcon aria-hidden="true" icon={home} />
+              <IonLabel>Homepage</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="connections" href="/connections">
+              <IonIcon aria-hidden="true" icon={people} />
+              <IonLabel>Connections</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="tab2" href="/tab2">
+              <IonIcon aria-hidden="true" icon={lockClosed} />
+              <IonLabel>Vault</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="chats" href="/chats">
+              <IonIcon aria-hidden="true" icon={mail} />
+              <IonLabel>Chats</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        ):(
+          <IonTabBar slot="bottom">
+          <IonTabButton tab="home" href="/">
+              <IonIcon aria-hidden="true" icon={home} />
+              <IonLabel>Homepage</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="aboutUs" href="/aboutUs">
+              <IonIcon aria-hidden="true" icon={help} />
+              <IonLabel>AboutUs</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        )}
       </IonTabs>
     </IonReactRouter>
   </IonApp>

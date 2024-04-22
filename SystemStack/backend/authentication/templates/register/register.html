@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block title %}Create an Account{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div style="background-image:opacity: 0.8;">
+
+    <div class="container w-50 border rounded py-4 mt-5 mb-5">
+        <h1 class="container mt-5 border-bottom pb-2 mb-5 m-2">Register</h1>
+        <form method="POST" class="form-group align-items-center">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class ="text-center">
+                <button type="submit" class="btn btn-success w-25">Register</button>
+                <p class="text-center mt-2">Already have an account? <a class="mt-1" href="/login">Login</a>.</p>
+            </div>
+
+        </form>
+    </div>
+{% endblock  %}

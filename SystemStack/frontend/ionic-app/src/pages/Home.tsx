@@ -1,18 +1,28 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
+import JoinUsContainer from '../components/JoinUsContainer';
+import './Home.css';
 
-const Home: React.FC = () => {
+interface Props {
+  logged: boolean;
+  uri: string;
+}
+const Home: React.FC<Props> = ({logged, uri}) => {
   return (
     <IonPage>
       <IonHeader>
+        <IonToolbar>
+          <IonTitle>Hello!</IonTitle>
+        </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Homepage</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Homepage" />
+      <IonContent>
+        <div>
+          {logged ? (
+          <ExploreContainer name="Homepage" />
+          ) : (
+          <JoinUsContainer uri={uri} />
+        )}
+        </div>
       </IonContent>
     </IonPage>
   );

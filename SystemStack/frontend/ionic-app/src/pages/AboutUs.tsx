@@ -1,6 +1,4 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Connections.css';
 import InfiniteContainer from '../components/InfiniteContainer';
 
 const AboutUs: React.FC = () => {

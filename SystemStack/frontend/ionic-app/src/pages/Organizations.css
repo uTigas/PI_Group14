@@ -1,0 +1,8 @@
+.card {
+    width: 70%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+}

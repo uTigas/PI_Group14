@@ -2,27 +2,23 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/rea
 import ExploreContainer from '../components/ExploreContainer';
 import JoinUsContainer from '../components/JoinUsContainer';
 import './Home.css';
+import { useContext } from 'react';
+import { AuthContext, URIContext } from '../App';
 
-interface Props {
-  logged: boolean;
-  uri: string;
-}
-const Home: React.FC<Props> = ({logged, uri}) => {
+const Home: React.FC = () => {
+  const logged = useContext(AuthContext);
+  const backendURI = useContext(URIContext);
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Hello!</IonTitle>
-        </IonToolbar>
-      </IonHeader>
       <IonContent>
         <div>
           {logged ? (
           <ExploreContainer name="Homepage" />
           ) : (
-          <JoinUsContainer uri={uri} />
-        )}
-        </div>
+          <JoinUsContainer uri={backendURI} />
+          )}
+          </div>
       </IonContent>
     </IonPage>
   );

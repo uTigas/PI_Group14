@@ -42,7 +42,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Home from './pages/Home';
 import Organizations from './pages/Organizations';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import AboutUs from './pages/AboutUs';
 import Dashboard from './pages/Dashboard';
@@ -51,7 +51,7 @@ import React from 'react';
 setupIonicReact();
 const backendURI="http://localhost:8000/"
 export const AuthContext = React.createContext(false);
-export const URIContext = React.createContext("");
+export const URIContext = React.createContext("http://localhost:8000/");
 
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -73,7 +73,6 @@ const App: React.FC = () => {
 
   return (
     <AuthContext.Provider value={loggedIn}>
-      <URIContext.Provider value={backendURI}>
         <IonApp>
           <IonHeader>
             <IonToolbar>
@@ -84,11 +83,11 @@ const App: React.FC = () => {
                   </IonCol>
                   {loggedIn ? (
                     <IonCol className="ion-text-end">
-                      <IonButton href={backendURI + "logout"} color="danger">Logout</IonButton>
+                      <IonButton href={useContext(URIContext) + "logout"} color="danger">Logout</IonButton>
                     </IonCol>
                   ) : (
                     <IonCol className="ion-text-end">
-                      <IonButton href={backendURI + "login"} color="success">Login</IonButton>
+                      <IonButton href={useContext(URIContext) + "login"} color="success">Login</IonButton>
                     </IonCol>
                   )}
                 </IonRow>
@@ -151,7 +150,6 @@ const App: React.FC = () => {
             </IonTabs>
           </IonReactRouter>
         </IonApp>
-      </URIContext.Provider>
     </AuthContext.Provider>
   );
 };

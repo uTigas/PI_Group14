@@ -1,10 +1,9 @@
+import { useContext } from 'react';
+import { URIContext } from '../App';
 import './ExploreContainer.css';
 
-interface ContainerProps {
-  uri: string;
-}
-
-const JoinUsContainer: React.FC<ContainerProps> = ({ uri }) => {
+const JoinUsContainer: React.FC = () => {
+  const uri = useContext(URIContext)
   return (
     <div className="container">
       <strong>Since 2024</strong>

@@ -16,7 +16,7 @@ const Home: React.FC = () => {
           {logged ? (
           <ExploreContainer name="Homepage" />
           ) : (
-          <JoinUsContainer uri={backendURI} />
+          <JoinUsContainer />
           )}
           </div>
       </IonContent>

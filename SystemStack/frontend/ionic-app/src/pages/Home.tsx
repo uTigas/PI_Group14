@@ -12,8 +12,10 @@ const Home: React.FC = () => {
   return (
     <IonPage>
       <IonContent>
-          {logged && user ? (
-          
+        {logged && user ? (
+          <div>
+            <strong>Welcome {user.first_name} {user.last_name}</strong>
+          </div>
           ) : (
           <JoinUsContainer />
           )}

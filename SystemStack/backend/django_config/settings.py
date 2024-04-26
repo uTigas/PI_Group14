@@ -137,4 +137,6 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8100',  # Ionic App Address
 ]
 
-CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True # Allow IonicApp to sent Session Cookies with requests
+
+SESSION_COOKIE_HTTPONLY = True  #Prohibit the access to the session via JS

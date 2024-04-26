@@ -1,8 +1,11 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
+from django.contrib.auth.models import User
+from django.core import serializers
+import json
 
 
 def check_authentication(request):
@@ -45,3 +48,9 @@ def systemLogin(request):
 def systemLogout(request):
     logout(request)
     return redirect('http://localhost:8100')  
+
+@login_required
+def fetch_user(request):
+    user = serializers.serialize("json", [User.objects.get(username = request.user)])
+    response = HttpResponse(user)
+    return response

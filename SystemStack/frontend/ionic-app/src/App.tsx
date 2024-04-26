@@ -106,7 +106,7 @@ const App: React.FC = () => {
                     </IonCol>
                     {loggedIn && userDetails ? (
                       <IonCol className="ion-text-end ion-align-items-center">
-                        <IonLabel>uTigas</IonLabel>
+                        <IonLabel>{userDetails.username}</IonLabel>
                         <IonIcon size='large' id='view-profile' icon={personCircle}/>
 
                         <IonPopover trigger='view-profile' triggerAction='click'>

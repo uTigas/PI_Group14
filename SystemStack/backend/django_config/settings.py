@@ -139,4 +139,4 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True # Allow IonicApp to sent Session Cookies with requests
 
-SESSION_COOKIE_HTTPONLY = False
+SESSION_COOKIE_HTTPONLY = True  #Prohibit the access to the session via JS

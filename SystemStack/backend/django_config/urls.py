@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r'^login/$', auth_views.systemLogin, name='login'),
     path('logout', auth_views.systemLogout, name="logout"),
     path('check-authentication', auth_views.check_authentication, name="check-authentication"),
+    path('user', auth_views.fetch_user, name="user"),
 
 ]

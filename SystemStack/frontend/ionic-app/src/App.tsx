@@ -1,12 +1,16 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+  IonAvatar,
   IonButton,
   IonCol,
   IonGrid,
   IonHeader,
   IonIcon,
+  IonItem,
   IonLabel,
+  IonList,
+  IonPopover,
   IonRouterOutlet,
   IonRow,
   IonTabBar,
@@ -18,7 +22,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, help, home, lockClosed, mail, people, person, square, triangle } from 'ionicons/icons';
+import { cogOutline, contrastOutline, ellipse, exit, help, home, lockClosed, mail, people, person, personCircle, personCircleOutline, square, triangle } from 'ionicons/icons';
 import Chats from './pages/Chats';
 
 /* Core CSS required for Ionic components to work properly */
@@ -64,7 +68,7 @@ setupIonicReact();
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const backendURI = useContext(URIContext)
-  const [userDetails, setUserDetails] = useState(null);
+  const [userDetails, setUserDetails] = useState<User | null>(null);
   
   const checkAuthentication = async () => {
     try {
@@ -79,7 +83,6 @@ const App: React.FC = () => {
   const fetchUserDetails = async () => {
     try{
       const response = await axios.get(backendURI + 'user', {withCredentials: true});
-      console.log(response.data[0].fields)
       setUserDetails(response.data[0].fields);
     } catch (error){
       console.error('Error fetching User details', error);
@@ -101,9 +104,40 @@ const App: React.FC = () => {
                     <IonCol size='auto' className="ion-text-center">
                       <IonTitle>Vault</IonTitle>
                     </IonCol>
-                    {loggedIn ? (
-                      <IonCol className="ion-text-end">
-                        <IonButton href={useContext(URIContext) + "logout"} color="danger">Logout</IonButton>
+                    {loggedIn && userDetails ? (
+                      <IonCol className="ion-text-end ion-align-items-center">
+                        <IonLabel>{userDetails.username}</IonLabel>
+                        <IonIcon size='large' id='view-profile' icon={personCircle}/>
+
+                        <IonPopover trigger='view-profile' triggerAction='click'>
+                          <IonList>
+                            <IonItem>
+                              <h6>Welcome, {userDetails.first_name} {userDetails.last_name}!</h6>
+                            </IonItem>
+
+                            <IonItem>
+                              <IonButton size='default' color="primary">
+                                <IonIcon icon={contrastOutline}/>
+                              </IonButton>
+                              <IonLabel className='ion-padding-start'>Change Theme</IonLabel>
+                            </IonItem>
+
+                            <IonItem>
+                              <IonButton size='default' color="tertiary">
+                                <IonIcon icon={cogOutline}/>
+                              </IonButton>
+                              <IonLabel className='ion-padding-start'>Change Settings</IonLabel>
+                            </IonItem>
+
+                            <IonItem>
+                              <IonButton size='default' color="danger">
+                                <IonIcon icon={exit}/>
+                              </IonButton>
+                              <IonLabel className='ion-padding-start'>Logout</IonLabel>
+                            </IonItem>
+
+                          </IonList>
+                        </IonPopover>
                       </IonCol>
                     ) : (
                       <IonCol className="ion-text-end">

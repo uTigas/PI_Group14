@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
     'authentication.apps.AuthenticationConfig',
+    'entities.apps.EntitiesConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'django_config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'entities': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vault',
         'USER': 'root',

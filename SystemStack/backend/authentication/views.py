@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.core import serializers
-import json
 
 
 def check_authentication(request):

@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'django_config.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'entities': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vault',
         'USER': 'root',

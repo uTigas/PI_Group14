@@ -20,7 +20,6 @@ const CreateOrganizationContainer: React.FC = () => {
   };
 
   return (
-    <IonContent className="ion-padding">
       <form onSubmit={handleSubmit}> 
           <IonItem>
             <IonLabel position="floating">Organization Name</IonLabel>
@@ -64,7 +63,6 @@ const CreateOrganizationContainer: React.FC = () => {
 
           <IonButton expand="block" type="submit" disabled={!formValid}>Create</IonButton>
       </form>
-    </IonContent>
   );
 };
 

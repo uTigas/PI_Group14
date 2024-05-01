@@ -15,18 +15,19 @@ const Organizations: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="ion-padding">
-        <div>
           {logged ? (
             <IonGrid className='grid'>
             <IonRow>
               <IonCol>
                 <IonTitle className='ion-text-start ion-margin-bottom'>Create a Organization:</IonTitle>
-                <IonContent>
-                  <CreateOrganizationContainer />
-                </IonContent>
+                <IonCard>
+                  <IonCardContent>
+                    <CreateOrganizationContainer/>
+                  </IonCardContent>
+                </IonCard>
               </IonCol>
               <IonCol size-md="5" size="12" className="ion-text-center">
-                <IonTitle className='ion-text-start'>Your Organizations:</IonTitle>
+                <IonTitle className='ion-text-start ion-margin-bottom'>Your Organizations:</IonTitle>
                 <IonCard className="card">
                   <IonCardHeader>
                     <IonCardTitle>DETI</IonCardTitle>
@@ -43,7 +44,6 @@ const Organizations: React.FC = () => {
           ):(
             <AccessDeniedContainer uri={backendURI}/>
           )}
-          </div>
       </IonContent>
     </IonPage>
   );

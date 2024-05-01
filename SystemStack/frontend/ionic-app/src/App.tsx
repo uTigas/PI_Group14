@@ -1,6 +1,7 @@
 import { Redirect, Route } from 'react-router-dom';
 import {
   IonApp,
+  IonButtons,
   IonAvatar,
   IonButton,
   IonCol,
@@ -48,7 +49,7 @@ import Organizations from './pages/Organizations';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import AboutUs from './pages/AboutUs';
-import Dashboard from './pages/Dashboard';
+import Vault from './pages/Vault';
 import React from 'react';
 
 export interface User {
@@ -105,10 +106,12 @@ const App: React.FC = () => {
                       <IonTitle>Vault</IonTitle>
                     </IonCol>
                     {loggedIn && userDetails ? (
-                      <IonCol className="ion-text-end ion-align-items-center">
-                        <IonLabel>{userDetails.username}</IonLabel>
-                        <IonIcon size='large' id='view-profile' icon={personCircle}/>
-
+                      <>
+                      <IonCol className='ion-text-end'>
+                        <IonButton id='view-profile' fill="outline">
+                          <IonIcon slot="end" icon={personCircle}></IonIcon>
+                          {userDetails.username}
+                        </IonButton>
                         <IonPopover trigger='view-profile' triggerAction='click'>
                           <IonList>
                             <IonItem>
@@ -135,10 +138,10 @@ const App: React.FC = () => {
                               </IonButton>
                               <IonLabel className='ion-padding-start'>Logout</IonLabel>
                             </IonItem>
-
                           </IonList>
                         </IonPopover>
                       </IonCol>
+                      </>
                     ) : (
                       <IonCol className="ion-text-end">
                         <IonButton href={useContext(URIContext) + "login"} color="success">Login</IonButton>
@@ -157,14 +160,14 @@ const App: React.FC = () => {
                   <Route exact path="/organizations">
                     <Organizations />
                   </Route>
+                  <Route exact path="/vault">
+                    <Vault/>
+                  </Route>
                   <Route path="/chats">
                     <Chats />
                   </Route>
                   <Route exact path="/aboutUs">
                     <AboutUs />
-                  </Route>
-                  <Route exact path="/dashboard">
-                    <Dashboard />
                   </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>
@@ -180,7 +183,7 @@ const App: React.FC = () => {
                       <IonIcon aria-hidden="true" icon={people} />
                       <IonLabel>Organizations</IonLabel>
                     </IonTabButton>
-                    <IonTabButton tab="tab2" href="/tab2">
+                    <IonTabButton tab="vault" href="/vault">
                       <IonIcon aria-hidden="true" icon={lockClosed} />
                       <IonLabel>Vault</IonLabel>
                     </IonTabButton>

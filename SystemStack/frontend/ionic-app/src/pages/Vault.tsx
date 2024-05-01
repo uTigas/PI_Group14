@@ -1,7 +1,7 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 
-const Dashboard: React.FC = () => {
+const Vault: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -18,4 +18,4 @@ const Dashboard: React.FC = () => {
   );
 };
 
-export default Dashboard;
+export default Vault;

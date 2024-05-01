@@ -1,9 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Size(models.TextChoices):
+    SMALL = 'small', 'Small'
+    MEDIUM = 'medium', 'Medium'
+    LARGE = 'large', 'Large'
+
 class Organization(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
+    size = models.CharField(choices=Size.choices, max_length=10, default=Size.SMALL)
 
 class Role(models.Model):
     role = models.CharField(max_length=30)
@@ -31,9 +37,9 @@ class OrganizationHasVault(models.Model):
     vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
 
 class Permission(models.TextChoices):
-        VIEW = 'VIEW'
-        CREATE = 'CREATE'
-        EDIT = 'EDIT'
+    VIEW = 'VIEW', 'View'
+    CREATE = 'CREATE', 'Create'
+    EDIT = 'EDIT', 'Edit'
 
 class RolePermission(models.Model):
     vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
@@ -43,4 +49,4 @@ class RolePermission(models.Model):
 class MemberPermission(models.Model):
     vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
-    permission = models.CharField(max_length=50, choices=Permission.choices)
+    permission = models.CharField(choices=Permission.choices, max_length=10, default=Permission.VIEW)

@@ -133,7 +133,7 @@ const App: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                              <IonButton size='default' color="danger">
+                              <IonButton href={useContext(URIContext) + "logout"} size='default' color="danger">
                                 <IonIcon icon={exit}/>
                               </IonButton>
                               <IonLabel className='ion-padding-start'>Logout</IonLabel>

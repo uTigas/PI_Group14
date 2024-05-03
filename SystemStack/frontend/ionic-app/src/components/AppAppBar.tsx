@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useId } from 'react';
 import { AuthContext, URIContext, UserContext } from '../App';
 import { IonButton, IonCol, IonGrid, IonIcon, IonItem, IonLabel, IonList, IonPopover, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { cogOutline, contrastOutline, exit, personCircle } from 'ionicons/icons';
@@ -8,6 +8,10 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
     const userDetails = useContext(UserContext);
     const [getTitle, setTitle] = useState("");
 
+    // @Note: for shared headers in tabs if we don't generate a unique id for the popup button 
+    // there's a bug where the popup doesn't open on other tabs other than the one firstly rendered (Ctrl+R).
+    const id = useId();
+
     return (
         <IonToolbar>
             <IonGrid>
@@ -15,14 +19,14 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
                     <IonCol size='auto' className="ion-text-center">
                         <IonTitle>{title}</IonTitle>
                     </IonCol>
-                    { logged && userDetails ? (
+                    {logged && userDetails ? (
                         <>
                             <IonCol className='ion-text-end'>
-                                <IonButton id='view-profile' fill="outline">
+                                <IonButton id={id} fill="outline">
                                     <IonIcon slot="end" icon={personCircle}></IonIcon>
                                     {userDetails.username}
                                 </IonButton>
-                                <IonPopover trigger='view-profile' triggerAction='click'>
+                                <IonPopover trigger={id} triggerAction='click'>
                                     <IonList>
                                         <IonItem>
                                             <h6>Welcome, {userDetails.first_name} {userDetails.last_name}!</h6>

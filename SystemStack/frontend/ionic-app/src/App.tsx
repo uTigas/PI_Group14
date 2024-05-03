@@ -78,14 +78,9 @@ const App: React.FC = () => {
     <UserContext.Provider value={userDetails}>
       <AuthContext.Provider value={loggedIn}>
         <IonApp>
-          <IonPage>
-            <IonHeader>
-              <AppAppBar title='qube' />
-            </IonHeader>
             <IonReactRouter>
               <IonTabs>
                 <IonRouterOutlet>
-                  <IonContent>
                     <Route exact path="/home">
                       <Home />
                     </Route>
@@ -104,8 +99,6 @@ const App: React.FC = () => {
                     <Route exact path="/">
                       <Redirect to='/home'></Redirect>
                     </Route>
-
-                  </IonContent>
                 </IonRouterOutlet>
                 {loggedIn ? (
                   <IonTabBar slot="bottom">
@@ -140,7 +133,6 @@ const App: React.FC = () => {
                 )}
               </IonTabs>
             </IonReactRouter>
-          </IonPage>
         </IonApp>
       </AuthContext.Provider>
     </UserContext.Provider>

@@ -12,20 +12,22 @@ const Home: React.FC = () => {
   const logged = useContext(AuthContext);
   const user = useContext(UserContext);
 
-  useEffect(() => {
-    console.log("Home");
-  }, []);
-
   return (
-    <>
-      {logged && user ? (
-        <div className="container">
-          <strong>Welcome {user.first_name} {user.last_name}</strong>
-        </div>
-      ) : (
-        <JoinUsContainer />
-      )}
-    </>
+    <IonPage>
+      <IonHeader>
+        <AppAppBar title='Home' />
+      </IonHeader>
+      <IonContent>
+        {logged && user ? (
+          <div className="container">
+            <strong>Welcome {user.first_name} {user.last_name}</strong>
+          </div>
+        ) : (
+          <JoinUsContainer />
+        )}
+
+      </IonContent>
+    </IonPage>
   );
 };
 

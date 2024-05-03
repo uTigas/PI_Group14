@@ -14,37 +14,42 @@ const Organizations: React.FC = () => {
   const backendURI = useContext(URIContext);
 
   return (
-    <>
-      {logged ? (
-        <IonGrid className='grid'>
-          <IonRow>
-            <IonCol>
-              <IonTitle className='ion-text-start ion-margin-bottom'>Create a Organization:</IonTitle>
-              <IonCard>
-                <IonCardContent>
-                  <CreateOrganizationContainer />
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-            <IonCol size-md="5" size="12" className="ion-text-center">
-              <IonTitle className='ion-text-start ion-margin-bottom'>Your Organizations:</IonTitle>
-              <IonCard className="card">
-                <IonCardHeader>
-                  <IonCardTitle>DETI</IonCardTitle>
-                  <IonCardSubtitle>2 members</IonCardSubtitle>
-                </IonCardHeader>
-                <IonCardContent>
-                  <p>Sharing signage templates</p>
-                  <IonButton size='small'>Manage<IonIcon className="ion-padding-start" icon={constructOutline} /></IonButton>
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-      ) : (
-        <AccessDeniedContainer uri={backendURI} />
-      )}
-    </>
+    <IonPage>
+      <IonHeader>
+        <AppAppBar title='Organizations' />
+      </IonHeader>
+      <IonContent>
+        {logged ? (
+          <IonGrid className='grid'>
+            <IonRow>
+              <IonCol>
+                <IonTitle className='ion-text-start ion-margin-bottom'>Create a Organization:</IonTitle>
+                <IonCard>
+                  <IonCardContent>
+                    <CreateOrganizationContainer />
+                  </IonCardContent>
+                </IonCard>
+              </IonCol>
+              <IonCol size-md="5" size="12" className="ion-text-center">
+                <IonTitle className='ion-text-start ion-margin-bottom'>Your Organizations:</IonTitle>
+                <IonCard className="card">
+                  <IonCardHeader>
+                    <IonCardTitle>DETI</IonCardTitle>
+                    <IonCardSubtitle>2 members</IonCardSubtitle>
+                  </IonCardHeader>
+                  <IonCardContent>
+                    <p>Sharing signage templates</p>
+                    <IonButton size='small'>Manage<IonIcon className="ion-padding-start" icon={constructOutline} /></IonButton>
+                  </IonCardContent>
+                </IonCard>
+              </IonCol>
+            </IonRow>
+          </IonGrid>
+        ) : (
+          <AccessDeniedContainer uri={backendURI} />
+        )}
+      </IonContent>
+    </IonPage>
   );
 };
 

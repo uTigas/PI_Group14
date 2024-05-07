@@ -108,14 +108,18 @@ const App: React.FC = () => {
                     {loggedIn && userDetails ? (
                       <>
                       <IonCol className='ion-text-end'>
-                        <IonButton id='view-profile' fill="outline">
+                        <IonButton id='view-profile' fill="outline" shape='round'>
                           <IonIcon slot="end" icon={personCircle}></IonIcon>
                           {userDetails.username}
                         </IonButton>
                         <IonPopover trigger='view-profile' triggerAction='click'>
                           <IonList>
                             <IonItem>
-                              <h6>Welcome, {userDetails.first_name} {userDetails.last_name}!</h6>
+                              <IonIcon size='large' icon={personCircle}></IonIcon>
+                            </IonItem>
+                            
+                            <IonItem>
+                              <h6>Welcome, <strong style={{'color':'blue'}}>{userDetails.first_name} {userDetails.last_name}!</strong></h6>
                             </IonItem>
 
                             <IonItem>

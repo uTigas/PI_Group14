@@ -21,7 +21,7 @@ def getOwnedOrganizations(request):
             print(owner)
             organizations.append(owner.organization)
         serialized_organizations = serialize('json', organizations)
-        return JsonResponse({"data": serialized_organizations})
+        return JsonResponse({"organizations": serialized_organizations})
     except User.DoesNotExist:
         return JsonResponse({"error": "User does not exist"}, status=400)
     except Exception as e:
@@ -36,7 +36,7 @@ def getMemberOrganizations(request):
         for member in members:
             organizations.append((member.organization, member.role))
         serialized_organizations = serialize('json', organizations)
-        return JsonResponse({"data": serialized_organizations})
+        return JsonResponse({"organizations": serialized_organizations})
     except User.DoesNotExist:
         return JsonResponse({"error": "User does not exist"}, status=400)
     except Exception as e:

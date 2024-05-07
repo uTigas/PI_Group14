@@ -1,4 +1,4 @@
-import { IonButton, IonContent, IonHeader, IonInput, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonInput, IonItem, IonList, IonMenu, IonPage, IonRoute, IonRow, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import ExploreContainer from '../components/ExploreContainer';
 import AppAppBar from '../components/AppAppBar';
 
@@ -48,12 +48,8 @@ const Chats: React.FC = () => {
         <AppAppBar title='Chats' />
       </IonHeader>
       <IonContent>
-        <div className="Chat">
-          <section>
-            <SignOut />
-            {user ? <ChatRoom /> : <SignIn />}
-          </section>
-        </div>
+        <SignOut />
+        {user ? <ChatRoom /> : <SignIn />}
       </IonContent>
     </IonPage>
   );
@@ -89,6 +85,7 @@ function ChatRoom() {
 
 
   const sendMessage = async (e: { preventDefault: () => void; }) => {
+    if (formValue == '') { return; }
     e.preventDefault();
 
     const { uid, photoURL } = auth.currentUser;
@@ -104,23 +101,65 @@ function ChatRoom() {
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }
 
-  return (<>
-    <main>
+  return (
+    <IonSplitPane when='xs' contentId='main'>
+      <IonMenu contentId='main'>
+        <IonHeader>
+          <IonToolbar color='tertiary'>
+            <IonTitle>Contacts</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+      </IonMenu>
+      <div className='ion-page' id='main'>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle>
+              General
+            </IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className='ion-padding'>
+          <div className='Chat'>
 
-      {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+              {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
-      <span ref={dummy}></span>
+              <span ref={dummy}></span>
 
-    </main>
 
-    <form onSubmit={sendMessage}>
+            {/* 
+            <form onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+              <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
 
-      <button type="submit" disabled={!formValue}>🕊️</button>
+              <button type="submit" disabled={!formValue}>🕊️</button>
 
-    </form>
-  </>)
+            </form>
+
+            <IonList>
+              <IonItem>
+                <IonInput aria-label="text" placeholder='Enter text'></IonInput>
+                <IonButton onClick={sendMessage} onChange={(e) => setFormValue(e.target.value)}>Send</IonButton>
+              </IonItem>
+            </IonList>
+            */ }
+          </div>
+        </IonContent>
+        <IonFooter>
+          <IonToolbar>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <IonInput aria-label="text" onIonInput={(e) => setFormValue(e.target.value)} placeholder='Enter text' value={formValue}></IonInput>
+                </IonCol>
+                <IonCol size='auto'  className='ion-text-end'>
+                  <IonButton fill='outline' onClick={sendMessage} >Send</IonButton>
+                </IonCol>
+              </IonRow>
+            </IonGrid>
+          </IonToolbar>
+        </IonFooter>
+      </div>
+    </IonSplitPane>)
 }
 
 
@@ -129,12 +168,13 @@ function ChatMessage(props: { message: { text: any; uid: any; photoURL: any; }; 
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
-  return (<>
-    <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-      <p>{text}</p>
-    </div>
-  </>)
+  return (
+    <>
+      <div className={`message ${messageClass}`}>
+        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <p>{text}</p>
+      </div>
+    </>)
 }
 
 export default Chats;

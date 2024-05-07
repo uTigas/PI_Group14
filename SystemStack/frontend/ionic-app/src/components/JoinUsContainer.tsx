@@ -1,13 +1,12 @@
 import { useContext } from 'react';
-import { URIContext } from '../App';
 import './ExploreContainer.css';
+import ApiWrapper from './APIWrapper';
 
 const JoinUsContainer: React.FC = () => {
-  const uri = useContext(URIContext)
   return (
     <div className="container">
       <strong>Since 2024</strong>
-      <p>Value your privacy? <a href={uri + "login"}>Join Us.</a></p>
+      <p>Value your privacy? <a href={ApiWrapper.backendURI + "login"}>Join Us.</a></p>
     </div>
   );
 };

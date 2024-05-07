@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
 import axios from 'axios';
-import { URIContext } from '../App';
+import ApiWrapper from './APIWrapper';
 
 const CreateOrganizationContainer: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [size, setSize] = useState('');
-  const backendURI = useContext(URIContext);
   const [formValid, setFormValid] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +16,7 @@ const CreateOrganizationContainer: React.FC = () => {
     formData.append('description', description);
     formData.append('size', size);
 
-    await axios.post(backendURI + "organizations/create", formData, {
+    await axios.post(ApiWrapper.backendURI + "organizations/create", formData, {
       withCredentials: true, 
       headers: {
       'Content-Type': 'application/x-www-form-urlencoded'

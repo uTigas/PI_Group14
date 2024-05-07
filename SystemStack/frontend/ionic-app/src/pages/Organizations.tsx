@@ -1,15 +1,11 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
-import { useContext, useEffect, useState} from 'react';
-import { AuthContext, URIContext } from '../App';
-import AccessDeniedContainer from '../components/AccessDeniedContainer';
+import { useEffect, useState} from 'react';
 import "./Organizations.css"
 import "./General.css"
 import { checkmark, close, constructOutline, eye } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
-import axios from 'axios';
+import ApiWrapper from '../components/APIWrapper';
 const Organizations: React.FC = () => {
-  const logged = useContext(AuthContext);
-  const backendURI = useContext(URIContext);
   const [ownedOrganizations, setOwned] = useState<any[]>([]);
   const [memberOrganizations, setMember] = useState<any[]>([]);
   
@@ -19,10 +15,11 @@ const Organizations: React.FC = () => {
 
   const fetchOrganizations = async() => {
     try{
-      const response = await axios.get(backendURI + 'organizations/member', {withCredentials: true});
-      setMember(JSON.parse(response.data.organizations));
-      const response2 = await axios.get(backendURI + 'organizations/owner', {withCredentials: true});
-      setOwned(JSON.parse(response2.data.organizations));
+      const response = await ApiWrapper.fetchOrganizations();
+      if (response){
+        setMember(response[0]);
+        setOwned(response[1]);
+      }
 
     } catch (error){
       console.error('Error fetching User Organizations', error);
@@ -32,7 +29,6 @@ const Organizations: React.FC = () => {
   return (
     <IonPage>
       <IonContent className="ion-padding">
-          {logged ? (
             <IonGrid className='grid'>
             <IonRow>
               <IonCol size-md='4' size='12'>
@@ -85,10 +81,7 @@ const Organizations: React.FC = () => {
                 </IonInfiniteScroll>
               </IonCol>
             </IonRow>
-          </IonGrid>         
-          ):(
-            <AccessDeniedContainer uri={backendURI}/>
-          )}
+          </IonGrid>
       </IonContent>
     </IonPage>
   );

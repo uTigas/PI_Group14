@@ -1,11 +1,13 @@
 # PI_Group14
 Repository for the development of 'Projeto de Informática' of Group 14, class of 2023/24.
 
-*Structure:*
-  - *Reconciliation*: Quantum Reconciliation Application for the PTQCI & partners project [IN PROGRESS] 
-  - *System Stack*: Full-Stack Quantum Data Managment And Share Environment [IN PROGRESS] 
+**Structure:**
+  - **Reconciliation**: Quantum Reconciliation Application for the PTQCI & partners project [IN PROGRES*S] 
+  - **System Stack**: Full-Stack Quantum Data Managment And Share Environment [IN PROGRESS]* 
 
-Both flows due date at *24 June*.
+*Both flows du*e date at *24 June*.
+
+**Project Website** : https://www.sioproject.pt/
 
 ## Group Composition:
 

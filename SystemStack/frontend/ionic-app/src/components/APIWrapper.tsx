@@ -19,18 +19,23 @@ const ApiWrapper = {
           console.error('Error fetching User details', error);
         }
     },
+
     fetchOrganizations : async() => {
         try{
-          let memberOrgs = []
-          let ownedOrgs = []
-          const response = await axios.get(ApiWrapper.backendURI + 'organizations/member', {withCredentials: true});
-          memberOrgs = JSON.parse(response.data.organizations);
-          const response2 = await axios.get(ApiWrapper.backendURI + 'organizations/owner', {withCredentials: true});
-          ownedOrgs = JSON.parse(response2.data.organizations);
-          return [memberOrgs, ownedOrgs];
+          let orgs = []
+          return await axios.get(ApiWrapper.backendURI + 'organizations', {withCredentials: true});
         } catch (error){
           console.error('Error fetching User Organizations', error);
         }
-      }
+      },
+
+      fetchOrganizationDetails : async (organizationId : string) => {
+        try{
+          return await axios.get(ApiWrapper.backendURI + 'organization?id=' + organizationId, {withCredentials: true});
+        } catch (error){
+          console.error('Error fetching Organization details', error);
+        }
+    },
+
 }
 export default ApiWrapper;

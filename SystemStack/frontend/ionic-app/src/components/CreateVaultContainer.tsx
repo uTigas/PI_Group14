@@ -3,10 +3,9 @@ import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSel
 import axios from 'axios';
 import ApiWrapper from './APIWrapper';
 
-const CreateOrganizationContainer: React.FC = () => {
+const CreateVaultContainer: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [size, setSize] = useState('');
   const [formValid, setFormValid] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -14,9 +13,8 @@ const CreateOrganizationContainer: React.FC = () => {
     const formData = new URLSearchParams();
     formData.append('name', name);
     formData.append('description', description);
-    formData.append('size', size);
 
-    await axios.post(ApiWrapper.backendURI + "organization/create", formData, {
+    await axios.post(ApiWrapper.backendURI + "vault/create", formData, {
       withCredentials: true, 
       headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -25,12 +23,12 @@ const CreateOrganizationContainer: React.FC = () => {
     .then(response => console.log(response))
     .catch(error => console.log(error))
 
-    console.log('Submitted:', { name, description, size });
+    console.log('Submitted:', { name, description });
 
   };
 
   const validateForm = () => {
-    setFormValid(name.trim().length > 0  && size.trim().length > 0);
+    setFormValid(name.trim().length > 0);
   };
 
   return (
@@ -57,27 +55,10 @@ const CreateOrganizationContainer: React.FC = () => {
               }}
             />
           </IonItem>
-
-          <IonItem>
-            <IonLabel position="stacked">Size</IonLabel> 
-            <IonSelect
-                label='Select Size'
-                value={size}
-                onIonChange={(e) => {
-                setSize(e.detail.value!);
-                validateForm();
-                }}
-                placeholder="Select Size"
-            >
-                <IonSelectOption value="small">Small</IonSelectOption>
-                <IonSelectOption value="medium">Medium</IonSelectOption>
-                <IonSelectOption value="large">Large</IonSelectOption>
-            </IonSelect>
-            </IonItem>
-
+          
           <IonButton expand="block" type="submit" disabled={!formValid}>Create</IonButton>
       </form>
   );
 };
 
-export default CreateOrganizationContainer;
+export default CreateVaultContainer;

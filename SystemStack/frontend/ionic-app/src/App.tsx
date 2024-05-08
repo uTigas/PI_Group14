@@ -52,6 +52,7 @@ import AboutUs from './pages/AboutUs';
 import Vault from './pages/Vault';
 import React from 'react';
 import ApiWrapper from './components/APIWrapper';
+import Organization from './pages/Organization';
 
 export interface User {
   username: string;
@@ -81,7 +82,7 @@ const App: React.FC = () => {
   const fetchUserDetails = async () => {
     const response = await ApiWrapper.fetchUserDetails()
     if (response){
-      setUserDetails(response.data[0].fields);
+      setUserDetails(response.data.user);
     }
   }
 
@@ -167,6 +168,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/aboutUs">
                     <AboutUs />
+                  </Route>
+                  <Route exact path="/organization/:id">
+                      <Organization/>
                   </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>

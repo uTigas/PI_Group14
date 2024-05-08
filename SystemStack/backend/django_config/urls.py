@@ -26,7 +26,8 @@ urlpatterns = [
     path('logout', auth_views.systemLogout, name="logout"),
     path('check-authentication', auth_views.check_authentication, name="check-authentication"),
     path('user', auth_views.fetch_user, name="user"),
-    path('organizations/member', ent_views.getMemberOrganizations, name ="organizations/member"),
-    path('organizations/owner', ent_views.getOwnedOrganizations, name ="organizations/owner"),
-    path('organizations/create', ent_views.createOrganization, name ="organizations/create"),
+    path('organizations', ent_views.getOrganizations, name ="organizations"),
+    path('organization/create', ent_views.createOrganization, name ="organizations/create"),
+    path('organization', ent_views.getOrganizationDetails, name ="organization"),
+
 ]

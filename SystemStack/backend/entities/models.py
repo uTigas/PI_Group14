@@ -20,15 +20,12 @@ class Member(models.Model):
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True)
 
-class Owner(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
 
-class OrganizationVault(models.Model):
+class Vault(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
 
-class Vault(models.Model):
+class OrganizationVault(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
 
@@ -42,11 +39,11 @@ class Permission(models.TextChoices):
     EDIT = 'EDIT', 'Edit'
 
 class RolePermission(models.Model):
-    vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
+    organizationHasVault = models.ForeignKey(OrganizationHasVault, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
     permission = models.CharField(max_length=50, choices=Permission.choices)
 
 class MemberPermission(models.Model):
-    vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
+    organizationHasVault = models.ForeignKey(OrganizationHasVault, on_delete=models.CASCADE)
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     permission = models.CharField(choices=Permission.choices, max_length=10, default=Permission.VIEW)

@@ -1,3 +1,4 @@
+from django.forms import model_to_dict
 from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -50,6 +51,6 @@ def systemLogout(request):
 
 @login_required
 def fetch_user(request):
-    user = serializers.serialize("json", [User.objects.get(username = request.user)])
-    response = HttpResponse(user)
+    user = model_to_dict(User.objects.get(username = request.user))
+    response = JsonResponse({"user":user})
     return response

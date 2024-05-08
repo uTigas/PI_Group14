@@ -1,14 +1,15 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonPage, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonPage, IonRouterOutlet, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { useEffect, useState} from 'react';
 import "./Organizations.css"
 import "./General.css"
 import { checkmark, close, constructOutline, eye } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
 import ApiWrapper from '../components/APIWrapper';
+import { Route, useHistory } from 'react-router-dom';
 const Organizations: React.FC = () => {
-  const [ownedOrganizations, setOwned] = useState<any[]>([]);
-  const [memberOrganizations, setMember] = useState<any[]>([]);
-  
+  const [organizations, setOrganizations] = useState<any[]>([]);
+  const history = useHistory();
+
   useEffect(() => {
     fetchOrganizations();
   }, [])
@@ -17,21 +18,25 @@ const Organizations: React.FC = () => {
     try{
       const response = await ApiWrapper.fetchOrganizations();
       if (response){
-        setMember(response[0]);
-        setOwned(response[1]);
+        setOrganizations(response.data.organizations);
       }
-
+      else{
+        setOrganizations([])
+      }
     } catch (error){
       console.error('Error fetching User Organizations', error);
     }
   }
 
+  const handleManageClick = (organizationId: string) => {
+    history.push(`/organization/${organizationId}`);
+  };
   return (
     <IonPage>
       <IonContent className="ion-padding">
             <IonGrid className='grid'>
             <IonRow>
-              <IonCol size-md='4' size='12'>
+              <IonCol size-md='5' size='12'>
                 <IonTitle className='ion-text-start ion-margin-bottom title'>Pending Invites:</IonTitle>
                   <IonCard>
                     <IonCardContent>
@@ -48,37 +53,24 @@ const Organizations: React.FC = () => {
                   </IonCardContent>
                 </IonCard>
               </IonCol>
-              <IonCol size-md="4" size="12" className="ion-text-center">
+              <IonCol className="ion-text-center">
                 <IonTitle className='ion-text-start ion-margin-bottom title'>Your Organizations:</IonTitle>
-                {ownedOrganizations.map((organization, index) => (
-                  <IonCard className="card  organization-card" key={organization.pk}>
-                    <IonCardHeader>
-                      <IonCardTitle>{organization.fields.name}</IonCardTitle>
-                      <IonCardSubtitle>2 members</IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                      <p>{organization.fields.description}</p>
-                      <IonButton size='small' shape='round'>Manage<IonIcon className="ion-padding-start" icon={constructOutline}/></IonButton>
-                    </IonCardContent>
-                  </IonCard>
-                ))}
-              </IonCol>
-              <IonCol size-md="4" size="12" className="ion-text-center">
-                <IonTitle className='ion-text-start ion-margin-bottom ion-margin-top title'>Member Organizations:</IonTitle>
-                <IonInfiniteScroll>
-                  {memberOrganizations.map((organization, index) => (
-                      <IonCard className="card organization-card" key={organization.pk}>
+                {organizations.length !== 0 ? (
+                    organizations.map((item, index) => (
+                      <IonCard className="card  organization-card" key={item.organization.id}>
                         <IonCardHeader>
-                          <IonCardTitle>{organization.fields.name}</IonCardTitle>
+                          <IonCardTitle>{item.organization.name}</IonCardTitle>
                           <IonCardSubtitle>2 members</IonCardSubtitle>
                         </IonCardHeader>
                         <IonCardContent>
-                          <p>{organization.fields.description}</p>
-                          <IonButton size='small' shape='round'>Manage<IonIcon className="ion-padding-start" icon={constructOutline}/></IonButton>
+                          <p>{item.organization.description}</p>
+                          <IonButton size='small' shape='round' onClick={() => handleManageClick(item.organization.id)}>Manage<IonIcon className="ion-padding-start" icon={constructOutline}/></IonButton>
                         </IonCardContent>
                       </IonCard>
-                    ))}
-                </IonInfiniteScroll>
+                    ))
+                ):(
+                    <p>No organizations found.</p>
+                )} 
               </IonCol>
             </IonRow>
           </IonGrid>

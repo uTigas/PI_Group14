@@ -1,0 +1,42 @@
+\chapter{Building C++ Projects Without Visual Studio}
+
+This is a guide on how to build C++ projects without having Microsoft Visual Studio installed.
+All the necessary files will be available in the \textbackslash{}msbuild\textbackslash{} folder on this repository.
+
+
+\section{Installing Microsoft Visual C++ Build Tools}
+  Run the file \textbf{visualcppbuildtools\_full.exe} and follow all the setup instructions;
+\section{Adding Path To System Variables}
+  Please follow this step-by-step tutorial carefully.
+  \begin{enumerate}
+    \item Open the \textbf{Control Panel}.
+    \item Select the option \textbf{System and Security}.
+    \item Select the option \textbf{System}.
+    \item Select \textbf{Advanced System Settings} on the menu on the left side of the window.
+    \item This should have opened another window. Click on \textbf{Environment variables}.
+    \item Check if there is a variable called \textbf{Path} in the \textbf{System Variables} (bottom list).
+    \item If it doesn't exist, create a new variable by pressing \textbf{New} in \textbf{System Variables} (bottom list). Insert the name \textbf{Path} as the name of the variable and enter the following value \textbf{C:\textbackslash{}Windows\textbackslash{}Microsoft.Net\textbackslash{}Framework\textbackslash{}v4.0.30319}. Jump to step 10.
+    \item If it exists, click on the variable \textbf{Path} and press \textbf{Edit}. This should open another window;
+    \item Click on \textbf{New} to add another value to this variable. Enter the following value: \textbf{C:\textbackslash{}Windows\textbackslash{}Microsoft.Net\textbackslash{}Framework\textbackslash{}v4.0.30319}.
+    \item Press \textbf{Ok} and you're done.
+  \end{enumerate}
+\pagebreak
+\section{How To Use MSBuild To Build Your Projects}
+  You are now able to build (compile and link) your C++ projects without having Visual Studio installed on your machine.
+  To do this, please follow the instructions below:
+  \begin{enumerate}
+    \item Open the \textbf{Command Line} and navigate to your project folder (where the .vcxproj file is located).
+    \item Enter the command:\\ \hbox{\textbf{msbuild <filename> /tv:14.0 /p:PlatformToolset=v140,TargetPlatformVersion=8.1,OutDir=``.\textbackslash{}''}} , where <filename> is your .vcxproj file.
+  \end{enumerate}
+  After building the project, the .exe file should be automatically generated to the current folder.\\
+  The signals will be generated into the sub-directory \textbf{\textbackslash{}signals\textbackslash{}}, which must already exist.
+\section{Known Issues}
+  \subsection{Missing ucrtbased.dll}
+  In order to solve this issue, please follow the instructions below:
+  \begin{enumerate}
+     \item Navigate to \textbf{C:\textbackslash{}Program Files (x86)\textbackslash{}Windows Kits\textbackslash{}10\textbackslash{}bin\textbackslash{}x86\textbackslash{}ucrt\textbackslash{}}
+     \item Copy the following file: \textbf{ucrtbased.dll}
+     \item Paste this file in the following folder: \textbf{C:\textbackslash{}Windows\textbackslash{}System32\textbackslash{}}
+     \item Paste this file in the following folder: \textbf{C:\textbackslash{}Windows\textbackslash{}SysWOW64\textbackslash{}}
+   \end{enumerate}
+   \textbf{Attention}:you need to paste the file in BOTH of the folders above.

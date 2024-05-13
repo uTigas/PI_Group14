@@ -1,0 +1,4704 @@
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=20
+0.224
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.001
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0.026
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0.029
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0.045
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.003
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:37
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.005
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=8
+0
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.035
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.002
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.039
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.001
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.021
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.004
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.005
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.003
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.006
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.001
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.005
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.006
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.006
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.005
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.003
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0.001
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.006
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.007
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.001
+
+2018-04-08 23:27:37
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.001
+
+2018-04-08 23:27:37
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:37
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:37
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:37
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:37
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:37
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.001
+
+2018-04-08 23:27:37
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.001
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.022
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.023
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.005
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.003
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.001
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.008
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.003
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.002
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.002
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.006
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.003
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.003
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.007
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.009
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.009
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.022
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.011
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.009
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.003
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0.001
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.009
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.009
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.006
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.006
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.01
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:38
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:38
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:38
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:38
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:38
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:38
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:38
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:38
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.003
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0.001
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.008
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.02
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.004
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.003
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.003
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0.001
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.005
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.005
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.001
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.02
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0.004
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0.001
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.005
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.003
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.003
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.008
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0.004
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.008
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=20
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0.007
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=20
+I_HomodyneReceiver|S4|ready=20
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=2
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=2
+BitErrorRate|S8|space=20
+0.002
+
+2018-04-08 23:27:39
+Sink|S8|ready=2
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=2
+0
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=20
+0.007
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=16
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=16
+I_HomodyneReceiver|S4|ready=16
+I_HomodyneReceiver|S5|space=20
+0.004
+
+2018-04-08 23:27:39
+Sampler|S5|ready=20
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=1
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=1
+BitErrorRate|S8|space=20
+0
+
+2018-04-08 23:27:39
+Sink|S8|ready=1
+0.001
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=1
+0
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=16
+0
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=0
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=0
+I_HomodyneReceiver|S4|ready=0
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:39
+Sampler|S5|ready=8
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=0
+0
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=0
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=0
+I_HomodyneReceiver|S4|ready=0
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:39
+Sampler|S5|ready=0
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=0
+0
+
+2018-04-08 23:27:39
+MQamTransmitter|S1|space=20
+MQamTransmitter|S0|space=0
+0.001
+
+2018-04-08 23:27:39
+LocalOscillator|S2|space=0
+0
+
+2018-04-08 23:27:39
+BalancedBeamSplitter|S1|ready=0
+BalancedBeamSplitter|S2|ready=20
+BalancedBeamSplitter|S3|space=20
+BalancedBeamSplitter|S4|space=20
+0
+
+2018-04-08 23:27:39
+I_HomodyneReceiver|S3|ready=0
+I_HomodyneReceiver|S4|ready=0
+I_HomodyneReceiver|S5|space=20
+0
+
+2018-04-08 23:27:39
+Sampler|S5|ready=0
+Sampler|S6|space=20
+0
+
+2018-04-08 23:27:39
+BitDecider|S6|ready=0
+BitDecider|S7|space=20
+0
+
+2018-04-08 23:27:39
+BitErrorRate|S0|ready=20
+BitErrorRate|S7|ready=0
+BitErrorRate|S8|space=20
+0.001
+
+2018-04-08 23:27:39
+Sink|S8|ready=0
+0
+

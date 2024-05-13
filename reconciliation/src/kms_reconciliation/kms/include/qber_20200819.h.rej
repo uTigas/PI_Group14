@@ -1,0 +1,9 @@
+diff a/include/qber_20200819.h b/include/qber_20200819.h	(rejected hunks)
+@@ -58,6 +58,7 @@
+ 	bool firstFull{ true };
+ 	double QBER{ 0.0 };
+ 	double QBER_all{ 0.0 };
++	int lengthWindow{ 4000 };
+ 	
+ 	bool emptyArray{ true };
+ 	int cBit{ 0 };

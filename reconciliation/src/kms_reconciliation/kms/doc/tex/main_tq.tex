@@ -1,0 +1,59 @@
+% document class -------------------------------------------
+\documentclass[11pt,oneside,openright]{./style/phdthesis}
+% ----------------------------------------------------------
+
+% my definitions -------------------------------------------
+\include{./style/my_definitions}
+% ----------------------------------------------------------
+
+% my packages ----------------------------------------------
+\include{./style/my_packages}
+% ----------------------------------------------------------
+
+% my bib files ---------------------------------------------
+\include{./style/my_bib_files}
+% ----------------------------------------------------------
+
+% my commands ----------------------------------------------
+\include{./style/my_commands}
+% ----------------------------------------------------------
+
+% index ----------------------------------------------------
+\makeindex
+% ----------------------------------------------------------
+
+
+\begin{document}
+%%  include the LaTeX files containing the text for each chapters
+
+% title -----------------------------------------------------
+\title{NetXPTO - LinkPlanner - KML}
+\author{Armando Nolasco Pinto}
+\date{\today}
+\maketitle
+% -----------------------------------------------------------
+
+% table of contents -----------------------------------------
+\tableofcontents
+% -----------------------------------------------------------
+
+% chapters --------------------------------------------------
+%\include{chapter/development_cycle}
+\include{chapter/case_studies}
+
+% -----------------------------------------------------------
+
+\pagebreak
+
+% -----------------------------------------------------------
+%\bibliographystyle{ieeetr}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{../../../Computadores/Bibtex/IEEEabrv,../../../Computadores/Bibtex/AnpBib}
+% -----------------------------------------------------------
+
+
+\printglossaries
+
+\end{document}
+
+

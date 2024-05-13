@@ -1,0 +1,7 @@
+# Local build and temp files
+build
+bin
+cmake-build-debug
+
+# Not include the symbolic links
+links

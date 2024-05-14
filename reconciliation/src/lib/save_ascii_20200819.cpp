@@ -1,15 +1,14 @@
-//#include <algorithm>
-//#include <complex>
-//#include <fstream>
+// #include <algorithm>
+// #include <complex>
+// #include <fstream>
 
 #include "save_ascii_20200819.h"
-
 
 void SaveAscii::initialize(void)
 {
 	aux_asciiFileName = aux_asciiFileName + "_" + asciiFileName + "." + asciiFileNameExtension;
 
-	if (!std::filesystem::is_directory(asciiFolderName) || !std::filesystem::exists(asciiFolderName)) 
+	if (!std::filesystem::is_directory(asciiFolderName) || !std::filesystem::exists(asciiFolderName))
 	{
 		std::filesystem::create_directory(asciiFolderName);
 	}
@@ -23,13 +22,15 @@ void SaveAscii::initialize(void)
 			t_integer max_index = 0;
 			t_string file_name;
 
-			for (const auto& entry : std::filesystem::directory_iterator(asciiFolderName)) {
+			for (const auto &entry : std::filesystem::directory_iterator(asciiFolderName))
+			{
 				file_name = std::string(entry.path().u8string());
 				pos = 0;
 
 				file_name.erase(0, asciiFolderName.length() + 1);
 
-				if (!(file_name == "aux_file_tx_key.dat" || file_name == "aux_file_rx_key.dat")) {
+				if (!(file_name == "aux_file_tx_key.dat" || file_name == "aux_file_rx_key.dat"))
+				{
 					file_name = file_name.substr(6, file_name.length());
 
 					pos = file_name.find(extension);
@@ -41,15 +42,12 @@ void SaveAscii::initialize(void)
 					if (file_number > max_index)
 						max_index = file_number;
 				}
-				
 			}
 
 			asciiFileNameTailNumber = std::to_string(max_index + 1);
 		}
 	}
-	
 }
-
 
 bool SaveAscii::runBlock(void)
 {
@@ -73,65 +71,90 @@ bool SaveAscii::runBlock(void)
 	}
 	outFile.open(asciiFolderName + "/" + aux_asciiFileName, std::ofstream::app);
 
-	if (!outFile) {
+	if (!outFile)
+	{
 		std::cout << "ERROR: save_ascii.cpp (can't create output file!)" << "\n";
 		return false;
 	}
 
 	int ready = inputSignals[0]->ready();
-		
+
 	switch (delimiterType)
 	{
-		case delimiter_type::ConcatenatedValues:
-		{
-			auto process = ready;
-			if (endFile > 0) process = std::min(process, endFile - outPosition);
+	case delimiter_type::ConcatenatedValues:
+	{
+		auto process = ready;
+		if (endFile > 0)
+			process = std::min(process, endFile - outPosition);
 
+		signal_value_type sTypeOut = inputSignals[0]->getValueType();
+
+		switch (sTypeOut)
+		{
+		case signal_value_type::t_binary:
 			for (auto k = 0; k < process; k++)
 			{
-				t_binary val{ 0 };
+				t_binary val{0};
 				inputSignals[0]->bufferGet(&val);
-				if (val == 0) outFile.put('0');
-				if (val == 1) outFile.put('1');
+				if (val == 0)
+					outFile.put('0');
+				if (val == 1)
+					outFile.put('1');
 				column++;
 				if (column == endLine)
 				{
 					column = 0;
-					
-					if (insertEndLine) {
+
+					if (insertEndLine)
+					{
 						outFile.put('\n');
 					}
 				}
 			}
-			outPosition = outPosition + process;
+			break;
+		case signal_value_type::t_complex:
 
-			if (outPosition == endFile)
+			for (auto k = 0; k < process; k++)
 			{
-				outFile.close();
-				t_string aux_str_new = asciiFolderName + "/" + asciiFileName_;
-				t_string aux_str_old = asciiFolderName + "/" + aux_asciiFileName;
-				remove(aux_str_new.c_str());
-				auto result = rename(aux_str_old.c_str(), aux_str_new.c_str());
-
-				if (getVerboseMode())
-				{
-					if (result == 0)
-						std::cout << "File successfully renamed: " << aux_asciiFileName << " => " << asciiFileName_ << std::endl;
-					else
-						std::cout << "Error when trying to renamed: " << aux_asciiFileName << " => " << asciiFileName_ << std::endl;
-				}
-
-				outPosition = 0;
-
-				t_integer tailNumber = stoi(asciiFileNameTailNumber);
-				if (asciiFileNameTailNumberModulos == 0)
-					tailNumber = tailNumber + 1;
-				else
-					tailNumber = (tailNumber + 1) % asciiFileNameTailNumberModulos;
-				asciiFileNameTailNumber = std::to_string(tailNumber);
+				t_complex val;
+				inputSignals[0]->bufferGet(&val);
+				outFile << val.real() << std::endl << val.imag() << std::endl;
 			}
 			break;
+
+		default:
+			break;
 		}
+
+		outPosition = outPosition + process;
+
+		if (outPosition == endFile)
+		{
+			outFile.close();
+			t_string aux_str_new = asciiFolderName + "/" + asciiFileName_;
+			t_string aux_str_old = asciiFolderName + "/" + aux_asciiFileName;
+			remove(aux_str_new.c_str());
+			auto result = rename(aux_str_old.c_str(), aux_str_new.c_str());
+
+			if (getVerboseMode())
+			{
+				if (result == 0)
+					std::cout << "File successfully renamed: " << aux_asciiFileName << " => " << asciiFileName_ << std::endl;
+				else
+					std::cout << "Error when trying to renamed: " << aux_asciiFileName << " => " << asciiFileName_ << std::endl;
+			}
+
+			outPosition = 0;
+
+			t_integer tailNumber = stoi(asciiFileNameTailNumber);
+			if (asciiFileNameTailNumberModulos == 0)
+				tailNumber = tailNumber + 1;
+			else
+				tailNumber = (tailNumber + 1) % asciiFileNameTailNumberModulos;
+			asciiFileNameTailNumber = std::to_string(tailNumber);
+		}
+		break;
+	}
 		/*
 		case delimiter_type::CommaSeperatedValues:
 		{
@@ -147,11 +170,11 @@ bool SaveAscii::runBlock(void)
 				t_string s;
 				for (unsigned long int i = 0; i < startLine - 1; i++) getline(inFile, s);
 			}
-			
+
 
 			switch (dataType)
 			{
-		
+
 			case signal_value_type::t_binary:
 				{
 					inFile.seekg(position);
@@ -202,7 +225,7 @@ bool SaveAscii::runBlock(void)
 					{
 						getline(inFile, line);
 						std::stringstream inLine(line);
-						if (line == "" || inFile.eof()) 
+						if (line == "" || inFile.eof())
 						{
 							inFile.close();
 							return false;
@@ -305,7 +328,7 @@ bool SaveAscii::runBlock(void)
 		}
 		*/
 	}
-	if (outFile.is_open()) 
+	if (outFile.is_open())
 		outFile.close();
 	return true;
 }

@@ -4,7 +4,7 @@
 #include "load_etsi_004_20200819.h"
 #include "dv_qkd_ldpc_tx_parameter_estimation_20200819.h"
 #include "cv_qokd_ldpc_tx_sindrome_reconciliation_20200819.h"
-#include "save_ascii_20200819.h"
+#include "save_ascii_2024.h"
 #include "dv_qkd_ldpc_tx_message_processor_transmitter_20200819.h"
 #include "ip_tunnel_ms_windows_20200819.h"
 #include "dv_qkd_ldpc_tx_message_processor_receiver_20200819.h"
@@ -17,6 +17,7 @@
 #include "dv_qkd_polarization_physical_layer_20200819.h"
 #include "cv_qokd_ldpc_rx_20200819.h"
 
+#include "convert_b64.h"
 
 namespace tx
 {
@@ -131,10 +132,25 @@ namespace tx
 		CvQokdLdpcTxSindromeReconciliation_Tx.setKeyType(param.keyType);
 
 		// Oblivious keys
+		/*
 		SaveAscii SaveAscii_Tx{ {&Key_Tx}, {} };
 		SaveAscii_Tx.setAsciiFileName("tx_key");
 		SaveAscii_Tx.setAsciiFileNameTailNumber("0");
 		SaveAscii_Tx.setAsciiFileNameTailNumberModulos(0);
+		*/
+
+		Binary Key_base64TX{"b64_TX_key.sgn", 36, hType, sWriteMode};
+
+		SaveAscii SaveAscii_Tx{ {&Key_base64TX}, {} };
+		SaveAscii_Tx.setFile_type(1);
+		SaveAscii_Tx.setAsciiFolderName("../generated_keys_TX");
+		SaveAscii_Tx.setAsciiFileName("sym_tx");
+		SaveAscii_Tx.setAsciiFileNameTailNumber("0");
+		SaveAscii_Tx.setAsciiFileNameExtension("b64");
+		SaveAscii_Tx.setAsciiFileNameTailNumberModulos(0);
+
+		Binary _{"_.sgn", 36, hType, sWriteMode};
+        ConvertB64 b64_converter{{&Key_Tx, &_},{&Key_base64TX, &_}};
 
 		//////
 		DestinationTranslationTable dttTxReceiver;
@@ -223,6 +239,7 @@ namespace tx
 				&LoadAscii_Tx,
 				&DvQkdLdpcTxParameterEstimation_Tx,
 				&CvQokdLdpcTxSindromeReconciliation_Tx,
+				&b64_converter,
 				&SaveAscii_Tx,
 				&DvQkdLdpcTxMessageProcessorTransmitter_Tx,
 				&IPTunnel_Client_Tx,

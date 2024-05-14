@@ -1,0 +1,60 @@
+SindromeMsg	000002	11	
+SindromeMsg	000002	10	
+SindromeMsg	000002	11	
+SindromeMsg	000002	00	
+SindromeMsg	000002	10	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	01	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+Msg_Tx	Msg_Rx	iscreteRealMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	screteRealMessage		43	SindromeMsg                        00000210	
+Msg_Tx	Msg_Rx	creteRealMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	reteRealMessage		43	SindromeMsg                        00000200	
+Msg_Tx	Msg_Rx	eteRealMessage		43	SindromeMsg                        00000210	
+Msg_Tx	Msg_Rx	teRealMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	eRealMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	RealMessage		43	SindromeMsg                        00000201	
+Msg_Tx	Msg_Rx	ealMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	alMessage		43	SindromeMsg                        00000211	
+SindromeMsg	000002	01	
+SindromeMsg	000002	10	
+SindromeMsg	000002	10	
+SindromeMsg	000002	00	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+Msg_Tx	Msg_Rx	lMessage		43	SindromeMsg                        00000201	
+Msg_Tx	Msg_Rx	Message		43	SindromeMsg                        00000210	
+Msg_Tx	Msg_Rx	Message		43	SindromeMsg                        00000210	
+Msg_Tx	Msg_Rx	Message		43	SindromeMsg                        00000200	
+Msg_Tx	Msg_Rx	Message		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	Message		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	TimeDiscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	imeDiscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	meDiscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	eDiscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+SindromeMsg	000002	01	
+SindromeMsg	000002	01	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	01	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+SindromeMsg	000002	11	
+Msg_Tx	Msg_Rx	DiscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000201	
+Msg_Tx	Msg_Rx	iscreteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000201	
+Msg_Tx	Msg_Rx	screteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	creteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	reteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	eteAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000201	
+Msg_Tx	Msg_Rx	teAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	eAmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	AmplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	
+Msg_Tx	Msg_Rx	mplitudeContinuousComplexMessage		43	SindromeMsg                        00000211	

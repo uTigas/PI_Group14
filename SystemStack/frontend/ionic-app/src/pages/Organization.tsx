@@ -21,6 +21,7 @@ const Organization: React.FC = () => {
         try{
         const response = await ApiWrapper.fetchOrganizationDetails(organizationId);
         if (response){
+            console.log(response.data)
             setMembers(response.data.members)
             setVaults(response.data.vaults)
             setRole(response.data.role)
@@ -58,7 +59,7 @@ const Organization: React.FC = () => {
                             <IonTitle className='title'>Create Vault:</IonTitle>
                             <IonCard>
                                 <IonCardContent className="ion-margin-bottom ">
-                                    <CreateVaultContainer/>
+                                    <CreateVaultContainer organizationId = {organizationId}/>
                                 </IonCardContent>
                             </IonCard>
                             <IonTitle className='ion-margin-top title'>Add Member:</IonTitle>
@@ -91,17 +92,17 @@ const Organization: React.FC = () => {
                             <IonTitle className=' title'>Vaults:</IonTitle>
                             {vaults.length !== 0 ? (
                                 vaults.map((item, index) => (
-                                <IonCard className="card  organization-card" key={item.id}>
+                                <IonCard className="card  organization-card" key={item.vault.id}>
                                     <IonCardHeader>
-                                        <IonCardTitle>{item.name}</IonCardTitle>
+                                        <IonCardTitle>{item.vault.name}</IonCardTitle>
                                     </IonCardHeader>
                                     <IonCardContent>
-                                        <strong>{item.description}</strong>
+                                        <strong>{item.vault.description}</strong>
                                     </IonCardContent>
                                 </IonCard>
                                 ))
                             ):(
-                                <strong className='ion-margin-start'>No vaults yet.</strong>
+                                <IonTitle className='ion-padding-vertical'>No vaults yet.</IonTitle>
                             )} 
                         </IonCol>
                     </IonRow>

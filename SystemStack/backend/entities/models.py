@@ -11,6 +11,12 @@ class Organization(models.Model):
     description = models.CharField(max_length=300)
     size = models.CharField(choices=Size.choices, max_length=10, default=Size.SMALL)
 
+class Default_Roles(models.TextChoices):
+    USER = 'USER', 'User'
+    ADMIN = 'ADMIN', 'Admin'
+    OWNER = 'OWNER', 'Owner'
+
+
 class Role(models.Model):
     role = models.CharField(max_length=30)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
@@ -19,7 +25,6 @@ class Member(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True)
-
 
 class Vault(models.Model):
     name = models.CharField(max_length=50)
@@ -34,9 +39,9 @@ class OrganizationHasVault(models.Model):
     vault = models.ForeignKey(OrganizationVault, on_delete=models.CASCADE)
 
 class Permission(models.TextChoices):
-    VIEW = 'VIEW', 'View'
-    CREATE = 'CREATE', 'Create'
-    EDIT = 'EDIT', 'Edit'
+    VIEW = 'VIEW', 'view'
+    EDIT = 'EDIT', 'edit'
+    MANAGE = 'MANAGE', 'manage'
 
 class RolePermission(models.Model):
     organizationHasVault = models.ForeignKey(OrganizationHasVault, on_delete=models.CASCADE)

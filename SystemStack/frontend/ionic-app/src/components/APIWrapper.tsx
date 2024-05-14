@@ -31,11 +31,22 @@ const ApiWrapper = {
 
       fetchOrganizationDetails : async (organizationId : string) => {
         try{
-          return await axios.get(ApiWrapper.backendURI + 'organization?id=' + organizationId, {withCredentials: true});
+          return await axios.get(ApiWrapper.backendURI + 'organizations/details?id=' + organizationId, {withCredentials: true});
         } catch (error){
           console.error('Error fetching Organization details', error);
         }
     },
+
+    createVault: async (formData : URLSearchParams) => {
+      await axios.post(ApiWrapper.backendURI + "organizations/details/vaults/create", formData, {
+        withCredentials: true, 
+        headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      })
+      .then(response => console.log(response))
+      .catch(error => console.log(error))
+    }
 
 }
 export default ApiWrapper;

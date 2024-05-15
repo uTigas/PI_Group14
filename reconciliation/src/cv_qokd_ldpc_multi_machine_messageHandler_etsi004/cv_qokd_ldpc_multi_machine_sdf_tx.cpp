@@ -112,7 +112,7 @@ namespace tx
 //		LoadEtsi004_Tx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
 		LoadAscii LoadAscii_Tx{ {},{&Raw_Tx} };
-		LoadAscii_Tx.setAsciiFileName("tx_raw_new");
+		LoadAscii_Tx.setAsciiFileName("raw_keys/tx_raw_new");
 		LoadAscii_Tx.setAsciiFileNameTailNumber("0");
 		LoadAscii_Tx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 

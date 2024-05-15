@@ -37,12 +37,12 @@ int main_dv(){
     Add adder{{&raw_signal, &raw_signal2}, {&raw_signal3}};
     
     SaveAscii save_ascii_rx {{&raw_signal3}, {}};
-    save_ascii_rx.setAsciiFolderName("generated_keys");
+    save_ascii_rx.setAsciiFolderName("../generated_keys");
     save_ascii_rx.setAsciiFileName(param.rxFilesName);
     save_ascii_rx.setAsciiFileNameTailNumber("0");
 
     SaveAscii save_ascii_tx {{&raw_signal}, {}};
-    save_ascii_tx.setAsciiFolderName("generated_keys");
+    save_ascii_tx.setAsciiFolderName("../generated_keys");
     save_ascii_tx.setAsciiFileName(param.txFilesName);
     save_ascii_tx.setAsciiFileNameTailNumber("0");
 
@@ -124,7 +124,7 @@ int main_cv(){
     RealToComplex real_to_complex{{&simulated_real_sgn, &simulated_img_sgn}, {&simulated_sgn}};
 
     SaveAscii save_ascii_rx {{&simulated_sgn}, {}};
-    save_ascii_rx.setAsciiFolderName("generated_keys");
+    save_ascii_rx.setAsciiFolderName("../generated_keys");
     save_ascii_rx.setAsciiFileName(param.rxFilesName);
     save_ascii_rx.setAsciiFileNameTailNumber("0");
     
@@ -133,7 +133,7 @@ int main_cv(){
     RealToComplex real_to_complex2{{&real_sgn_clone2, &img_sgn_clone2}, {&sgn_clone}};
 
     SaveAscii save_ascii_tx {{&sgn_clone}, {}};
-    save_ascii_tx.setAsciiFolderName("generated_keys");
+    save_ascii_tx.setAsciiFolderName("../generated_keys");
     save_ascii_tx.setAsciiFileName(param.txFilesName);
     save_ascii_tx.setAsciiFileNameTailNumber("0");
 

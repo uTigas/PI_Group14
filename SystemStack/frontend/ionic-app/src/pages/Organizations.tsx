@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonPage, IonRouterOutlet, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonPage, IonRouterOutlet, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import { useEffect, useState} from 'react';
 import "./Organizations.css"
 import "./General.css"
@@ -6,14 +6,21 @@ import { checkmark, close, constructOutline, eye } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
 import ApiWrapper from '../components/APIWrapper';
 import { Route, useHistory } from 'react-router-dom';
+import { format } from 'date-fns';
+
 const Organizations: React.FC = () => {
   const [organizations, setOrganizations] = useState<any[]>([]);
   const history = useHistory();
-
+  const [invites, setInvites] = useState<any[]>([])
   useEffect(() => {
     fetchOrganizations();
+    fetchInvites();
   }, [])
 
+  const refreshPage = async() => {
+    fetchOrganizations();
+    fetchInvites();
+  }
   const fetchOrganizations = async() => {
     try{
       const response = await ApiWrapper.fetchOrganizations();
@@ -28,9 +35,38 @@ const Organizations: React.FC = () => {
     }
   }
 
+  const fetchInvites = async() => {
+    const response = await ApiWrapper.fetchInvites();
+    try {
+      if (response){
+        setInvites(response.data.invites);
+      }
+      else{
+        setInvites([])
+      }
+    } catch (error) {
+      console.error('Error fetching User Invites', error);
+    }
+  }
+
   const handleManageClick = (organizationId: string) => {
     history.push(`/organization/${organizationId}`);
   };
+
+  const acceptInvite = async (id : string) => {
+    const formData = new URLSearchParams();
+    formData.append("invite", id);
+    await ApiWrapper.acceptInvite(formData);
+    refreshPage();
+  }
+
+  const refuseInvite = async (id : string) => {
+    const formData = new URLSearchParams();
+    formData.append("invite", id);
+    await ApiWrapper.refuseInvite(formData);
+    refreshPage();
+  }
+
   return (
     <IonPage>
       <IonContent className="ion-padding">
@@ -38,14 +74,19 @@ const Organizations: React.FC = () => {
             <IonRow>
               <IonCol size-md='5' size='12'>
                 <IonTitle className='ion-text-start ion-margin-bottom title'>Pending Invites:</IonTitle>
-                  <IonCard>
+                {invites.length == 0 ?(<IonText className='ion-margin-start' color={"warning"}>No pending invites.</IonText>):(<></>)}
+                {invites.map((invite) => (
+                  <IonCard key={invite.id}>
                     <IonCardContent>
-                      <strong style={{'color':'blue'}}>Gregório</strong><strong> invited you to join <strong style={{'color':'yellow'}}>PQSK</strong></strong>
-                      <IonButton slot='icon' className='ion-margin-start' color='success'><IonIcon icon={checkmark} size='small'></IonIcon></IonButton>
-                      <IonButton slot='icon' className='ion-margin-start' color='danger'><IonIcon icon={close} size='small'></IonIcon></IonButton>
-
+                      <IonText style={{'color':'lightgreen'}}>{invite.inviter}</IonText><IonText> invited you to join <IonText style={{'color':'yellow'}}>{invite.organization}</IonText></IonText>
+                      <IonButton slot='icon' className='ion-margin-start' color='success' onClick={() => acceptInvite(invite.id)}><IonIcon icon={checkmark} size='small'></IonIcon></IonButton>
+                      <IonButton slot='icon' className='ion-margin-start' color='danger' onClick={() => refuseInvite(invite.id)}><IonIcon icon={close} size='small'></IonIcon></IonButton>
+                      <IonItem>
+                        <IonCardSubtitle>{format(invite.timestamp, "yyyy-MM-dd HH:mm:ss")}</IonCardSubtitle>
+                      </IonItem>
                     </IonCardContent>
                 </IonCard>
+                ))}
                 <IonTitle className='ion-text-start ion-margin-vertical title'>Create a Organization:</IonTitle>
                 <IonCard>
                   <IonCardContent>

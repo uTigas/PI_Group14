@@ -1,14 +1,16 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonCheckbox, IonPopover, IonIcon, IonTitle } from '@ionic/react';
 import ApiWrapper from './APIWrapper';
 import Common from './Common';
 import { help, helpCircle } from 'ionicons/icons';
 
 interface ChildComponentProps {
-  organizationId: string;
+  organizationId: string,
+  fetchOrganization: () => void;
+
 }
 
-const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId }) => {
+const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId, fetchOrganization }) => {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -27,11 +29,15 @@ const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId })
     formData.append('manage', manage);
     formData.append('organization', organizationId)
     console.log({name, description, view, edit, manage, organizationId});
-    ApiWrapper.createVault(formData);
+    ApiWrapper.createVault(formData).then(response => fetchOrganization());
   };
 
+  useEffect(() => {
+    validateForm(); 
+  }, [name, description]);
+
   const validateForm = () => {
-    setFormValid(name.trim().length > 0);
+    setFormValid(name.trim().length > 0 && description.trim().length > 0);
   };
 
   return (
@@ -46,7 +52,6 @@ const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId })
               value={name}
               onIonChange={(e) => {
                 setName(e.detail.value!);
-                validateForm();
               }}
             />
           </IonItem>
@@ -57,7 +62,6 @@ const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId })
               value={description}
               onIonChange={(e) => {
                 setDescription(e.detail.value!);
-                validateForm();
               }}
             />
           </IonItem>

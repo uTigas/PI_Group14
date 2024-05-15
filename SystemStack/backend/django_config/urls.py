@@ -30,5 +30,10 @@ urlpatterns = [
     path('organizations/create', ent_views.createOrganization, name ="organizations/create"),
     path('organizations/details', ent_views.getOrganizationDetails, name ="organizations/details"),
     path('organizations/details/vaults/create', ent_views.createOrganizationVault, name ="organizations/details/vaults/create"),
+    path('organizations/details/members/invite', ent_views.inviteMember, name ="organizations/detailsmembers/invite"),
+    path('user/invites', ent_views.getInvites, name ="user/invites"),
+    path('user/invites/accept', ent_views.acceptInvite, name ="user/invites/accept"),
+    path('user/invites/refuse', ent_views.refuseInvite, name ="user/invites/refuse"),
+    path('organizations/details/role/create', ent_views.createRole, name ="organization/details/role/create"),
 
 ]

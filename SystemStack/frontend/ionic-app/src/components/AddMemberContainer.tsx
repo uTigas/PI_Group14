@@ -1,34 +1,40 @@
-import React, { useContext, useState } from 'react';
-import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonIcon } from '@ionic/react';
-import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
+import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonIcon, IonText } from '@ionic/react';
 import ApiWrapper from './APIWrapper';
-import { add } from 'ionicons/icons';
+import { add, mail, mailOutline, warning } from 'ionicons/icons';
 
-const AddMemberContainer: React.FC = () => {
+interface AddMemberContainerProps {
+  organization : string,
+  fetchOrganization: () => void;
+}
+
+const AddMemberContainer: React.FC<AddMemberContainerProps> = ({ organization, fetchOrganization }) => {
   const [username, setUsername] = useState('');
   const [formValid, setFormValid] = useState(false);
-
+  const [inviteStatus, setInviteStatus] = useState("");
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new URLSearchParams();
     formData.append('username', username);
-
-    await axios.post(ApiWrapper.backendURI + "vault/create", formData, {
-      withCredentials: true, 
-      headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
-
-    console.log('Submitted:', { username });
-
+    formData.append('organization', organization);
+    const response = await ApiWrapper.inviteMember(formData)
+    if (response instanceof Error){
+      setInviteStatus("Invalid Username.") 
+    }
+    else{
+      setInviteStatus("Invite sent successfully!")
+    }
+    fetchOrganization()
   };
 
   const validateForm = () => {
     setFormValid(username.trim().length > 0);
   };
+  
+  useEffect(() => {
+    validateForm(); 
+  }, [username]);
+
 
   return (
       <form onSubmit={handleSubmit} className='ion-text-center'> 
@@ -39,13 +45,16 @@ const AddMemberContainer: React.FC = () => {
               value={username}
               onIonChange={(e) => {
                 setUsername(e.detail.value!);
-                validateForm();
               }}
             />
           </IonItem>
           
-          <IonButton  type="submit" disabled={!formValid}><IonIcon icon={add} size='medium'></IonIcon></IonButton>
-          
+          <IonButton expand="block" type="submit" disabled={!formValid}>Invite <IonIcon icon={mailOutline} className='ion-padding-start'></IonIcon></IonButton>
+          <IonItem>
+            <div className='ion-text-end'>
+              <IonText color={"warning"}>{inviteStatus}</IonText>
+            </div>
+          </IonItem>
       </form>
   );
 };

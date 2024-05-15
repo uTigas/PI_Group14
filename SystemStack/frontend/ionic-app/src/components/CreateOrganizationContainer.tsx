@@ -15,16 +15,7 @@ const CreateOrganizationContainer: React.FC = () => {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('size', size);
-
-    await axios.post(ApiWrapper.backendURI + "organization/create", formData, {
-      withCredentials: true, 
-      headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-      }
-    })
-    .then(response => console.log(response))
-    .catch(error => console.log(error))
-
+    ApiWrapper.createOrganization(formData);
     console.log('Submitted:', { name, description, size });
 
   };

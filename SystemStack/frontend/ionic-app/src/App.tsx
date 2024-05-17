@@ -51,6 +51,8 @@ import axios from 'axios';
 import AboutUs from './pages/AboutUs';
 import Vault from './pages/Vault';
 import React from 'react';
+import ApiWrapper from './components/APIWrapper';
+import Organization from './pages/Organization';
 
 export interface User {
   username: string;
@@ -61,32 +63,26 @@ export interface User {
 }
 
 export const AuthContext = React.createContext(false);
-export const URIContext = React.createContext("http://localhost:8000/");
 export const UserContext = React.createContext<User | null>(null);
 
 setupIonicReact();
 
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const backendURI = useContext(URIContext)
   const [userDetails, setUserDetails] = useState<User | null>(null);
   
   const checkAuthentication = async () => {
-    try {
-      const response = await axios.get(backendURI + 'check-authentication', {withCredentials: true});
+    const response = await ApiWrapper.checkAuthentication()
+    if (response){
       setLoggedIn(response.data.is_authenticated);
       fetchUserDetails();
-    } catch (error) {
-      console.error('Error checking authentication:', error);
-    }
+    } 
   };
 
   const fetchUserDetails = async () => {
-    try{
-      const response = await axios.get(backendURI + 'user', {withCredentials: true});
-      setUserDetails(response.data[0].fields);
-    } catch (error){
-      console.error('Error fetching User details', error);
+    const response = await ApiWrapper.fetchUserDetails()
+    if (response){
+      setUserDetails(response.data.user);
     }
   }
 
@@ -108,14 +104,18 @@ const App: React.FC = () => {
                     {loggedIn && userDetails ? (
                       <>
                       <IonCol className='ion-text-end'>
-                        <IonButton id='view-profile' fill="outline">
+                        <IonButton id='view-profile' fill="outline" shape='round'>
                           <IonIcon slot="end" icon={personCircle}></IonIcon>
                           {userDetails.username}
                         </IonButton>
                         <IonPopover trigger='view-profile' triggerAction='click'>
                           <IonList>
                             <IonItem>
-                              <h6>Welcome, {userDetails.first_name} {userDetails.last_name}!</h6>
+                              <IonIcon size='large' icon={personCircle}></IonIcon>
+                            </IonItem>
+                            
+                            <IonItem>
+                              <h6>Welcome, <strong style={{'color':'blue'}}>{userDetails.first_name} {userDetails.last_name}!</strong></h6>
                             </IonItem>
 
                             <IonItem>
@@ -133,7 +133,7 @@ const App: React.FC = () => {
                             </IonItem>
 
                             <IonItem>
-                              <IonButton size='default' color="danger">
+                              <IonButton href={ApiWrapper.backendURI + "logout"} size='default' color="danger">
                                 <IonIcon icon={exit}/>
                               </IonButton>
                               <IonLabel className='ion-padding-start'>Logout</IonLabel>
@@ -144,7 +144,7 @@ const App: React.FC = () => {
                       </>
                     ) : (
                       <IonCol className="ion-text-end">
-                        <IonButton href={useContext(URIContext) + "login"} color="success">Login</IonButton>
+                        <IonButton href={ApiWrapper.backendURI + "login"} color="success">Login</IonButton>
                       </IonCol>
                     )}
                   </IonRow>
@@ -168,6 +168,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/aboutUs">
                     <AboutUs />
+                  </Route>
+                  <Route exact path="/organization/:id">
+                      <Organization/>
                   </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>

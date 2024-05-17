@@ -6,3 +6,16 @@
     display: flex;
     justify-content: center;
 }
+
+.organizations-card {
+    height: 10px;
+    width: 100%;
+}
+
+.title {
+    color: lightblue;
+}
+
+.auxiliar{
+    lighting-color: blue;
+}

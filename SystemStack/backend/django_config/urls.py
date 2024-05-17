@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from authentication import views as auth_views
+from entities import views as ent_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register', auth_views.register, name="register"),
@@ -24,4 +26,14 @@ urlpatterns = [
     path('logout', auth_views.systemLogout, name="logout"),
     path('check-authentication', auth_views.check_authentication, name="check-authentication"),
     path('user', auth_views.fetch_user, name="user"),
+    path('organizations', ent_views.getOrganizations, name ="organizations"),
+    path('organizations/create', ent_views.createOrganization, name ="organizations/create"),
+    path('organizations/details', ent_views.getOrganizationDetails, name ="organizations/details"),
+    path('organizations/details/vaults/create', ent_views.createOrganizationVault, name ="organizations/details/vaults/create"),
+    path('organizations/details/members/invite', ent_views.inviteMember, name ="organizations/detailsmembers/invite"),
+    path('user/invites', ent_views.getInvites, name ="user/invites"),
+    path('user/invites/accept', ent_views.acceptInvite, name ="user/invites/accept"),
+    path('user/invites/refuse', ent_views.refuseInvite, name ="user/invites/refuse"),
+    path('organizations/details/role/create', ent_views.createRole, name ="organization/details/role/create"),
+
 ]

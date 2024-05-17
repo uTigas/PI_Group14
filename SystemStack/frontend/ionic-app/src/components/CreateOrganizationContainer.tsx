@@ -1,33 +1,38 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
+import axios from 'axios';
+import ApiWrapper from './APIWrapper';
 
 const CreateOrganizationContainer: React.FC = () => {
-  const [organizationName, setOrganizationName] = useState('');
+  const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [size, setSize] = useState('');
-
   const [formValid, setFormValid] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Here you can handle form submission, e.g., send data to backend
-    console.log('Submitted:', { organizationName, description, size });
+    const formData = new URLSearchParams();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('size', size);
+    ApiWrapper.createOrganization(formData);
+    console.log('Submitted:', { name, description, size });
+
   };
 
-  // Custom validation logic
   const validateForm = () => {
-    setFormValid(organizationName.trim().length > 0 && description.trim().length > 0 && size.trim().length > 0);
+    setFormValid(name.trim().length > 0  && size.trim().length > 0);
   };
 
   return (
       <form onSubmit={handleSubmit}> 
           <IonItem>
-            <IonLabel position="floating">Organization Name</IonLabel>
+            <IonLabel position="floating">Name</IonLabel>
             <IonInput
               type="text"
-              value={organizationName}
+              value={name}
               onIonChange={(e) => {
-                setOrganizationName(e.detail.value!);
+                setName(e.detail.value!);
                 validateForm();
               }}
             />
@@ -45,7 +50,7 @@ const CreateOrganizationContainer: React.FC = () => {
           </IonItem>
 
           <IonItem>
-            <IonLabel position="stacked">Size</IonLabel> {/* Use position="stacked" for labels above inputs */}
+            <IonLabel position="stacked">Size</IonLabel> 
             <IonSelect
                 label='Select Size'
                 value={size}

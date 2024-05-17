@@ -13,7 +13,7 @@ const Organization: React.FC = () => {
     const { id: organizationId }  = useParams<{ id: string }>();
     const [vaults, setVaults] = useState<any[]>([]);
     const [members, setMembers] = useState<any[]>([]);
-    const [role, setRole] = useState<string>("");
+    const [role, setRole] = useState<any>(null);
     const [newRole, setNewRole] = useState<string>("");
     const [permissions, setPermissions] = useState<any[]>([]);
     const [organization, setOrganization] = useState<any>(null);
@@ -68,7 +68,7 @@ const Organization: React.FC = () => {
                             </IonButton>
                         </IonCol>
                         <IonCol  className="ion-text-right ion-padding-end">
-                            <IonText>Your Role: <IonText color="warning">{role}</IonText></IonText>
+                            <IonText>Your Role: <IonText color="warning">{role? (role.role):(<></>)}</IonText></IonText>
                         </IonCol>
                     </IonRow>
                     <IonRow>
@@ -180,7 +180,7 @@ const Organization: React.FC = () => {
                                     <IonCard className="card  organization-card ion-padding" style={{width:"100%"}} key={item.username}>
                                         <IonCardHeader>
                                             <IonCardTitle>{item.name}</IonCardTitle>
-                                            <IonCardSubtitle color={item.role == Common.DEFAULT_ROLES.OWNER ?  ("tertiary"):(item.role == Common.DEFAULT_ROLES.ADMIN ? ("warning"):("success"))}>{item.role}</IonCardSubtitle>
+                                            <IonCardSubtitle color={item.role.role == Common.DEFAULT_ROLES.OWNER ?  ("tertiary"):(item.role.role == Common.DEFAULT_ROLES.ADMIN ? ("warning"):("success"))}>{item.role.role}</IonCardSubtitle>
                                         </IonCardHeader>
                                         <IonCardContent>
                                             <strong></strong>

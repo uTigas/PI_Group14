@@ -24,9 +24,9 @@ const CreateVaultContainer: React.FC<ChildComponentProps> = ({ organizationId, f
     const formData = new URLSearchParams();
     formData.append('name', name);
     formData.append('description', description);
-    formData.append('view', view);
-    formData.append('edit', edit);
-    formData.append('manage', manage);
+    formData.append('VIEW', view);
+    formData.append('EDIT', edit);
+    formData.append('MANAGE', manage);
     formData.append('organization', organizationId)
     console.log({name, description, view, edit, manage, organizationId});
     ApiWrapper.createVault(formData).then(response => fetchOrganization());

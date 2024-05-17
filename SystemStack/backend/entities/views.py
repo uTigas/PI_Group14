@@ -20,9 +20,15 @@ def getOrganizations(request):
             members = models.Member.objects.filter(user = user)
             organizations = []
             for member in members:
+                rolesRaw = models.MemberHasRole.objects.filter(member = member)
+                roles = []
+                
+                for role in rolesRaw:
+                    roles.append(model_to_dict(role.role))
+
                 organizations.append({
                     "organization": model_to_dict(member.organization),
-                    "role": member.role.role
+                    "roles": roles
                 })
             return JsonResponse({"organizations":  organizations}, status=200)
         except User.DoesNotExist:
@@ -45,7 +51,8 @@ def createOrganization(request):
                     userRole = models.Role.objects.create(role = models.Default_Roles.USER, organization = organization)
                     adminRole = models.Role.objects.create(role = models.Default_Roles.ADMIN, organization = organization)
                     ownerRole = models.Role.objects.create(role = models.Default_Roles.OWNER, organization = organization)
-                    models.Member.objects.create(user=user, organization=organization, role=ownerRole)
+                    newMember = models.Member.objects.create(user=user, organization=organization)
+                    models.MemberHasRole.objects.create(member = newMember, role = ownerRole)
                     models.RoleOrganizationPermission.objects.create(role = adminRole, permission=models.Permission.CREATE_VAULTS)
                     models.RoleOrganizationPermission.objects.create(role = adminRole, permission=models.Permission.MANAGE_MEMBERS)
                     models.RoleOrganizationPermission.objects.create(role = ownerRole, permission=models.Permission.CREATE_VAULTS)
@@ -69,43 +76,59 @@ def getOrganizationDetails(request):
             organization = models.Organization.objects.get(id = request.GET.get('organization'))
             user = User.objects.get(username = request.user)
             member  = models.Member.objects.filter(user = user, organization = organization).first()
-            
+                    
             if not member:
                 return JsonResponse({"error": "User not detected as part of selected Organization"}, status=400)
+            
             else:
+                groups = []
                 vaults = []  
                 members = []
-                role = member.role
-                permissions = models.RoleOrganizationPermission.objects.filter(role=role).values_list('permission', flat=True)
+                role = models.MemberHasRole.objects.filter(member = member, role__role__in = models.Default_Roles.values).first()
+                groupsRaw =  list(models.MemberHasRole.objects.exclude(role__role__in = models.Default_Roles.values).filter(member = member))
                 tempMembers = models.Member.objects.filter(organization = organization)
-                roleAllowedVaults = models.RoleVaultPermission.objects.filter(organizationHasVault__organization = organization, role=member.role, permission=models.Permission.VIEW)
-                specificAllowedVaults = models.MemberPermission.objects.filter(organizationHasVault__organization = organization, member=member, permission=models.Permission.VIEW)
-                
+
                 for m in tempMembers:
+                    memberGroups = models.MemberHasRole.objects.exclude(role__role__in = models.Default_Roles.values).filter(member = m).values_list('role__role', flat=True)
+                    memberRole = models.MemberHasRole.objects.filter(member = m, role__role__in = models.Default_Roles.values).first().role
                     members.append({
                         "username": m.user.username,
                         "name": m.user.get_full_name(),
-                        "role": m.role.role,
+                        "role": model_to_dict(memberRole),
+                        "groups": list(memberGroups),
                         "joined": m.joined
                     })
 
+                for rel in groupsRaw + [role]:
+                    print(rel)
+                    role = rel.role
+                    permissions = models.RoleOrganizationPermission.objects.filter(role=role).values_list('permission', flat=True)
+                    roleAllowedVaults = models.RoleVaultPermission.objects.filter(organizationHasVault__organization = organization, role=role, permission=models.Permission.VIEW)
+                    specificAllowedVaults = models.MemberPermission.objects.filter(organizationHasVault__organization = organization, member=member, permission=models.Permission.VIEW)
 
-                for v in roleAllowedVaults:
-                    temp = {
-                        "vault": model_to_dict(v.organizationHasVault.vault),
-                        "permission": v.permission
-                    }
-                    if temp not in vaults: 
-                        vaults.append(temp)
+                    for v in roleAllowedVaults:
+                        print(v)
+                        temp = {
+                            "vault": model_to_dict(v.organizationHasVault.vault),
+                            "permission": v.permission
+                        }
+                        if temp not in vaults: 
+                            vaults.append(temp)
 
-                for v in specificAllowedVaults:
-                    temp = {
-                        "vault": model_to_dict(v.organizationHasVault.vault),
-                        "permission": v.permission
-                    }
-                    if temp not in vaults: 
-                        vaults.append(temp)
-                return JsonResponse({"organization": model_to_dict(organization), "role":role.role,"permissions": list(permissions), "members": members, "vaults": vaults}, status=200)
+                    for v in specificAllowedVaults:
+                        temp = {
+                            "vault": model_to_dict(v.organizationHasVault.vault),
+                            "permission": v.permission
+                        }
+                        if temp not in vaults: 
+                            vaults.append(temp)
+
+                for role in groupsRaw:
+                    groups.append({
+                        "role": role.role.role,
+                        "id": role.role.id
+                    })
+                return JsonResponse({"organization": model_to_dict(organization), "role": model_to_dict(role), "groups": groups, "permissions": list(permissions), "members": members, "vaults": vaults}, status=200)
 
         except User.DoesNotExist:
             return JsonResponse({"error": "User does not exist"}, status=400)
@@ -122,9 +145,9 @@ def createOrganizationVault(request):
             organization = models.Organization.objects.get(id = request.POST.get('organization'))
             user = User.objects.get(username = request.user)
             member  = models.Member.objects.filter(user = user, organization = organization).first()
-            
+            memberRoles = models.MemberHasRole.objects.filter(member=member).values_list("role", flat=True)
             #Verify if allowed
-            if not models.Permission.CREATE_VAULTS in list(models.RoleOrganizationPermission.objects.filter(role = member.role).values_list('permission', flat=True)):
+            if not models.Permission.CREATE_VAULTS in list(models.RoleOrganizationPermission.objects.filter(role__in = memberRoles).values_list('permission', flat=True)):
                 return JsonResponse({"error":"User not allowed to create vaults in this organization."}, status=403)
             with transaction.atomic():
                 form = OrganizationVaultForm(request.POST)
@@ -138,16 +161,16 @@ def createOrganizationVault(request):
                     
                     #For each permission
                     for perm in models.Permission.choices:
-                        if request.POST.get(perm[1]) == "Everyone":
+                        if request.POST.get(perm[0]) == "Everyone":
                             models.RoleVaultPermission.objects.create(role=userRole, organizationHasVault = organizationHasVault, permission= perm[0])
                             models.RoleVaultPermission.objects.create(role=adminRole, organizationHasVault = organizationHasVault, permission= perm[0])
                             models.RoleVaultPermission.objects.create(role=ownerRole, organizationHasVault = organizationHasVault, permission= perm[0])
                     
-                        elif request.POST.get(perm[1]) == "Admin":
+                        elif request.POST.get(perm[0]) == "Admin":
                             models.RoleVaultPermission.objects.create(role=adminRole, organizationHasVault = organizationHasVault, permission= perm[0])
                             models.RoleVaultPermission.objects.create(role=ownerRole, organizationHasVault = organizationHasVault, permission= perm[0])
                     
-                        elif request.POST.get(perm[1]) == "Just Me":
+                        elif request.POST.get(perm[0]) == "Just Me":
                             user = User.objects.get(username = request.user)
                             member = models.Member.objects.get(user=user, organization=organization)
                             models.RoleVaultPermission.objects.create(role=ownerRole, organizationHasVault = organizationHasVault, permission= perm[0])
@@ -174,8 +197,10 @@ def inviteMember(request):
             user = User.objects.get(username = request.user)
             member  = models.Member.objects.filter(user = user, organization = organization).first()
             invitedUser = User.objects.get(username = request.POST.get("username"))
+            memberRoles = models.MemberHasRole.objects.filter(member=member).values_list("role", flat=True)
+
             #Verify if allowed
-            if not models.Permission.MANAGE_MEMBERS in list(models.RoleOrganizationPermission.objects.filter(role = member.role).values_list('permission', flat=True)):
+            if not models.Permission.MANAGE_MEMBERS in list(models.RoleOrganizationPermission.objects.filter(role__in = memberRoles).values_list('permission', flat=True)):
                 return JsonResponse({"error":"User not allowed to manage members of this organization."}, status=403)
 
             #Is it already invited or member?
@@ -233,7 +258,8 @@ def acceptInvite(request):
                 invite.status = models.Status.ACCEPTED
                 invite.save()
                 userRole = models.Role.objects.get(organization = invite.organization, role = models.Default_Roles.USER)
-                models.Member.objects.create(user = user, organization = invite.organization, role = userRole)
+                member = models.Member.objects.create(user = user, organization = invite.organization)
+                models.MemberHasRole.objects.create(member=member, role=userRole)
             return HttpResponse(status=200)
         except User.DoesNotExist:
             return JsonResponse({"error": "User does not exist"}, status=400)
@@ -253,8 +279,10 @@ def refuseInvite(request):
             if not invite.user == user:
                 return JsonResponse({"error":"Invite was not aimed to User."}, status=403)
             with transaction.atomic():
-                invite.update(status = models.Status.REFUSED)
+                invite.status= models.Status.REFUSED
+                invite.save()
             return HttpResponse(status=200)
+        
         except User.DoesNotExist:
             return JsonResponse({"error": "User does not exist"}, status=400)
         except Exception as e:
@@ -271,11 +299,12 @@ def createRole(request):
             user = User.objects.get(username = request.user)
             organization = models.Organization.objects.get(id = request.POST.get('organization'))
             member = models.Member.objects.get(user = user, organization = organization)
+            memberRoles = models.MemberHasRole.objects.filter(member=member).values_list("role", flat=True)
             desiredRole = request.POST.get('role')
             #Verify if allowed
-            if not (models.Member.objects.filter(organization = organization, user = user) and models.Permission.MANAGE_ORGANIZATION in list(models.RoleOrganizationPermission.objects.filter(role = member.role).values_list('permission', flat=True))):
+
+            if not models.Permission.MANAGE_MEMBERS in list(models.RoleOrganizationPermission.objects.filter(role__in = memberRoles).values_list('permission', flat=True)):
                 return JsonResponse({"error":"User not allowed to manage members of this organization."}, status=403)
-            print(desiredRole)
             #Is there a Role with same name?
             if models.Role.objects.filter(organization = organization, role = desiredRole):
                 return JsonResponse({"error":"That role is already created."}, status=403)

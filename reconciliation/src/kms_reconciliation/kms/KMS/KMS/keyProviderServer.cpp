@@ -7,14 +7,14 @@
 #include "save_ascii_2024.h"
 #include "ms_windows_console_output_common_20200819.h"
 #include "ip_tunnel_ms_windows_20200819.h"
-#include "ETSI004_block.h"
+#include "ETSI004_kps.h"
 #include "etsi_qkd_004.h"
 #include "cv_qokd_ldpc_multi_machine_sdf.h"
 
-int main(){
-    
+int main(int argc, char *argv[]){
+
     DvQkdLdpcInputParameters param = DvQkdLdpcInputParameters();
-    param.setInputParametersFileName("input_keyProvider.txt");
+    param.setInputParametersFileName("input_KPS.txt");
     param.readSystemInputParameters();
 
     Signal::t_write_mode sWriteMode{ Signal::t_write_mode::Ascii};
@@ -37,11 +37,11 @@ int main(){
     }
 
     IPTunnel IPTunnelServer_Server{{},{&request_}};
-    IPTunnelServer_Server.setLocalMachineIpAddress(param.rxIpAddress);
-    IPTunnelServer_Server.setRemoteMachineIpAddress(param.txIpAddress);
-    IPTunnelServer_Server.setLocalMachinePort(param.rxReceivingPort);
+    IPTunnelServer_Server.setLocalMachineIpAddress(param.kpsIpAddress);
+    IPTunnelServer_Server.setRemoteMachineIpAddress(param.sthIpAddress);
+    IPTunnelServer_Server.setLocalMachinePort(param.kpsPort);
     IPTunnelServer_Server.setVerboseMode(param.verboseMode);
-    //IPTunnelServer_Server.setTimeIntervalSeconds(10);
+    IPTunnelServer_Server.setTimeIntervalSeconds(10);
 
     // RX
     DestinationTranslationTable dttRxTransmitter;
@@ -54,25 +54,23 @@ int main(){
     MessageHandler MessageHandlerServerTX{ {&response},{&response_},FUNCTIONING_AS_TX,ittTxTransmitter};
 
     IPTunnel IPTunnelServer_Client{{&response_},{}};
-    IPTunnelServer_Client.setLocalMachineIpAddress(param.rxIpAddress);
-    IPTunnelServer_Client.setRemoteMachineIpAddress(param.txIpAddress);
-    IPTunnelServer_Client.setRemoteMachinePort(param.txReceivingPort);
+    IPTunnelServer_Client.setLocalMachineIpAddress(param.kpsIpAddress);
+    IPTunnelServer_Client.setRemoteMachineIpAddress(param.sthIpAddress);
+    IPTunnelServer_Client.setRemoteMachinePort(param.sthPort);
     IPTunnelServer_Client.setVerboseMode(param.verboseMode);
-    //IPTunnelServer_Client.setTimeIntervalSeconds(10);
+    IPTunnelServer_Client.setTimeIntervalSeconds(10);
     
 
-    ETSI004Block ETSI004_RECON{{&request, &key}, {&response, &key_type}};
-    ETSI004_RECON.setID("Rx");
-    ETSI004_RECON.setMode(ETSI004Block::PUSH);
-    ETSI004_RECON.setNumKeys((unsigned int) param.numKeys);
-    ETSI004_RECON.setVerboseMode(param.verboseMode);
+    ETSI004kps ETSI004{{&request, &key}, {&response, &key_type}};
+    ETSI004.setNumKeys((unsigned int)param.numKeys);
+    ETSI004.setVerboseMode(param.verboseMode);
 
     System System_
             {
                 {
                 &readKeys,
                 &IPTunnelServer_Server,
-                &ETSI004_RECON,
+                &ETSI004,
                 &IPTunnelServer_Client,
                 &MessageHandlerServerTX,
                 &MessageHandlerServerRX,

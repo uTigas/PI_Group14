@@ -71,6 +71,23 @@ public:
 	t_integer numberOfDummyBitsPerBitFillingPeriod{ 0 };
 
 	// 04-2024
+	// KMS
+	t_string sthIpAddress{"127.0.0.1"};
+	t_string kpsIpAddress{"127.0.0.1"};
+	t_integer sthPort{54000};
+	t_integer kpsPort{54001};
+
+	t_string nthIpAddress{"127.0.0.1"};
+	t_string appIpAddress{"127.0.0.1"};
+	t_integer nthPort{54002};
+	t_integer appPort{54003};
+
+	t_string syncAipAddress{"127.0.0.1"};
+	t_string syncBipAddress{"127.0.0.1"};
+	t_integer syncAport{54004};
+	t_integer syncBport{54005};
+
+	t_integer saveType{0};
 	t_integer numKeys{ 50 };
 	std::string etsiSource{ "KMS" };
 	std::string etsiDest{ "KeyProvider" };
@@ -188,6 +205,24 @@ public:
 		addInputParameter("seed", &seed);
 		addInputParameter("numKeys", &numKeys);
 		addInputParameter("provider", &provider);
+
+		addInputParameter("sthIpAddress", &sthIpAddress);
+		addInputParameter("kpsIpAddress", &kpsIpAddress);
+		addInputParameter("sthPort", &sthPort);
+		addInputParameter("kpsPort", &kpsPort);
+
+		addInputParameter("nthIpAddress", &nthIpAddress);
+		addInputParameter("appIpAddress", &appIpAddress);
+		addInputParameter("nthPort", &nthPort);
+		addInputParameter("appPort", &appPort);
+
+		addInputParameter("syncAipAddress", &syncAipAddress);
+		addInputParameter("syncBipAddress", &syncBipAddress);
+		addInputParameter("syncAport", &syncAport);
+		addInputParameter("syncBport", &syncBport);
+
+		addInputParameter("saveType", &saveType);
+		
 	}
 };
 

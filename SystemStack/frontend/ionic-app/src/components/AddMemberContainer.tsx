@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonIcon, IonText } from '@ionic/react';
-import ApiWrapper from './APIWrapper';
+import ApiWrapper from '../support/APIWrapper';
 import { add, mail, mailOutline, warning } from 'ionicons/icons';
 
 interface AddMemberContainerProps {

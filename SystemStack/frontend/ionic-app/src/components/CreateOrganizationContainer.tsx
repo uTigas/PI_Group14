@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
 import axios from 'axios';
-import ApiWrapper from './APIWrapper';
+import ApiWrapper from '../support/APIWrapper';
 
 const CreateOrganizationContainer: React.FC = () => {
   const [name, setName] = useState('');

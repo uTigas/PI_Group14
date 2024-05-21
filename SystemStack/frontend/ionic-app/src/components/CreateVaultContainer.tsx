@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonCheckbox, IonPopover, IonIcon, IonTitle } from '@ionic/react';
-import ApiWrapper from './APIWrapper';
-import Common from './Common';
+import ApiWrapper from '../support/APIWrapper';
+import Common from '../support/Common';
 import { help, helpCircle } from 'ionicons/icons';
 
 interface ChildComponentProps {

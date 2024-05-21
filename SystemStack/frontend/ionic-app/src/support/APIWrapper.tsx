@@ -1,5 +1,6 @@
-import axios from "axios";
-
+import axios, { AxiosResponse } from "axios";
+import UploadComponent from "../components/UploadComponent";
+import { download } from "ionicons/icons";
 
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
@@ -31,26 +32,26 @@ const ApiWrapper = {
 
     fetchOrganizationDetails : async (organizationId : string) => {
       try{
-        return await axios.get(ApiWrapper.backendURI + 'organizations/details?organization=' + organizationId, {withCredentials: true});
+        return await axios.get(ApiWrapper.backendURI + 'organization?organization=' + organizationId, {withCredentials: true});
       } catch (error){
         console.error('Error fetching Organization details', error);
       }
     },
 
     createVault: async (formData : URLSearchParams) => {
-      await axios.post(ApiWrapper.backendURI + "organizations/details/vaults/create", formData, {
+      await axios.post(ApiWrapper.backendURI + "organization-vault/create", formData, {
         withCredentials: true, 
         headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
-      .then(response => console.log(response))
+      .then(response => {})
       .catch(error => console.log(error))
     },
 
     inviteMember: async (formData : URLSearchParams) => {
       try {
-        const response = await axios.post(ApiWrapper.backendURI + "organizations/details/members/invite", formData, {
+        const response = await axios.post(ApiWrapper.backendURI + "organization/members/invite", formData, {
           withCredentials: true, 
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
@@ -63,13 +64,13 @@ const ApiWrapper = {
     },
 
     createOrganization: async (formData:URLSearchParams) => {
-      await axios.post(ApiWrapper.backendURI + "organizations/create", formData, {
+      await axios.post(ApiWrapper.backendURI + "organization/create", formData, {
         withCredentials: true, 
         headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
-      .then(response => console.log(response))
+      .then(response => {})
       .catch(error => console.log(error))
   
     },
@@ -100,9 +101,40 @@ const ApiWrapper = {
 
     createRole: async (formData : URLSearchParams) => {
       try {
-        return await axios.post(ApiWrapper.backendURI + 'organizations/details/role/create', formData, {withCredentials: true});
+        return await axios.post(ApiWrapper.backendURI + 'organization/role/create', formData, {withCredentials: true});
       } catch (error) {
         console.error('Error creating Role', error);
+      }
+    },
+
+    uploadFile : async (formData : FormData,  setProgress: any) => {
+      try {
+      return await axios.post(ApiWrapper.backendURI + 'organization-vault/upload', formData, {
+          withCredentials: true,
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+          onUploadProgress: (progressEvent) => {
+            const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+            setProgress({progress:progress});
+          },
+        });
+
+      } catch (error) {
+        
+      }
+    },
+
+    fetchOrganizationVaultDetails: async (id: string) => {
+      return await axios.get(ApiWrapper.backendURI + `organization-vault?vaultId=${id}`, {withCredentials: true});
+      
+    },
+
+    downloadItem: async (id: string) => {
+      try{
+        return await axios.get(ApiWrapper.backendURI + `organization-vault/fetch?id=${id}`, {responseType: 'blob', withCredentials: true});
+      } catch (error){
+        console.error('Error fetching User Invites', error);
       }
     },
 }

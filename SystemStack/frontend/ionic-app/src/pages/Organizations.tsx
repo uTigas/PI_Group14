@@ -4,7 +4,7 @@ import "./Organizations.css"
 import "./General.css"
 import { checkmark, close, constructOutline, eye } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
-import ApiWrapper from '../components/APIWrapper';
+import ApiWrapper from '../support/APIWrapper';
 import { Route, useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
 

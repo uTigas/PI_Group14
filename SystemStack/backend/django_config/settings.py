@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap4',
     'authentication.apps.AuthenticationConfig',
     'entities.apps.EntitiesConfig',
+    'warehouse.apps.WarehouseConfig'
 ]
 
 MIDDLEWARE = [
@@ -88,9 +89,18 @@ DATABASES = {
         'PASSWORD': 'vault',
         'HOST': '127.0.0.1',
         'PORT': '4444',
+    },
+    'warehouse': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vault',
+        'USER': 'root',
+        'PASSWORD': 'vault',
+        'HOST': '127.0.0.1',
+        'PORT': '4443',
     }
 }
 
+DATABASE_ROUTERS = ['warehouse.routers.WarehouseRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -136,7 +146,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-LOGIN_URL = 'login/'
+LOGIN_URL = 'auth/login/'
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8100',  # Ionic App Address
@@ -145,3 +155,8 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_CREDENTIALS = True # Allow IonicApp to sent Session Cookies with requests
 
 SESSION_COOKIE_HTTPONLY = True  #Prohibit the access to the session via JS
+
+SESSION_COOKIE_AGE = 3600 #Expire Session after 1h
+
+
+FILE_UPLOAD_MAX_MEMORY_SIZE= 20000000 #max of 20MB in memory 

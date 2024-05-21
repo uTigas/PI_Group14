@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './ExploreContainer.css';
-import ApiWrapper from './APIWrapper';
+import ApiWrapper from '../support/APIWrapper';
 
 const JoinUsContainer: React.FC = () => {
   return (

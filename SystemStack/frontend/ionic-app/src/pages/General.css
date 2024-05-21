@@ -14,3 +14,7 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+
+ion-button {
+  text-transform: none;
+ }

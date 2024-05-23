@@ -5,7 +5,7 @@ Repository for the development of 'Projeto de Informática' of Group 14, class o
   - **Reconciliation**: Quantum Reconciliation Application for the PTQCI & partners project [IN PROGRES*S] 
   - **System Stack**: Full-Stack Quantum Data Managment And Share Environment [IN PROGRESS]* 
 
-*Both flows du*e date at *24 June*.
+*Both flows du*e date at *4 June*.
 
 **Project Website** : https://www.sioproject.pt/
 

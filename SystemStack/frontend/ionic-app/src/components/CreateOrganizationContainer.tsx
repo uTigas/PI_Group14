@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonContent, IonInput, IonButton, IonItem, IonLabel, IonTextarea, IonSelect, IonSelectOption, IonList } from '@ionic/react';
 import axios from 'axios';
 import ApiWrapper from '../support/APIWrapper';
 
@@ -26,6 +26,8 @@ const CreateOrganizationContainer: React.FC = () => {
 
   return (
       <form onSubmit={handleSubmit}> 
+      <IonList>
+
           <IonItem>
             <IonLabel position="floating">Name</IonLabel>
             <IonInput
@@ -67,6 +69,7 @@ const CreateOrganizationContainer: React.FC = () => {
             </IonItem>
 
           <IonButton expand="block" type="submit" disabled={!formValid}>Create</IonButton>
+      </IonList>
       </form>
   );
 };

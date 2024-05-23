@@ -303,7 +303,7 @@ def createRole(request):
                 return JsonResponse({"error":"User not allowed to manage members of this organization."}, status=403)
             #Is there a Role with same name?
             if models.Role.objects.filter(organization = organization, role = desiredRole):
-                return JsonResponse({"error":"That role is already created."}, status=403)
+                return JsonResponse({"error":"That role is already created."}, status=409)
 
             with transaction.atomic():
                 models.Role.objects.create(organization=organization, role=desiredRole)
@@ -366,7 +366,8 @@ def updateRole(request):
             return JsonResponse({"error": str(e)}, status=500)
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
-
+    
+@login_required
 def getOrganizationVaultDetails(request):
     if request.method == 'GET':
         try:

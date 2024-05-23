@@ -1,12 +1,13 @@
 import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonIcon, IonInput, IonItem, IonList, IonListHeader, IonPage, IonRow, IonText, IonTitle } from "@ionic/react"
 import { useParams } from "react-router";
-import "./General.css";
+import "../support/General.css";
 import { arrowBack, arrowDown, arrowUpOutline, cloud, cloudOutline, download, fileTray, fileTrayOutline, trashBin } from "ionicons/icons";
 import UploadComponent from "../components/UploadComponent";
 import { useContext, useEffect, useState } from "react";
 import ApiWrapper from "../support/APIWrapper";
 import { UserContext } from "../App";
 import { format } from "date-fns";
+import Common from "../support/Common";
 
 const  OrganizationVault: React.FC = () => {
     const { id: vaultId }  = useParams<{ id: string }>();
@@ -65,15 +66,19 @@ const  OrganizationVault: React.FC = () => {
                     </IonRow>
                     <IonRow>
                         <IonCol>
+
+                        </IonCol>
+                    </IonRow>
+                    <IonRow>
+                        <IonCol>
                             <IonTitle>Members</IonTitle>
                             {members.map((member) => (
                                 <IonCard key={member.username}>
                                     <IonCardHeader>
                                         <IonCardTitle>{member.name}</IonCardTitle>
-                                        <IonCardSubtitle>{member.permissions.map((perm:string) => (<IonText key={perm}>{perm}  </IonText>))}</IonCardSubtitle>
+                                        <IonCardSubtitle>{member.permissions.map((perm:string) => (<IonText key={perm} color={perm == Common.PERMISSIONS.VIEW ?  ("tertiary"):(perm == Common.PERMISSIONS.EDIT ? ("danger"):("success"))}>{perm}   </IonText>))}</IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>
-                                        <IonText>Has access since --</IonText>
                                     </IonCardContent>
                                 </IonCard>
                             ))}

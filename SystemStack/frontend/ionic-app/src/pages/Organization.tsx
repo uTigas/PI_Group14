@@ -1,10 +1,10 @@
-import { IonBackdrop, IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonPopover, IonRouterOutlet, IonRow, IonText, IonTitle } from "@ionic/react";
+import { IonBackdrop, IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonNote, IonPage, IonPopover, IonRouterOutlet, IonRow, IonText, IonTitle } from "@ionic/react";
 import ApiWrapper from "../support/APIWrapper";
 import { Route, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { arrowBack, backspace, enterOutline, eyeOutline, returnDownBack, searchOutline, warning } from "ionicons/icons";
 import CreateVaultContainer from "../components/CreateVaultContainer";
-import "./General.css"
+import "../support/General.css"
 import "./Organizations.css"
 import AddMemberContainer from "../components/AddMemberContainer";
 import Common from "../support/Common";
@@ -28,7 +28,6 @@ const Organization: React.FC = () => {
         try{
         const response = await ApiWrapper.fetchOrganizationDetails(organizationId);
         if (response){
-            console.log(response.data)
             setMembers(response.data.members)
             setVaults(response.data.vaults)
             setRole(response.data.role)

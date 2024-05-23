@@ -1,16 +1,14 @@
 import json
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
 from django.contrib.auth.models import User
+from warehouse.models import Item
 from entities.forms import OrganizationForm, OrganizationVaultForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
-from django.core.serializers import serialize
 
 import entities.models as models
-# Create your views here.
 
 @login_required
 def getOrganizations(request):
@@ -100,14 +98,12 @@ def getOrganizationDetails(request):
                     })
 
                 for rel in groupsRaw + [role]:
-                    print(rel)
                     role = rel.role
                     permissions = models.RoleOrganizationPermission.objects.filter(role=role).values_list('permission', flat=True)
                     roleAllowedVaults = models.RoleVaultPermission.objects.filter(organizationHasVault__organization = organization, role=role, permission=models.Permission.VIEW)
                     specificAllowedVaults = models.MemberPermission.objects.filter(organizationHasVault__organization = organization, member=member, permission=models.Permission.VIEW)
 
                     for v in roleAllowedVaults:
-                        print(v)
                         temp = {
                             "vault": model_to_dict(v.organizationHasVault.vault),
                             "permission": v.permission
@@ -307,7 +303,7 @@ def createRole(request):
                 return JsonResponse({"error":"User not allowed to manage members of this organization."}, status=403)
             #Is there a Role with same name?
             if models.Role.objects.filter(organization = organization, role = desiredRole):
-                return JsonResponse({"error":"That role is already created."}, status=403)
+                return JsonResponse({"error":"That role is already created."}, status=409)
 
             with transaction.atomic():
                 models.Role.objects.create(organization=organization, role=desiredRole)
@@ -371,3 +367,69 @@ def updateRole(request):
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
     
+@login_required
+def getOrganizationVaultDetails(request):
+    if request.method == 'GET':
+        try:
+            members = []
+            organizations = []
+            vaultId = request.GET.get('vaultId')
+            vault = models.OrganizationVault.objects.get(id = vaultId)
+            rawOrganizations = models.OrganizationHasVault.objects.filter(vault = vault)
+            items = Item.objects.filter(vault=vaultId).values("id", "name", "vault", "size", "type", "createdAt", "author")
+            allowedRoles = models.RoleVaultPermission.objects.filter(organizationHasVault__vault = vault)
+            allowedMembers = models.MemberPermission.objects.filter(organizationHasVault__vault = vault)
+            for i in items:
+                author = User.objects.get(username = i["author"])
+                i["author"]={"username": author.username, "fullName": author.get_full_name()}
+            
+            for roleRule in allowedRoles:
+                role = roleRule.role
+                roleMembers = models.MemberHasRole.objects.filter(role = role)
+                for memberRule in roleMembers:
+                    newMember = memberRule.member
+                    inserted = False
+                    for i in range(len(members)):
+                        tempMember = members[i]
+                        if tempMember["username"] == newMember.user.username:
+                            if roleRule.permission in tempMember["permissions"]:
+                                continue
+                            members[i]["permissions"] += [roleRule.permission]
+                            inserted = True
+
+                    if not inserted:
+                        members.append({
+                            "username":newMember.user.username,
+                            "name": newMember.user.get_full_name(),
+                            "permissions": [roleRule.permission]
+                        })
+
+            for allowedMember in allowedMembers:
+                newMember = allowedMember.member
+                inserted = False
+                for i in range(len(members)):
+                    tempMember = members[i]
+                    if tempMember["username"] == newMember.user.username:
+                        if allowedMember.permission in tempMember["permissions"]:
+                            continue
+                        members[i]["permissions"] += [allowedMember.permission]
+                        inserted = True
+
+                if not inserted:
+                    members.append({
+                        "username":newMember.user.username,
+                        "name": newMember.user.get_full_name(),
+                        "permissions": [allowedMember.permission]
+                    })
+
+            for orgRule in rawOrganizations:
+                organizations.append(model_to_dict(orgRule.organization))
+            
+
+            return JsonResponse({"members": members, "organizations": organizations, "items": list(items)}, status = 200)
+        except Item.DoesNotExist:
+            return JsonResponse({"error": "Vault not found"}, status=404)
+        except Exception as e:
+            return JsonResponse({"error": "An error occurred"}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)

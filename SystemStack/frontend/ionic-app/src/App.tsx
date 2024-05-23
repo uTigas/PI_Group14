@@ -47,12 +47,13 @@ import './theme/variables.css';
 import Home from './pages/Home';
 import Organizations from './pages/Organizations';
 import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import AboutUs from './pages/AboutUs';
 import Vault from './pages/Vault';
 import React from 'react';
-import ApiWrapper from './components/APIWrapper';
+import ApiWrapper from './support/APIWrapper';
 import Organization from './pages/Organization';
+import OrganizationVault from './pages/OrganizationVault';
+import "./support/General.css"
 
 export interface User {
   username: string;
@@ -171,6 +172,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/organization/:id">
                       <Organization/>
+                  </Route>
+                  <Route exact path="/organization/vault/:id">
+                      <OrganizationVault />
                   </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>

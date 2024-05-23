@@ -1,12 +1,13 @@
-import { IonBackdrop, IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonPage, IonPopover, IonRouterOutlet, IonRow, IonText, IonTitle } from "@ionic/react";
-import ApiWrapper from "../components/APIWrapper";
-import { Route, useParams } from "react-router-dom";
+import { IonBackdrop, IonBadge, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonNote, IonPage, IonPopover, IonRouterOutlet, IonRow, IonText, IonTitle } from "@ionic/react";
+import ApiWrapper from "../support/APIWrapper";
+import { Route, useHistory, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { arrowBack, backspace, eyeOutline, returnDownBack, searchOutline, warning } from "ionicons/icons";
+import { arrowBack, backspace, enterOutline, eyeOutline, returnDownBack, searchOutline, warning } from "ionicons/icons";
 import CreateVaultContainer from "../components/CreateVaultContainer";
-import "./General.css"
+import "../support/General.css"
+import "./Organizations.css"
 import AddMemberContainer from "../components/AddMemberContainer";
-import Common from "../components/Common";
+import Common from "../support/Common";
 import { format } from "date-fns";
 
 const Organization: React.FC = () => {
@@ -17,6 +18,7 @@ const Organization: React.FC = () => {
     const [newRole, setNewRole] = useState<string>("");
     const [permissions, setPermissions] = useState<any[]>([]);
     const [organization, setOrganization] = useState<any>(null);
+    const history = useHistory();
 
     useEffect(() => {
         fetchOrganization();
@@ -26,7 +28,6 @@ const Organization: React.FC = () => {
         try{
         const response = await ApiWrapper.fetchOrganizationDetails(organizationId);
         if (response){
-            console.log(response.data)
             setMembers(response.data.members)
             setVaults(response.data.vaults)
             setRole(response.data.role)
@@ -53,7 +54,7 @@ const Organization: React.FC = () => {
     }
 
     const handleGoBack = () => {
-        history.back(); 
+        history.goBack(); 
       };
 
     return (
@@ -155,12 +156,13 @@ const Organization: React.FC = () => {
 
                                 {vaults.length !== 0 ? (
                                     vaults.map((item, index) => (
-                                    <IonCard className="card organization-card ion-padding"  style={{width:"100%"}} key={item.vault.id}>
+                                    <IonCard className="card organization-card" key={item.vault.id}>
                                         <IonCardHeader>
                                             <IonCardTitle>{item.vault.name}</IonCardTitle>
                                         </IonCardHeader>
                                         <IonCardContent>
                                             <strong>{item.vault.description}</strong>
+                                            <IonButton className="ion-padding-start" onClick={() => {history.push(`/organization/vault/${item.vault.id}`)}}>Access<IonIcon icon = {enterOutline}></IonIcon></IonButton>
                                         </IonCardContent>
                                     </IonCard>
                                     ))

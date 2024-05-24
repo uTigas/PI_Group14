@@ -8,9 +8,9 @@ saveSymmetricKeys=false
 logValue=false
 //
 txIpAddress=127.0.0.1
-txReceivingPort=54004
+txReceivingPort=54000
 rxIpAddress=127.0.0.1
-rxReceivingPort=54005
+rxReceivingPort=54001
 //
 asciiFileNameTailNumberModulos=1
 //

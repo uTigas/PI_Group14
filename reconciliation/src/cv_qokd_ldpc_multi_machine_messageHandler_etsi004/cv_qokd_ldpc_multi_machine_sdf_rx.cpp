@@ -129,7 +129,7 @@ namespace rx
 //		LoadEtsi004_Rx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
 		LoadAscii LoadAscii_Rx{ {},{&Raw_Rx} };
-		LoadAscii_Rx.setAsciiFileName("rx_raw_new");
+		LoadAscii_Rx.setAsciiFileName("raw_keys/rx_raw_new");
 		LoadAscii_Rx.setAsciiFileNameTailNumber("0");
 		LoadAscii_Rx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 

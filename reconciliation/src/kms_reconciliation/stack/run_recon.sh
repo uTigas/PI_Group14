@@ -1,5 +1,10 @@
+EMULATOR_EXEC="emulator/qkd_emulator"
 RX_EXEC="cv_qokd_ldpc_rx_linux"
 TX_EXEC="cv_qokd_ldpc_tx_linux"
+
+gnome-terminal -- ./"$EMULATOR_EXEC"
+
+sleep 5.5
 
 gnome-terminal -- ./server_tx
 sleep 0.25

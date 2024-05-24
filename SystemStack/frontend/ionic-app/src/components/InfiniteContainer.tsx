@@ -25,11 +25,10 @@ const InfiniteContainer: React.FC<ContainerProps> = ({ items, numItems }) => {
   
   useEffect(() => {
     generateItems();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <IonContent style={{height: "20vh"}} >
+    <IonContent style={{height: "80vh"}} >
       <IonList>
         {displayedItems.map((item, index) => (
           <IonItem key={index}>

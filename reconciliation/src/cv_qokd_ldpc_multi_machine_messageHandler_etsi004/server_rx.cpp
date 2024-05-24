@@ -24,6 +24,8 @@ if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 #define IP_ADDRESS "127.0.0.1"
 #define PORT 51001  // Server listening port
 
+#define RAW_KEY_FOLDERNAME "generated_keys"
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -87,7 +89,7 @@ int main() {
 
         do {
             next_file.str("");
-            next_file << "rx_raw" << file_counter << ".dat";
+            next_file << RAW_KEY_FOLDERNAME << "/" << "rx_raw_new" << file_counter << ".dat";
             std::ifstream next_file_(next_file.str());
             do {
                 std::string next_file_available = next_file_.is_open() ? "ready" : "not_ready";
@@ -109,7 +111,7 @@ int main() {
             } else {
                 if(receivedData == "key") {
                     filename.str("");
-                    filename << "rx_raw" << file_counter << ".dat";
+                    filename << RAW_KEY_FOLDERNAME << "/" << "rx_raw_new" << file_counter << ".dat";
                     std::ifstream file(filename.str());
                     if (!file.is_open()) {
                         std::cerr << "Failed to open file: " << filename.str() << std::endl;

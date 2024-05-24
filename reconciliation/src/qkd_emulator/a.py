@@ -13,6 +13,8 @@ def read_signal(filename: str, type = 'd' ):
 
         return np.array( struct.unpack( type * siz , data ) ) 
 
+print(read_signal("signals/aux2.sgn")[0:10])
+
 sim = read_signal("signals/aux13.sgn")
 clone = read_signal("signals/aux12.sgn")
 
@@ -20,8 +22,8 @@ clone = read_signal("signals/aux12.sgn")
 diffs = sim - clone
 
 # reshape sim and clone to 2xN
-sim = sim.reshape(-1,2)
-clone = clone.reshape(-1,2)
+sim = sim.reshape(-1,2)[1:]
+clone = clone.reshape(-1,2)[1:]
 
 # plot in one figure 'histogram of diffs' and in another 'scatter plot sim and clone'
 fig, ax = plt.subplots(2)

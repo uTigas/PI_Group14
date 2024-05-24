@@ -166,5 +166,16 @@ int main_cv(){
 
 int main(int argc, char* argv[])
 {
-    main_cv();
+    QkdEmulatorInputParameters param = QkdEmulatorInputParameters();
+    param.setInputParametersFileName("input_parameters.txt");
+    param.readSystemInputParameters();
+
+    if(param.keyType == "Binary")
+        main_dv();
+    else if(param.keyType == "Real")
+        main_cv();
+    else
+        printf("Invalid key type\n");
+
+    return 0;
 }

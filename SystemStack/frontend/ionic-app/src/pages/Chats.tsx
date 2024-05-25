@@ -4,31 +4,11 @@ import AppAppBar from '../components/AppAppBar';
 
 import './Chats.css';
 
-import firebase from 'firebase/compat/app';
-import 'firebase/firestore';
-import 'firebase/auth';
 
-import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
-import { addDoc, collection, getFirestore, limit, orderBy, query, serverTimestamp } from 'firebase/firestore';
 import { useRef, useState } from 'react';
 
-firebase.initializeApp({
-  apiKey: "AIzaSyCEehOj0G0N2kNwPiZcydqGuU2bVwMA8Eo",
-  authDomain: "qubechat-c7d77.firebaseapp.com",
-  projectId: "qubechat-c7d77",
-  storageBucket: "qubechat-c7d77.appspot.com",
-  messagingSenderId: "195600294469",
-  appId: "1:195600294469:web:3943a1bece516b5a50792c",
-  measurementId: "G-N0MJT80RP7"
-})
-
-export const auth = getAuth();
-const firestore = getFirestore();
 
 const Chats: React.FC = () => {
-  const [user] = useAuthState(auth);
   const [activeChat, setActiveChat] = useState<string>('chat1');
 
   return (
@@ -37,31 +17,12 @@ const Chats: React.FC = () => {
         <AppAppBar title='Chats' />
       </IonHeader>
       <IonContent>
-        <SignOut />
-        {user ? <ChatRoom activeChat={activeChat} setActiveChat={setActiveChat} /> : <SignIn />}
+        
       </IonContent>
     </IonPage>
   );
 };
 
-function SignIn() {
-  const signInWithGoogle = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
-  };
-
-  return (
-    <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-    </>
-  );
-}
-
-function SignOut() {
-  return auth.currentUser && (
-    <button onClick={() => auth.signOut()}>Sign Out</button>
-  )
-}
 
 interface ChatRoomProps {
   activeChat: string;
@@ -70,30 +31,7 @@ interface ChatRoomProps {
 
 function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
   const dummy = useRef<HTMLSpanElement>(null);
-  const messagesRef = collection(firestore, 'messages');
-  const q = query(messagesRef, orderBy('createdAt'), limit(25));
-
-  const [messages] = useCollectionData(q, { idField: 'id' });
-  const [formValue, setFormValue] = useState('');
-
-  const sendMessage = async (e: React.FormEvent) => {
-    if (formValue === '') { return; }
-    e.preventDefault();
-
-    const { uid, photoURL } = auth.currentUser;
-
-    await addDoc(messagesRef, {
-      text: formValue,
-      createdAt: serverTimestamp(),
-      uid,
-      photoURL
-    })
-
-    setFormValue('');
-    if (dummy.current) {
-      dummy.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  
 
   const contacts = [
     { id: 'chat1', name: 'Alice Johnson', avatar: 'https://i.pravatar.cc/150?img=1' },
@@ -119,7 +57,7 @@ function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
         <IonContent>
           <IonList>
             {contacts.map(contact => (
-              <IonItem key={contact.id} button onClick={() => setActiveChat(contact.id)}>
+              <IonItem key={contact.id} button>
                 <IonAvatar slot="start">
                   <img src={contact.avatar} alt={`Avatar of ${contact.name}`} />
                 </IonAvatar>
@@ -133,14 +71,12 @@ function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
         <IonHeader>
           <IonToolbar>
             <IonTitle>
-              {contacts.find(contact => contact.id === activeChat)?.name}
             </IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent className='ion-padding'>
           <div className='Chat'>
-            {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-            <span ref={dummy}></span>
+            
           </div>
         </IonContent>
         <IonFooter>
@@ -148,10 +84,10 @@ function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
             <IonGrid>
               <IonRow>
                 <IonCol>
-                  <IonInput aria-label="text" onIonInput={(e) => setFormValue((e.target as HTMLInputElement).value)} placeholder='Enter text' value={formValue}></IonInput>
+                  <IonInput aria-label="text" placeholder='Enter text'></IonInput>
                 </IonCol>
                 <IonCol size='auto' className='ion-text-end'>
-                  <IonButton fill='outline' onClick={sendMessage}>Send</IonButton>
+                  <IonButton fill='outline'>Send</IonButton>
                 </IonCol>
               </IonRow>
             </IonGrid>
@@ -164,7 +100,7 @@ function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
 
 function ChatMessage(props: { message: { text: any; uid: any; photoURL: any; }; }) {
   const { text, uid, photoURL } = props.message;
-  const messageClass = uid === auth.currentUser?.uid ? 'sent' : 'received';
+  const messageClass = uid;
 
   return (
     <>

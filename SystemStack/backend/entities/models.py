@@ -72,3 +72,13 @@ class MemberInvite(models.Model):
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
+
+class Statistics(models.Model):
+    id = models.IntegerField(default=1, primary_key=True)
+    size = models.BigIntegerField(default=0)
+    organizations = models.BigIntegerField(default=0)
+    vaults = models.BigIntegerField(default=0)
+    users = models.BigIntegerField(default=0)
+    requests = models.BigIntegerField(default=0)
+    items = models.BigIntegerField(default=0)
+

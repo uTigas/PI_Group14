@@ -1,7 +1,8 @@
 import React, { useState, useContext, useId } from 'react';
-import { AuthContext, URIContext, UserContext } from '../App';
+import { AuthContext, UserContext } from '../App';
 import { IonButton, IonCol, IonGrid, IonIcon, IonItem, IonLabel, IonList, IonPopover, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { cogOutline, contrastOutline, exit, personCircle } from 'ionicons/icons';
+import ApiWrapper from '../support/APIWrapper';
 
 const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
     const logged = useContext(AuthContext);
@@ -47,7 +48,7 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
                                         </IonItem>
 
                                         <IonItem>
-                                            <IonButton size='default' color="danger">
+                                            <IonButton size='default' color="danger" href={ApiWrapper.backendURI + "logout"}>
                                                 <IonIcon icon={exit} />
                                             </IonButton>
                                             <IonLabel className='ion-padding-start'>Logout</IonLabel>
@@ -58,7 +59,7 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
                         </>
                     ) : (
                         <IonCol className="ion-text-end">
-                            <IonButton href={useContext(URIContext) + "login"} color="success">Login</IonButton>
+                            <IonButton href={ApiWrapper.backendURI + "login"} color="success">Login</IonButton>
                         </IonCol>
                     )}
                 </IonRow>

@@ -1,6 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
-import { IonApp, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, setupIonicReact } from '@ionic/react';
+import { IonApp, IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonPopover, IonRouterOutlet, IonRow, IonTabBar, IonTabButton, IonTabs, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { help, home, lockClosed, mail, people } from 'ionicons/icons';
 
@@ -76,61 +76,7 @@ const App: React.FC = () => {
       <AuthContext.Provider value={loggedIn}>
           <IonApp>
             <IonHeader>
-              <IonToolbar>
-                <IonGrid>
-                  <IonRow className="ion-align-items-center">
-                    <IonCol size='auto' className="ion-text-center">
-                      <IonTitle>Organizations</IonTitle>
-                    </IonCol>
-                    {loggedIn && userDetails ? (
-                      <>
-                      <IonCol className='ion-text-end'>
-                        <IonButton id='view-profile' fill="outline" shape='round'>
-                          <IonIcon slot="end" icon={personCircle}></IonIcon>
-                          {userDetails.username}
-                        </IonButton>
-                        <IonPopover trigger='view-profile' triggerAction='click'>
-                          <IonList>
-                            <IonItem>
-                              <IonIcon size='large' icon={personCircle}></IonIcon>
-                            </IonItem>
-                            
-                            <IonItem>
-                              <h6>Welcome, <strong style={{'color':'blue'}}>{userDetails.first_name} {userDetails.last_name}!</strong></h6>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton size='default' color="primary">
-                                <IonIcon icon={contrastOutline}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Change Theme</IonLabel>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton size='default' color="tertiary">
-                                <IonIcon icon={cogOutline}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Change Settings</IonLabel>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton href={ApiWrapper.backendURI + "logout"} size='default' color="danger">
-                                <IonIcon icon={exit}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Logout</IonLabel>
-                            </IonItem>
-                          </IonList>
-                        </IonPopover>
-                      </IonCol>
-                      </>
-                    ) : (
-                      <IonCol className="ion-text-end">
-                        <IonButton href={ApiWrapper.backendURI + "login"} color="success">Login</IonButton>
-                      </IonCol>
-                    )}
-                  </IonRow>
-                </IonGrid>
-              </IonToolbar>
+              <AppAppBar title='Home'/>
             </IonHeader>
             <IonReactRouter>
               <IonTabs>
@@ -149,12 +95,6 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/aboutUs">
                     <AboutUs />
-                  </Route>
-                  <Route exact path="/organization/:id">
-                      <Organization/>
-                  </Route>
-                  <Route exact path="/organization/vault/:id">
-                      <OrganizationVault />
                   </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>

@@ -109,18 +109,17 @@ const ApiWrapper = {
 
     uploadFile : async (formData : FormData,  setProgress: any) => {
       try {
-      return await axios.post(ApiWrapper.backendURI + 'organization-vault/upload', formData, {
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-          onUploadProgress: (progressEvent) => {
-            const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
-            setProgress({progress:progress});
-          },
-        });
-
-      } catch (error) {
+        return await axios.post(ApiWrapper.backendURI + 'vault/upload', formData, {
+            withCredentials: true,
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+            onUploadProgress: (progressEvent) => {
+              const progress = Math.round((progressEvent.loaded / progressEvent.total) * 100);
+              setProgress({progress:progress});
+            },
+          });
+        } catch (error) {
         
       }
     },
@@ -132,9 +131,25 @@ const ApiWrapper = {
 
     downloadItem: async (id: string) => {
       try{
-        return await axios.get(ApiWrapper.backendURI + `organization-vault/fetch?id=${id}`, {responseType: 'blob', withCredentials: true});
+        return await axios.get(ApiWrapper.backendURI + `vault/fetch?id=${id}`, {responseType: 'blob', withCredentials: true});
       } catch (error){
         console.error('Error fetching User Invites', error);
+      }
+    },
+
+    deleteItem:async (formData : FormData) => {
+      try{
+        return await axios.post(ApiWrapper.backendURI + "vault/delete" , formData, {withCredentials: true});
+      } catch (error){
+        console.error('Error deleting Item', error);
+      }
+    },
+
+    renameItem:async (formData : FormData) => {
+      try{
+        return await axios.post(ApiWrapper.backendURI + "vault/update" , formData, {withCredentials: true});
+      } catch (error){
+        console.error('Error deleting Item', error);
       }
     },
 

@@ -1,11 +1,13 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonPage, IonRow, IonText, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonItemDivider, IonLabel, IonList, IonMenu, IonPage, IonRouterOutlet, IonRow, IonSearchbar, IonSplitPane, IonTabs, IonText, IonTitle, IonToolbar } from '@ionic/react';
 import { useEffect, useState } from 'react';
 import "../support/General.css";
-import { checkmark, close, constructOutline } from 'ionicons/icons';
+import { add, addCircle, atCircle, body, briefcase, checkmark, close, constructOutline } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
 import ApiWrapper from '../support/APIWrapper';
-import { useHistory } from 'react-router-dom';
-import { format } from 'date-fns';
+import { Redirect, Route, useHistory } from 'react-router-dom';
+import { IonReactRouter } from '@ionic/react-router';
+import './Organizations.css';
+
 
 const Organizations: React.FC = () => {
   const [organizations, setOrganizations] = useState<any[]>([]);
@@ -58,6 +60,19 @@ const Organizations: React.FC = () => {
     refreshPage();
   };
 
+const [selectedPage, setSelectedPage] = useState('organizations');
+
+  const renderContent = () => {
+    switch (selectedPage) {
+      case 'organizations':
+        return <OrganizationsView />;
+      case 'invites':
+        return <InvitesView />;
+      default:
+        return <OrganizationsView />;
+    }
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -65,78 +80,132 @@ const Organizations: React.FC = () => {
           <IonTitle>Organizations</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="ion-padding">
-        <IonGrid className='grid'>
-          <IonRow>
-            <IonCol sizeMd='4' size='12' className='dashboard-col'>
-              <IonCard>
-                <IonCardHeader>
-                  <img alt="Silhouette of mountains" src="resources/images/hand-shake.png" className="section-image"/>
-                  <IonCardTitle>Pending Invites</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                  {invites.length === 0 ? (
-                    <IonText>No invites available.</IonText>
-                  ) : (
-                    invites.map((invite) => (
-                      <IonCard key={invite.id} className='invite-card'>
-                        <IonCardContent>
-                          <IonText style={{ 'color': 'lightgreen' }}>{invite.inviter}</IonText> invited you to join <IonText style={{ 'color': 'yellow' }}>{invite.organization}</IonText>
-                          <IonButton slot='icon-only' color='success' onClick={() => acceptInvite(invite.id)}>
-                            <IonIcon icon={checkmark} />
-                          </IonButton>
-                          <IonButton slot='icon-only' color='danger' onClick={() => refuseInvite(invite.id)}>
-                            <IonIcon icon={close} />
-                          </IonButton>
-                          <IonText className='detail-text'>{format(new Date(invite.timestamp), "yyyy-MM-dd HH:mm:ss")}</IonText>
-                        </IonCardContent>
-                      </IonCard>
-                    ))
-                  )}
-                </IonCardContent>
-              </IonCard>
-              <IonCard>
-                <IonCardHeader>
-                  <img alt="Silhouette of mountains" src="resources/images/building-construction.png" className="section-image"/>
-                  <IonCardTitle>Create an Organization</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                  <CreateOrganizationContainer />
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-            <IonCol className='dashboard-content'>
-              <IonCard>
-                <IonCardHeader>
-                  <IonCardTitle>Your Organizations</IonCardTitle>
-                </IonCardHeader>
-                <IonCardContent>
-                  {organizations.length !== 0 ? (
-                    organizations.map((item) => (
-                      <IonCard key={item.organization.id} className="organization-card">
-                        <IonCardHeader>
-                          <IonCardTitle>{item.organization.name}</IonCardTitle>
-                          <IonCardSubtitle>{item.membersCount} members</IonCardSubtitle>
-                        </IonCardHeader>
-                        <IonCardContent>
-                          <p>{item.organization.description}</p>
-                          <IonButton size='small' shape='round' onClick={() => handleManageClick(item.organization.id)}>
-                            Manage<IonIcon className="ion-padding-start" icon={constructOutline} />
-                          </IonButton>
-                        </IonCardContent>
-                      </IonCard>
-                    ))
-                  ) : (
-                    <IonText>No organizations found.</IonText>
-                  )}
-                </IonCardContent>
-              </IonCard>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
+      <IonContent>
+        <IonSplitPane when="xs" contentId="main">
+          <IonMenu contentId="main">
+            <IonContent>
+              <IonList lines='full'>
+                <IonItem button onClick={() => setSelectedPage('organizations')}>
+                  <IonLabel><IonIcon icon={briefcase}></IonIcon>&nbsp;Organizations</IonLabel>
+                </IonItem>
+                <IonItem button onClick={() => setSelectedPage('invites')}>
+                  <IonLabel><IonIcon icon={body}></IonIcon>&nbsp;Invites</IonLabel>
+                </IonItem>
+              </IonList>
+            </IonContent>
+          </IonMenu>
+
+          <div className="ion-page" id="main">
+            <IonContent className="ion-padding">
+              {renderContent()}
+            </IonContent>
+          </div>
+        </IonSplitPane>
       </IonContent>
     </IonPage>
   );
 };
+
+const OrganizationsView: React.FC = () => {
+  const [organizations, setOrganizations] = useState<any[]>([]);
+  const history = useHistory();
+
+  useEffect(() => {
+    fetchOrganizations();
+  }, []);
+
+  const refreshPage = async () => {
+    fetchOrganizations();
+  };
+
+  const fetchOrganizations = async () => {
+    try {
+      const response = await ApiWrapper.fetchOrganizations();
+      console.log(response?.data.organizations);
+      setOrganizations(response ? response.data.organizations : []);
+    } catch (error) {
+      console.error('Error fetching User Organizations', error);
+    }
+  };
+
+  const handleManageClick = (organizationId: string) => {
+    history.push(`/organization/${organizationId}`);
+  };
+
+  return (
+  <>
+    <IonCard>
+      <IonCardContent>You don't have any pending invite.</IonCardContent>
+    </IonCard>
+    <IonCard>
+      <IonCardContent>
+        <IonGrid>
+          <IonRow>
+            <IonCol>
+              <IonSearchbar color='' placeholder='Search for organizations...'></IonSearchbar>
+            </IonCol>
+            <IonCol size='auto'>
+              <IonButton className='create-org' color='success'>Add Organization</IonButton>
+            </IonCol>
+          </IonRow>
+          <IonRow>
+          <IonGrid>
+                <IonRow>
+                  <IonCol><IonLabel><h2>Name</h2></IonLabel></IonCol>
+                  <IonCol><IonLabel><h2>Size</h2></IonLabel></IonCol>
+                  <IonCol><IonLabel><h2>Description</h2></IonLabel></IonCol>
+                  <IonCol><IonLabel><h2>Role</h2></IonLabel></IonCol>
+                  <IonCol></IonCol>
+                </IonRow>
+                  {organizations.length !== 0 ? (
+                    organizations.map((item) => (
+                      <>
+                        <IonRow key={item.organization.id}>
+                          <IonCol className='appt_col'>
+                            <IonLabel>{item.organization.name}</IonLabel>
+                          </IonCol>
+                          <IonCol className='appt_col'>
+                            <IonLabel>{item.organization.size}</IonLabel>
+                          </IonCol>
+                          <IonCol className='appt_col'>
+                            <IonLabel>{item.organization.description}</IonLabel>
+                          </IonCol>
+                          <IonCol className='appt_col'>
+                            {item.roles.length !== 0 ? (
+                              item.roles.map((item: any) => (
+                                <IonChip outline={true}>{item.role}</IonChip>
+                              ))) : (
+                              <IonChip>No role</IonChip>
+                            )}
+                          </IonCol>
+                          <IonCol>
+                            <IonButton className='appt_button' size='small' shape='round' onClick={() => handleManageClick(item.organization.id)}>
+                              Manage<IonIcon className="ion-padding-start" icon={constructOutline} />
+                            </IonButton>
+                          </IonCol>
+                        </IonRow>
+                        <IonItemDivider>
+                        </IonItemDivider>
+                      </>
+                    ))
+                  ) : (
+                    <IonText>You don't belong to any organization yet.</IonText>
+                  )}
+          </IonGrid>
+          </IonRow>
+        </IonGrid>
+      </IonCardContent>
+    </IonCard>
+  </>
+  );
+};
+
+const InvitesView: React.FC = () => (
+  <div>
+    <h2>Invites</h2>
+    <p>Invites View Content</p>
+  </div>
+);
+
 
 export default Organizations;

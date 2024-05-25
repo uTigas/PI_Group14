@@ -100,7 +100,7 @@ const App: React.FC = () => {
                 <IonGrid>
                   <IonRow className="ion-align-items-center">
                     <IonCol size='auto' className="ion-text-center">
-                      <IonTitle>Vault</IonTitle>
+                      <IonTitle>Organizations</IonTitle>
                     </IonCol>
                     {loggedIn && userDetails ? (
                       <>

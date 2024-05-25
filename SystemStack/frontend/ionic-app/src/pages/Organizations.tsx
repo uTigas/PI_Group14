@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import "../support/General.css";
 import { add, addCircle, atCircle, body, briefcase, checkmark, close, constructOutline } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
+import AppAppBar from '../components/AppAppBar';
 import ApiWrapper from '../support/APIWrapper';
 import { Redirect, Route, useHistory } from 'react-router-dom';
 import { IonReactRouter } from '@ionic/react-router';

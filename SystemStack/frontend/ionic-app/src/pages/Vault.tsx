@@ -29,6 +29,7 @@ const Vault: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
+        <AppAppBar title='Vault' />
       </IonHeader>
       <IonContent fullscreen>
         <IonRow>

@@ -137,5 +137,13 @@ const ApiWrapper = {
         console.error('Error fetching User Invites', error);
       }
     },
+
+    fetchVaultItems : async() => {
+      try{
+        return await axios.get(ApiWrapper.backendURI + 'vault', {withCredentials: true});
+      } catch (error){
+        console.error('Error fetching Vault Items', error);
+      }
+    },
 }
 export default ApiWrapper;

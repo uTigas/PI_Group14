@@ -16,7 +16,6 @@ class Default_Roles(models.TextChoices):
     ADMIN = 'ADMIN'
     OWNER = 'OWNER'
 
-
 class Role(models.Model):
     role = models.CharField(max_length=30)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
@@ -29,10 +28,6 @@ class Member(models.Model):
 class MemberHasRole(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
-
-class Vault(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=300)
 
 class OrganizationVault(models.Model):
     name = models.CharField(max_length=50)

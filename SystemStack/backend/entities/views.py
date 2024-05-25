@@ -434,3 +434,15 @@ def getOrganizationVaultDetails(request):
             return JsonResponse({"error": "An error occurred"}, status=500)
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@login_required
+def getVaultItems(request):
+    if request.method == 'GET':
+        try:
+            items = Item.objects.filter(owner = request.user)
+        except  models.OrganizationVault.DoesNotExist:
+            return JsonResponse({"error": "Vault not found"}, status=404)
+        except Exception as e:
+            return JsonResponse({"error": "An error occurred"}, status=500)   
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)

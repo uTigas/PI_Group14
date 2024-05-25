@@ -39,5 +39,6 @@ urlpatterns = [
     path('organization-vault/upload', war_views.uploadFile, name ="organization-vault/upload"),
     path('organization-vault/fetch', war_views.getFile, name ="organization-vault/fetch"),
     path('organization-vault', ent_views.getOrganizationVaultDetails, name ="organization-vault"),
+    path('vault', ent_views.getVaultItems, name ="vault"),
 
 ]

@@ -20,13 +20,14 @@ def getOrganizations(request):
             for member in members:
                 rolesRaw = models.MemberHasRole.objects.filter(member = member)
                 roles = []
-                
+                num_members = models.Member.objects.filter(organization = member.organization).count()
                 for role in rolesRaw:
                     roles.append(model_to_dict(role.role))
 
                 organizations.append({
                     "organization": model_to_dict(member.organization),
-                    "roles": roles
+                    "roles": roles,
+                    "members": num_members,
                 })
             return JsonResponse({"organizations":  organizations}, status=200)
         except User.DoesNotExist:

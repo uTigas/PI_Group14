@@ -1,4 +1,3 @@
-
 .content{
     margin-top: 50px;
 }
@@ -20,36 +19,7 @@ ion-button {
   text-transform: none;
 }
 
-:root{
-
-  --black: #040303ff;
-  --dark-slate-gray: #3a4e48ff;
-  --gray: #6a7b76ff;
-  --alabaster: #f3efe2ff;
-  --tang-blue: #1A3575;
-}
-
-ion-content {
-}
-
-ion-card-header {
-  margin-bottom: 5%;
-}
-
-ion-card{
-  border:  4px solid var(--gray);
-
-}
-
-.detail-text{
-  font-size: medium;
-  color: white;
-  font-style: italic;
-}
-
-.section-image{
-  height: 250px;
-  object-fit: cover;
-  width: 100%;
-  object-position: 50% 35%;
+ion-card {
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }

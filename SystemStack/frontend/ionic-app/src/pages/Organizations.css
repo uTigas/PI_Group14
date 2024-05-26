@@ -1,14 +1,18 @@
-.card {
-    width: 70%;
+ion-split-pane {
+  --side-width: 350px;
+  --side-max-width: 350px;
 }
 
-.centered {
+.create-org {
+    padding-top: 8px;
+}
+
+.appt_button {
+    float: right;
+}
+
+.appt_col {
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    align-items: center;
 }
-
-.organizations-card {
-    height: 10px;
-    width: 100%;
-}
-

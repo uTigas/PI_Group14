@@ -96,7 +96,7 @@ const  OrganizationVault: React.FC = () => {
                                 <IonCard key={item.id}>
                                     <IonCardHeader>
                                         <IonCardTitle>{item.name}</IonCardTitle>
-                                        <IonCardSubtitle>Last Change {item.author.fullName} at {format(item.createdAt, "dd-MM-yyyy")} </IonCardSubtitle>
+                                        <IonCardSubtitle>Last Change {item.author.fullName} at {format(item.createdAt, "dd-MM-yyyy HH:MM")} </IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>
                                         <IonText>{item.size/1000}kb</IonText>

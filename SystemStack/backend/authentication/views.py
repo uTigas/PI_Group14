@@ -5,8 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
-from django.core import serializers
-
+from entities.models import Statistics
 
 def check_authentication(request):
     if request.user.is_authenticated:
@@ -20,6 +19,9 @@ def register(response):
         form = RegisterForm(response.POST)
         if form.is_valid():
             form.save()
+            statistics = Statistics.objects.get(id = 1)
+            statistics.users += 1
+            statistics.save()
             return redirect('/login')
             
     return render(response, "register/register.html", {"form":form})

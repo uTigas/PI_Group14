@@ -1,3 +1,7 @@
 dependencies/
 venv/
 env/
+
+*.sgn
+*.dat
+*.o

@@ -1,0 +1,145 @@
+\section{QPSK Transmitter}
+
+This system simulates a QPSK transmitter. A schematic representation of this system is shown in figure \ref{QPSK_transmitter_block_diagram_simple}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{figures/qpsk_transmitter.pdf}
+	\caption{QPSK transmitter block diagram}\label{QPSK_transmitter_block_diagram_simple}
+\end{figure}
+
+\subsection*{Functional description}
+
+This block generates an optical signal (output signal 1 in figure \ref{MQAM_transmitter_block_diagram}). The binary signal generated in the internal block Binary Source (block B1 in figure \ref{MQAM_transmitter_block_diagram}) can be used to perform a Bit Error Rate (BER) measurement and in that sense it works as an extra output signal (output signal 2 in figure \ref{MQAM_transmitter_block_diagram}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{figures/MQAM_transmitter_block_diagram}
+	\caption{Schematic representation of the block MQAM transmitter.}\label{MQAM_transmitter_block_diagram}
+\end{figure}
+
+\subsection*{Input parameters}
+
+This block has a special set of functions that allow the user to change the basic configuration of the transmitter. The list of input parameters, functions used to change them and the values that each one can take are summarized in table \ref{table}.
+
+\begin{table}[h]
+\begin{center}
+	\begin{tabular}{| m{3,5cm} | m{5,1cm} |  m{2,5cm} | m{4cm} | }
+		\hline
+		\textbf{Input parameters} & \textbf{Function} & Type & \textbf{Accepted values} \\ \hline
+		Mode & setMode() & string & PseudoRandom \newline Random \newline DeterministicAppendZeros \newline DeterministicCyclic \\ \hline
+		Number of bits generated & setNumberOfBits() & int & Any integer\\ \hline
+		Pattern length & setPatternLength() & int & Real number greater than zero\\ \hline
+		Number of bits & setNumberOfBits() & long & Integer number greater than zero\\ \hline
+		Number of samples per symbol & setNumberOfSamplesPerSymbol() & int & Integer number of the type $2^n$ with n also integer\\ \hline
+		Roll of factor & setRollOfFactor() & double & $\in$ [0,1] \\ \hline
+		IQ amplitudes & setIqAmplitudes() & Vector of coordinate points in the I-Q plane & \textbf{Example} for a 4-qam mapping: \{ \{ 1.0, 1.0 \}, \{ -1.0, 1.0 \}, \{ -1.0, -1.0 \}, \{ 1.0, -1.0 \} \} \\ \hline
+		Output optical power & setOutputOpticalPower() & int & Real number greater than zero\\ \hline
+		Save internal signals & setSaveInternalSignals() & bool & True or False\\
+		\hline
+	\end{tabular}
+	\caption{List of input parameters of the block MQAM transmitter} \label{table}
+\end{center}
+\end{table}
+
+%\begin{itemize}
+%	\item setMode(PseudoRandom);
+%	\item setBitPeriod(1.0/50e9);
+%	\linebreak (double)
+%	\item setPatternLength(3);
+%	\linebreak (int)
+%	\item setNumberOfBits(10000);
+%	\linebreak (long)
+%	\item setNumberOfSamplesPerSymbol(32);
+%	\linebreak (int)
+%	\item setRollOffFactor(0.9);
+%	\linebreak (double $\in$ [0,1])
+%	\item setIqAmplitudes(\{ \{ 1, 1 \}, \{ -1, 1 \}, \{ -1, -1 \}, \{ 1, -1 \} \});
+%	\item setOutputOpticalPower\_dBm(0);
+%	\item setSaveInternalSignals(true);
+%\end{itemize}
+
+\pagebreak
+
+\subsection*{Methods}
+
+MQamTransmitter(vector$<$Signal *$>$ \&inputSignal, vector$<$Signal *$>$ \&outputSignal); (\textbf{constructor})
+\bigbreak
+
+void set(int opt);
+\bigbreak
+void setMode(BinarySourceMode m)
+\bigbreak
+BinarySourceMode const getMode(void)
+\bigbreak
+void setProbabilityOfZero(double pZero)
+\bigbreak
+double const getProbabilityOfZero(void)
+\bigbreak
+void setBitStream(string bStream)
+\bigbreak
+string const getBitStream(void)
+\bigbreak
+void setNumberOfBits(long int nOfBits)
+\bigbreak
+long int const getNumberOfBits(void)
+\bigbreak
+void setPatternLength(int pLength)
+\bigbreak
+int const getPatternLength(void)
+\bigbreak
+void setBitPeriod(double bPeriod)
+\bigbreak
+double const getBitPeriod(void)
+\bigbreak
+void setM(int mValue)
+int const getM(void)
+\bigbreak
+void setIqAmplitudes(vector$<$t\textunderscore iqValues$>$ iqAmplitudesValues)
+\bigbreak
+vector$<$t\textunderscore iqValues$>$ const getIqAmplitudes(void)
+\bigbreak
+void setNumberOfSamplesPerSymbol(int n)
+\bigbreak
+int const getNumberOfSamplesPerSymbol(void)
+\bigbreak
+void setRollOffFactor(double rOffFactor)
+\bigbreak
+double const getRollOffFactor(void)
+\bigbreak
+void setSeeBeginningOfImpulseResponse(bool sBeginningOfImpulseResponse)
+\bigbreak
+double const getSeeBeginningOfImpulseResponse(void)
+\bigbreak
+void setOutputOpticalPower(t\textunderscore real outOpticalPower)
+\bigbreak
+t\textunderscore real const getOutputOpticalPower(void)
+\bigbreak
+void setOutputOpticalPower\_dBm(t\_real outOpticalPower\_dBm)
+\bigbreak
+t\_real const getOutputOpticalPower\_dBm(void)
+\pagebreak
+
+\subsection*{Output Signals}
+
+\subparagraph*{Number:} 1 optical and 1 binary (optional)
+
+\subparagraph*{Type:} Optical signal
+
+\subsection*{Example}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/BinarySource_output}
+	\caption{Example of the binary sequence generated by this block for a sequence 0100...}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/IQmodulator0_output}
+	\caption{Example of the output optical signal generated by this block for a sequence 0100...}
+\end{figure}
+
+\subsection*{Sugestions for future improvement}
+
+Add to the system another block similar to this one in order to generate two optical signals with perpendicular polarizations. This would allow to combine the two optical signals and generate an optical signal with any type of polarization.

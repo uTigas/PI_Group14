@@ -1,0 +1,163 @@
+% document class -------------------------------------------
+\documentclass[11pt,oneside,openright]{phdthesis}
+% ----------------------------------------------------------
+
+\usepackage{float}
+\usepackage[linkcolor=black]{hyperref}
+\usepackage[sorting=none, backend=biber]{biblatex}
+\usepackage[T1]{fontenc}
+
+% graphicx -----------------------------------------------------------------------------------
+% The graphicx package allows to specify several paths in which to search for figures.
+\usepackage{graphicx}
+% --------------------------------------------------------------------------------------------
+
+%\usepackage{amsmath}
+%
+%
+%\usepackage[ansinew]{inputenc}
+%%\usepackage[portuguese]{babel}
+%\usepackage[printonlyused, withpage]{acronym}
+%\usepackage{a4wide}
+%\usepackage{palatino}
+%\usepackage{fancyhdr}
+%\usepackage{fancybox}
+%\usepackage{amssymb}
+%
+%% biblatex ------------------------------------------------------------------------------------------
+%% used to divide the bibliography into multiple parts for example per chapter or per section
+%\usepackage[sorting=none, backend=biber]{biblatex}
+%% ---------------------------------------------------------------------------------------------------
+%
+%
+%\usepackage{epsfig}
+%\usepackage{graphics}
+%
+%\usepackage{here}
+%\usepackage{rotating}
+%\usepackage{multirow}
+%%\usepackage{comment}
+%%\usepackage{captionhack}
+%\usepackage{epigraph}
+%\usepackage[linkcolor=black]{hyperref}
+%%\renewcommand{\thesubfigure}{}
+%\hypersetup{colorlinks=true}
+%\usepackage{enumerate}
+%%\usepackage[numbers,sort&compress]{natbib}
+%%\usepackage{hypernat}
+%\usepackage{booktabs}
+%\usepackage{url}                    % needed to cite a site
+%\usepackage{eurosym}
+%\usepackage{makeidx}
+%\usepackage{datatool}
+%\usepackage[toc, acronym]{glossaries}
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+%
+%\usepackage{longtable}				% Multi-page tables
+%\usepackage{tabulary}
+%\usepackage{braket}
+%
+%% subfile handling packages
+%\usepackage{subfiles}
+%
+%% For box
+%\usepackage{multicol}
+%\usepackage{tcolorbox}
+%\usepackage{booktabs}
+%
+%% For flow chart
+%\usepackage{tikz}
+%\usetikzlibrary{shapes,arrows}
+%
+%\usepackage{epstopdf}
+%\usepackage{listings}
+%\usepackage{color}
+%\usepackage{textcomp,xcolor}
+%
+%\usepackage{mathrsfs}
+%
+%
+%% amsfonts ------------------------------------------------------------------------------------------
+%% Provides symbols for the number sets (prime, natural, integer, rational, real and complex) in LaTeX
+%\usepackage{amsfonts}
+%% ---------------------------------------------------------------------------------------------------
+
+
+\graphicspath{
+    {./figures/}
+    }
+
+\addbibresource{git_helper.bib}
+
+%
+%% my definitions -------------------------------------------
+%\include{./style/my_definitions}
+%% ----------------------------------------------------------
+%
+%% my packages ----------------------------------------------
+%\include{./style/my_packages}
+%% ----------------------------------------------------------
+%
+%% my bib files ---------------------------------------------my
+%
+%
+%\include{./style/my_bib_files}
+%% ----------------------------------------------------------
+%
+%% my commands ----------------------------------------------
+%\include{./style/my_commands}
+%% ----------------------------------------------------------
+%
+% index ----------------------------------------------------
+\makeindex
+% ----------------------------------------------------------
+
+\begin{document}
+
+% title -----------------------------------------------------
+\title{Git Helper \\ (document under construction)}
+\author{Armando Nolasco Pinto}
+\date{\today}
+\maketitle
+
+
+% table of contents -----------------------------------------
+\tableofcontents
+% -----------------------------------------------------------
+
+% -----------------------------------------------------------
+%
+%% table of contents -----------------------------------------
+%\tableofcontents
+%% -----------------------------------------------------------
+
+% chapters --------------------------------------------------
+%\include{chapter/preface}
+%\include{chapter/introduction}
+%\include{chapter/simulator_structure/simulator_structure}
+%\include{chapter/development_cycle}
+%\include{chapter/visualizer}
+%\include{chapter/case_studies}
+%\include{chapter/library}
+%\include{chapter/mtools}
+%\include{chapter/algorithms}
+%\include{chapter/code_development_guidelines}
+%\include{chapter/msbuild}
+\include{git_helper}
+%\include{chapter/ghdl}
+% -----------------------------------------------------------
+
+\pagebreak
+
+% -----------------------------------------------------------
+%\bibliographystyle{ieeetr}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{../../../Computadores/Bibtex/IEEEabrv,../../../Computadores/Bibtex/AnpBib}
+% -----------------------------------------------------------
+
+
+%\printglossaries
+
+\end{document}

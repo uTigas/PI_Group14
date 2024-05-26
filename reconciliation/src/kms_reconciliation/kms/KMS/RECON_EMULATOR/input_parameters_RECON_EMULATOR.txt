@@ -1,0 +1,9 @@
+//------------INPUTPARAMETERS-------------
+//
+//--------GENERAL CONFIGURATION-------
+keyType=1 //0:symetric, 1:oblivious
+fileType=1 //0:ascii, 1:b64
+cntFirstVal=0
+txFileName=obl_tx
+rxFileName=obl_rx
+seed=0

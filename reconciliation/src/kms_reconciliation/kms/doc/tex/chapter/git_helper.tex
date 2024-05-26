@@ -1,0 +1,169 @@
+% ------------------------------------------------------------------------
+\chapter{Git Helper}
+
+Git creates and maintains a database that store versions of a repository, i.e. versions of a folder.
+To create this database for a specific folder the Git application must be installed in the computer and after open the Git console and go the specific folder and execute the following command: \textbf{git init}.
+The Git database is stored in the folder \emph{.git} in the root of your repository.
+
+\section{Data Model}
+
+To understand Git is fundamental to understand the Git data model.
+Git stores the following objects:
+
+\begin{itemize}
+    \item[\textbullet] {commits - text files that store a description of the repository;}
+    \item[\textbullet] {trees - text files that store a description of a folder;}
+    \item[\textbullet] {blobs - the files that exist in your repository;}
+\end{itemize}
+
+The objects are stored in the folder \emph{.git/objects}. Each store object is identified by its SHA1 hash message, i.e. 20 bytes which identifies unequivocally the object. Note that 20 bytes can be represented by a 40 characters hexadecimal string. The ID of each object is the 40 characters hexadecimal string. Note that Git is creating a new object every time a file or a folder is changed. The Git database store all committed versions of a file.
+
+A commit object is identified by a SHA1 message, and has the following information: a pointer for tree (the root of your repository), a pointer for the previous commit, the author of the commit, the committer and a commit message.\\
+%
+Example of a commit file contend:\\
+\\
+tree 2c04e4bad1e2bcc0223239e65c0e6e822bba4f16\\
+parent bd3c8f6fed39a601c29c5d101789aaa1dab0f3cd\\
+author NetXPTO <netxpto@gmail.com> 1514997058 +0000\\
+committer NetXPTO <netxpto@gmail.com> 1514997058 +0000\\
+\\
+2018-01-03, after meeting Daniel\\
+
+A tree object is identified by a SHA1 message, and has a list of blobs and trees that are inside that tree.\\
+\\
+Example of a tree file contend:\\
+\\
+\begin{tabular}{l l l l}
+100644 & blob & bdb0cabc87cf50106df6e15097dff816c8c3eb34 &   .gitattributes\\
+100644 & blob & 50492188dc6e12112a42de3e691246dafdad645b &   .gitignore\\
+100644 & blob & 8f564c4b3e95add1a43e839de8adbfd1ceccf811 &   bfg-1.12.16.jar\\
+040000 & tree & de44b36d96548240d98cb946298f94901b5f5a05 &   doc\\
+040000 & tree & 8b7147dbfdc026c78fee129d9075b0f6b17893be &   garbage\\
+040000 & tree & bdfcd8ef2786ee5f0f188fc04d9b2c24d00d2e92 &   include\\
+040000 & tree & 040373bd71b8fe2fe08c3a154cada841b3e411fb &   lib\\
+040000 & tree & 7a5fce17545e55d2faa3fc3ab36e75ed47d7bc02 &   msbuild\\
+040000 & tree & b86efba0767e0fac1a23373aaf95884a47c495c5 &   mtools\\
+040000 & tree & 1f981ea3a52bccf1cb00d7cb6dfdc687f33242ea &   references\\
+040000 & tree & 86d462afd7485038cc916b62d7cbfc2a41e8cf47 &   sdf\\
+040000 & tree & 13bfce10b78764b24c1e3dfbd0b10bc6c35f2f7b &   things\_to\_do\\
+040000 & tree & 232612b8a5338ea71ab6a583d477d41f17ebae32 &  visualizerXPTO\\
+040000 & tree & 1e5ee96669358032a4a960513d5f5635c7a23a90 &   work\_in\_progress\\
+\end{tabular}
+\\
+A blob is identified by a SHA1 message, and has the file contend compressed.\\
+
+\section{Database Folders and Files}
+
+\subsection{Objects Folder}
+
+Git stores the database and the associated information in a set of folders and files inside the the folder \emph{.git} in the root of your repository.
+
+The folder \emph{.git/objects} stores information about all objects (commits, trees and blobs).
+The objects are stored in files inside folders.
+The name of the folders are the 2 first characters of the SHA1 40 characters hexadecimal string.
+The name of the files are the other 38 hexadecimal characters of the SHA1.
+The information is compressed to save same space but it can be access using some applications.
+
+\subsection{Refs Folder}
+
+The \emph{refs} folder has the following folders \emph{refs/heads},.
+
+\subsubsection{Heads Folder}
+The \emph{refs/heads} folder has information about all branches.
+Each branch is associated with a text file, the name of the file is the name of the branch.
+The file has inside the hash of the commit pointed by that branch.
+
+
+\section{Commands}
+
+\textbf{git branch}
+git branch --set-upstream-to=<remote>/<branch> Develop.Nelson
+
+\textbf{git cat-file}
+git cat-file -t <hash>
+
+shows the type of the objects
+
+git cat-file -p <hash>
+
+shows the contend of the object
+
+\textbf{git clone}
+
+\textbf{git diff}
+
+show the changes with relation to the previous commit.
+
+\textbf{git fecth -all}
+
+\textbf{git init}
+
+\textbf{git log}
+
+shows a list of commits from reverse time order (goes back on time), i.e. shows the history of your repository. The history of a repository can be represented by a directed acyclic graph (dag for short), pointing in the forward direction in time.
+
+options
+
+--graph
+
+ shows a graphical representation of the repository commits history.
+
+\textbf{git show}
+
+Shows what is new in the last commit.
+
+\textbf{git status}
+
+\section{The Configuration Files}
+
+There is a config file for each repository that is stored in the \emph{.git/} folder with the name \emph{config}.\\
+\\
+There is a config file for each user that is stored in the \emph{c:/users/<user name>/} folder with the name \emph{.gitconfig}.\\
+\\
+To open the \emph{c:/users/<user name>/.gitconfig} file type:\\
+\\
+\textbf{git config --global -e}
+
+\section{Applications}
+
+\subsection{Meld}
+
+%# --------------------------------------D I F F -----------------------------
+%
+%[diff]
+%    guitool = meld
+%
+%[difftool "meld"]
+%    cmd = \"C:/Program Files (x86)/Meld/Meld.exe\" \"$LOCAL\" \"$REMOTE\" --label \"DIFF (ORIGINAL MY)\"
+%	
+%# --------------------------------------M E R G E -----------------------------
+%
+%[merge]
+%    tool = meld
+%
+%[mergetool "meld"]
+%    cmd = \"C:/Program Files (x86)/Meld/Meld.exe\" --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output \"$MERGED\" --label \"MERGE (REMOTE BASE MY)\"
+%    trustExitCode = false
+%
+%[mergetool]
+%    # don't ask if we want to skip merge
+%    prompt = false
+%
+%    # don't create backup *.orig files
+%    keepBackup = false
+
+\subsection{GitKraken}
+
+\section{Error Messages}
+
+\subsection{Large files detected}
+
+Clean the repository with the \href{https://rtyley.github.io/bfg-repo-cleaner}{BFG Repo-Cleaner}.\\
+\\
+Run the Java program:\\
+
+java -jar bfg-1.12.16.jar \texttt{-{}-}strip-blobs-bigger-than 100M\\
+\\
+This program is going to remote from your repository all files larger than 100MBytes. After do:\\
+
+git push \texttt{-{}-}force.

@@ -1,0 +1,18 @@
+
+% ------------------------------------------------------------------------
+\chapter{Git Helper}
+
+
+\section{Error Messages}
+
+\subsection{Large files detected}
+
+Clean the repository with the \href{https://rtyley.github.io/bfg-repo-cleaner}{BFG Repo-Cleaner}.\\
+\\
+Run the Java program:\\
+
+java -jar bfg-1.12.16.jar --strip-blobs-bigger-than 100M\\
+\\
+This program is going to remote from your repository all files larger than 100MBytes. After do:\\
+
+git push --force.

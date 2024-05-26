@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  addressdb:
+    image: postgres:latest
+    container_name: postgres_container
+    ports:
+      - "${POSTGRES_PORT_ADDRESS:-5432}:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_ADDRESS}
+      POSTGRES_USER: ${POSTGRES_USER_ADDRESS}
+      POSTGRES_DB: ${POSTGRES_DB_ADDRESS}
+    networks:
+      - qkd_net
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  qkdserver1:
+    build: .
+    container_name: qkdserver_container_1
+    ports:
+      - "${QKD_PORT_1:-8080}:8080"
+    environment:
+      QKD_PORT: ${QKD_PORT_1}
+      QKD_PIN: ${QKD_PIN_1}
+      POSTGRES_PASSWORD_ADDRESS: ${POSTGRES_PASSWORD_ADDRESS}
+      POSTGRES_USER_ADDRESS: ${POSTGRES_USER_ADDRESS}
+      POSTGRES_DB_ADDRESS: ${POSTGRES_DB_ADDRESS}
+      POSTGRES_PORT_ADDRESS: ${POSTGRES_PORT_ADDRESS}
+    networks:
+      - qkd_net
+    depends_on:
+      - addressdb
+
+  qkdserver2:
+    build: .
+    container_name: qkdserver_container_2
+    ports:
+      - "${QKD_PORT_2:-8081}:8080"
+    environment:
+      QKD_PORT: ${QKD_PORT_2}
+      QKD_PIN: ${QKD_PIN_2}
+      POSTGRES_PASSWORD_ADDRESS: ${POSTGRES_PASSWORD_ADDRESS}
+      POSTGRES_USER_ADDRESS: ${POSTGRES_USER_ADDRESS}
+      POSTGRES_DB_ADDRESS: ${POSTGRES_DB_ADDRESS}
+      POSTGRES_PORT_ADDRESS: ${POSTGRES_PORT_ADDRESS}
+    networks:
+      - qkd_net
+    depends_on:
+      - addressdb
+
+networks:
+  qkd_net:
+    driver: bridge
+
+
+volumes:
+  pgdata:

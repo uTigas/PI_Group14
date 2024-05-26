@@ -1,0 +1,80 @@
+\newcommand{\onlyinsubfile}[1]{#1}
+\newcommand{\notinsubfile}[1]{}
+\renewcommand{\textfraction}{0.01}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\floatpagefraction}{0.99}
+\renewcommand{\bottomfraction}{0.99}
+\renewcommand{\heavyrulewidth}{1pt}
+\renewcommand{\lightrulewidth}{0.50pt}
+\renewcommand{\chaptername}{Chapter}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\appendixname}{\Large{Anex}}
+\renewcommand{\tablename}{Table}
+\renewcommand{\acronymname}{Acronimous}
+
+\newcommand{\mli}[1]{\mathit{#1}}
+\newcommand{\intSpace}{\!\!\!\!}
+\newcommand{\doubleInt}{\!\!\int\intSpace\int\!\!}
+\newcommand{\TX}{\mathit{TX}}
+\newcommand{\NLI}{\mathit{NLI}}
+\newcommand{\eff}{\mathit{eff}}
+\newcommand{\LOASE}{\mathit{LO-ASE}}
+\newcommand{\LONLI}{\mathit{LO-NLI}}
+
+
+%\makesavenoteenv{tabular}
+
+
+
+\hyphenpenalty=50000
+\tolerance=10000
+%%% General page formatting
+
+\oddsidemargin 0.2in
+\evensidemargin 0in
+%\textwidth 155mm
+\headheight 15.0pt
+\topmargin 0in
+%\textheight 237mm
+
+% footheight 1.0in
+
+\makeatletter
+\providecommand*{\diff}%
+{\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+\mathop{\mathrm{\mathstrut d}}%
+\nolimits^{#1}\gobblespace}
+\def\gobblespace{%
+\futurelet\diffarg\opspace}
+\def\opspace{%
+\let\DiffSpace\!%
+\ifx\diffarg(%
+\let\DiffSpace\relax
+\else
+\ifx\diffarg[%
+\let\DiffSpace\relax
+\else
+\ifx\diffarg\{%
+\let\DiffSpace\relax
+\fi\fi\fi\DiffSpace}
+
+\providecommand*{\tDeriv}[3][]{%
+\frac{\diff^{#1}#2}{\diff #3^{#1}}}
+\providecommand*{\pDeriv}[3][]{%
+\frac{\partial^{#1}#2}%
+{\partial #3^{#1}}}
+
+\graphicspath{{./figures/}{./sdf/bpsk_system/figures/}{./sdf/cv_system/figures/}}
+
+
+\DeclareMathOperator{\erf}{erf}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\sinc}{sinc}
+\DeclareMathOperator{\R}{Re}
+\DeclareMathOperator{\I}{Im}
+\DeclareMathOperator{\asinh}{asinh}
+
+%\newcommand{\publ}{}
+
+\pagenumbering{arabic} 

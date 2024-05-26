@@ -22,6 +22,8 @@ if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
 #define IP_ADDRESS "127.0.0.1"
 #define PORT 51000  // Server port
 
+#define RAW_KEY_FOLDERNAME "raw_keys"
+
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -90,7 +92,7 @@ int main() {
             break;
         } else if(OperatingSystem == 1) { // Linux
             filename.str("");
-            filename << "tx_raw_generating" << file_counter << ".dat";;
+            filename << RAW_KEY_FOLDERNAME << "/" << "tx_raw_new" << file_counter << ".dat";;
             std::cout << "File: " << filename.str() << std::endl;
             std::ofstream file(filename.str());
             end_of_key_exchange = false;
@@ -117,7 +119,7 @@ int main() {
             return 1;
         }
         renamed_filename.str("");
-        renamed_filename << "tx_raw_new" << file_counter << ".dat";
+        renamed_filename << RAW_KEY_FOLDERNAME << "/" << "tx_raw_new" << file_counter << ".dat";
         rename(filename.str().c_str(),renamed_filename.str().c_str());
         file_counter++;
     } while (ask_key_message != "exit");

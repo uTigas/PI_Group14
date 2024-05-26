@@ -4,7 +4,7 @@
 #include "load_etsi_004_20200819.h"
 #include "dv_qkd_ldpc_tx_parameter_estimation_20200819.h"
 #include "cv_qokd_ldpc_tx_sindrome_reconciliation_20200819.h"
-#include "save_ascii_20200819.h"
+#include "save_ascii_2024.h"
 #include "dv_qkd_ldpc_tx_message_processor_transmitter_20200819.h"
 #include "ip_tunnel_ms_windows_20200819.h"
 #include "dv_qkd_ldpc_tx_message_processor_receiver_20200819.h"
@@ -17,6 +17,7 @@
 #include "dv_qkd_polarization_physical_layer_20200819.h"
 #include "cv_qokd_ldpc_rx_20200819.h"
 
+#include "convert_b64.h"
 
 namespace rx
 {
@@ -128,7 +129,7 @@ namespace rx
 //		LoadEtsi004_Rx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
 		LoadAscii LoadAscii_Rx{ {},{&Raw_Rx} };
-		LoadAscii_Rx.setAsciiFileName("rx_raw_new");
+		LoadAscii_Rx.setAsciiFileName("raw_keys/rx_raw_new");
 		LoadAscii_Rx.setAsciiFileNameTailNumber("0");
 		LoadAscii_Rx.setAsciiFileNameTailNumberModulos(param.asciiFileNameTailNumberModulos);
 
@@ -166,10 +167,25 @@ namespace rx
 		CvQokdLdpcRxSindromeReconciliation_Rx.setHashLength(param.hashLength);
 		CvQokdLdpcRxSindromeReconciliation_Rx.setKeyType(param.keyType);
 
+		/*
 		SaveAscii SaveAscii_Rx{ {&Key_Rx}, {} };
 		SaveAscii_Rx.setAsciiFileName("rx_key");
 		SaveAscii_Rx.setAsciiFileNameTailNumber("0");
 		SaveAscii_Rx.setAsciiFileNameTailNumberModulos(0);
+		*/
+
+		Binary Key_base64RX{"b64_RX_key.sgn", 36, hType, sWriteMode};
+
+		SaveAscii SaveAscii_Rx{ {&Key_base64RX}, {} };
+		SaveAscii_Rx.setFile_type(1);
+		SaveAscii_Rx.setAsciiFolderName("../generated_keys_RX");
+		SaveAscii_Rx.setAsciiFileName("sym_rx");
+		SaveAscii_Rx.setAsciiFileNameTailNumber("0");
+		SaveAscii_Rx.setAsciiFileNameExtension("b64");
+		SaveAscii_Rx.setAsciiFileNameTailNumberModulos(0);
+
+		Binary _{"_.sgn", 36, hType, sWriteMode};
+        ConvertB64 b64_converter{{&Key_Rx, &_},{&Key_base64RX, &_}};
 
 		DvQkdLdpcTxMessageProcessorTransmitter DvQkdLdpcTxMessageProcessorTransmitter_Rx{ {&BasesAckToRx_Rx, &DvQkdLdpcTxParameterEstimation_SeedToRx_Rx, &DvQkdLdpcTxParameterEstimation_RatioToRx_Rx, &DvQkdLdpcTxParameterEstimation_NumberOfBitsPerEstimationBlock_Rx, &DvQkdLdpcTxParameterEstimation_DataToRx_Rx,  &SindromeToTx_Rx, &HashToTx_Rx}, {&MessagesToTx_Rx} };
 
@@ -231,6 +247,7 @@ namespace rx
 			&DvQkdLdpcTxMessageProcessorReceiver_Rx,
 			&DvQkdLdpcRxParameterEstimation_Rx,
 			&CvQokdLdpcRxSindromeReconciliation_Rx,
+			&b64_converter,
 			&SaveAscii_Rx,
 			&DvQkdLdpcTxMessageProcessorTransmitter_Rx,
 			&IPTunnel_Client_Rx,

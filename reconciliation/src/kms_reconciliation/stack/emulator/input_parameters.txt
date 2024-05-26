@@ -1,0 +1,9 @@
+keyType=Binary
+fileType=ASCII
+counterFirstValue=0
+counterLastValue=25 
+txFilesName=tx_raw_new
+rxFilesName=rx_raw_new
+numberOfValuesPerFile=1024
+qber=0.4
+seed=123456789

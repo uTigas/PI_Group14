@@ -1,0 +1,123 @@
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\usepackage{xcolor}
+
+
+\usepackage[ansinew]{inputenc}
+%\usepackage[portuguese]{babel}
+\usepackage[printonlyused, withpage]{acronym}
+\usepackage{a4wide}
+\usepackage{palatino}
+\usepackage{fancyhdr}
+\usepackage{fancybox}
+\usepackage{amssymb}
+
+\usepackage{amsthm}
+ \theoremstyle{definition}
+ \newtheorem{definition}{Definition}[section]
+
+% biblatex ------------------------------------------------------------------------------------------
+% used to divide the bibliography into multiple parts for example per chapter or per section
+\usepackage[sorting=none, backend=biber]{biblatex}
+% ---------------------------------------------------------------------------------------------------
+
+%\usepackage{chapterbib} %com este package as referencias bibliográficas aparecem no final de cada capítulo
+%\usepackage{cite}
+\usepackage{epsfig}
+%\usepackage{subfigure}
+\usepackage{graphics}
+\usepackage{float}                   % figures place here [H]
+\usepackage{here}
+\usepackage[T1]{fontenc}
+\usepackage{rotating}
+\usepackage{multirow}
+%\usepackage{comment}
+%\usepackage{captionhack}
+\usepackage{epigraph}
+\usepackage[linkcolor=black]{hyperref}
+%\renewcommand{\thesubfigure}{}
+\hypersetup{colorlinks=true}
+\usepackage{enumerate}
+\usepackage{enumitem}
+%\usepackage[numbers,sort&compress]{natbib}
+%\usepackage{hypernat}
+\usepackage{booktabs}
+\usepackage{url}                    % needed to cite a site
+\usepackage{eurosym}
+\usepackage{makeidx}
+\usepackage{datatool}
+\usepackage[toc, acronym]{glossaries}
+
+% graphicx -----------------------------------------------------------------------------------
+% The graphicx package allows to specify several paths in which to search for figures.
+\usepackage{graphicx}
+% --------------------------------------------------------------------------------------------
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{longtable}				% Multi-page tables
+\usepackage{tabulary}
+\usepackage{braket}
+
+% subfile handling packages
+\usepackage{subfiles}
+
+% For box
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+
+% For flow chart
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric,arrows}
+\tikzstyle{standard} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, text width=3cm, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\usepackage{epstopdf}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp,xcolor}
+
+\usepackage{mathrsfs}
+
+
+% amsfonts %------------------------------------------------------------------------------------------
+% Provides symbols for the number sets (prime, natural, %integer, rational, real and complex) in LaTeX
+\usepackage{amsfonts}
+%---------------------------------------------------------------------------------------------------
+%allows horizontal adjustments on the sections
+\usepackage{changepage}
+%--------------------------------------------------------------------------------------------------
+%For plots with bounds
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+
+%--------------------------------------------------------------------
+%allows colorful script to the c++ codes
+\usepackage{listings}
+\usepackage{color}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=c++,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\scriptsize\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+%--------------------------------------------------------------------

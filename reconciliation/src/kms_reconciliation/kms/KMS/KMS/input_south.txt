@@ -1,0 +1,30 @@
+//------------INPUTPARAMETERS-------------
+//
+//--------SOUTH CONFIGURATION-------
+verboseMode=true
+txIpAddress=127.0.0.1
+txReceivingPort=54001
+rxIpAddress=127.0.0.1
+rxReceivingPort=54000
+// Type of the files to save (0-ASCII, 1-B64)
+fileType=1
+//
+//---------ETSI CONFIGURATION---------
+//
+etsiSource=KMS
+etsiDest=Key_Provider
+// Number of keys to request
+numKeys=600
+// Type of keys requested (0 - Symmetric, 1 - Oblivious)
+keyType=1
+// Size of the keys requested (n elements of given type, i.e 50 base64 chars)
+keyChunkSize=50
+//
+// NOT USED YET
+maxBps=0
+minBps=0
+jitter=0
+priority=0
+timeout=0
+ttl=0
+metaMimetype=JSON

@@ -5,5 +5,5 @@ counterLastValue=MAX_INT
 txFilesName=bin_tx_
 rxFilesName=bin_rx_
 numberOfValuesPerFile=1024
-qber=40
+qber=0.4
 seed=123456789

@@ -12,12 +12,12 @@ CRYPTOFLAGS=-L/usr/lib/ -lcryptopp -lpthread
 all: qkd_emulator
 
 # we define 'DEPS' and '_OBJ' variables to avoid repeation (section 2.4 at https://www.gnu.org/software/make/manual/make.html#Phony-Targets)
-DEPS = load_ascii_20200819.h save_ascii_20200819.h binary_source_20200819.h netxpto_20200819.h add_20200819.h ms_windows_console_output_common_20200819.h
+DEPS = load_ascii_20200819.h save_ascii_20200819.h binary_source_20200819.h netxpto_20200819.h add_20200819.h ms_windows_console_output_common_20200819.h m_qam_mapper_20200819.h real_to_complex_20200819.h white_noise_20200819.h clone.h
 
 # 'patsubst' is a function that modifies the file name (section 8.2 at https://www.gnu.org/software/make/manual/make.html#Phony-Targets)
 DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
 
-_OBJ = qkd_emulator.o load_ascii_20200819.o save_ascii_20200819.o binary_source_20200819.o netxpto_20200819.o add_20200819.o ms_windows_console_output_common_20200819.o
+_OBJ = qkd_emulator.o load_ascii_20200819.o save_ascii_20200819.o binary_source_20200819.o netxpto_20200819.o add_20200819.o ms_windows_console_output_common_20200819.o m_qam_mapper_20200819.o real_to_complex_20200819.o white_noise_20200819.o clone.o
 
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
@@ -33,7 +33,7 @@ $(OBJDIR)/qkd_emulator.o: qkd_emulator.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 qkd_emulator: $(OBJ) 
-	$(CC) $(CFLAGS) -o $@ $^ $(CRYPTOFLAGS)
+	$(CC) $(CFLAGS) -o $@ $^ $(CRYPTOFLAGS) -g -O0
 
 #create a directory named 'obj', if required, before creating the objects (section 4.3 at https://www.gnu.org/software/make/manual/make.html#Bugs)
 $(OBJ): | $(OBJDIR)

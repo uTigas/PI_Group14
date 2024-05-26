@@ -1,0 +1,134 @@
+
+% ------------------------------------------------------------------------
+\chapter{Development Cycle}
+
+The NetXPTO-LinkPlanner is a open source project implemented using ISO C++.
+ISO C++ should be strictly followed in order to increase the portability of the code.
+
+When Visual Studio compiler is used it is recommend to use the \emph{Conformance Mode: /permissive-}, to assure a strick agreement with the ISO C++ standards.
+
+The initial implementation of NetXPTO, September 2016, followed ISO C++14.
+
+The current implementation of NetXPTO, August 2020, follows ISO C++17.
+
+The Git has been used as the version control system.
+
+The NetXPTO-LinkPlanner repository is located in the GitHub site http://github.com/netxpto/linkplanner.
+Master branch should be considered a functional beta version of the software.
+Periodically new releases are delivered from the master branch under the branch name R<Release Year>-<Release Number>.
+The design and integration of the system has been performed by Prof. Armando Nolasco Pinto.
+
+\section{R2020-1}
+
+\begin{enumerate}
+    \item {The \emph{using} was not used anymore with unnamed classes.
+        Instead unnamed classes were replaced by named classes.
+        This change was based on Visual Studio 2019 \href{https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/c5208?view=vs-2019}{Compiler Warning (level 1) C5208 and Error C7626} and on C++ standards committee proposal \href{http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2019/p1766r1.html}{P1766R1};}
+\end{enumerate}
+
+\section{Ubuntu Implementation}
+
+Using the executable code in windows on linux, some errors and warnings arise.
+
+The compilation problems found will be presented below, sorted by priority.
+
+\subsection{Organization of Templates} 
+
+The implementation of the templates it must be instantiated in the header file (.h) but with some care to be taken in the source code (.cpp), as it is necessary to make a specific declaration of the model.
+In order for the compiler to generate the code, it must see both the template definition (not just declaration) and the specific types/whatever used to "fill in" the template.
+
+If we use the normal implementation of header file and source file, where you put declarations in .h and method definitions in .cpp, and we compile and link the files, it will generate linker errors.The solution is to explicitly instantiate all forms of this model that will be used in this file, as shown in the following example.
+\newline
+TestClass1.h:
+This file contains the class with one template function. It does not contain the template defintion, only the declaration. 
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.5\textwidth]{./sdf/dv_qokd/figures/TesteClass1h.png}
+	\caption{TestClass1.h}
+	\label{fig:message}
+\end{figure}
+
+TestClass1.cpp:
+This is where the template is defined, and at the bottom, instanciated explicitly for the types we're going to use in the code.
+
+\begin{figure}[h]
+	\centering\includegraphics[width=1\textwidth]{./sdf/dv_qokd/figures/TesteClass1cpp.png}
+	\caption{TestClass1.cpp}
+	\label{fig:message}
+\end{figure}
+
+\vspace{4cm}
+
+TestClass2.h:
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.4\textwidth]{./sdf/dv_qokd/figures/TesteClass2h.png}
+	\caption{TestClass2.h}
+	\label{fig:message}
+\end{figure}
+
+TestClass2.cpp:
+
+\begin{figure}[h]
+	\centering\includegraphics[width=0.6\textwidth]{./sdf/dv_qokd/figures/TesteClass2cpp.png}
+	\caption{TestClass2.cpp}
+	\label{fig:message}
+\end{figure}
+
+main.cpp:
+\begin{figure}[h]
+	\centering\includegraphics[width=0.6\textwidth]{./sdf/dv_qokd/figures/main.png}
+	\caption{main.cpp}
+	\label{fig:message}
+\end{figure}
+
+
+
+\subsection{Compilation Problems} 
+On Ubuntu 18.04 LTS with version c++17.
+
+Function netxpto\_linux\_20190816.cpp
+
+\begin{enumerate}	
+	\item \textbf{warning:} comparison of integer expressions of different signedness: 'int' and 'std::vector<std::complex<double> >::size\_type' \{aka 'long unsigned int'\} [-Wsign-compare]
+	2104 |  for (int i = 0; \textbf{i != vec.size();} ++i)
+\end{enumerate}
+
+Header File netxpto\_linux\_20190816.h:
+
+\begin{enumerate}
+	\item \textbf{warning:} 'Signal::fileName' will be initialized after [-Wreorder]
+	361 |  std::string \textbf{fileName}\{ "" \};
+	
+	\item \textbf{warning:} narrowing conversion of 'bLength' from 't\_unsigned\_long' \{aka 'long unsigned int'\} to 't\_unsigned' \{aka 'unsigned int'\} [-Wnarrowing]
+	249 |  explicit Signal(std::string fileName, t\_unsigned\_long bLength) : fileName\{ fileName \}, bufferLength\{ \textbf{bLength} \}, saveSignal\{ true \} \{\};
+	
+	\item \textbf{warning:} 'Signal::folderName' will be initialized after [-Wreorder]
+	362 |  std::string \textbf{folderName}\{ "signals" \};
+	
+	\item \textbf{warning:} deleting 'void*' is undefined [-Wdelete-incomplete]
+	255 |  virtual ~Signal() \{ if ( buffer != nullptr ) \{ delete(buffer); \} \}
+	
+	\item \textbf{warning:}	'bool Signal::saveSignal' [-Wreorder]
+	354 |  bool \textbf{saveSignal}\{ false \};
+	
+	\item \textbf{warning:} when initialized here [-Wreorder]
+	248 |  explicit \textbf{Signal}(std::string fileName) : fileName\{ fileName \}, saveSignal\{ true \} {};
+	
+	\item \textbf{warning:} when initialized here [-Wreorder]
+	249 |  explicit Signal(std::string fileName, t\_unsigned\_long bLength) : fileName\{ fileName \}, bufferLength\{ \textbf{bLength} \}, saveSignal\{ true \} \{\};
+	
+	\item \textbf{warning:} 'Signal::folderName' will be initialized after [-Wreorder]
+	362 |  std::string \textbf{folderName}\{ "signals" \};        // folder where signals are going to be saved by default
+	
+	\item \textbf{warning:} 'const t\_unsigned Signal::bufferLength' [-Wreorder]
+	348 |  const t\_unsigned \textbf{bufferLength}\{ DEFAULT\_BUFFER\_LENGTH \};  // Buffer length
+	
+	\item \textbf{warning:} when initialized here [-Wreorder]
+	250 |  explicit \textbf{Signal}(std::string fileName, std::string folderName) : fileName\{ fileName \}, folderName\{ folderName \}, saveSignal\{ true \} \{\}
+	
+	\item \textbf{warning:} narrowing conversion of 'bLength' from 't\_unsigned\_long' \{aka 'long unsigned int'\} to 't\_unsigned' \{aka 'unsigned int'\} [-Wnarrowing]
+	252 |  explicit Signal(t\_unsigned\_long bLength) : bufferLength\{ \textbf{bLength} \} \{\};
+	
+\end{enumerate}
+

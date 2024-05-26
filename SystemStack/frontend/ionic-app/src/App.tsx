@@ -1,29 +1,9 @@
 import { Redirect, Route } from 'react-router-dom';
-import {
-  IonApp,
-  IonButtons,
-  IonAvatar,
-  IonButton,
-  IonCol,
-  IonGrid,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonPopover,
-  IonRouterOutlet,
-  IonRow,
-  IonTabBar,
-  IonTabButton,
-  IonTabs,
-  IonText,
-  IonTitle,
-  IonToolbar,
-  setupIonicReact
-} from '@ionic/react';
+import { useContext, useEffect, useState } from 'react';
+import { IonApp, IonButton, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonLabel, IonList, IonPage, IonPopover, IonRouterOutlet, IonRow, IonTabBar, IonTabButton, IonTabs, IonToolbar, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { cogOutline, contrastOutline, ellipse, exit, help, home, lockClosed, mail, people, person, personCircle, personCircleOutline, square, triangle } from 'ionicons/icons';
+import { help, home, lockClosed, mail, people } from 'ionicons/icons';
+
 import Chats from './pages/Chats';
 
 /* Core CSS required for Ionic components to work properly */
@@ -46,10 +26,10 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Home from './pages/Home';
 import Organizations from './pages/Organizations';
-import { useContext, useEffect, useState } from 'react';
 import AboutUs from './pages/AboutUs';
 import Vault from './pages/Vault';
 import React from 'react';
+import AppAppBar from './components/AppAppBar';
 import ApiWrapper from './support/APIWrapper';
 import Organization from './pages/Organization';
 import OrganizationVault from './pages/OrganizationVault';
@@ -71,7 +51,7 @@ setupIonicReact();
 const App: React.FC = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [userDetails, setUserDetails] = useState<User | null>(null);
-  
+
   const checkAuthentication = async () => {
     const response = await ApiWrapper.checkAuthentication()
     if (response){
@@ -89,69 +69,12 @@ const App: React.FC = () => {
 
   useEffect(() => {
     checkAuthentication();
-  }, []); 
+  }, []);
 
   return (
     <UserContext.Provider value={userDetails}>
       <AuthContext.Provider value={loggedIn}>
           <IonApp>
-            <IonHeader>
-              <IonToolbar>
-                <IonGrid>
-                  <IonRow className="ion-align-items-center">
-                    <IonCol size='auto' className="ion-text-center">
-                      <IonTitle>Vault</IonTitle>
-                    </IonCol>
-                    {loggedIn && userDetails ? (
-                      <>
-                      <IonCol className='ion-text-end'>
-                        <IonButton id='view-profile' fill="outline" shape='round'>
-                          <IonIcon slot="end" icon={personCircle}></IonIcon>
-                          {userDetails.username}
-                        </IonButton>
-                        <IonPopover trigger='view-profile' triggerAction='click'>
-                          <IonList>
-                            <IonItem>
-                              <IonIcon size='large' icon={personCircle}></IonIcon>
-                            </IonItem>
-                            
-                            <IonItem>
-                              <h6>Welcome, <strong style={{'color':'blue'}}>{userDetails.first_name} {userDetails.last_name}!</strong></h6>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton size='default' color="primary">
-                                <IonIcon icon={contrastOutline}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Change Theme</IonLabel>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton size='default' color="tertiary">
-                                <IonIcon icon={cogOutline}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Change Settings</IonLabel>
-                            </IonItem>
-
-                            <IonItem>
-                              <IonButton href={ApiWrapper.backendURI + "logout"} size='default' color="danger">
-                                <IonIcon icon={exit}/>
-                              </IonButton>
-                              <IonLabel className='ion-padding-start'>Logout</IonLabel>
-                            </IonItem>
-                          </IonList>
-                        </IonPopover>
-                      </IonCol>
-                      </>
-                    ) : (
-                      <IonCol className="ion-text-end">
-                        <IonButton href={ApiWrapper.backendURI + "login"} color="success">Login</IonButton>
-                      </IonCol>
-                    )}
-                  </IonRow>
-                </IonGrid>
-              </IonToolbar>
-            </IonHeader>
             <IonReactRouter>
               <IonTabs>
                 <IonRouterOutlet>
@@ -160,6 +83,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/organizations">
                     <Organizations />
+                  </Route>
+                  <Route exact path="/organization/:id">
+                    <Organization />
                   </Route>
                   <Route exact path="/vault">
                     <Vault/>
@@ -170,19 +96,13 @@ const App: React.FC = () => {
                   <Route exact path="/aboutUs">
                     <AboutUs />
                   </Route>
-                  <Route exact path="/organization/:id">
-                      <Organization/>
-                  </Route>
-                  <Route exact path="/organization/vault/:id">
-                      <OrganizationVault />
-                  </Route>
                   <Route exact path="/">
                     <Redirect to='/home'></Redirect>
                   </Route>
                 </IonRouterOutlet>
-                {loggedIn ?(
+                {loggedIn ? (
                   <IonTabBar slot="bottom">
-                  <IonTabButton tab="home" href="/home" >
+                    <IonTabButton tab="home" href="/home" >
                       <IonIcon aria-hidden="true" icon={home} />
                       <IonLabel>Homepage</IonLabel>
                     </IonTabButton>
@@ -199,9 +119,9 @@ const App: React.FC = () => {
                       <IonLabel>Chats</IonLabel>
                     </IonTabButton>
                   </IonTabBar>
-                ):(
+                ) : (
                   <IonTabBar slot="bottom">
-                  <IonTabButton tab="home" href="/home">
+                    <IonTabButton tab="home" href="/home">
                       <IonIcon aria-hidden="true" icon={home} />
                       <IonLabel>Homepage</IonLabel>
                     </IonTabButton>
@@ -213,7 +133,7 @@ const App: React.FC = () => {
                 )}
               </IonTabs>
             </IonReactRouter>
-          </IonApp>
+        </IonApp>
       </AuthContext.Provider>
     </UserContext.Provider>
   );

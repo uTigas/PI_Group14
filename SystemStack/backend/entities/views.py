@@ -10,6 +10,12 @@ from django.db import transaction
 
 import entities.models as models
 
+def getStatistics(request):
+    stats = models.Statistics.objects.filter(id = 1).first()
+    if not stats:
+        stats = models.Statistics.objects.create(id = 1)
+    return JsonResponse(model_to_dict(stats), status =  200) 
+
 @login_required
 def getOrganizations(request):
     if request.method == 'GET':
@@ -57,7 +63,9 @@ def createOrganization(request):
                     models.RoleOrganizationPermission.objects.create(role = ownerRole, permission=models.Permission.CREATE_VAULTS)
                     models.RoleOrganizationPermission.objects.create(role = ownerRole, permission=models.Permission.MANAGE_MEMBERS)
                     models.RoleOrganizationPermission.objects.create(role = ownerRole, permission=models.Permission.MANAGE_ORGANIZATION)
-
+                    statistics = models.Statistics.objects.get(id = 1)
+                    statistics.organizations += 1
+                    statistics.save()
                 return HttpResponse(status=200)
             else:
                 return JsonResponse({'error': form.errors}, status=400)
@@ -173,7 +181,9 @@ def createOrganizationVault(request):
                             models.RoleVaultPermission.objects.create(role=ownerRole, organizationHasVault = organizationHasVault, permission= perm[0])
                             models.MemberPermission.objects.create(member=member, organizationHasVault = organizationHasVault, permission= perm[0])
 
-                
+                    statistics = models.Statistics.objects.get(id = 1)
+                    statistics.vaults += 1
+                    statistics.save()
 
                     return HttpResponse(status=200)
                 else:
@@ -432,5 +442,18 @@ def getOrganizationVaultDetails(request):
             return JsonResponse({"error": "Vault not found"}, status=404)
         except Exception as e:
             return JsonResponse({"error": "An error occurred"}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@login_required
+def getVaultItems(request):
+    if request.method == 'GET':
+        try:
+            items = Item.objects.filter(vault=request.user).values("id", "name", "size", "type", "createdAt")
+            return JsonResponse({"items": list(items)}, status = 200)
+        except  models.OrganizationVault.DoesNotExist:
+            return JsonResponse({"error": "Vault not found"}, status=404)
+        except Exception as e:
+            return JsonResponse({"error": "An error occurred"}, status=500)   
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)

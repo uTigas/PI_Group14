@@ -68,7 +68,7 @@ const Organization: React.FC = () => {
                 <IonGrid className='grid'>
                     <IonRow>
                         <IonCol>
-                            <IonButton onClick={() => handleGoBack()} shape="round" fill="outline" size="small" color={"secondary"}>
+                            <IonButton onClick={() => handleGoBack()} shape="round" size="small" color={"warning"}>
                                 <IonIcon icon={arrowBack} size="large"></IonIcon>
                                 Return
                             </IonButton>

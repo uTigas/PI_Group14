@@ -1,10 +1,10 @@
-from fastapi import FastAPI
-from Crypto.Cipher import AES
+from fastapi import FastAPI , Request , Depends
 from contextlib import asynccontextmanager
 import requests
 from addressDB import *
 from reconInt import *
 from util import *
+from msg import *
 
 PIN = None
 
@@ -17,25 +17,24 @@ async def lifespan(app: FastAPI):
     yield
     disconnect_from_db()
 
-
 app = FastAPI(lifespan=lifespan)
-@app.get("/key/{tx_id}/{rx_id}/{tx_challenge}")
-def get_key(tx_id: str, rx_id: str, tx_challenge: str):
 
-    # check if the user exists in the registry
-    if tx_id not in userRegistry:
-        return {"error": "User not found"}
-    
-    # encrypt rx_id with tx_id's key and check if it matches tx_challenge
-    key = userRegistry[tx_id]
-    cipher = AES.new(key.encode(), AES.MODE_ECB)
-    encrypted_rx_id = str(cipher.encrypt(rx_id.encode()).hex())
-    if encrypted_rx_id != tx_challenge:
-        return {"error": "Invalid challenge"}
-    
+async def get_request_body(request: Request):
+    return await request.body()
+
+@app.post("/keys/{tx_id}")
+def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
+    try:
+        msg = GetKeyMsg(body,tx_id)
+        tx_id, rx_id = msg.loads()
+    except InvalidMsg:
+        return {"error": "Invalid message"}
+    except NoTxId:
+        return {"error": "No Tx ID found"}
+        
     address = get_address(rx_id)
     if address is None:
-        return {"error": "Address not found"}
+        return {"error": "No Rx ID address found"}
 
     if get_key_cache(tx_id, rx_id) == "generating":
         return {"error": "Key is being generated"}
@@ -46,9 +45,10 @@ def get_key(tx_id: str, rx_id: str, tx_challenge: str):
     store_key_cache(tx_id, rx_id, "generating")
 
     tried_keys = []
-    for i in range(5):
-        key_file , key_file_name = get_key_file()
-        response = requests.post(address[0] + "/reconn", data={"tx_id": tx_id, "rx_id": rx_id, "desired_key": key_file})
+    for _ in range(5):
+        key_file , key_file_name = get_key_file(tried_keys)
+        reconn_msg = ReconnMsg.construct(tx_id, rx_id, key_file)
+        response = requests.post(address[0] + "/recon", headers={"Content-Type": "application/json"}, data=str(reconn_msg))
 
         if response.status_code == 200:
             break
@@ -57,41 +57,60 @@ def get_key(tx_id: str, rx_id: str, tx_challenge: str):
             remove_key_file(key_file_name)
 
     if response.status_code != 200:
-        return {"error": "Failed to establish connection"}
+        return {"error": "Failed to establish consensus"}
     
-    # open the key file and return the key encrypted with tx_id's key
     key = open_key_file(key_file_name)
-    cipher = AES.new(userRegistry[tx_id].encode(), AES.MODE_ECB)
-    encrypted_key = cipher.encrypt(key)
-
     remove_key_file(key_file_name)
-
-    store_key_cache(tx_id, rx_id, encrypted_key.hex())
+    store_key_cache(tx_id, rx_id, key.encode())
 
     return {"status": "Success"}
 
-@app.post("/reconn")
-def reconn(tx_id: str, rx_id: str, desired_key: int):
-    if rx_id not in userRegistry:
-        return {"error": "User not found"}
+@app.post("/recon")
+def reconn(body: bytes = Depends(get_request_body)):
+    try:
+        msg = ReconnMsg(body)
+        tx_id, rx_id, desired_key = msg.loads()
+    except InvalidMsg:
+        return {"error": "Invalid message"}
     
-    exist , file_key = exists_key_file(desired_key)
+    if rx_id not in userRegistry:
+        return {"error": "No Tx ID found"}
+    
+    exist , key_file_name = exists_key_file(desired_key)
     if not exist:
         return {"error": "Key not found"}
     
-    key = open_key_file(file_key)
-    cipher = AES.new(userRegistry[rx_id].encode(), AES.MODE_ECB)
-    encrypted_key = cipher.encrypt(key)
-
-    remove_key_file(file_key)
-
-    store_key_cache(tx_id, rx_id, encrypted_key.hex())
+    key = open_key_file(key_file_name)
+    remove_key_file(key_file_name)
+    store_key_cache(tx_id, rx_id, key.encode())
 
     return {"status": "Success"}
 
-   
+@app.get("/keys")
+def get_keys(body: bytes = Depends(get_request_body)):
+    try:
+        msg = GetKeysMsg(body)
+        tx_id = msg.loads()
+    except InvalidMsg:
+        return {"error": "Invalid message"}
+    except NoTxId:
+        return {"error": "No Tx ID found"}
     
+    keys = get_keys_from_tx_id(tx_id)
+    temp = ReturnKeysMsg.construct(tx_id, keys)
+
+    return temp.encrypt()
+
+@app.post("/users")
+def register_user(body: bytes = Depends(get_request_body)):
+    try:
+        msg = RegisterUserMsg(body,"self")
+        user, key = msg.loads()
+    except InvalidMsg:
+        return {"error": "Invalid message"}
+    try:
+        store_user_registry(user, key)
+    except ValueError:
+        return {"error": "Key must be 16, 24 or 32 bytes long"}
     
-
-
-
+    return {"status": "Success"}

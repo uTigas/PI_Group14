@@ -16,7 +16,6 @@ class Default_Roles(models.TextChoices):
     ADMIN = 'ADMIN'
     OWNER = 'OWNER'
 
-
 class Role(models.Model):
     role = models.CharField(max_length=30)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
@@ -29,10 +28,6 @@ class Member(models.Model):
 class MemberHasRole(models.Model):
     member = models.ForeignKey(Member, on_delete=models.CASCADE)
     role = models.ForeignKey(Role, on_delete=models.CASCADE)
-
-class Vault(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=300)
 
 class OrganizationVault(models.Model):
     name = models.CharField(max_length=50)
@@ -77,3 +72,13 @@ class MemberInvite(models.Model):
     role = models.ForeignKey(Role, on_delete=models.SET_NULL, null=True)
     timestamp = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
+
+class Statistics(models.Model):
+    id = models.IntegerField(default=1, primary_key=True)
+    size = models.BigIntegerField(default=0)
+    organizations = models.BigIntegerField(default=0)
+    vaults = models.BigIntegerField(default=0)
+    users = models.BigIntegerField(default=0)
+    requests = models.BigIntegerField(default=0)
+    items = models.BigIntegerField(default=0)
+

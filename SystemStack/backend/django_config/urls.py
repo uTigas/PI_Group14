@@ -36,8 +36,12 @@ urlpatterns = [
     path('user/invites/accept', ent_views.acceptInvite, name ="user/invites/accept"),
     path('user/invites/refuse', ent_views.refuseInvite, name ="user/invites/refuse"),
     path('organization/role/create', ent_views.createRole, name ="organization/role/create"),
-    path('organization-vault/upload', war_views.uploadFile, name ="organization-vault/upload"),
-    path('organization-vault/fetch', war_views.getFile, name ="organization-vault/fetch"),
+    path('vault/upload', war_views.uploadFile, name ="vault/upload"),
+    path('vault/fetch', war_views.getFile, name ="vault/fetch"),
+    path('vault/update', war_views.renameFile, name ="vault/update"),
+    path('vault/delete', war_views.deleteFile, name ="vault/delete"),
     path('organization-vault', ent_views.getOrganizationVaultDetails, name ="organization-vault"),
+    path('vault', ent_views.getVaultItems, name ="vault"),
+    path('stats', ent_views.getStatistics, name ="stats"),
 
 ]

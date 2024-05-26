@@ -4,7 +4,7 @@ from entities.models import OrganizationVault
 
 class Item(models.Model):
     author = models.CharField(max_length=50)
-    vault = models.IntegerField()
+    vault = models.CharField()
     name = models.CharField(max_length=50)
     file = models.FileField(upload_to='items/')
     size = models.IntegerField()

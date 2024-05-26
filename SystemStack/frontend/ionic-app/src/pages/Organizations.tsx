@@ -1,7 +1,8 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonItemDivider, IonLabel, IonList, IonMenu, IonPage, IonRow, IonSearchbar, IonSplitPane, IonTitle, IonToolbar, IonText, IonChip, IonModal, IonButtons, IonInput, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
 import { useEffect, useRef, useState } from 'react';
 import "../support/General.css";
-import { briefcase, mailOpen, constructOutline } from 'ionicons/icons';
+import { add, addCircle, atCircle, body, briefcase, checkmark, close, constructOutline, mailOpen } from 'ionicons/icons';
+import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
 import AppAppBar from '../components/AppAppBar';
 import ApiWrapper from '../support/APIWrapper';
 import { useHistory } from 'react-router-dom';
@@ -17,8 +18,6 @@ const Organizations: React.FC = () => {
         return <OrganizationsView />;
       case 'invites':
         return <InvitesView />;
-      case 'organization':
-        return <OrganizationView />;
       default:
         return <OrganizationsView />;
     }
@@ -27,9 +26,7 @@ const Organizations: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Organizations</IonTitle>
-        </IonToolbar>
+        <AppAppBar title={'Organizations'} />
       </IonHeader>
       <IonContent>
         <IonSplitPane when="xs" contentId="main">
@@ -283,11 +280,38 @@ const OrganizationView: React.FC = () => (
   </div>
 );
 
-const InvitesView: React.FC = () => (
-  <div>
-    <h2>Invites</h2>
-    <p>Invites View Content</p>
-  </div>
-);
+const InvitesView: React.FC = () => {
+  const [invites, setInvites] = useState<any[]>([]);
+
+  const fetchInvites = async () => {
+    try {
+      const response = await ApiWrapper.fetchInvites();
+      setInvites(response ? response.data.invites : []);
+    } catch (error) {
+      console.error('Error fetching User Invites', error);
+    }
+  };
+
+  const acceptInvite = async (id: string) => {
+    const formData = new URLSearchParams();
+    formData.append("invite", id);
+    await ApiWrapper.acceptInvite(formData);
+    //refreshPage();
+  };
+
+  const refuseInvite = async (id: string) => {
+    const formData = new URLSearchParams();
+    formData.append("invite", id);
+    await ApiWrapper.refuseInvite(formData);
+    //refreshPage();
+  };
+
+  return (
+    <div>
+      <h2>Invites</h2>
+      <p>Invites View Content</p>
+    </div>
+  );
+};
 
 export default Organizations;

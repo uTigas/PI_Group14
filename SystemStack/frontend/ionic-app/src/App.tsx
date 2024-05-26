@@ -75,9 +75,6 @@ const App: React.FC = () => {
     <UserContext.Provider value={userDetails}>
       <AuthContext.Provider value={loggedIn}>
           <IonApp>
-            <IonHeader>
-              <AppAppBar title='Home'/>
-            </IonHeader>
             <IonReactRouter>
               <IonTabs>
                 <IonRouterOutlet>

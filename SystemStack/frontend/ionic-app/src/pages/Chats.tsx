@@ -9,15 +9,15 @@ import { useRef, useState } from 'react';
 
 
 const Chats: React.FC = () => {
-  const [activeChat, setActiveChat] = useState<string>('chat1');
+  const [activeChat, setActiveChat] = useState<string>('');
 
   return (
     <IonPage>
       <IonHeader>
-        <AppAppBar title='Chats' />
+        <AppAppBar title='Chats'/>
       </IonHeader>
       <IonContent>
-        
+        <ChatRoom/>
       </IonContent>
     </IonPage>
   );
@@ -33,18 +33,7 @@ function ChatRoom({ activeChat, setActiveChat }: ChatRoomProps) {
   const dummy = useRef<HTMLSpanElement>(null);
   
 
-  const contacts = [
-    { id: 'chat1', name: 'Alice Johnson', avatar: 'https://i.pravatar.cc/150?img=1' },
-    { id: 'chat2', name: 'Bob Smith', avatar: 'https://i.pravatar.cc/150?img=2' },
-    { id: 'chat3', name: 'Charlie Brown', avatar: 'https://i.pravatar.cc/150?img=3' },
-    { id: 'chat4', name: 'Diana Prince', avatar: 'https://i.pravatar.cc/150?img=4' },
-    { id: 'chat5', name: 'Ethan Hunt', avatar: 'https://i.pravatar.cc/150?img=5' },
-    { id: 'chat6', name: 'Fiona Gallagher', avatar: 'https://i.pravatar.cc/150?img=6' },
-    { id: 'chat7', name: 'George Clooney', avatar: 'https://i.pravatar.cc/150?img=7' },
-    { id: 'chat8', name: 'Hannah Montana', avatar: 'https://i.pravatar.cc/150?img=8' },
-    { id: 'chat9', name: 'Ian Somerhalder', avatar: 'https://i.pravatar.cc/150?img=9' },
-    { id: 'chat10', name: 'Jessica Alba', avatar: 'https://i.pravatar.cc/150?img=10' }
-  ];
+  const contacts: any[] = [];
 
   return (
     <IonSplitPane when='xs' contentId='main'>

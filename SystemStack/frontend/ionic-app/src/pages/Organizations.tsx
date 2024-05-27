@@ -132,7 +132,7 @@ const OrganizationsView: React.FC = () => {
     formData.append('name', name);
     formData.append('description', description);
     formData.append('size', size);
-    ApiWrapper.createOrganization(formData);
+    ApiWrapper.createOrganization(formData).then(response => fetchOrganizations());
     console.log('Submitted:', { name, description, size });
   }
 

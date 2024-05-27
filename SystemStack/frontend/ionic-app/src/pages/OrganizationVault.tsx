@@ -140,7 +140,7 @@ const  OrganizationVault: React.FC = () => {
                                                             <IonLabel>{item.type}</IonLabel>
                                                         </IonCol>
                                                         <IonCol className='appt_col'>
-                                                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:MM")}</IonLabel>
+                                                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:mm")}</IonLabel>
                                                         </IonCol>
                                                         <IonCol>
                                                             <div className="appt_button">

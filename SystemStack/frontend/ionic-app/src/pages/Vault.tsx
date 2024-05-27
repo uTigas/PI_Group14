@@ -1,4 +1,4 @@
-import { IonAlert, IonButton, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, SearchbarInputEventDetail, useIonPopover } from '@ionic/react';
+import { IonAlert, IonButton, IonCard, IonCardContent, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, SearchbarInputEventDetail, useIonPopover } from '@ionic/react';
 import { useContext, useEffect, useState } from 'react';
 import ApiWrapper from '../support/APIWrapper';
 import AppAppBar from '../components/AppAppBar';
@@ -26,61 +26,61 @@ const Vault: React.FC = () => {
     fetchVault()
   }
 
-  const fetchVault = async() => {
-    try{
+  const fetchVault = async () => {
+    try {
       const response = await ApiWrapper.fetchVaultItems();
-      if (response){
-          setItems(response.data.items)
-          setResults(response.data.items)
+      if (response) {
+        setItems(response.data.items)
+        setResults(response.data.items)
       }
-      else{
+      else {
         setItems([])
       }
-    } catch (error){
-    console.error('Error fetching Vault Details', error);
+    } catch (error) {
+      console.error('Error fetching Vault Details', error);
     }
   }
 
-  const renameItem = async (id:string) => {
-    try{
-      
+  const renameItem = async (id: string) => {
+    try {
+
       const formData = new FormData;
       formData.append("id", id);
       formData.append("name", fileName);
       const response = await ApiWrapper.renameItem(formData);
       fetchVault()
 
-      if (response){
-          setFileName('')
-      }
-      else{
+      if (response) {
         setFileName('')
       }
-    } catch (error){
-    console.error('Error renaming file', error);
+      else {
+        setFileName('')
+      }
+    } catch (error) {
+      console.error('Error renaming file', error);
     }
   }
 
-  const downloadFile = async (id: string, name: string, type: string, ) => {
+  const downloadFile = async (id: string, name: string, type: string,) => {
     try {
-        const response = await ApiWrapper.downloadItem(id)
-        const blob = new Blob([response!.data], { type: response!.headers['content-type'] });
-        
-        const url = window.URL.createObjectURL(blob);
-        
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `${name}.${type}`); 
-        document.body.appendChild(link);
-        link.click();
-        
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(link);
-        
+      const response = await ApiWrapper.downloadItem(id)
+      const blob = new Blob([response!.data], { type: response!.headers['content-type'] });
+
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `${name}.${type}`);
+      document.body.appendChild(link);
+      link.click();
+
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+
     } catch (error) {
-        console.error('Error downloading file:', error);
+      console.error('Error downloading file:', error);
     }
-}
+  }
 
   function handleItemInput(ev: IonSearchbarCustomEvent<SearchbarInputEventDetail>): void {
     const target = ev.target as HTMLIonSearchbarElement;
@@ -109,14 +109,14 @@ const Vault: React.FC = () => {
             borderRadius: '12px',
             padding: '5px 10px',
             marginRight: '5px',
-            textDecoration: 'none', 
-            color: 'white', 
+            textDecoration: 'none',
+            color: 'white',
             backgroundColor: i === currentPage ? '#007bff' : 'lightgray' // Adjust background color for active state
           }}
         >
           {i}
-        </a>      
-        );
+        </a>
+      );
     }
     return pages;
   };
@@ -126,24 +126,27 @@ const Vault: React.FC = () => {
         <AppAppBar title='Vault' />
       </IonHeader>
       <IonContent fullscreen className='ion-padding'>
-        <IonRow>
-          <IonCol>
-              <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
-          </IonCol>
-        </IonRow>
-        <IonRow>
-          <IonGrid className="ion-padding">
-                <IonRow>
-                  <IonCol><IonLabel><h2>Name</h2></IonLabel></IonCol>
-                  <IonCol><IonLabel><h2>Size</h2></IonLabel></IonCol>
-                  <IonCol><IonLabel><h2>Type</h2></IonLabel></IonCol>
-                  <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
-                  <IonCol>
-                    <IonButton color={'success'} size='small' fill='outline'  id="click-trigger">New<IonIcon icon={addOutline}/></IonButton></IonCol>
-                <IonPopover trigger="click-trigger" triggerAction="click">
-                  <UploadComponent vaultId={''} user={userDetails?.username} />
-                </IonPopover>
-                </IonRow>
+        <IonCard>
+          <IonCardContent>
+            <IonGrid>
+              <IonRow>
+                <IonCol>
+                  <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
+                </IonCol>
+              </IonRow>
+              <IonRow>
+                <IonGrid className="ion-padding">
+                  <IonRow>
+                    <IonCol><IonLabel><h2>Name</h2></IonLabel></IonCol>
+                    <IonCol><IonLabel><h2>Size</h2></IonLabel></IonCol>
+                    <IonCol><IonLabel><h2>Type</h2></IonLabel></IonCol>
+                    <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
+                    <IonCol>
+                      <IonButton color={'success'} size='small' fill='outline' id="click-trigger">New<IonIcon icon={addOutline} /></IonButton></IonCol>
+                    <IonPopover trigger="click-trigger" triggerAction="click">
+                      <UploadComponent vaultId={''} user={userDetails?.username} />
+                    </IonPopover>
+                  </IonRow>
                   {paginatedResults.length !== 0 ? (
                     paginatedResults.map((item) => (
                       <div key={item.id}>
@@ -152,7 +155,7 @@ const Vault: React.FC = () => {
                             <IonLabel>{item.name}</IonLabel>
                           </IonCol>
                           <IonCol className='appt_col'>
-                            <IonLabel>{item.size/1000/1024 > 1000 ? (item.size/1000/1024/1024).toFixed(2) + " GB": item.size/1000 > 1024 ? (item.size/1000/1024).toFixed(2) + " MB" : (item.size/1000).toFixed(2) + " KB"} </IonLabel>
+                            <IonLabel>{item.size / 1000 / 1024 > 1000 ? (item.size / 1000 / 1024 / 1024).toFixed(2) + " GB" : item.size / 1000 > 1024 ? (item.size / 1000 / 1024).toFixed(2) + " MB" : (item.size / 1000).toFixed(2) + " KB"} </IonLabel>
                           </IonCol>
                           <IonCol className='appt_col'>
                             <IonLabel>{item.type}</IonLabel>
@@ -161,9 +164,9 @@ const Vault: React.FC = () => {
                             <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:MM")}</IonLabel>
                           </IonCol>
                           <IonCol>
-                            <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline}/></IonButton>
-                            <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline}/></IonButton>
-                            <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline}/></IonButton>
+                            <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
+                            <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                            <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
                             <IonAlert
                               trigger={"delete-" + item.id}
                               trigger-action="click"
@@ -184,19 +187,19 @@ const Vault: React.FC = () => {
                                   }
                                 },
                               ]}
-                            ></IonAlert>  
+                            ></IonAlert>
                             <IonPopover
                               trigger={"rename-" + item.id}
                               trigger-action="click"
-                              
+
                             >
-                            <IonItem>
-                              <IonInput placeholder='Insert file name' onIonChange={(e) => {if (e.detail.value)setFileName(e.detail.value)}}></IonInput>
-                            </IonItem>
-                            <IonItem>
-                              <IonButton color={'success'} fill='outline' onClick={() => {if (fileName != '')  renameItem(item.id)}}>Rename</IonButton>
-                            </IonItem>
-                            </IonPopover>  
+                              <IonItem>
+                                <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
+                              </IonItem>
+                              <IonItem>
+                                <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
+                              </IonItem>
+                            </IonPopover>
                           </IonCol>
                         </IonRow>
                         <IonItemDivider>
@@ -206,17 +209,20 @@ const Vault: React.FC = () => {
                   ) : (
                     <IonText>No Items stored yet. Start now! </IonText>
                   )}
-              <IonRow>
-                {results.length > 0 ? (
-                <div className="pagination ion-margin-top">
-                  <a onClick={() => {currentPage > 1 ? setCurrentPage(currentPage-1) : false}}>&laquo;</a>
+                  <IonRow>
+                    {results.length > 0 ? (
+                      <div className="pagination ion-margin-top">
+                        <a onClick={() => { currentPage > 1 ? setCurrentPage(currentPage - 1) : false }}>&laquo;</a>
                         {renderPagination()}
-                  <a onClick={() => {currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage+1) : false}}>&raquo;</a>
-                </div>
-                ):(<></>)}
-              </IonRow> 
-          </IonGrid>
-        </IonRow>
+                        <a onClick={() => { currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage + 1) : false }}>&raquo;</a>
+                      </div>
+                    ) : (<></>)}
+                  </IonRow>
+                </IonGrid>
+              </IonRow>
+            </IonGrid>
+          </IonCardContent>
+        </IonCard>
       </IonContent>
     </IonPage>
   );

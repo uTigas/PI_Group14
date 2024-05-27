@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 import './Organizations.css';
 import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
 import { format } from 'date-fns';
+import Common from '../support/Common';
 
 const Organizations: React.FC = () => {
   const [selectedPage, setSelectedPage] = useState('organizations');
@@ -180,7 +181,7 @@ const OrganizationsView: React.FC = () => {
                         <IonCol className='appt_col'>
                           {item.roles.length !== 0 ? (
                             item.roles.map((role: any, idx: any) => (
-                              <IonChip key={idx} color='success' outline={true}>{role.role}</IonChip>
+                              <IonChip key={idx} color={role.role === Common.DEFAULT_ROLES.OWNER ? ("tertiary") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
                             ))) : (
                             <IonChip>No role</IonChip>
                           )}

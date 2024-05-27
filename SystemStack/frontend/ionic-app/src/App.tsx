@@ -87,6 +87,9 @@ const App: React.FC = () => {
                   <Route exact path="/organization/:id">
                     <Organization />
                   </Route>
+                  <Route exact path="/organization/vault/:id">
+                    <OrganizationVault />
+                  </Route>
                   <Route exact path="/vault">
                     <Vault/>
                   </Route>

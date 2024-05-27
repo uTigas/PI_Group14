@@ -111,7 +111,8 @@ const Organization: React.FC = () => {
     const handleInviteSubmit = async () => {
         const formData = new URLSearchParams();
         formData.append('username', username);
-        formData.append('organization', organization);
+        console.log(organization);
+        formData.append('organization', organization.id);
         const response = await ApiWrapper.inviteMember(formData)
         if (response instanceof Error) {
             setInviteStatus("Invalid Username.")
@@ -131,6 +132,15 @@ const Organization: React.FC = () => {
         if (validateInviteForm()) {
             handleInviteSubmit();
             invitemodal.current?.dismiss(null, 'confirm');
+        }
+    }
+
+    const rolemodal = useRef<HTMLIonModalElement>(null);
+
+    function confirmRole() {
+        if (newRole.length != 0) {
+            createRole();
+            rolemodal.current?.dismiss(null, 'confirm');
         }
     }
 
@@ -316,40 +326,50 @@ const Organization: React.FC = () => {
                         </IonCol>
                         <IonCol size="auto">
                             {organization ? (
-                                <IonCard>
+                                <IonCard className="org-card">
                                     <IonCardHeader>
                                         <IonCardTitle>
-                                                <IonLabel>{organization.name}</IonLabel>
+                                            <IonLabel>{organization.name}</IonLabel>
                                         </IonCardTitle>
                                         <IonCardSubtitle>
-                                                <IonLabel>{organization.description}</IonLabel>
+                                            <IonLabel>{organization.description}</IonLabel>
                                         </IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>
                                         <IonChip color={role.role === Common.DEFAULT_ROLES.OWNER ? ("tertiary") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
                                     </IonCardContent>
-                                        {permissions.includes(Common.PERMISSIONS.MANAGE_ORGANIZATION) ? (
-                                            <>
-                                                <IonButton fill="clear" id="add-role">Add Role</IonButton>
-                                                <IonPopover trigger="createRole" triggerAction="click">
-                                                    <IonContent className="ion-padding">
-                                                        <IonItem>
-                                                            <IonLabel position="floating">Role Name:</IonLabel>
-                                                            <IonInput
-                                                                type="text"
-                                                                value={newRole}
-                                                                onIonChange={(e) => {
-                                                                    setNewRole(e.detail.value!);
-                                                                }}
-                                                            />
-                                                        </IonItem>
-                                                        <IonItem>
-                                                            <IonButton expand="block" onClick={() => createRole()}>Create</IonButton>
-                                                        </IonItem>
-                                                    </IonContent>
-                                                </IonPopover>
-                                            </>
-                                        ) : (<></>)}
+                                    {permissions.includes(Common.PERMISSIONS.MANAGE_ORGANIZATION) ? (
+                                        <>
+                                            <IonButton fill="clear" id="add-role">Add Role</IonButton>
+                                            <IonModal ref={rolemodal} trigger="add-role">
+                                                <IonHeader>
+                                                    <IonToolbar mode='ios'>
+                                                        <IonButtons slot="start">
+                                                            <IonButton onClick={() => rolemodal.current?.dismiss()}>Cancel</IonButton>
+                                                        </IonButtons>
+                                                        <IonTitle>Add Role</IonTitle>
+                                                        <IonButtons slot="end">
+                                                            <IonButton strong={true} onClick={() => confirmRole()}>
+                                                                Confirm
+                                                            </IonButton>
+                                                        </IonButtons>
+                                                    </IonToolbar>
+                                                </IonHeader>
+                                                <IonContent className="ion-padding">
+                                                    <IonInput
+                                                        type="text"
+                                                        label="Role Name"
+                                                        labelPlacement="stacked"
+                                                        value={newRole}
+                                                        onIonChange={(e) => {
+                                                            setNewRole(e.detail.value!);
+                                                        }}
+                                                    />
+                                                    <IonItemDivider/>
+                                                </IonContent>
+                                            </IonModal>
+                                        </>
+                                    ) : (<></>)}
                                 </IonCard>
                             ) : (
                                 <></>
@@ -366,37 +386,39 @@ const Organization: React.FC = () => {
                                             <IonCol>
                                                 <IonSearchbar mode='ios' animated={true} placeholder='Search for a specific member...' onIonInput={(ev) => handleMemberInput(ev)}></IonSearchbar>
                                             </IonCol>
-                                            <IonCol size='auto'>
-                                                <IonButton id='invite-member' className='create-org' fill='outline' shape='round' color='success'>Add Member</IonButton>
-                                                <IonModal ref={invitemodal} trigger="invite-member">
-                                                    <IonHeader>
-                                                        <IonToolbar mode='ios'>
-                                                            <IonButtons slot="start">
-                                                                <IonButton onClick={() => invitemodal.current?.dismiss()}>Cancel</IonButton>
-                                                            </IonButtons>
-                                                            <IonTitle>Invite Member</IonTitle>
-                                                            <IonButtons slot="end">
-                                                                <IonButton strong={true} onClick={() => invite()}>
-                                                                    Invite
-                                                                </IonButton>
-                                                            </IonButtons>
-                                                        </IonToolbar>
-                                                    </IonHeader>
-                                                    <IonContent className="ion-padding">
-                                                        <IonInput
-                                                            type="text"
-                                                            label="Username"
-                                                            labelPlacement="stacked"
-                                                            placeholder="Username"
-                                                            value={username}
-                                                            onIonChange={(e) => {
-                                                                setUsername(e.detail.value!);
-                                                            }}
-                                                        />
-                                                        <IonItemDivider />
-                                                    </IonContent>
-                                                </IonModal>
-                                            </IonCol>
+                                            {permissions.includes(Common.PERMISSIONS.MANAGE_MEMBERS) ? (
+                                                <IonCol size='auto'>
+                                                    <IonButton id='invite-member' className='create-org' fill='outline' shape='round' color='success'>Add Member</IonButton>
+                                                    <IonModal ref={invitemodal} trigger="invite-member">
+                                                        <IonHeader>
+                                                            <IonToolbar mode='ios'>
+                                                                <IonButtons slot="start">
+                                                                    <IonButton onClick={() => invitemodal.current?.dismiss()}>Cancel</IonButton>
+                                                                </IonButtons>
+                                                                <IonTitle>Invite Member</IonTitle>
+                                                                <IonButtons slot="end">
+                                                                    <IonButton strong={true} onClick={() => invite()}>
+                                                                        Invite
+                                                                    </IonButton>
+                                                                </IonButtons>
+                                                            </IonToolbar>
+                                                        </IonHeader>
+                                                        <IonContent className="ion-padding">
+                                                            <IonInput
+                                                                type="text"
+                                                                label="Username"
+                                                                labelPlacement="stacked"
+                                                                placeholder="Username"
+                                                                value={username}
+                                                                onIonChange={(e) => {
+                                                                    setUsername(e.detail.value!);
+                                                                }}
+                                                            />
+                                                            <IonItemDivider />
+                                                        </IonContent>
+                                                    </IonModal>
+                                                </IonCol>
+                                            ) : (<></>)}
                                         </IonRow>
                                         <IonRow>
                                             <IonCol><IonLabel><h2>Name</h2></IonLabel></IonCol>
@@ -430,24 +452,6 @@ const Organization: React.FC = () => {
                         </IonCol>
                     </IonRow>
                     <IonRow>
-                    </IonRow>
-                    <IonRow className="ion-margin-vertical">
-                        <IonCol>
-                            {permissions.includes(Common.PERMISSIONS.MANAGE_MEMBERS) ? (
-                                <IonItem>
-                                    <IonCard className="ion-padding" style={{ width: "100%" }}>
-                                        <IonCardHeader>
-                                            <IonCardTitle className='ion-margin-top title'>Add Member:</IonCardTitle>
-                                        </IonCardHeader>
-                                        <IonCardContent>
-                                            <AddMemberContainer organization={organizationId} fetchOrganization={fetchOrganization} />
-                                        </IonCardContent>
-                                    </IonCard>
-                                </IonItem>
-                            ) : (
-                                <></>
-                            )}
-                        </IonCol>
                     </IonRow>
                 </IonGrid>
             </IonContent>

@@ -38,3 +38,7 @@ ion-item-divider{
   width: fit-content;
   max-width: 100%;
 }
+
+.org-card {
+  width: 200px;
+}

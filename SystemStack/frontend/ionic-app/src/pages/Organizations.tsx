@@ -8,6 +8,7 @@ import ApiWrapper from '../support/APIWrapper';
 import { useHistory } from 'react-router-dom';
 import './Organizations.css';
 import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
+import { format } from 'date-fns';
 
 const Organizations: React.FC = () => {
   const [selectedPage, setSelectedPage] = useState('organizations');
@@ -143,9 +144,6 @@ const OrganizationsView: React.FC = () => {
   return (
     <>
       <IonCard>
-        <IonCardContent>You don't have any pending invite.</IonCardContent>
-      </IonCard>
-      <IonCard>
         <IonCardContent>
           <IonGrid>
             <IonRow>
@@ -273,13 +271,6 @@ const OrganizationsView: React.FC = () => {
   );
 };
 
-const OrganizationView: React.FC = () => (
-  <div>
-    <h2>Organization View</h2>
-    <p>View Content</p>
-  </div>
-);
-
 const InvitesView: React.FC = () => {
   const [invites, setInvites] = useState<any[]>([]);
 
@@ -296,6 +287,7 @@ const InvitesView: React.FC = () => {
     const formData = new URLSearchParams();
     formData.append("invite", id);
     await ApiWrapper.acceptInvite(formData);
+    fetchInvites();
     //refreshPage();
   };
 
@@ -303,14 +295,43 @@ const InvitesView: React.FC = () => {
     const formData = new URLSearchParams();
     formData.append("invite", id);
     await ApiWrapper.refuseInvite(formData);
+    fetchInvites();
     //refreshPage();
   };
 
+  useEffect(() => {
+    fetchInvites(); 
+  }, []);
+
   return (
-    <div>
-      <h2>Invites</h2>
-      <p>Invites View Content</p>
-    </div>
+    <>
+      <IonCard>
+        <IonCardContent>
+          <IonGrid>
+            {invites.length == 0 ? (<IonText>No pending invites.</IonText>) : (<IonTitle>Invites</IonTitle>)}
+            {invites.map((invite) => (
+              <>
+              <IonItemDivider/>
+              <IonRow key={invite.id}>
+                <IonCol className='appt_col'>
+                  <IonText color={'primary'}>{invite.inviter}</IonText><IonText>&#160;invited you to join <IonText color={'secondary'}>{invite.organization}</IonText></IonText>
+                </IonCol>
+                <IonCol className='appt_col'>
+                    <IonText>{format(invite.timestamp, "yyyy-MM-dd HH:mm:ss")}</IonText>
+                </IonCol>
+                <IonCol>
+                  <div className='appt_button'>
+                    <IonButton fill='outline' color='success' onClick={() => acceptInvite(invite.id)}><IonIcon icon={checkmark} size='small'></IonIcon></IonButton>
+                    <IonButton fill='outline' color='danger' onClick={() => refuseInvite(invite.id)}><IonIcon icon={close} size='small'></IonIcon></IonButton>
+                  </div>
+                </IonCol>
+              </IonRow>
+              </>
+            ))}
+          </IonGrid>
+        </IonCardContent>
+      </IonCard>
+    </>
   );
 };
 

@@ -100,8 +100,23 @@ const Vault: React.FC = () => {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
-        <a key={i} className={i == currentPage ? 'active' : ''} onClick={() => handlePageChange(i)}>{i}</a>
-      );
+        <a
+          key={i}
+          className={`${i === currentPage ? 'active' : ''}`}
+          onClick={() => handlePageChange(i)}
+          style={{
+            border: '2px solid #007bff',
+            borderRadius: '12px',
+            padding: '5px 10px',
+            marginRight: '5px',
+            textDecoration: 'none', 
+            color: 'white', 
+            backgroundColor: i === currentPage ? '#007bff' : 'lightgray' // Adjust background color for active state
+          }}
+        >
+          {i}
+        </a>      
+        );
     }
     return pages;
   };
@@ -193,7 +208,7 @@ const Vault: React.FC = () => {
                   )}
               <IonRow>
                 {results.length > 0 ? (
-                <div className="pagination">
+                <div className="pagination ion-margin-top">
                   <a onClick={() => {currentPage > 1 ? setCurrentPage(currentPage-1) : false}}>&laquo;</a>
                         {renderPagination()}
                   <a onClick={() => {currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage+1) : false}}>&raquo;</a>

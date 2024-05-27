@@ -64,7 +64,7 @@ const Vault: React.FC = () => {
       <IonContent fullscreen className='ion-padding'>
         <IonRow>
           <IonCol>
-              <IonSearchbar color='' placeholder='Search for Items...'></IonSearchbar>
+              <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for Items...'></IonSearchbar>
           </IonCol>
         </IonRow>
         <IonRow>

@@ -2,10 +2,6 @@
     margin-top: 50px;
 }
 
-.grid{
-    margin-top: 100px;
-    margin-left: 7%;;
-}
 
 .vertical-center {
   margin: 0;
@@ -22,4 +18,27 @@ ion-button {
 ion-card {
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+ion-item-divider{
+  margin-top: 0px;
+  min-height: 1px!important;
+}
+
+.ChatBubble {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.ChatBubble.sent {
+  background-color: #4cdeee; 
+  max-width: 75%;
+  width: fit-content;
+}
+
+.ChatBubble.received {
+  background-color: #E5E5EA;
+  max-width: 75%;
+  width: fit-content;
 }

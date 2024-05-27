@@ -19,8 +19,17 @@ from django.urls import path, re_path
 from authentication import views as auth_views
 from entities import views as ent_views
 from warehouse import views as war_views
+from drf_yasg import openapi
+from drf_yasg.views import get_schema_view as swagger_view
 
+schema_view = swagger_view(
+    openapi.Info(
+        title="Qeep API",
+        default_version = '1.0.0'
+    )
+)
 urlpatterns = [
+    path('doc', schema_view.with_ui('swagger', cache_timeout=0), name="swagger-schema"),
     path('admin/', admin.site.urls),
     path('register', auth_views.register, name="register"),
     re_path(r'^login/$', auth_views.systemLogin, name='login'),
@@ -43,5 +52,11 @@ urlpatterns = [
     path('organization-vault', ent_views.getOrganizationVaultDetails, name ="organization-vault"),
     path('vault', ent_views.getVaultItems, name ="vault"),
     path('stats', ent_views.getStatistics, name ="stats"),
-
+    path('chats', ent_views.getChats, name ="chats"),
+    path('chats/invite', ent_views.inviteChat, name ="chats/invite"),
+    path('chats/invites', ent_views.getChatInvites, name ="chats/invites"),
+    path('chats/invite/accept', ent_views.acceptChatInvite, name ="chats/invite/accept"),
+    path('chats/invite/refuse', ent_views.refuseChatInvite, name ="chats/invite/refuse"),
+    path('chat', ent_views.getChat, name ="chat"),
+    path('chat/message', ent_views.sendMessage, name ="chat/message"),
 ]

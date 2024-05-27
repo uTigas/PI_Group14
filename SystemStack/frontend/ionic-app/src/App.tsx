@@ -75,9 +75,6 @@ const App: React.FC = () => {
     <UserContext.Provider value={userDetails}>
       <AuthContext.Provider value={loggedIn}>
           <IonApp>
-            <IonHeader>
-              <AppAppBar title='Home'/>
-            </IonHeader>
             <IonReactRouter>
               <IonTabs>
                 <IonRouterOutlet>
@@ -86,6 +83,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/organizations">
                     <Organizations />
+                  </Route>
+                  <Route exact path="/organization/:id">
+                    <Organization />
                   </Route>
                   <Route exact path="/vault">
                     <Vault/>

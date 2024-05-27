@@ -16,3 +16,23 @@ ion-split-pane {
     justify-content: start;
     align-items: center;
 }
+
+.pagination {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #6193ea;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}

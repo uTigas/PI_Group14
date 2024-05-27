@@ -126,7 +126,6 @@ const ApiWrapper = {
 
     fetchOrganizationVaultDetails: async (id: string) => {
       return await axios.get(ApiWrapper.backendURI + `organization-vault?vaultId=${id}`, {withCredentials: true});
-      
     },
 
     downloadItem: async (id: string) => {

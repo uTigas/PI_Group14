@@ -8,7 +8,7 @@ interface UploadComponentProps {
   user: string | undefined;
 }
 
-class UploadComponent extends React.Component<UploadComponentProps> {
+class UploadComponentOrg extends React.Component<UploadComponentProps> {
 
   constructor(props: UploadComponentProps) {
     super(props);
@@ -34,13 +34,9 @@ class UploadComponent extends React.Component<UploadComponentProps> {
 
     this.setState({ uploading: true });
 
+    if (user){
       const formData = new FormData();
-      if (vaultId != "") {
-        formData.append('vaultId', vaultId) 
-      }
-      else {
-        formData.append('vaultId', "")
-      }
+      formData.append('vaultId', "")
       formData.append('file', selectedFile)
       formData.append('fileName', fileName)
       try {
@@ -52,6 +48,7 @@ class UploadComponent extends React.Component<UploadComponentProps> {
       } finally {
         this.setState({ uploading: false });
       }
+    }
   };
 
   render() {
@@ -94,4 +91,4 @@ class UploadComponent extends React.Component<UploadComponentProps> {
   }
 }
 
-export default UploadComponent;
+export default UploadComponentOrg;

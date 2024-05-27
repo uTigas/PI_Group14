@@ -2,7 +2,6 @@
     margin-top: 50px;
 }
 
-
 .vertical-center {
   margin: 0;
   position: absolute;
@@ -41,4 +40,27 @@ ion-item-divider{
   background-color: #E5E5EA;
   max-width: 75%;
   width: fit-content;
+}
+
+.float_right {
+  float: right;
+}
+
+.return_button {
+  margin-inline: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.custom-card {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.org-card {
+  width: 300px;
+}
+
+.member-chip {
+  margin: 0;
 }

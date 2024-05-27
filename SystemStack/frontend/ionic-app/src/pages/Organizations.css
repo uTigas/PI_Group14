@@ -13,6 +13,7 @@ ion-split-pane {
 
 .appt_col {
     display: flex;
+    flex-wrap: wrap;
     justify-content: start;
     align-items: center;
 }
@@ -36,3 +37,11 @@ ion-split-pane {
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
+
+.vault-text {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+}

@@ -8,6 +8,7 @@ import UploadComponent from '../components/UploadComponent';
 import { UserContext } from '../App';
 import { format } from 'date-fns';
 import { IonSearchbarCustomEvent } from '@ionic/core';
+
 const Vault: React.FC = () => {
   const [items, setItems] = useState<any[]>([]);
   const userDetails = useContext(UserContext);
@@ -15,6 +16,7 @@ const Vault: React.FC = () => {
   const [results, setResults] = useState<any[]>([])
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+
   useEffect(() => {
     fetchVault();
   }, [])
@@ -100,22 +102,7 @@ const Vault: React.FC = () => {
     const pages = [];
     for (let i = 1; i <= totalPages; i++) {
       pages.push(
-        <a
-          key={i}
-          className={`${i === currentPage ? 'active' : ''}`}
-          onClick={() => handlePageChange(i)}
-          style={{
-            border: '2px solid #007bff',
-            borderRadius: '12px',
-            padding: '5px 10px',
-            marginRight: '5px',
-            textDecoration: 'none',
-            color: 'white',
-            backgroundColor: i === currentPage ? '#007bff' : 'lightgray' // Adjust background color for active state
-          }}
-        >
-          {i}
-        </a>
+        <a key={i} className={i == currentPage ? 'active' : ''} onClick={() => handlePageChange(i)}>{i}</a>
       );
     }
     return pages;
@@ -129,12 +116,13 @@ const Vault: React.FC = () => {
         <IonCard>
           <IonCardContent>
             <IonGrid>
+              <IonTitle>Items</IonTitle>
               <IonRow>
                 <IonCol>
                   <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
                 </IonCol>
                 <IonCol size='auto'>
-                  <IonButton className="create-org" color={'success'} size='small' fill='outline' id="click-trigger">New<IonIcon icon={addOutline} /></IonButton>
+                  <IonButton className="create-org" color={'success'} fill='outline' shape="round" id="click-trigger">New<IonIcon icon={addOutline} /></IonButton>
                 </IonCol>
                 <IonPopover trigger="click-trigger" triggerAction="click">
                   <UploadComponent vaultId={''} user={userDetails?.username} />
@@ -163,45 +151,48 @@ const Vault: React.FC = () => {
                             <IonLabel>{item.type}</IonLabel>
                           </IonCol>
                           <IonCol className='appt_col'>
-                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:MM")}</IonLabel>
+                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:mm")}</IonLabel>
                           </IonCol>
                           <IonCol>
-                            <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
-                            <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
-                            <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
-                            <IonAlert
-                              trigger={"delete-" + item.id}
-                              trigger-action="click"
-                              header="Delete File"
-                              subHeader="This is irreversible!"
-                              message="Do you wish to confirm file deletion?"
-                              buttons={[
-                                {
-                                  text: 'YES',
-                                  handler: () => {
-                                    deleteItem(item.id);
-                                  }
-                                },
-                                {
-                                  text: 'NO',
-                                  role: 'cancel',
-                                  handler: () => {
-                                  }
-                                },
-                              ]}
-                            ></IonAlert>
-                            <IonPopover
-                              trigger={"rename-" + item.id}
-                              trigger-action="click"
+                            <div className='appt_button'>
+                              <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
+                              <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                              <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
+                              <IonAlert
+                                trigger={"delete-" + item.id}
+                                trigger-action="click"
+                                header="Delete File"
+                                subHeader="This is irreversible!"
+                                message="Do you wish to confirm file deletion?"
+                                buttons={[
+                                  {
+                                    text: 'YES',
+                                    handler: () => {
+                                      deleteItem(item.id);
+                                    }
+                                  },
+                                  {
+                                    text: 'NO',
+                                    role: 'cancel',
+                                    handler: () => {
+                                    }
+                                  },
+                                ]}
+                              ></IonAlert>
+                              <IonPopover
+                                trigger={"rename-" + item.id}
+                                trigger-action="click"
 
-                            >
-                              <IonItem>
-                                <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
-                              </IonItem>
-                              <IonItem>
-                                <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
-                              </IonItem>
-                            </IonPopover>
+                              >
+                                <IonItem>
+                                  <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
+                                </IonItem>
+                                <IonItem>
+                                  <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
+                                </IonItem>
+                              </IonPopover>
+
+                            </div>
                           </IonCol>
                         </IonRow>
                         <IonItemDivider>

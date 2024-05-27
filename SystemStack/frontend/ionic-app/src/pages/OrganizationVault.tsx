@@ -1,7 +1,7 @@
-import { IonAlert, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonListHeader, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle } from "@ionic/react"
+import { IonAlert, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonListHeader, IonModal, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle } from "@ionic/react"
 import { useParams } from "react-router";
 import "../support/General.css";
-import { addOutline, arrowBack, arrowDown, arrowUpOutline, cloud, cloudOutline, createOutline, download, fileTray, fileTrayOutline, trashBin, trashBinOutline } from "ionicons/icons";
+import { addOutline, arrowBack, arrowDown, arrowUpOutline, cloud, cloudDownloadOutline, cloudOutline, createOutline, download, fileTray, fileTrayOutline, trashBin, trashBinOutline } from "ionicons/icons";
 import UploadComponent from "../components/UploadComponent";
 import { useContext, useEffect, useState } from "react";
 import ApiWrapper from "../support/APIWrapper";
@@ -111,8 +111,8 @@ const  OrganizationVault: React.FC = () => {
                                                 <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for Items...'></IonSearchbar>
                                             </IonCol>
                                             <IonCol size="auto">
-                                                <IonButton className="create-org" color={'success'} shape="round" fill='outline' id="click-trigger">Add<IonIcon icon={addOutline} /></IonButton>
-                                                <IonPopover trigger="click-trigger" triggerAction="click">
+                                                <IonButton className="create-org" color={'success'} fill='outline' shape="round" id="click-trigger-org">New<IonIcon icon={addOutline} /></IonButton>
+                                                <IonPopover trigger="click-trigger-org" triggerAction="click">
                                                     <UploadComponent vaultId={vaultId} user={""} />
                                                 </IonPopover>
                                             </IonCol>
@@ -125,10 +125,11 @@ const  OrganizationVault: React.FC = () => {
                                             <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
                                             <IonCol></IonCol>
                                         </IonRow>
-                                        <IonItemDivider/>
                                         {items.length !== 0 ? (
                                             items.map((item) => (
                                                 <div key={item.id}>
+                                                    <IonItemDivider>
+                                                    </IonItemDivider>
                                                     <IonRow>
                                                         <IonCol className='appt_col'>
                                                             <IonLabel>{item.name}</IonLabel>
@@ -142,49 +143,48 @@ const  OrganizationVault: React.FC = () => {
                                                         <IonCol className='appt_col'>
                                                             <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:mm")}</IonLabel>
                                                         </IonCol>
-                                                        <IonCol>
-                                                            <div className="appt_button">
-                                                                <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
-                                                                <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
-                                                                <IonAlert
-                                                                    trigger={"delete-" + item.id}
-                                                                    trigger-action="click"
-                                                                    header="Delete File"
-                                                                    subHeader="This is irreversible!"
-                                                                    message="Do you wish to confirm file deletion?"
-                                                                    buttons={[
-                                                                        {
-                                                                            text: 'YES',
-                                                                            handler: () => {
-                                                                                deleteItem(item.id);
-                                                                            }
-                                                                        },
-                                                                        {
-                                                                            text: 'NO',
-                                                                            role: 'cancel',
-                                                                            handler: () => {
-                                                                            }
-                                                                        },
-                                                                    ]}
-                                                                ></IonAlert>
-                                                                <IonPopover
-                                                                    trigger={"rename-" + item.id}
-                                                                    trigger-action="click"
+                          <IonCol>
+                            <div className='appt_button'>
+                              <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
+                              <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                              <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
+                              <IonAlert
+                                trigger={"delete-" + item.id}
+                                trigger-action="click"
+                                header="Delete File"
+                                subHeader="This is irreversible!"
+                                message="Do you wish to confirm file deletion?"
+                                buttons={[
+                                  {
+                                    text: 'YES',
+                                    handler: () => {
+                                      deleteItem(item.id);
+                                    }
+                                  },
+                                  {
+                                    text: 'NO',
+                                    role: 'cancel',
+                                    handler: () => {
+                                    }
+                                  },
+                                ]}
+                              ></IonAlert>
+                              <IonPopover
+                                trigger={"rename-" + item.id}
+                                trigger-action="click"
 
-                                                                >
-                                                                    <IonItem>
-                                                                        <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
-                                                                    </IonItem>
-                                                                    <IonItem>
-                                                                        <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
-                                                                    </IonItem>
-                                                                </IonPopover>
-                                                            </div>
+                              >
+                                <IonItem>
+                                  <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
+                                </IonItem>
+                                <IonItem>
+                                  <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
+                                </IonItem>
+                              </IonPopover>
 
-                                                        </IonCol>
+                            </div>
+                          </IonCol>
                                                     </IonRow>
-                                                    <IonItemDivider>
-                                                    </IonItemDivider>
                                                 </div>
                                             ))
                                         ) : (

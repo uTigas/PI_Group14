@@ -296,10 +296,10 @@ const Organization: React.FC = () => {
                                                 <IonCol><IonLabel><h2>Description</h2></IonLabel></IonCol>
                                                 <IonCol></IonCol>
                                             </IonRow>
-                                            <IonItemDivider></IonItemDivider>
                                             {paginatedResults.length !== 0 ? (
                                                 paginatedResults.map((item, index) => (
                                                     <IonRow key={item.vault.id}>
+                                                        <IonItemDivider></IonItemDivider>
                                                         <IonCol className="appt_col" size="4">
                                                                 <IonLabel>{item.vault.name}</IonLabel>
                                                         </IonCol>
@@ -311,7 +311,6 @@ const Organization: React.FC = () => {
                                                         <IonCol size="4">
                                                             <IonButton shape="round" fill="outline" className="appt_button" href={"/organization/vault/" + item.vault.id}>Access<IonIcon icon={enterOutline}></IonIcon></IonButton>
                                                         </IonCol>
-                                                        <IonItemDivider></IonItemDivider>
                                                     </IonRow>
                                                 ))
                                             ) : (
@@ -430,10 +429,10 @@ const Organization: React.FC = () => {
                                             <IonCol><IonLabel><h2>Role</h2></IonLabel></IonCol>
                                             <IonCol><IonLabel><h2>Joined</h2></IonLabel></IonCol>
                                         </IonRow>
-                                        <IonItemDivider></IonItemDivider>
                                         {members.length !== 0 ? (
                                             members.map((item, index) => (
                                                 <div key={item.username}>
+                                                    <IonItemDivider />
                                                     <IonRow>
                                                         <IonCol className="appt_col">
                                                             <IonLabel>{item.name}</IonLabel>
@@ -445,7 +444,6 @@ const Organization: React.FC = () => {
                                                             <IonLabel>{format(new Date(item.joined), "dd-MM-yyyy")}</IonLabel>
                                                         </IonCol>
                                                     </IonRow>
-                                                    <IonItemDivider />
                                                 </div>
                                             ))
                                         ) : (

@@ -44,7 +44,6 @@ const Organizations: React.FC = () => {
               </IonList>
             </IonContent>
           </IonMenu>
-
           <div className="ion-page" id="main">
             <IonContent className="ion-padding">
               {renderContent()}
@@ -164,10 +163,10 @@ const OrganizationsView: React.FC = () => {
                   <IonCol><IonLabel><h2>Roles</h2></IonLabel></IonCol>
                   <IonCol></IonCol>
                 </IonRow>
-                <IonItemDivider></IonItemDivider>
                 {paginatedResults.length !== 0 ? (
                   paginatedResults.map((item) => (
                     <div key={item.organization.id}>
+                      <IonItemDivider></IonItemDivider>
                       <IonRow>
                         <IonCol className='appt_col'>
                           <IonLabel>{item.organization.name}</IonLabel>
@@ -192,7 +191,6 @@ const OrganizationsView: React.FC = () => {
                           </IonButton>
                         </IonCol>
                       </IonRow>
-                      <IonItemDivider></IonItemDivider>
                     </div>
                   ))
                 ) : (
@@ -201,11 +199,13 @@ const OrganizationsView: React.FC = () => {
               </IonGrid>
             </IonRow>
             <IonRow>
-              <div className="pagination">
-                  <a onClick={() => {currentPage > 1 ? setCurrentPage(currentPage-1) : false}}>&laquo;</a>
-                        {renderPagination()}
-                  <a onClick={() => {currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage+1) : false}}>&raquo;</a>
-              </div>
+              {paginatedResults.length > 0 ? (
+                <div className="pagination ion-margin-top">
+                  <a onClick={() => { currentPage > 1 ? setCurrentPage(currentPage - 1) : false }}>&laquo;</a>
+                  {renderPagination()}
+                  <a onClick={() => { currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage + 1) : false }}>&raquo;</a>
+                </div>
+              ) : (<></>)}
             </IonRow>
           </IonGrid>
           <IonModal ref={modal} trigger="open-modal" onWillDismiss={(ev) => onWillDismiss(ev)}>

@@ -1,16 +1,20 @@
-import { IonAlert, IonButton, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, useIonPopover } from '@ionic/react';
+import { IonAlert, IonButton, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, SearchbarInputEventDetail, useIonPopover } from '@ionic/react';
 import { useContext, useEffect, useState } from 'react';
 import ApiWrapper from '../support/APIWrapper';
 import AppAppBar from '../components/AppAppBar';
-import { addCircle, addOutline, cloudUpload, cloudUploadOutline, createOutline, trashBinOutline } from 'ionicons/icons';
+import { addCircle, addOutline, cloudDownloadOutline, cloudUpload, cloudUploadOutline, createOutline, trashBinOutline } from 'ionicons/icons';
 import "../support/General.css"
 import UploadComponent from '../components/UploadComponent';
 import { UserContext } from '../App';
 import { format } from 'date-fns';
+import { IonSearchbarCustomEvent } from '@ionic/core';
 const Vault: React.FC = () => {
   const [items, setItems] = useState<any[]>([]);
   const userDetails = useContext(UserContext);
   const [fileName, setFileName] = useState<string>("");
+  const [results, setResults] = useState<any[]>([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(10);
   useEffect(() => {
     fetchVault();
   }, [])
@@ -27,6 +31,7 @@ const Vault: React.FC = () => {
       const response = await ApiWrapper.fetchVaultItems();
       if (response){
           setItems(response.data.items)
+          setResults(response.data.items)
       }
       else{
         setItems([])
@@ -56,6 +61,65 @@ const Vault: React.FC = () => {
     }
   }
 
+  const downloadFile = async (id: string, name: string, type: string, ) => {
+    try {
+        const response = await ApiWrapper.downloadItem(id)
+        const blob = new Blob([response!.data], { type: response!.headers['content-type'] });
+        
+        const url = window.URL.createObjectURL(blob);
+        
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${name}.${type}`); 
+        document.body.appendChild(link);
+        link.click();
+        
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(link);
+        
+    } catch (error) {
+        console.error('Error downloading file:', error);
+    }
+}
+
+  function handleItemInput(ev: IonSearchbarCustomEvent<SearchbarInputEventDetail>): void {
+    const target = ev.target as HTMLIonSearchbarElement;
+    const query = target ? target.value!.toLowerCase() : '';
+    setResults(items.filter((d) => d.name.toLowerCase().indexOf(query) > -1));
+    setCurrentPage(1);
+  }
+
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
+  const paginatedResults = results.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  const renderPagination = () => {
+    const totalPages = Math.ceil(results.length / itemsPerPage);
+    const pages = [];
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(
+        <a
+          key={i}
+          className={`${i === currentPage ? 'active' : ''}`}
+          onClick={() => handlePageChange(i)}
+          style={{
+            border: '2px solid #007bff',
+            borderRadius: '12px',
+            padding: '5px 10px',
+            marginRight: '5px',
+            textDecoration: 'none', 
+            color: 'white', 
+            backgroundColor: i === currentPage ? '#007bff' : 'lightgray' // Adjust background color for active state
+          }}
+        >
+          {i}
+        </a>      
+        );
+    }
+    return pages;
+  };
   return (
     <IonPage>
       <IonHeader>
@@ -64,7 +128,7 @@ const Vault: React.FC = () => {
       <IonContent fullscreen className='ion-padding'>
         <IonRow>
           <IonCol>
-              <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for Items...'></IonSearchbar>
+              <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
           </IonCol>
         </IonRow>
         <IonRow>
@@ -80,8 +144,8 @@ const Vault: React.FC = () => {
                   <UploadComponent vaultId={''} user={userDetails?.username} />
                 </IonPopover>
                 </IonRow>
-                  {items.length !== 0 ? (
-                    items.map((item) => (
+                  {paginatedResults.length !== 0 ? (
+                    paginatedResults.map((item) => (
                       <div key={item.id}>
                         <IonRow>
                           <IonCol className='appt_col'>
@@ -99,6 +163,7 @@ const Vault: React.FC = () => {
                           <IonCol>
                             <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline}/></IonButton>
                             <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline}/></IonButton>
+                            <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline}/></IonButton>
                             <IonAlert
                               trigger={"delete-" + item.id}
                               trigger-action="click"
@@ -141,6 +206,15 @@ const Vault: React.FC = () => {
                   ) : (
                     <IonText>No Items stored yet. Start now! </IonText>
                   )}
+              <IonRow>
+                {results.length > 0 ? (
+                <div className="pagination ion-margin-top">
+                  <a onClick={() => {currentPage > 1 ? setCurrentPage(currentPage-1) : false}}>&laquo;</a>
+                        {renderPagination()}
+                  <a onClick={() => {currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage+1) : false}}>&raquo;</a>
+                </div>
+                ):(<></>)}
+              </IonRow> 
           </IonGrid>
         </IonRow>
       </IonContent>

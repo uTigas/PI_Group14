@@ -24,21 +24,42 @@ ion-item-divider{
   min-height: 1px!important;
 }
 
+.float_right {
+  float: right;
+}
+
+.return_button {
+  margin-inline: 10px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.custom-card {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.org-card {
+  width: 200px;
+}
+
 .ChatBubble {
   margin: 8px;
   padding: 8px;
   border-radius: 8px;
+  display: flex;
 }
 
 .ChatBubble.sent {
   background-color: #4cdeee; 
-  max-width: 75%;
+  max-width: 55%;
   width: fit-content;
+  flex-direction: row-reverse;
 }
 
 .ChatBubble.received {
   background-color: #E5E5EA;
-  max-width: 75%;
+  max-width: 55%;
   width: fit-content;
 }
 

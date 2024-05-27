@@ -319,7 +319,7 @@ const Organization: React.FC = () => {
                                             )}
                                         </IonGrid>
                                         <IonRow>
-                                            <div className="pagination">
+                                            <div className="pagination ion-margin-top">
                                                 <a onClick={() => { currentPage > 1 ? setCurrentPage(currentPage - 1) : false }}>&laquo;</a>
                                                 {renderPagination()}
                                                 <a onClick={() => { currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage + 1) : false }}>&raquo;</a>

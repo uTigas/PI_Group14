@@ -1,7 +1,4 @@
 import axios, { AxiosResponse } from "axios";
-import UploadComponent from "../components/UploadComponent";
-import { download } from "ionicons/icons";
-
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
 

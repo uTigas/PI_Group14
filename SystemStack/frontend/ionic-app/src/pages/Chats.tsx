@@ -1,7 +1,7 @@
 import { IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonInput, IonItem, IonList, IonMenu, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar, IonAvatar, IonLabel, IonText, IonSegmentButton, IonIcon } from '@ionic/react';
 import AppAppBar from '../components/AppAppBar';
 import './Chats.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { format } from 'date-fns';
 import { UserContext } from '../App';
 import ApiWrapper from '../support/APIWrapper';
@@ -16,15 +16,16 @@ const Chats: React.FC = () => {
   const [invites, setInvites] = useState<any[]>([]);
   const userDetails = useContext(UserContext);
   const [error, setError] = useState<boolean>(false);
+  const inputRef = useRef<HTMLIonInputElement>(null)
 
-
-  const inviteChat = () => {
+  const inviteChat = async () => {
     if (invited != ''){
       setError(false);
       const formData = new FormData;
       formData.append('username', invited);
       const response = ApiWrapper.inviteChat(formData);
-      if (response){
+      if (await response){
+        refresh()
         response.catch(
           (error) => {
             setError(true)
@@ -89,31 +90,35 @@ const Chats: React.FC = () => {
     }
   }
 
-  const acceptInvite = (id:string) => {
+  const acceptInvite = async (id:string) => {
     const formData = new FormData;
     formData.append('invite',id) 
-    ApiWrapper.acceptChatInvite(formData)
-    refresh()
+    const response = ApiWrapper.acceptChatInvite(formData)
+    if(await response)
+      refresh()
   }
   
-  const refuseInvite = (id:string) => {
+  const refuseInvite = async (id:string) => {
     const formData = new FormData;
     formData.append('invite',id) 
-    ApiWrapper.refuseChatInvite(formData)
-    refresh()
+    const response = ApiWrapper.refuseChatInvite(formData)
+    if(await response)
+      refresh()
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const formData = new FormData;
     if (message != ''){
       formData.append('message', message) 
       formData.append('chat', activeChat.id)
-      ApiWrapper.sendMessage(formData)
+      const response = ApiWrapper.sendMessage(formData)
+      if(await response)
+        refresh()
     }
-    refresh()
   }
   
   const refresh = () => {
+    setMessage('')
     fetchContacts()
     fetchInvites()
     if (activeChat)
@@ -123,11 +128,13 @@ const Chats: React.FC = () => {
   useEffect(()=>{
     refresh()
   },[])
+  
   useEffect(()=>{
     if (activeChat !== null) {
       fetchChat();
     }
   },[activeChat])
+
   return (
     <IonPage>
       <IonHeader>
@@ -194,10 +201,10 @@ const Chats: React.FC = () => {
                     <IonGrid>
                       <IonRow>
                         <IonCol>
-                          <IonInput aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)}></IonInput>
+                          <IonInput ref={inputRef} clearInput={true} aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)}></IonInput>
                         </IonCol>
                         <IonCol size='auto' className='ion-text-end'>
-                          <IonButton fill='outline' onClick={() => sendMessage()}>Send</IonButton>
+                          <IonButton fill='outline' onClick={() => {sendMessage(), inputRef.current!.value=''}}>Send</IonButton>
                         </IonCol>
                       </IonRow>
                     </IonGrid>

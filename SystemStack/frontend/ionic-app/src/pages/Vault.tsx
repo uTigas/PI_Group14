@@ -2,7 +2,7 @@ import { IonAlert, IonButton, IonChip, IonCol, IonContent, IonGrid, IonHeader, I
 import { useContext, useEffect, useState } from 'react';
 import ApiWrapper from '../support/APIWrapper';
 import AppAppBar from '../components/AppAppBar';
-import { addCircle, addOutline, cloudUpload, cloudUploadOutline, createOutline, trashBinOutline } from 'ionicons/icons';
+import { addCircle, addOutline, cloudDownloadOutline, cloudUpload, cloudUploadOutline, createOutline, trashBinOutline } from 'ionicons/icons';
 import "../support/General.css"
 import UploadComponent from '../components/UploadComponent';
 import { UserContext } from '../App';
@@ -99,6 +99,7 @@ const Vault: React.FC = () => {
                           <IonCol>
                             <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline}/></IonButton>
                             <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline}/></IonButton>
+                            <IonButton id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline}/></IonButton>
                             <IonAlert
                               trigger={"delete-" + item.id}
                               trigger-action="click"

@@ -147,9 +147,20 @@ class RegisterUserMsg(Msg_E):
 
     def _loads(self) -> tuple[str, str]:
         self.user = self._msg["user"]
-        self.key = self._msg["key"]
-        return self.user, self.key
+        return self.user
 
     def _construct(self, user: str, key: str):
         self.user = user
-        self.key = key
+
+class ReturnRegisterMsg(Msg_E):
+
+    def _loads(self) -> str:
+        self.user = self._msg["user"]
+        self.qkd_address = self._msg["qkd_address"]
+        self.key = self._msg["key"]
+        return self.user , self.qkd_address , self.key
+
+    def _construct(self, user: str , qkd_address: str , key: str):
+        self.user = user
+        self.qkd_address = qkd_address
+        self.key = key  

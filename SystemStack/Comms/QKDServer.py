@@ -13,6 +13,7 @@ async def lifespan(app: FastAPI):
     connect_to_db()
     init_db()
     load_pin()
+    load_address()
     load_user_registry()
     yield
     disconnect_from_db()
@@ -43,6 +44,12 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         return {"error": "Key already exists"}
 
     store_key_cache(tx_id, rx_id, "generating")
+
+    if address == ADDRESS:
+        key = generate_key(size=1024)
+        store_key_cache(tx_id, rx_id, key.encode())
+        store_key_cache(rx_id, tx_id, key.encode())
+        return {"status": "Success"}
 
     tried_keys = []
     for _ in range(5):
@@ -105,12 +112,17 @@ def get_keys(body: bytes = Depends(get_request_body)):
 def register_user(body: bytes = Depends(get_request_body)):
     try:
         msg = RegisterUserMsg(body,"self")
-        user, key = msg.loads()
+        user = msg.loads()
     except InvalidMsg:
         return {"error": "Invalid message"}
+    
+    key = generate_key()
+
     try:
-        store_user_registry(user, key)
+        store_user_registry(user)
     except ValueError:
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     
-    return {"status": "Success"}
+    new_id , qkd_address = create_id(ADDRESS)
+
+    return ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt()

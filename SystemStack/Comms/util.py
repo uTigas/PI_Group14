@@ -1,4 +1,5 @@
 import os
+import random
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad , pad
 
@@ -7,6 +8,7 @@ keyCache = {} # dict of dict of key of tx_id and rx_id
 timeCache = {} # dict of dict of time , last action of the user
 
 PIN = None
+ADDRESS = None
 
 def load_user_registry():
     global userRegistry
@@ -19,6 +21,10 @@ def load_pin():
     global PIN
     PIN = os.getenv("QKD_PIN", "1234"*8)
     userRegistry["self"] = PIN
+
+def load_address():
+    global ADDRESS
+    ADDRESS = "http://localhost:" + os.getenv("QKD_ADDRESS", "8000")
 
 def flush_user_registry():
     with open("userRegistry.txt", "a") as f:
@@ -52,7 +58,7 @@ def get_user_registry(tx_id):
     return userRegistry[tx_id]
 
 def get_keys_from_tx_id(tx_id):
-    return {tx_id: userRegistry[tx_id]} if tx_id in userRegistry else None
+    return {tx_id: userRegistry[tx_id]} if tx_id in userRegistry else {}
 
 def in_user_registry(tx_id):
     return tx_id in userRegistry
@@ -65,3 +71,7 @@ def encrypt_msg(msg: str, key: str) -> bytes:
     msg = pad(msg.encode(), AES.block_size)
     cipher = AES.new(key.encode(), AES.MODE_CBC , iv=bytes(16))
     return cipher.encrypt(msg)
+
+ALPHA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+def generate_key(size=32):
+    return "".join(random.choices(ALPHA, k=size))

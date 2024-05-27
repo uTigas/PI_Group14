@@ -181,7 +181,7 @@ const OrganizationsView: React.FC = () => {
                         <IonCol className='appt_col'>
                           {item.roles.length !== 0 ? (
                             item.roles.map((role: any, idx: any) => (
-                              <IonChip key={idx} color={role.role === Common.DEFAULT_ROLES.OWNER ? ("tertiary") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
+                              <IonChip className="member-chip" key={idx} color={role.role === Common.DEFAULT_ROLES.OWNER ? ("warning") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
                             ))) : (
                             <IonChip>No role</IonChip>
                           )}

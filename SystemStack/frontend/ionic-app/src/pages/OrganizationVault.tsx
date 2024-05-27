@@ -1,29 +1,32 @@
-import { IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonIcon, IonInput, IonItem, IonList, IonListHeader, IonPage, IonRow, IonText, IonTitle } from "@ionic/react"
+import { IonAlert, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonListHeader, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle } from "@ionic/react"
 import { useParams } from "react-router";
 import "../support/General.css";
-import { arrowBack, arrowDown, arrowUpOutline, cloud, cloudOutline, download, fileTray, fileTrayOutline, trashBin } from "ionicons/icons";
+import { addOutline, arrowBack, arrowDown, arrowUpOutline, cloud, cloudOutline, createOutline, download, fileTray, fileTrayOutline, trashBin, trashBinOutline } from "ionicons/icons";
 import UploadComponent from "../components/UploadComponent";
 import { useContext, useEffect, useState } from "react";
 import ApiWrapper from "../support/APIWrapper";
 import { UserContext } from "../App";
 import { format } from "date-fns";
 import Common from "../support/Common";
+import AppAppBar from "../components/AppAppBar";
 
 const  OrganizationVault: React.FC = () => {
     const { id: vaultId }  = useParams<{ id: string }>();
     const [items, setItems] = useState<any[]>([]);
     const [organizations, setOrganizations] = useState<any[]>([]);
     const [members, setMembers] = useState<any[]>([]);
+    const [title, setTitle] = useState<string>("");
+    const [fileName, setFileName] = useState<string>("");
 
     const userDetails = useContext(UserContext);
     const fetchOrganizationVaultDetails = async () => {
         try {
             const response = await ApiWrapper.fetchOrganizationVaultDetails(vaultId);
             if (response){
-                setItems(response.data.items)
+                console.log(response);
                 setOrganizations(response.data.organizations)
                 setMembers(response.data.members)
-
+                setItems(response.data.items);
             }
         } catch (error) {
             
@@ -51,77 +54,145 @@ const  OrganizationVault: React.FC = () => {
         }
     }
 
+    const deleteItem = (id: string) => {
+        const formData = new FormData;
+        formData.append("id", id);
+        ApiWrapper.deleteItem(formData)
+        fetchOrganizationVaultDetails();
+    }
+
+    const renameItem = async (id: string) => {
+        try {
+
+            const formData = new FormData;
+            formData.append("id", id);
+            formData.append("name", fileName);
+            const response = await ApiWrapper.renameItem(formData);
+            fetchOrganizationVaultDetails();
+
+            if (response) {
+                setFileName('')
+            }
+            else {
+                setFileName('')
+            }
+        } catch (error) {
+            console.error('Error renaming file', error);
+        }
+    }
+
     useEffect(() => {
-        fetchOrganizationVaultDetails()
+        fetchOrganizationVaultDetails();
     },[])
 
     return(
         <IonPage>
-            <IonContent className="ion-padding">
-                <IonGrid  className='grid'>
-                    <IonRow className="ion-padding-vertical">
-                        <IonCol>
-                            <IonButton onClick={() => {history.back()}} shape="round"><IonIcon icon={arrowBack} slot="start"></IonIcon></IonButton>
+            <IonHeader>
+                <AppAppBar title={"Organization/Vault"} />
+            </IonHeader>
+            <IonContent>
+                <IonGrid>
+                    <IonRow>
+                        <IonCol size="auto">
+                            <IonButton className="return_button" onClick={() => history.back()} fill="outline" size="small" color={"secondary"}>
+                                <IonIcon icon={arrowBack} size="large"></IonIcon>
+                                Return
+                            </IonButton>
                         </IonCol>
                     </IonRow>
                     <IonRow>
                         <IonCol>
-
-                        </IonCol>
-                    </IonRow>
-                    <IonRow>
-                        <IonCol>
-                            <IonTitle>Members</IonTitle>
-                            {members.map((member) => (
-                                <IonCard key={member.username}>
-                                    <IonCardHeader>
-                                        <IonCardTitle>{member.name}</IonCardTitle>
-                                        <IonCardSubtitle>{member.permissions.map((perm:string) => (<IonText key={perm} color={perm == Common.PERMISSIONS.VIEW ?  ("tertiary"):(perm == Common.PERMISSIONS.EDIT ? ("danger"):("success"))}>{perm}   </IonText>))}</IonCardSubtitle>
-                                    </IonCardHeader>
-                                    <IonCardContent>
-                                    </IonCardContent>
-                                </IonCard>
-                            ))}
-                        </IonCol>
-                        <IonCol>
-                            <IonTitle>Saved Items</IonTitle>
                             <IonCard>
                                 <IonCardContent>
-                                    <IonList>
-                                        <UploadComponent vaultId={vaultId} user={userDetails?.username}/>                                       
-                                    </IonList>
+                                    <IonGrid>
+                                        <IonTitle>Items</IonTitle>
+                                        <IonRow>
+                                            <IonCol>
+                                                <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for Items...'></IonSearchbar>
+                                            </IonCol>
+                                            <IonCol size="auto">
+                                                <IonButton className="create-org" color={'success'} shape="round" fill='outline' id="click-trigger">Add<IonIcon icon={addOutline} /></IonButton>
+                                                <IonPopover trigger="click-trigger" triggerAction="click">
+                                                    <UploadComponent vaultId={vaultId} user={""} />
+                                                </IonPopover>
+                                            </IonCol>
+
+                                        </IonRow>
+                                        <IonRow>
+                                            <IonCol><IonLabel><h2>Name</h2></IonLabel></IonCol>
+                                            <IonCol><IonLabel><h2>Size</h2></IonLabel></IonCol>
+                                            <IonCol><IonLabel><h2>Type</h2></IonLabel></IonCol>
+                                            <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
+                                            <IonCol></IonCol>
+                                        </IonRow>
+                                        <IonItemDivider/>
+                                        {items.length !== 0 ? (
+                                            items.map((item) => (
+                                                <div key={item.id}>
+                                                    <IonRow>
+                                                        <IonCol className='appt_col'>
+                                                            <IonLabel>{item.name}</IonLabel>
+                                                        </IonCol>
+                                                        <IonCol className='appt_col'>
+                                                            <IonLabel>{item.size / 1000 / 1024 > 1000 ? (item.size / 1000 / 1024 / 1024).toFixed(2) + " GB" : item.size / 1000 > 1024 ? (item.size / 1000 / 1024).toFixed(2) + " MB" : (item.size / 1000).toFixed(2) + " KB"} </IonLabel>
+                                                        </IonCol>
+                                                        <IonCol className='appt_col'>
+                                                            <IonLabel>{item.type}</IonLabel>
+                                                        </IonCol>
+                                                        <IonCol className='appt_col'>
+                                                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:MM")}</IonLabel>
+                                                        </IonCol>
+                                                        <IonCol>
+                                                            <div className="appt_button">
+                                                                <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
+                                                                <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                                                                <IonAlert
+                                                                    trigger={"delete-" + item.id}
+                                                                    trigger-action="click"
+                                                                    header="Delete File"
+                                                                    subHeader="This is irreversible!"
+                                                                    message="Do you wish to confirm file deletion?"
+                                                                    buttons={[
+                                                                        {
+                                                                            text: 'YES',
+                                                                            handler: () => {
+                                                                                deleteItem(item.id);
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            text: 'NO',
+                                                                            role: 'cancel',
+                                                                            handler: () => {
+                                                                            }
+                                                                        },
+                                                                    ]}
+                                                                ></IonAlert>
+                                                                <IonPopover
+                                                                    trigger={"rename-" + item.id}
+                                                                    trigger-action="click"
+
+                                                                >
+                                                                    <IonItem>
+                                                                        <IonInput placeholder='Insert file name' onIonChange={(e) => { if (e.detail.value) setFileName(e.detail.value) }}></IonInput>
+                                                                    </IonItem>
+                                                                    <IonItem>
+                                                                        <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
+                                                                    </IonItem>
+                                                                </IonPopover>
+                                                            </div>
+
+                                                        </IonCol>
+                                                    </IonRow>
+                                                    <IonItemDivider>
+                                                    </IonItemDivider>
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <IonText>No Items stored yet. Start uploading! </IonText>
+                                        )}
+                                    </IonGrid>
                                 </IonCardContent>
                             </IonCard>
-                            {items.map((item) => (
-                                <IonCard key={item.id}>
-                                    <IonCardHeader>
-                                        <IonCardTitle>{item.name}</IonCardTitle>
-                                        <IonCardSubtitle>Last Change {item.author.fullName} at {format(item.createdAt, "dd-MM-yyyy HH:MM")} </IonCardSubtitle>
-                                    </IonCardHeader>
-                                    <IonCardContent>
-                                        <IonText>{item.size/1000}kb</IonText>
-                                        <IonText className="ion-margin-start" >File Format: {item.type}</IonText>
-                                        <IonItem>
-                                            <IonButton slot="end" color={"tertiary"} className="ion-margin-start" onClick={() => downloadFile(item.id, item.name, item.type)}>Download<IonIcon icon={download}></IonIcon></IonButton>
-                                            <IonButton slot="end" color={"danger"} className="ion-margin-start"><IonIcon icon={trashBin}></IonIcon></IonButton>
-                                        </IonItem>
-                                        
-                                    </IonCardContent>
-                                </IonCard>
-                            ))}
-                        </IonCol>
-                        <IonCol>
-                            <IonTitle>Organizations</IonTitle>
-                            {organizations.map((organization) => (
-                                <IonCard key={organization.id}>
-                                    <IonCardHeader>
-                                        <IonCardTitle>{organization.name}</IonCardTitle>
-                                        <IonCardSubtitle>{organization.description}</IonCardSubtitle>
-                                    </IonCardHeader>
-                                    <IonCardContent>
-                                    </IonCardContent>
-                                </IonCard>
-                            ))}
                         </IonCol>
                     </IonRow>
                 </IonGrid>

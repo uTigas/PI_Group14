@@ -40,5 +40,9 @@ ion-item-divider{
 }
 
 .org-card {
-  width: 200px;
+  width: 300px;
+}
+
+.member-chip {
+  margin: 0;
 }

@@ -25,6 +25,7 @@ const Organization: React.FC = () => {
     const [newRole, setNewRole] = useState<string>("");
     const [permissions, setPermissions] = useState<any[]>([]);
     const [organization, setOrganization] = useState<any>(null);
+    const [items, setItems] = useState<any[]>([]);
     const [title, setTitle] = useState<string>("");
     const history = useHistory();
 
@@ -39,12 +40,14 @@ const Organization: React.FC = () => {
         try {
             const response = await ApiWrapper.fetchOrganizationDetails(organizationId);
             if (response) {
+                console.log(response);
                 setMembers(response.data.members);
                 setVaults(response.data.vaults);
                 setResults(response.data.vaults);
                 setRole(response.data.role);
                 setPermissions(response.data.permissions);
                 setOrganization(response.data.organization);
+                setItems(response.data.items);
                 setTitle(response.data.organization.name);
             } else {
                 setVaults([]);
@@ -177,8 +180,8 @@ const Organization: React.FC = () => {
             <IonHeader>
                 <AppAppBar title={"Organization/" + title} />
             </IonHeader>
-            <IonContent className="ion-padding">
-                <IonGrid className='grid'>
+            <IonContent>
+                <IonGrid>
                     <IonRow>
                         <IonCol size="auto">
                             <IonButton className="return_button" onClick={() => handleGoBack()} fill="outline" size="small" color={"secondary"}>
@@ -297,13 +300,15 @@ const Organization: React.FC = () => {
                                             {paginatedResults.length !== 0 ? (
                                                 paginatedResults.map((item, index) => (
                                                     <IonRow key={item.vault.id}>
-                                                        <IonCol className="appt_col">
-                                                            <IonLabel>{item.vault.name}</IonLabel>
+                                                        <IonCol className="appt_col" size="4">
+                                                                <IonLabel>{item.vault.name}</IonLabel>
                                                         </IonCol>
-                                                        <IonCol className="appt_col">
-                                                            <IonLabel>{item.vault.description}</IonLabel>
+                                                        <IonCol size="4">
+                                                            <div className={item.vault.description.length < 30 ? "vault-text" : ""}>
+                                                                <IonLabel class="ion-text-wrap">{item.vault.description}</IonLabel>
+                                                            </div>
                                                         </IonCol>
-                                                        <IonCol>
+                                                        <IonCol size="4">
                                                             <IonButton shape="round" fill="outline" className="appt_button" href={"/organization/vault/" + item.vault.id}>Access<IonIcon icon={enterOutline}></IonIcon></IonButton>
                                                         </IonCol>
                                                         <IonItemDivider></IonItemDivider>
@@ -336,7 +341,7 @@ const Organization: React.FC = () => {
                                         </IonCardSubtitle>
                                     </IonCardHeader>
                                     <IonCardContent>
-                                        <IonChip color={role.role === Common.DEFAULT_ROLES.OWNER ? ("tertiary") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
+                                        <IonChip color={role.role === Common.DEFAULT_ROLES.OWNER ? ("warning") : (role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{role.role}</IonChip>
                                     </IonCardContent>
                                     {permissions.includes(Common.PERMISSIONS.MANAGE_ORGANIZATION) ? (
                                         <>
@@ -434,7 +439,7 @@ const Organization: React.FC = () => {
                                                             <IonLabel>{item.name}</IonLabel>
                                                         </IonCol>
                                                         <IonCol className="appt_col">
-                                                            <IonChip color={item.role.role === Common.DEFAULT_ROLES.OWNER ? ("tertiary") : (item.role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{item.role.role}</IonChip>
+                                                            <IonChip className="member-chip" color={item.role.role === Common.DEFAULT_ROLES.OWNER ? ("warning") : (item.role.role === Common.DEFAULT_ROLES.ADMIN ? ("warning") : ("success"))}>{item.role.role}</IonChip>
                                                         </IonCol>
                                                         <IonCol className="appt_col">
                                                             <IonLabel>{format(new Date(item.joined), "dd-MM-yyyy")}</IonLabel>

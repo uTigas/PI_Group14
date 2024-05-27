@@ -82,3 +82,20 @@ class Statistics(models.Model):
     requests = models.BigIntegerField(default=0)
     items = models.BigIntegerField(default=0)
 
+class Chat(models.Model):
+    user1 = models.ForeignKey(User, related_name='chatter1', on_delete=models.CASCADE)
+    user2 = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class ChatInvite(models.Model):
+    chat = models.ForeignKey(Chat, on_delete=models.CASCADE)
+    inviter = models.ForeignKey(User, related_name='chat_inviter', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=20, choices=Status.choices, default=Status.PENDING)
+    
+class ChatMessage(models.Model):
+    chat = models.ForeignKey(Chat, related_name='chatter2', on_delete=models.CASCADE)
+    sender = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    message = models.CharField(max_length=500)
+    timestamp = models.DateTimeField(auto_now_add=True)
+

@@ -7,15 +7,30 @@ from entities.forms import OrganizationForm, OrganizationVaultForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
+from drf_yasg.utils import swagger_auto_schema
+from rest_framework.decorators import api_view
+from django.db.models import Q
 
 import entities.models as models
-
+@api_view(['GET'])
+@swagger_auto_schema(
+    operation_summary="Get vault items",
+    operation_description="Retrieves items stored in a specific vault.",
+    tags=['Vault'],
+)
 def getStatistics(request):
     stats = models.Statistics.objects.filter(id = 1).first()
     if not stats:
         stats = models.Statistics.objects.create(id = 1)
     return JsonResponse(model_to_dict(stats), status =  200) 
 
+@api_view(['GET'])
+@swagger_auto_schema(
+    summary="Get vault items",
+    description="Retrieves items stored in a specific vault.",
+    tags=['Vault'],
+    login_required=True,
+)
 @login_required
 def getOrganizations(request):
     if request.method == 'GET':
@@ -211,7 +226,7 @@ def inviteMember(request):
                 return JsonResponse({"error":"User not allowed to manage members of this organization."}, status=403)
 
             #Is it already invited or member?
-            if models.Member.objects.filter(user = invitedUser, organization = organization) or models.MemberInvite.objects.filter(user=invitedUser, organization = organization, status =models.Status.PENDING):
+            if models.Member.objects.filter(user = invitedUser, organization = organization) or models.MemberInvite.objects.filter(user=invitedUser, inviter = user, organization = organization, status__in = [models.Status.PENDING, models.Status.ACCEPTED]):
                 return JsonResponse({"error":"User is already a member of invited."}, status=403)
 
             with transaction.atomic():
@@ -455,5 +470,164 @@ def getVaultItems(request):
             return JsonResponse({"error": "Vault not found"}, status=404)
         except Exception as e:
             return JsonResponse({"error": "An error occurred"}, status=500)   
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+@login_required
+def getChats(request):
+    if request.method == 'GET':
+        try:
+            user = User.objects.get(username = request.user)
+            chats = []
+            raw = models.ChatInvite.objects.filter((Q(inviter=request.user) | Q(user=request.user)) & Q(status = models.Status.ACCEPTED))
+            for c in raw:
+                u = c.chat.user1 if c.chat.user1 != user else c.chat.user2
+                chats.append({
+                    'id': c.chat.id,
+                    'username': u.username,
+                    'name': u.get_full_name(),
+                }) 
+            return JsonResponse({"chats": list(chats)}, status = 200)
+        except Exception as e:
+            return JsonResponse({"error": "An error occurred"}, status=500)   
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)        
+
+@login_required
+@csrf_exempt
+def refuseChatInvite(request):
+    if request.method == 'POST':
+        try:
+            user = User.objects.get(username = request.user)
+            invite = models.ChatInvite.objects.get(id = request.POST.get("invite"))
+            #Verify if allowed
+            if not invite.user == user:
+                return JsonResponse({"error":"Invite was not aimed to User."}, status=403)
+            with transaction.atomic():
+                invite.status= models.Status.REFUSED
+                invite.save()
+            return HttpResponse(status=200)
+        
+        except User.DoesNotExist:
+            return JsonResponse({"error": "User does not exist"}, status=400)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+@login_required
+@csrf_exempt
+def acceptChatInvite(request):
+    if request.method == 'POST':
+        try:
+            user = User.objects.get(username = request.user)
+            invite = models.ChatInvite.objects.get(id = request.POST.get("invite"))
+            #Verify if allowed
+            if not invite.user == user:
+                return JsonResponse({"error":"Invite was not aimed to User."}, status=403)
+            with transaction.atomic():
+                invite.status = models.Status.ACCEPTED
+                invite.save()
+            return HttpResponse(status=200)
+        
+        except User.DoesNotExist:
+            return JsonResponse({"error": "User does not exist"}, status=400)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+    
+@login_required
+@csrf_exempt
+def inviteChat(request):
+    if request.method == 'POST':
+        try:
+            user = User.objects.get(username = request.user)
+            invitedUser  = User.objects.get(username =  request.POST.get("username"))
+            #Is it already invited?
+            if models.ChatInvite.objects.filter(user=invitedUser, inviter = user, status__in = [models.Status.PENDING, models.Status.ACCEPTED]).exists():
+                return JsonResponse({"error":"User was already invited."}, status=403)
+
+            with transaction.atomic():
+                chat = models.Chat.objects.create(user1 = user, user2 = invitedUser)
+                models.ChatInvite.objects.create(inviter= user, user= invitedUser, chat= chat)
+            return HttpResponse(status=200)
+           
+        except User.DoesNotExist:
+            return JsonResponse({"error": "This user does not exist"}, status=404)
+        except Exception as e:
+            return JsonResponse({"An error occurred"}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@login_required
+def getChatInvites(request):
+    #DISCLAIMER: returns ONLY PENDING invites
+    if request.method == 'GET':
+        try:
+            user = User.objects.get(username = request.user)
+            invites_raw = models.ChatInvite.objects.filter(user = user)
+            invites = []
+            for invite in invites_raw:
+                if invite.status != models.Status.PENDING:
+                    continue
+                temp = {
+                    "id": invite.id,
+                    "inviter_name": invite.inviter.first_name + " " + invite.inviter.last_name,
+                    "inviter_username": invite.inviter.username,
+                    "timestamp": invite.timestamp
+                }
+                invites.append(temp)
+            return JsonResponse({"invites": invites}, status=200)
+        except User.DoesNotExist:
+            return JsonResponse({"error": "User does not exist"}, status=400)
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@login_required
+def getChat(request):
+    if request.method == 'GET':
+        try:
+            messages= []
+            user = User.objects.get(username = request.user)
+            chat = models.Chat.objects.get(id = request.GET.get('chatId'))
+            #Verify if allowed
+            if not (chat.user1 == user or chat.user2 == user):
+                return JsonResponse({"error":"User not part of Chat."}, status=403)
+            raw = models.ChatMessage.objects.filter(chat=chat)
+            for m in raw:
+                messages.append({
+                    'id': m.id,
+                    'message': m.message,
+                    'sender': m.sender.username,
+                    'ts': m.timestamp
+                })
+            return JsonResponse({"messages": list(messages)}, status = 200)
+        except Exception as e:
+            return JsonResponse({"error": "An error occurred"}, status=500)   
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)        
+    
+@login_required
+@csrf_exempt
+def sendMessage(request):
+    if request.method == 'POST':
+        try:
+            user = User.objects.get(username = request.user)
+            chat = models.Chat.objects.get(id= request.POST.get('chat'))
+            #Verify if allowed
+            if not (chat.user1 == user or chat.user2 == user):
+                return JsonResponse({"error":"User not part of Chat."}, status=403)
+            with transaction.atomic():
+                models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+               
+            return HttpResponse(status=200)
+           
+        except User.DoesNotExist:
+            return JsonResponse({"error": "This user does not exist"}, status=404)
+        except Exception as e:
+            return JsonResponse({"An error occurred"}, status=500)
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)

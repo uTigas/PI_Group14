@@ -37,13 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework.authtoken',
+    'rest_framework',
     'corsheaders',
     'crispy_forms',
     'crispy_bootstrap4',
     'authentication.apps.AuthenticationConfig',
     'entities.apps.EntitiesConfig',
-    'warehouse.apps.WarehouseConfig'
+    'warehouse.apps.WarehouseConfig',
+    'drf_yasg',        
 ]
 
 MIDDLEWARE = [

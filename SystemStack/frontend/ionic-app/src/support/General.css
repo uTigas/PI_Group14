@@ -24,3 +24,21 @@ ion-item-divider{
   margin-top: 0px;
   min-height: 1px!important;
 }
+
+.ChatBubble {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.ChatBubble.sent {
+  background-color: #4cdeee; 
+  max-width: 75%;
+  width: fit-content;
+}
+
+.ChatBubble.received {
+  background-color: #E5E5EA;
+  max-width: 75%;
+  width: fit-content;
+}

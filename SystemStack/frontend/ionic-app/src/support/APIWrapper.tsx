@@ -160,5 +160,36 @@ const ApiWrapper = {
         console.error('Error fetching Vault Items', error);
       }
     },
+
+    inviteChat: async (formData : FormData) => {
+      return await axios.post(ApiWrapper.backendURI + "chats/invite", formData, {
+          withCredentials: true
+        });
+    },
+
+    acceptChatInvite: async (formData : FormData) => {
+      return await axios.post(ApiWrapper.backendURI + 'chats/invite/accept', formData, {withCredentials: true});
+    },
+
+    refuseChatInvite: async (formData : FormData) => {
+      return await axios.post(ApiWrapper.backendURI + 'chats/invite/refuse', formData, {withCredentials: true});
+    },
+
+    fetchContacts : async() => {
+      return await axios.get(ApiWrapper.backendURI + 'chats', {withCredentials: true});
+    },
+
+    fetchChatInvites: async () => {
+      return await axios.get(ApiWrapper.backendURI + 'chats/invites', {withCredentials: true});
+    },
+
+    fetchMessages: async (id : string) => {
+      return await axios.get(ApiWrapper.backendURI + `chat?chatId=${id}`, {withCredentials: true});
+    },
+
+    
+    sendMessage: async (formData : FormData) => {
+      return await axios.post(ApiWrapper.backendURI + 'chat/message', formData, {withCredentials: true});
+    },
 }
 export default ApiWrapper;

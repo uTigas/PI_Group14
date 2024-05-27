@@ -133,6 +133,12 @@ const Vault: React.FC = () => {
                 <IonCol>
                   <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
                 </IonCol>
+                <IonCol size='auto'>
+                  <IonButton className="create-org" color={'success'} size='small' fill='outline' id="click-trigger">New<IonIcon icon={addOutline} /></IonButton>
+                </IonCol>
+                <IonPopover trigger="click-trigger" triggerAction="click">
+                  <UploadComponent vaultId={''} user={userDetails?.username} />
+                </IonPopover>
               </IonRow>
               <IonRow>
                 <IonGrid className="ion-padding">
@@ -141,11 +147,7 @@ const Vault: React.FC = () => {
                     <IonCol><IonLabel><h2>Size</h2></IonLabel></IonCol>
                     <IonCol><IonLabel><h2>Type</h2></IonLabel></IonCol>
                     <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
-                    <IonCol>
-                      <IonButton color={'success'} size='small' fill='outline' id="click-trigger">New<IonIcon icon={addOutline} /></IonButton></IonCol>
-                    <IonPopover trigger="click-trigger" triggerAction="click">
-                      <UploadComponent vaultId={''} user={userDetails?.username} />
-                    </IonPopover>
+                    <IonCol></IonCol>
                   </IonRow>
                   {paginatedResults.length !== 0 ? (
                     paginatedResults.map((item) => (

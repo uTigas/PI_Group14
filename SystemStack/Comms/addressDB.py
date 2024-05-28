@@ -1,5 +1,6 @@
 import psycopg2
 import os
+from util import logger
 
 HOSTNAME = "addressdb"
 addressDBUrl = None
@@ -29,8 +30,13 @@ def disconnect_from_db():
 def init_db():
     global conn
     with open("init_address_db.sql", "r") as f:
+        logger.info("Initializing database.")
         cur = conn.cursor()
-        cur.execute(f.read())
+        c = str(f.read())
+        logger.info("Executing SQL file.")
+        cur.execute(c)
+        cur.execute("SELECT * FROM address")
+        logger.info("Database initialized.")
         cur.close()
 
 def get_address(rx_id):
@@ -44,7 +50,7 @@ def get_address(rx_id):
 def create_id(qkd_address):
     global conn
     cur = conn.cursor()
-    cur.execute("INSERT INTO addresses (address) VALUES (%s) RETURNING id", (qkd_address,))
+    cur.execute("INSERT INTO address (address) VALUES (%s) RETURNING id", (qkd_address,))
     new_id = cur.fetchone()[0]
     cur.close()
     return str(new_id) , qkd_address

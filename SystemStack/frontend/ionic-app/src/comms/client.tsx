@@ -54,58 +54,94 @@ export function decryptMessage(message: string, key = QKD_KEY): any {
 }
 
 // post to QKD_ADDRESS/keys/SELF_ID
-export function postGetKey(rx_id: string): void {
-
+export async function postGetKey(rx_id: string): Promise<any> {
     const msg = baseEncryptedMessage();
     msg["rx_id"] = rx_id;
 
-    fetch(QKD_ADDRESS + "/keys/" + SELF_ID, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/octet-stream",
-            "Content-Transfer-Encoding": "base64"
-        },
-        body: encryptMessage(msg),
-    });
+    try {
+        const encryptedMsg = encryptMessage(msg);
+        const response = await fetch(QKD_ADDRESS + "/keys/" + SELF_ID, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/octet-stream",
+                "Content-Transfer-Encoding": "base64"
+            },
+            body: encryptedMsg,
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.text();
+        return data;
+    } catch (error) {
+        console.error('Error fetching key:', error);
+        throw error;
+    }
 }
 
-// get to QKD_ADDRESS/keys/SELF_ID
-export function getGetKey(): any {
+export async function getGetKey() {
     const msg = baseEncryptedMessage();
-    fetch(QKD_ADDRESS + "/keys/" + SELF_ID, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/octet-stream",
-            "Content-Transfer-Encoding": "base64"
-        },
-        body: encryptMessage(msg),
-    }).then((response) => {
-        return response.text();
-    }).then((data) => {
-        const _msg = decryptMessage(data);
-        return _msg;
-    });
+
+    try {
+        const encryptedMsg = msg;
+        console.log(encryptMessage(encryptedMsg,QKD_KEY))
+        console.log(msg)
+        const response = await fetch(QKD_ADDRESS + "/keys/get/" + SELF_ID, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/octet-stream",
+                "Content-Transfer-Encoding": "base64",
+                body: encryptedMsg,
+            }
+        });
+        
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.text();
+        console.log(data)
+        if (data.startsWith("{")) {
+            throw new Error("No key found");
+        }
+        const decryptedMsg = decryptMessage(data);
+        return decryptedMsg;
+    } catch (error) {
+        console.error('Error fetching key:', error);
+        throw error;
+    }
 }
+
 
 // register User to QKD Server
-export function registerUser(): void {
-
+export async function registerUser() {
     const msg = {
         "tx_id": "self",
         "ts": Date.now(),
     };
 
-    fetch(QKD_ADDRESS + "/users", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/octet-stream",
-            "Content-Transfer-Encoding": "base64"
-        },
-        body: encryptMessage(msg, QKD_PIN),
-    }).then((response) => {
-        return response.text();
-    }).then((data) => {
-        const _msg = decryptMessage(data, QKD_PIN);
-        return _msg;
-    });
+    try {
+        const encryptedMsg = encryptMessage(msg, QKD_PIN);
+        const response = await fetch(QKD_ADDRESS + "/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/octet-stream",
+                "Content-Transfer-Encoding": "base64"
+            },
+            body: encryptedMsg,
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.text();
+        const decryptedMsg = decryptMessage(data, QKD_PIN);
+        return decryptedMsg;
+    } catch (error) {
+        console.error('Error registering user:', error);
+        throw error;  // Re-throw the error to allow further handling if needed
+    }
 }

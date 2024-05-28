@@ -1,7 +1,6 @@
-import datetime
-import logging
 from time import sleep
 from fastapi import FastAPI , Request , Depends, Response
+from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import requests
 from addressDB import *
@@ -13,32 +12,43 @@ PIN = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    sleep(3)
+    logger.info("Starting QKD Server")
+    sleep(15)
+    logger.info("QKD Server started.")
     connect_to_db()
+    logger.info("Connected to database.")
     init_db()
+    logger.info("Database initialized.")
     load_pin()
+    logger.info("PIN loaded.")
     load_address()
+    logger.info("Address loaded.")
     load_user_registry()
+    logger.info("User registry loaded.")
     yield
     disconnect_from_db()
 
 app = FastAPI(lifespan=lifespan)
 
-# Configure logging
-logging.basicConfig(filename='requests.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+origins = [
+    "http://localhost:8100",
+]
 
-# Create a logger
-logger = logging.getLogger(__name__)
-
-# Middleware to log requests
-@app.middleware("http")
-async def log_requests(request: Request, call_next):
-    response = await call_next(request)
-    return response
-
+# Add the CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins, 
+    allow_credentials=True,
+    allow_methods=["*"],  # Allows all methods (GET, POST, etc.)
+    allow_headers=["*"],  # Allows all headers
+)
 
 async def get_request_body(request: Request):
     return await request.body()
+
+@app.get("/")
+def root():
+    return {"status": "Success"}
 
 @app.post("/keys/{tx_id}")
 def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
@@ -62,10 +72,12 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
 
     store_key_cache(tx_id, rx_id, "generating")
 
-    if address == ADDRESS:
+    add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
+    logger.info(f"Requesting key from {address} {add}")
+    if address == add:
         key = generate_key(size=1024)
-        store_key_cache(tx_id, rx_id, key.encode())
-        store_key_cache(rx_id, tx_id, key.encode())
+        store_key_cache(tx_id, rx_id, key)
+        store_key_cache(rx_id, tx_id, key)
         return {"status": "Success"}
 
     tried_keys = []
@@ -84,8 +96,8 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         return {"error": "Failed to establish consensus"}
     
     key = open_key_file(key_file_name)
-    remove_key_file(key_file_name)
-    store_key_cache(tx_id, rx_id, key.encode())
+    # remove_key_file(key_file_name)
+    store_key_cache(tx_id, rx_id, key)
 
     return {"status": "Success"}
 
@@ -105,18 +117,19 @@ def reconn(body: bytes = Depends(get_request_body)):
         return {"error": "Key not found"}
     
     key = open_key_file(key_file_name)
-    remove_key_file(key_file_name)
-    store_key_cache(tx_id, rx_id, key.encode())
+    # remove_key_file(key_file_name)
+    store_key_cache(tx_id, rx_id, key)
 
     return {"status": "Success"}
 
-@app.get("/keys")
-def get_keys(body: bytes = Depends(get_request_body)):
+@app.post("/keys/get/{tx_id}")
+def get_keys(tx_id: str ,body: bytes = Depends(get_request_body)):
     try:
-        msg = GetKeysMsg(body)
+        logger.info(f'Get keys {tx_id} {body}')
+        msg = GetKeysMsg(body,tx_id)
         tx_id = msg.loads()
-    except InvalidMsg:
-        return {"error": "Invalid message"}
+    except InvalidMsg as e:
+        return {"error": "Invalid message" , "msg": str(e) }
     except NoTxId:
         return {"error": "No Tx ID found"}
     
@@ -129,15 +142,19 @@ def get_keys(body: bytes = Depends(get_request_body)):
 def register_user(body: bytes = Depends(get_request_body)):
     try:
         msg = RegisterUserMsg(body,"self")
-        msg.load()
+        msg.loads()
     except InvalidMsg:
         return {"error": "Invalid message"}
-    
-    new_id , qkd_address = create_id(ADDRESS)
+    add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
+    logger.info(f"Registering new user registered with ID. Address: {add} , {ADDRESS}")
+
+    new_id , qkd_address = create_id(add)
     key = generate_key()
 
+    logger.info(f"New user registered with ID: {new_id}")
+
     try:
-        store_user_registry(new_id)
+        store_user_registry(new_id, key)
     except ValueError:
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     

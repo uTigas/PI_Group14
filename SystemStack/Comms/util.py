@@ -3,12 +3,21 @@ import random
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad , pad
 import base64
+import logging
+
 userRegistry = {} # dict of user and key
 keyCache = {} # dict of dict of key of tx_id and rx_id
 timeCache = {} # dict of dict of time , last action of the user
 
 PIN = None
 ADDRESS = None
+
+# Configure logging
+logging.basicConfig(filename='requests.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Create a logger
+logger = logging.getLogger(__name__)
+
 
 def load_user_registry():
     global userRegistry
@@ -25,6 +34,9 @@ def load_pin():
 def load_address():
     global ADDRESS
     ADDRESS = "http://localhost:" + os.getenv("QKD_PORT", "8000")
+
+# def get_address():
+#     return "http://localhost:" + os.getenv("QKD_PORT", "8000")
 
 def flush_user_registry():
     with open("userRegistry.txt", "a") as f:

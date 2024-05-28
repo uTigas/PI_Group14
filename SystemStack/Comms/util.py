@@ -24,7 +24,7 @@ def load_pin():
 
 def load_address():
     global ADDRESS
-    ADDRESS = "http://localhost:" + os.getenv("QKD_ADDRESS", "8000")
+    ADDRESS = "http://localhost:" + os.getenv("QKD_PORT", "8000")
 
 def flush_user_registry():
     with open("userRegistry.txt", "a") as f:
@@ -65,10 +65,10 @@ def in_user_registry(tx_id):
 
 def decrypt_msg(msg:str, key: str) -> str:
     cipher = AES.new(key.encode(), AES.MODE_CBC, iv='0000000000000000'.encode())
-    return unpad(cipher.decrypt(base64.b64decode(msg)), 4, style = 'pkcs7').decode()
+    return unpad(cipher.decrypt(base64.b64decode(msg)), 16, style = 'pkcs7').decode()
 
 def encrypt_msg(msg: str, key: str) -> str:
-    msg = pad(msg.encode(), 4, style = 'pkcs7')
+    msg = pad(msg.encode(), 16, style = 'pkcs7')
     cipher = AES.new(key.encode(), AES.MODE_CBC , iv='0000000000000000'.encode())
     return base64.b64encode((cipher.encrypt(msg))).decode()
 

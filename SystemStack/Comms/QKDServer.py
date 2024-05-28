@@ -1,4 +1,7 @@
-from fastapi import FastAPI , Request , Depends
+import datetime
+import logging
+from time import sleep
+from fastapi import FastAPI , Request , Depends, Response
 from contextlib import asynccontextmanager
 import requests
 from addressDB import *
@@ -10,6 +13,7 @@ PIN = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    sleep(3)
     connect_to_db()
     init_db()
     load_pin()
@@ -19,6 +23,19 @@ async def lifespan(app: FastAPI):
     disconnect_from_db()
 
 app = FastAPI(lifespan=lifespan)
+
+# Configure logging
+logging.basicConfig(filename='requests.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+# Create a logger
+logger = logging.getLogger(__name__)
+
+# Middleware to log requests
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    response = await call_next(request)
+    return response
+
 
 async def get_request_body(request: Request):
     return await request.body()
@@ -125,4 +142,4 @@ def register_user(body: bytes = Depends(get_request_body)):
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     
 
-    return ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt()
+    return Response(content= ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt())

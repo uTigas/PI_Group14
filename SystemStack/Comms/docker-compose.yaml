@@ -19,7 +19,7 @@ services:
     build: .
     container_name: qkdserver_container_1
     ports:
-      - "${QKD_PORT_1:-8080}:8080"
+      - "${QKD_PORT_1:-8080}:${QKD_PORT_1:-8080}"
     environment:
       QKD_PORT: ${QKD_PORT_1}
       QKD_PIN: ${QKD_PIN_1}
@@ -36,7 +36,7 @@ services:
     build: .
     container_name: qkdserver_container_2
     ports:
-      - "${QKD_PORT_2:-8081}:8080"
+      - "${QKD_PORT_2:-8081}:${QKD_PORT_2:-8081}"
     environment:
       QKD_PORT: ${QKD_PORT_2}
       QKD_PIN: ${QKD_PIN_2}

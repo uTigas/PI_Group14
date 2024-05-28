@@ -1,12 +1,12 @@
 import axios, { AxiosResponse } from "axios";
-import UploadComponent from "../components/UploadComponent";
-import { download } from "ionicons/icons";
+import "../comms/client";
+import { decrypt, encrypt, registerUser } from "../comms/client";
 
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
-
     checkAuthentication : async () => {
         try {
+          console.log(registerUser())
           return await axios.get(ApiWrapper.backendURI + 'check-authentication', {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);

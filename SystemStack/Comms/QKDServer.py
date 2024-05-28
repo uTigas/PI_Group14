@@ -112,17 +112,17 @@ def get_keys(body: bytes = Depends(get_request_body)):
 def register_user(body: bytes = Depends(get_request_body)):
     try:
         msg = RegisterUserMsg(body,"self")
-        user = msg.loads()
+        msg.load()
     except InvalidMsg:
         return {"error": "Invalid message"}
     
+    new_id , qkd_address = create_id(ADDRESS)
     key = generate_key()
 
     try:
-        store_user_registry(user)
+        store_user_registry(new_id)
     except ValueError:
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     
-    new_id , qkd_address = create_id(ADDRESS)
 
     return ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt()

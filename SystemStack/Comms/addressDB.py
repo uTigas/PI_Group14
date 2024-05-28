@@ -36,7 +36,7 @@ def init_db():
 def get_address(rx_id):
     global conn
     cur = conn.cursor()
-    cur.execute("SELECT address FROM addresses WHERE id = %s", (rx_id,))
+    cur.execute("SELECT address FROM addresses WHERE id = %s", (int(rx_id),))
     address = cur.fetchone()
     cur.close()
     return address
@@ -49,4 +49,4 @@ def create_id(qkd_address):
     cur.execute("SELECT MAX(id) FROM addresses")
     new_id = cur.fetchone() + 1
     cur.execute("INSERT INTO addresses (id, address) VALUES (%s, %s)", (new_id, qkd_address))
-    return new_id , qkd_address
+    return str(new_id) , qkd_address

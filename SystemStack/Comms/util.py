@@ -2,7 +2,7 @@ import os
 import random
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad , pad
-
+import base64
 userRegistry = {} # dict of user and key
 keyCache = {} # dict of dict of key of tx_id and rx_id
 timeCache = {} # dict of dict of time , last action of the user
@@ -63,14 +63,14 @@ def get_keys_from_tx_id(tx_id):
 def in_user_registry(tx_id):
     return tx_id in userRegistry
 
-def decrypt_msg(msg:bytes, key: str) -> str:
-    cipher = AES.new(key.encode(), AES.MODE_CBC, iv=bytes(16))
-    return unpad(cipher.decrypt(msg), AES.block_size).decode()
+def decrypt_msg(msg:str, key: str) -> str:
+    cipher = AES.new(key.encode(), AES.MODE_CBC, iv='0000000000000000'.encode())
+    return unpad(cipher.decrypt(base64.b64decode(msg)), 4, style = 'pkcs7').decode()
 
-def encrypt_msg(msg: str, key: str) -> bytes:
-    msg = pad(msg.encode(), AES.block_size)
-    cipher = AES.new(key.encode(), AES.MODE_CBC , iv=bytes(16))
-    return cipher.encrypt(msg)
+def encrypt_msg(msg: str, key: str) -> str:
+    msg = pad(msg.encode(), 4, style = 'pkcs7')
+    cipher = AES.new(key.encode(), AES.MODE_CBC , iv='0000000000000000'.encode())
+    return base64.b64encode((cipher.encrypt(msg))).decode()
 
 ALPHA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 def generate_key(size=32):

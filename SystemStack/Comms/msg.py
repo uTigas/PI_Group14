@@ -146,11 +146,10 @@ class ReturnKeysMsg(Msg_E):
 class RegisterUserMsg(Msg_E):
 
     def _loads(self) -> tuple[str, str]:
-        self.user = self._msg["user"]
-        return self.user
+        return 
 
-    def _construct(self, user: str, key: str):
-        self.user = user
+    def _construct(self):
+        pass
 
 class ReturnRegisterMsg(Msg_E):
 

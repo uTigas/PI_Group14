@@ -220,12 +220,13 @@ const Organization: React.FC = () => {
                                                             </IonToolbar>
                                                         </IonHeader>
                                                         <IonContent className="ion-padding">
-                                                            <IonItem><IonLabel color={'primary'}>Definition</IonLabel></IonItem>
+                                                            <IonItem><IonLabel color={'primary'}>Definition<IonIcon icon={helpCircle} size='medium'></IonIcon></IonLabel></IonItem>
                                                             <IonItem>
                                                                 <IonInput
                                                                     label="Vault&#39;s name"
                                                                     type="text"
                                                                     value={name}
+                                                                    placeholder="A name for your vault"
                                                                     labelPlacement="stacked"
                                                                     onIonChange={(e) => {
                                                                         setName(e.detail.value!);
@@ -236,6 +237,7 @@ const Organization: React.FC = () => {
                                                                 <IonTextarea
                                                                     label="Short description"
                                                                     labelPlacement="stacked"
+                                                                    placeholder="Short description describing your new vault"
                                                                     value={description}
                                                                     onIonChange={(e) => {
                                                                         setDescription(e.detail.value!);

@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
-import { IonButton, IonIcon, IonInput, IonItem, IonLabel, IonProgressBar } from '@ionic/react';
+import React, { RefObject, useContext } from 'react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonInput, IonItem, IonLabel, IonProgressBar, IonTitle, IonToolbar } from '@ionic/react';
 import { attachOutline, cloudUploadOutline } from 'ionicons/icons';
 import ApiWrapper from '../support/APIWrapper';
 
 interface UploadComponentProps {
   vaultId: string, 
   user: string | undefined;
+  refModal: RefObject<HTMLIonModalElement>;
 }
 
 class UploadComponent extends React.Component<UploadComponentProps> {
@@ -47,6 +48,7 @@ class UploadComponent extends React.Component<UploadComponentProps> {
         const response = await ApiWrapper.uploadFile(formData, this.setState);
         if (response)
           console.log('Upload successful:', response.data);
+          this.props.refModal.current?.dismiss();
       } catch (error) {
         console.error('Error uploading file:', error);
       } finally {
@@ -58,11 +60,25 @@ class UploadComponent extends React.Component<UploadComponentProps> {
     const { uploading, progress, fileName } = this.state;
 
     return (
-        <div>
+      <>
+        <IonHeader>
+          <IonToolbar mode='ios'>
+            <IonButtons slot="start">
+              <IonButton onClick={() => this.props.refModal.current?.dismiss()}>Cancel</IonButton>
+            </IonButtons>
+            <IonTitle>Create Organization</IonTitle>
+            <IonButtons slot="end">
+              <IonButton strong={true} onClick={this.handleUpload} disabled={uploading}>
+                {uploading ? 'Uploading...' : 'Upload'}
+              </IonButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent className='ion-padding'>
           <IonItem>
-            <IonInput placeholder='Insert file name' onIonChange={(e) => this.setState({fileName: e.detail.value})}></IonInput>
+          <IonInput label="Filename" labelPlacement="stacked" placeholder='Insert file name' onIonChange={(e) => this.setState({ fileName: e.detail.value })}></IonInput>
           </IonItem>
-          <IonItem lines="none">
+          <IonItem>
             <IonLabel position="stacked" className='ion-padding-vertical'>Select File</IonLabel>
             <input 
               type="file" 
@@ -75,21 +91,16 @@ class UploadComponent extends React.Component<UploadComponentProps> {
               <IonItem lines="none">
                 <IonIcon icon={attachOutline} slot="start" />
                 {fileName ? (
-                  <p>{fileName}</p>
+                  <IonLabel>{fileName}</IonLabel>
                 ) : (
-                  <p>No file selected</p>
+                  <IonLabel>No file selected</IonLabel>
                 )}
               </IonItem>
             </label>
           </IonItem>
-          <IonItem>
-            <IonButton onClick={this.handleUpload} disabled={uploading}>
-              {uploading ? 'Uploading...' : 'Upload'}
-              <IonIcon icon={cloudUploadOutline} className='ion-margin-start'></IonIcon>
-            </IonButton>
-          </IonItem>
           {uploading && <IonProgressBar value={progress / 100} />}
-      </div>
+      </IonContent>
+      </>
     );
   }
 }

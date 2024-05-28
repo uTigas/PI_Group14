@@ -1,7 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonItem, IonItemDivider, IonLabel, IonList, IonMenu, IonPage, IonRow, IonSearchbar, IonSplitPane, IonTitle, IonToolbar, IonText, IonChip, IonModal, IonButtons, IonInput, IonTextarea, IonSelect, IonSelectOption } from '@ionic/react';
 import { useEffect, useRef, useState } from 'react';
 import "../support/General.css";
-import { add, addCircle, atCircle, body, briefcase, checkmark, close, constructOutline, mailOpen } from 'ionicons/icons';
+import { add, addCircle, atCircle, body, briefcase, briefcaseOutline, checkmark, close, constructOutline, mailOpen, mailOpenOutline } from 'ionicons/icons';
 import CreateOrganizationContainer from '../components/CreateOrganizationContainer';
 import AppAppBar from '../components/AppAppBar';
 import ApiWrapper from '../support/APIWrapper';
@@ -36,10 +36,10 @@ const Organizations: React.FC = () => {
             <IonContent>
               <IonList lines='full'>
                 <IonItem button onClick={() => setSelectedPage('organizations')}>
-                  <IonLabel><IonIcon icon={briefcase}></IonIcon>&nbsp;Organizations</IonLabel>
+                  <IonLabel><IonIcon icon={briefcaseOutline}></IonIcon>&nbsp;Organizations</IonLabel>
                 </IonItem>
                 <IonItem button onClick={() => setSelectedPage('invites')}>
-                  <IonLabel><IonIcon icon={mailOpen}></IonIcon>&nbsp;Invites</IonLabel>
+                  <IonLabel><IonIcon icon={mailOpenOutline}></IonIcon>&nbsp;Invites</IonLabel>
                 </IonItem>
               </IonList>
             </IonContent>

@@ -1,5 +1,5 @@
-import { IonAlert, IonButton, IonCard, IonCardContent, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, SearchbarInputEventDetail, useIonPopover } from '@ionic/react';
-import { useContext, useEffect, useState } from 'react';
+import { IonAlert, IonButton, IonCard, IonCardContent, IonChip, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonModal, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, IonToolbar, SearchbarInputEventDetail, useIonPopover } from '@ionic/react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import ApiWrapper from '../support/APIWrapper';
 import AppAppBar from '../components/AppAppBar';
 import { addCircle, addOutline, cloudDownloadOutline, cloudUpload, cloudUploadOutline, createOutline, trashBinOutline } from 'ionicons/icons';
@@ -8,6 +8,7 @@ import UploadComponent from '../components/UploadComponent';
 import { UserContext } from '../App';
 import { format } from 'date-fns';
 import { IonSearchbarCustomEvent } from '@ionic/core';
+import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
 
 const Vault: React.FC = () => {
   const [items, setItems] = useState<any[]>([]);
@@ -16,10 +17,13 @@ const Vault: React.FC = () => {
   const [results, setResults] = useState<any[]>([])
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const modal = useRef<HTMLIonModalElement>(null);
 
   useEffect(() => {
     fetchVault();
   }, [])
+
+  function onWillDismiss(ev: CustomEvent<OverlayEventDetail>) { }
 
   const deleteItem = (id: string) => {
     const formData = new FormData;
@@ -122,11 +126,11 @@ const Vault: React.FC = () => {
                   <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
                 </IonCol>
                 <IonCol size='auto'>
-                  <IonButton className="create-org" color={'success'} fill='outline' shape="round" id="click-trigger">New<IonIcon icon={addOutline} /></IonButton>
+                  <IonModal ref={modal} trigger="click-trigger-vault" onWillDismiss={(ev) => onWillDismiss(ev)}>
+                    <UploadComponent refModal={modal} vaultId={''} user={userDetails?.username} />
+                  </IonModal>
+                  <IonButton className="create-org" color={'success'} fill='outline' shape="round" id="click-trigger-vault">New<IonIcon icon={addOutline} /></IonButton>
                 </IonCol>
-                <IonPopover trigger="click-trigger" triggerAction="click">
-                  <UploadComponent vaultId={''} user={userDetails?.username} />
-                </IonPopover>
               </IonRow>
               <IonRow>
                 <IonGrid className="ion-padding">
@@ -155,9 +159,9 @@ const Vault: React.FC = () => {
                           </IonCol>
                           <IonCol>
                             <div className='appt_button'>
-                              <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
-                              <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
                               <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
+                              <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                              <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
                               <IonAlert
                                 trigger={"delete-" + item.id}
                                 trigger-action="click"

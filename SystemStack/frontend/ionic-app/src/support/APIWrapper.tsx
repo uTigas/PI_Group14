@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import "../comms/client";
-import { decrypt, encrypt, registerUser , saveToLocalStorage , getGetKey , postGetKey, decryptMessage} from "../comms/client";
+import { registerUser , saveToLocalStorage, requestKey, getKeys} from "../comms/client";
 
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
@@ -9,8 +9,8 @@ const ApiWrapper = {
           const response = await registerUser();
           console.log(response);
           saveToLocalStorage(response.user,response.qkd_address,response.key);
-          const s = postGetKey("1");
-          const r = getGetKey();
+          const s = requestKey("1");
+          const r = getKeys();
           return await axios.get(ApiWrapper.backendURI + 'check-authentication', {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);

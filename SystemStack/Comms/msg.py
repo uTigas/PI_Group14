@@ -14,14 +14,14 @@ class Msg_E(ABC):
             raise NoTxId
 
     def loads(self):
-        # try:
+        try:
             self.decrypt(get_user_registry(self._tx_id))
             temp = self._loads()
             self.valid()
             store_time_cache(self.tx_id, self.ts)
             return temp
-        # except Exception as e:
-        #     raise InvalidMsg(str("[Error]:"+str(e))+".")
+        except Exception as e:
+            raise InvalidMsg(str("[Error]:"+str(e))+".")
         
     @abstractmethod
     def _loads(self):
@@ -48,6 +48,10 @@ class Msg_E(ABC):
         return self
     
     def valid(self):
+        print("Plain self._tx_id: ", self._tx_id)
+        print("Decrypted self.tx_id: ", self.tx_id)
+        print("Times N - A: ", get_time_cache(self.tx_id), ", ", self.ts)
+        print("Last cond: ", any( val is not None for val in self.__dict__.values()))
         if self.tx_id is not None and \
             self._tx_id == self.tx_id and \
             get_time_cache(self.tx_id) < self.ts and \

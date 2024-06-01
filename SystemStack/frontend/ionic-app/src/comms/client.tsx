@@ -49,7 +49,7 @@ export function decryptMessage(message: string, key = QKD_KEY): any {
 }
 
 // post to QKD_ADDRESS/keys/SELF_ID
-export async function postGetKey(rx_id: string): Promise<any> {
+export async function requestKey(rx_id: string): Promise<any> {
     const msg = baseEncryptedMessage();
     msg["rx_id"] = rx_id;
 
@@ -76,12 +76,12 @@ export async function postGetKey(rx_id: string): Promise<any> {
     }
 }
 
-export async function getGetKey() {
+export async function getKeys() {
     const msg = baseEncryptedMessage();
 
     try {
         const encryptedMsg = encryptMessage(msg,QKD_KEY);
-        console.log("At GET Getkey: ", encryptedMsg)
+        console.log("GET Key Request: ", encryptedMsg)
         const response = await fetch(QKD_ADDRESS + "/keys/get/" + SELF_ID, {
             method: "POST",
             headers: {
@@ -96,7 +96,6 @@ export async function getGetKey() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.text();
-        console.log("Returned MSG @ GET getKey: ", data)
         if (data.startsWith("{")) {
             throw new Error("No key found");
         }

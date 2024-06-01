@@ -1,31 +1,25 @@
-import CryptoJS from 'crypto-js';
-import { pin } from 'ionicons/icons';
+import forge from 'node-forge';
 
 let SELF_ID = localStorage.getItem("SELF_ID") || "SELF_ID";
 let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "http://localhost:5000";
 let QKD_KEY = localStorage.getItem("QKD_KEY") || "QKD_KEY";
 let QKD_PIN = "12341234123412341234123412341234"
-export function encrypt(msg: string, key: string): string {
-    const keyBytes = CryptoJS.enc.Utf8.parse(key);
-    const iv = CryptoJS.enc.Utf8.parse('0000000000000000'); // 16 bytes IV
-    const encrypted = CryptoJS.AES.encrypt(msg, keyBytes, {
-        iv: iv,
-        mode: CryptoJS.mode.CBC,
-        padding: CryptoJS.pad.Pkcs7
-    });
-    return encrypted.toString();
+
+
+export function decrypt(msg: string, key: string): string {
+    const decipher = forge.cipher.createDecipher('AES-CBC', forge.util.createBuffer(key));
+    decipher.start({ iv: forge.util.createBuffer('0000000000000000') });
+    decipher.update(forge.util.createBuffer(forge.util.decode64(msg)));
+    decipher.finish();
+    return decipher.output.toString();
 }
 
-// Decryption function
-export function decrypt(encryptedMsg: string, key: string): string {
-    const keyBytes = CryptoJS.enc.Utf8.parse(key);
-    const iv = CryptoJS.enc.Utf8.parse('0000000000000000'); // 16 bytes IV
-    const decrypted = CryptoJS.AES.decrypt(encryptedMsg, keyBytes, {
-        iv: iv,
-        mode: CryptoJS.mode.CBC,
-        padding: CryptoJS.pad.Pkcs7
-    });
-    return decrypted.toString(CryptoJS.enc.Utf8);
+export function encrypt(msg: string, key: string): string {
+    const cipher = forge.cipher.createCipher('AES-CBC', forge.util.createBuffer(key));
+    cipher.start({ iv: forge.util.createBuffer('0000000000000000') });
+    cipher.update(forge.util.createBuffer(msg));
+    cipher.finish();
+    return forge.util.encode64(cipher.output.getBytes());
 }
 
 export function saveToLocalStorage(self_id: string, qkd_address: string, qkd_key: string) {
@@ -50,6 +44,7 @@ export function encryptMessage(message: any, key = QKD_KEY): string {
 }
 
 export function decryptMessage(message: string, key = QKD_KEY): any {
+    console.log("CLIENT decryptMessgage:Decypted Message -> ", decrypt(message, key), " key: ", QKD_KEY, " Message: ", message)
     return JSON.parse(decrypt(message, key));
 }
 
@@ -85,16 +80,15 @@ export async function getGetKey() {
     const msg = baseEncryptedMessage();
 
     try {
-        const encryptedMsg = msg;
-        console.log(encryptMessage(encryptedMsg,QKD_KEY))
-        console.log(msg)
+        const encryptedMsg = encryptMessage(msg,QKD_KEY);
+        console.log("At GET Getkey: ", encryptedMsg)
         const response = await fetch(QKD_ADDRESS + "/keys/get/" + SELF_ID, {
             method: "POST",
             headers: {
                 "Content-Type": "application/octet-stream",
                 "Content-Transfer-Encoding": "base64",
-                body: encryptedMsg,
-            }
+            },
+            body: encryptedMsg,
         });
         
 
@@ -102,11 +96,13 @@ export async function getGetKey() {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.text();
-        console.log(data)
+        console.log("Returned MSG @ GET getKey: ", data)
         if (data.startsWith("{")) {
             throw new Error("No key found");
         }
         const decryptedMsg = decryptMessage(data);
+        console.log("Decrepted MSG @ GET getKey: ", decryptedMsg)
+
         return decryptedMsg;
     } catch (error) {
         console.error('Error fetching key:', error);

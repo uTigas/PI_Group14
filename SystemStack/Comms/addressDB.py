@@ -29,15 +29,19 @@ def disconnect_from_db():
 
 def init_db():
     global conn
-    with open("init_address_db.sql", "r") as f:
-        logger.info("Initializing database.")
-        cur = conn.cursor()
-        c = str(f.read())
-        logger.info("Executing SQL file.")
-        cur.execute(c)
-        cur.execute("SELECT * FROM address")
-        logger.info("Database initialized.")
-        cur.close()
+    cur = conn.cursor()
+    try:
+        with open("init_address_db.sql", "r") as f:
+            logger.info("Initializing database.")
+            c = str(f.read())
+            logger.info("Executing SQL file.")
+            cur.execute(c)
+            cur.execute("SELECT * FROM address")
+            logger.info("Database initialized.")
+            conn.commit()  # Commit the transaction after initialization
+    except:
+        pass
+    cur.close()
 
 def get_address(rx_id):
     global conn
@@ -53,4 +57,5 @@ def create_id(qkd_address):
     cur.execute("INSERT INTO address (address) VALUES (%s) RETURNING id", (qkd_address,))
     new_id = cur.fetchone()[0]
     cur.close()
-    return str(new_id) , qkd_address
+    conn.commit()  # Commit the transaction after inserting data
+    return str(new_id), qkd_address

@@ -13,7 +13,6 @@ PIN = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting QKD Server")
-    sleep(15)
     logger.info("QKD Server started.")
     connect_to_db()
     logger.info("Connected to database.")

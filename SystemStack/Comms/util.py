@@ -76,13 +76,13 @@ def in_user_registry(tx_id):
     return tx_id in userRegistry
 
 def decrypt_msg(msg:str, key: str) -> str:
-    cipher = AES.new(key.encode(), AES.MODE_CBC, iv='0000000000000000'.encode())
-    return unpad(cipher.decrypt(base64.b64decode(msg)), 16, style = 'pkcs7').decode()
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC, iv='0000000000000000'.encode())
+    return unpad(cipher.decrypt(base64.b64decode(msg)), 16, style = 'pkcs7').decode(encoding='utf-8')
 
 def encrypt_msg(msg: str, key: str) -> str:
     msg = pad(msg.encode(), 16, style = 'pkcs7')
-    cipher = AES.new(key.encode(), AES.MODE_CBC , iv='0000000000000000'.encode())
-    return base64.b64encode((cipher.encrypt(msg))).decode()
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+    return base64.b64encode((cipher.encrypt(msg))).decode(encoding='utf-8')
 
 ALPHA = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 def generate_key(size=32):

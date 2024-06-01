@@ -31,6 +31,8 @@ services:
       - qkd_net
     depends_on:
       - addressdb
+    volumes:
+      - .:/usr/src/app
 
   qkdserver2:
     build: .
@@ -48,6 +50,8 @@ services:
       - qkd_net
     depends_on:
       - addressdb
+    volumes:
+      - .:/usr/src/app
 
 networks:
   qkd_net:

@@ -13,7 +13,6 @@ PIN = None
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting QKD Server")
-    logger.info("QKD Server started.")
     connect_to_db()
     logger.info("Connected to database.")
     init_db()
@@ -72,9 +71,10 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
     store_key_cache(tx_id, rx_id, "generating")
 
     add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
-    logger.info(f"Requesting key from {address} {add}")
+    logger.info(f"Requesting key from {address} {add} {address == add}")
     if address == add:
-        key = generate_key(size=1024)
+        key = generate_key(size=32)
+        logger.info("user" + str(get_key_cache_()))
         store_key_cache(tx_id, rx_id, key)
         store_key_cache(rx_id, tx_id, key)
         return {"status": "Success"}
@@ -124,7 +124,6 @@ def reconn(body: bytes = Depends(get_request_body)):
 @app.post("/keys/get/{tx_id}")
 def get_keys(tx_id: str ,body: bytes = Depends(get_request_body)):
     try:
-        logger.info(f'Get keys {tx_id} {body}')
         msg = GetKeysMsg(body,tx_id)
         tx_id = msg.loads()
     except InvalidMsg as e:
@@ -137,13 +136,31 @@ def get_keys(tx_id: str ,body: bytes = Depends(get_request_body)):
 
     return temp.encrypt()
 
+@app.post("/keys/get/{tx_id}/{rx_id}")
+def get_key_from_tx_id(tx_id: str , rx_id: str , body: bytes = Depends(get_request_body)):
+    try:
+        msg = GetKeysMsg(body,tx_id)
+        tx_id = msg.loads()
+    except InvalidMsg:
+        return {"error": "Invalid message"}
+    except NoTxId:
+        return {"error": "No Tx ID found"}
+    
+    key = get_key_cache(tx_id, rx_id)
+    if rx_id is None:
+        return {"error": "Key not found"}
+    
+    temp = ReturnKeysMsg.construct(tx_id, {rx_id: key})
+    return temp.encrypt()
+
 @app.post("/users")
 def register_user(body: bytes = Depends(get_request_body)):
+    logger.info("Registering new user")
     try:
         msg = RegisterUserMsg(body,"self")
         msg.loads()
-    except InvalidMsg:
-        return {"error": "Invalid message"}
+    except InvalidMsg as e:
+        return {"error": "Invalid message" , "msg": str(e)}
     add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
     logger.info(f"Registering new user registered with ID. Address: {add} , {ADDRESS}")
 
@@ -157,5 +174,4 @@ def register_user(body: bytes = Depends(get_request_body)):
     except ValueError:
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     
-
     return Response(content= ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt())

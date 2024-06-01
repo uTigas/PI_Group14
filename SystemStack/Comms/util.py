@@ -18,7 +18,6 @@ logging.basicConfig(filename='requests.log', level=logging.INFO, format='%(ascti
 # Create a logger
 logger = logging.getLogger(__name__)
 
-
 def load_user_registry():
     global userRegistry
     with open("userRegistry.txt", "r") as f:
@@ -35,28 +34,35 @@ def load_address():
     global ADDRESS
     ADDRESS = "http://localhost:" + os.getenv("QKD_PORT", "8000")
 
-# def get_address():
-#     return "http://localhost:" + os.getenv("QKD_PORT", "8000")
+def get_address_():
+    return "http://localhost:" + os.getenv("QKD_PORT", "8000")
 
 def flush_user_registry():
-    with open("userRegistry.txt", "a") as f:
+    global userRegistry
+    with open("userRegistry.txt", "w") as f:
         for user, key in userRegistry.items():
             f.write(f"{user} {key}\n")
 
 def store_user_registry(user, key):
+    global userRegistry
     if len(key) not in [16, 24, 32]:
         raise ValueError("Key must be 16, 24 or 32 bytes long")
     userRegistry[user] = key
+    with open("userRegistry.txt", "a") as f:
+        f.write(f"{user} {key}\n")
 
 def store_key_cache( tx_id, rx_id, key):
+    global keyCache
     if tx_id not in keyCache:
         keyCache[tx_id] = {}
     keyCache[tx_id][rx_id] = key
 
 def store_time_cache(tx_id, time):
+    global timeCache
     timeCache[tx_id] = time
 
 def get_key_cache(tx_id, rx_id):
+    global keyCache
     if tx_id not in keyCache:
         return None
     if rx_id not in keyCache[tx_id]:
@@ -64,16 +70,32 @@ def get_key_cache(tx_id, rx_id):
     return keyCache[tx_id][rx_id]
 
 def get_time_cache(tx_id):
+    global timeCache
     return timeCache.setdefault(tx_id, 0)
 
+def get_key_cache_():    
+    global keyCache
+    return keyCache
+
+def get_user_registry_():
+    global userRegistry
+    return userRegistry
+
 def get_user_registry(tx_id):
+    global userRegistry
     return userRegistry[tx_id]
 
 def get_keys_from_tx_id(tx_id):
-    return {tx_id: userRegistry[tx_id]} if tx_id in userRegistry else {}
+    global keyCache
+    return keyCache[tx_id] if tx_id in keyCache else {}
 
 def in_user_registry(tx_id):
+    global userRegistry
     return tx_id in userRegistry
+
+def set_user_registry(userR):
+    global userRegistry
+    userRegistry = userR
 
 def decrypt_msg(msg:str, key: str) -> str:
     cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC, iv='0000000000000000'.encode())

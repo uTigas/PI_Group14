@@ -32,12 +32,9 @@ def init_db():
     cur = conn.cursor()
     try:
         with open("init_address_db.sql", "r") as f:
-            logger.info("Initializing database.")
             c = str(f.read())
-            logger.info("Executing SQL file.")
             cur.execute(c)
             cur.execute("SELECT * FROM address")
-            logger.info("Database initialized.")
             conn.commit()  # Commit the transaction after initialization
     except:
         pass
@@ -49,7 +46,7 @@ def get_address(rx_id):
     cur.execute("SELECT address FROM address WHERE id = %s", (int(rx_id),))
     address = cur.fetchone()
     cur.close()
-    return address
+    return address[0]
 
 def create_id(qkd_address):
     global conn

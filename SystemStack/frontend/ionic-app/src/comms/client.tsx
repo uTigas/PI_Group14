@@ -1,10 +1,9 @@
 import forge from 'node-forge';
 
-let SELF_ID = localStorage.getItem("SELF_ID") || "SELF_ID";
-let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "http://localhost:5000";
-let QKD_KEY = localStorage.getItem("QKD_KEY") || "QKD_KEY";
+let SELF_ID = localStorage.getItem("SELF_ID");
+let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS");
+let QKD_KEY = localStorage.getItem("QKD_KEY");
 let QKD_PIN = "12341234123412341234123412341234"
-
 
 export function decrypt(msg: string, key: string): string {
     const decipher = forge.cipher.createDecipher('AES-CBC', forge.util.createBuffer(key));
@@ -20,6 +19,25 @@ export function encrypt(msg: string, key: string): string {
     cipher.update(forge.util.createBuffer(msg));
     cipher.finish();
     return forge.util.encode64(cipher.output.getBytes());
+}
+
+export async function checkIfRegisteredElseAsk() {
+    let ok = false;
+    while (!ok) {
+        try {
+            let connection = await getKeys();
+            console.log("Connection established");
+            ok = true;
+        }
+        catch (error) {
+            alert("Invalid Credentials");
+            console.log("Not registered yet");
+            let self_id = prompt("Enter your ID", "self") || "self";
+            let qkd_address = prompt("Enter QKD Address", "http://localhost:5000") || "http://localhost:5000";
+            let qkd_key = prompt("Enter QKD Key", "12341234123412341234123412341234") || "12341234123412341234123412341234";
+            saveToLocalStorage(self_id, qkd_address, qkd_key);
+        }
+    }
 }
 
 export function saveToLocalStorage(self_id: string, qkd_address: string, qkd_key: string) {
@@ -39,12 +57,11 @@ export function baseEncryptedMessage(): any {
     };
 }
 
-export function encryptMessage(message: any, key = QKD_KEY): string {
+export function encryptMessage(message: any, key: any = QKD_KEY): string {
     return encrypt(JSON.stringify(message), key);
 }
 
-export function decryptMessage(message: string, key = QKD_KEY): any {
-    console.log("CLIENT decryptMessgage:Decypted Message -> ", decrypt(message, key), " key: ", QKD_KEY, " Message: ", message)
+export function decryptMessage(message: string, key: any = QKD_KEY): any {
     return JSON.parse(decrypt(message, key));
 }
 
@@ -80,8 +97,7 @@ export async function getKeys() {
     const msg = baseEncryptedMessage();
 
     try {
-        const encryptedMsg = encryptMessage(msg,QKD_KEY);
-        console.log("GET Key Request: ", encryptedMsg)
+        const encryptedMsg = encryptMessage(msg, QKD_KEY);
         const response = await fetch(QKD_ADDRESS + "/keys/get/" + SELF_ID, {
             method: "POST",
             headers: {
@@ -90,18 +106,15 @@ export async function getKeys() {
             },
             body: encryptedMsg,
         });
-        
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.text();
         if (data.startsWith("{")) {
-            throw new Error("No key found");
+            throw new Error("No key found" + data);
         }
         const decryptedMsg = decryptMessage(data);
-        console.log("Decrepted MSG @ GET getKey: ", decryptedMsg)
-
         return decryptedMsg;
     } catch (error) {
         console.error('Error fetching key:', error);

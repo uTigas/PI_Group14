@@ -48,10 +48,6 @@ class Msg_E(ABC):
         return self
     
     def valid(self):
-        print("Plain self._tx_id: ", self._tx_id)
-        print("Decrypted self.tx_id: ", self.tx_id)
-        print("Times N - A: ", get_time_cache(self.tx_id), ", ", self.ts)
-        print("Last cond: ", any( val is not None for val in self.__dict__.values()))
         if self.tx_id is not None and \
             self._tx_id == self.tx_id and \
             get_time_cache(self.tx_id) < self.ts and \
@@ -158,7 +154,7 @@ class RegisterUserMsg(Msg_E):
         return 
 
     def _construct(self):
-        pass
+        self.tx_id = "self"
 
 class ReturnRegisterMsg(Msg_E):
 
@@ -173,12 +169,3 @@ class ReturnRegisterMsg(Msg_E):
         self.qkd_address = qkd_address
         self.key = key  
         self.tx_id = "self"
-
-store_user_registry("1","1234123412341234")
-msg = GetKeysMsg.construct("1")
-e = msg.encrypt()
-print(e)
-print(msg.to_dict())
-msg = GetKeysMsg(e,"1")
-print(msg.loads())
-print(msg.to_dict())

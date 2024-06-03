@@ -37,7 +37,7 @@ def init_db():
             cur.execute("SELECT * FROM address")
             conn.commit()  # Commit the transaction after initialization
     except:
-        pass
+        logger.error("Error initializing database")
     cur.close()
 
 def get_address(rx_id):

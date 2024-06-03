@@ -5,14 +5,12 @@ from Crypto.Util.Padding import unpad , pad
 import base64
 import logging
 
-userRegistry = {} # dict of user and key
 timeCache = {} # dict of dict of time , last action of the user
 
 PIN = None
-ADDRESS = None
 
 # Configure logging
-logging.basicConfig(filename='requests.log', level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename='requests.log', level=logging.INFO, format=f'%(asctime)s - %(name)s - %(levelname)s {os.getenv("QKD_ADDRESS","localhost")}- %(message)s')
 
 # Create a logger
 logger = logging.getLogger(__name__)
@@ -20,14 +18,9 @@ logger = logging.getLogger(__name__)
 def load_pin():
     global PIN
     PIN = os.getenv("QKD_PIN", "1234"*8)
-    userRegistry["self"] = PIN
-
-def load_address():
-    global ADDRESS
-    ADDRESS = os.getenv("QKD_ADDRESS","http://localhost:") + os.getenv("QKD_PORT", "8000")
 
 def get_address_():
-    return os.getenv("QKD_ADDRESS","http://localhost:") + os.getenv("QKD_PORT", "8000")
+    return "http://" + os.getenv("QKD_ADDRESS","http://localhost:") + ":" + os.getenv("QKD_PORT", "8000")
 
 def store_time_cache(tx_id, time):
     global timeCache

@@ -23,6 +23,7 @@ services:
     environment:
       QKD_PORT: ${QKD_PORT_1}
       QKD_PIN: ${QKD_PIN_1}
+      QKD_ADDRESS: ${QKD_ADDRESS_1}
       KEY_DB: ${KEY_DB_1}
       KEY_FOLDER: ${KEY_FOLDER_1}
       POSTGRES_PASSWORD_ADDRESS: ${POSTGRES_PASSWORD_ADDRESS}
@@ -44,6 +45,7 @@ services:
     environment:
       QKD_PORT: ${QKD_PORT_2}
       QKD_PIN: ${QKD_PIN_2}
+      QKD_ADDRESS: ${QKD_ADDRESS_2}
       KEY_FOLDER: ${KEY_FOLDER_2}
       KEY_DB: ${KEY_DB_2}
       POSTGRES_PASSWORD_ADDRESS: ${POSTGRES_PASSWORD_ADDRESS}

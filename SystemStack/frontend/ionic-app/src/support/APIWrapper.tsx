@@ -11,9 +11,9 @@ const ApiWrapper = {
           if (!one) {
             one = true;
             await checkIfRegisteredAndRegister();
-            const s = await requestKey("170");
+            const s = await requestKey("1");
             console.log(s);
-            
+
             // wait 1 second
             await new Promise(resolve => setTimeout(resolve, 1000));
             const r = await getKeys();

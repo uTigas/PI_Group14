@@ -21,7 +21,7 @@ conn = None
 def init_db_connection():
     global conn
     if conn is None:
-        conn = sqlite3.connect(os.getenv("KEY_DB", "keys.db"), check_same_thread=False)
+        conn = sqlite3.connect(os.getenv("KEY_DB", "keys1.db"), check_same_thread=False)
     return conn
 
 def init_db_key():

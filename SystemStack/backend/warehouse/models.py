@@ -1,7 +1,5 @@
 from django.db import models
 
-from entities.models import OrganizationVault
-
 class Item(models.Model):
     author = models.CharField(max_length=50)
     vault = models.CharField()

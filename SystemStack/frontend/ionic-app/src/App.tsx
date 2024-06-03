@@ -34,6 +34,7 @@ import ApiWrapper from './support/APIWrapper';
 import Organization from './pages/Organization';
 import OrganizationVault from './pages/OrganizationVault';
 import "./support/General.css"
+import Register from './pages/Register';
 
 export interface User {
   username: string;
@@ -92,6 +93,9 @@ const App: React.FC = () => {
                   </Route>
                   <Route exact path="/vault">
                     <Vault/>
+                  </Route>
+                  <Route exact path="/register">
+                    <Register/>
                   </Route>
                   <Route path="/chats">
                     <Chats />

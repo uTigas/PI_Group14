@@ -1,36 +1,21 @@
 import json
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.models import User
+from authentication.models import qeepUser as User
 from warehouse.models import Item
 from entities.forms import OrganizationForm, OrganizationVaultForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
-from drf_yasg.utils import swagger_auto_schema
-from rest_framework.decorators import api_view
 from django.db.models import Q
 
 import entities.models as models
-@api_view(['GET'])
-@swagger_auto_schema(
-    operation_summary="Get vault items",
-    operation_description="Retrieves items stored in a specific vault.",
-    tags=['Vault'],
-)
 def getStatistics(request):
     stats = models.Statistics.objects.filter(id = 1).first()
     if not stats:
         stats = models.Statistics.objects.create(id = 1)
     return JsonResponse(model_to_dict(stats), status =  200) 
 
-@api_view(['GET'])
-@swagger_auto_schema(
-    summary="Get vault items",
-    description="Retrieves items stored in a specific vault.",
-    tags=['Vault'],
-    login_required=True,
-)
 @login_required
 def getOrganizations(request):
     if request.method == 'GET':

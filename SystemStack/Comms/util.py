@@ -24,10 +24,10 @@ def load_pin():
 
 def load_address():
     global ADDRESS
-    ADDRESS = "http://localhost:" + os.getenv("QKD_PORT", "8000")
+    ADDRESS = os.getenv("QKD_ADDRESS","http://localhost:") + os.getenv("QKD_PORT", "8000")
 
 def get_address_():
-    return "http://localhost:" + os.getenv("QKD_PORT", "8000")
+    return os.getenv("QKD_ADDRESS","http://localhost:") + os.getenv("QKD_PORT", "8000")
 
 def store_time_cache(tx_id, time):
     global timeCache

@@ -2,18 +2,23 @@ import axios, { AxiosResponse } from "axios";
 import "../comms/client";
 import { registerUser , saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister} from "../comms/client";
 
+let one = false;
+
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
     checkAuthentication : async () => {
         try {
-          console.log("Checking Authentication");
-          checkIfRegistered();
-          const s = await requestKey("1");
-          console.log(s);
-          // wait 1 second
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          const r = await getKeys();
-          console.log(r);
+          if (!one) {
+            one = true;
+            await checkIfRegisteredAndRegister();
+            const s = await requestKey("170");
+            console.log(s);
+            
+            // wait 1 second
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const r = await getKeys();
+            console.log(r);
+          }
           return await axios.get(ApiWrapper.backendURI + 'check-authentication', {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);

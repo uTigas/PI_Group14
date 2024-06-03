@@ -1,9 +1,8 @@
 import forge from 'node-forge';
 
-let SELF_ID = localStorage.getItem("SELF_ID");
-let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS");
-let QKD_KEY = localStorage.getItem("QKD_KEY");
-let QKD_PIN = "12341234123412341234123412341234"
+let SELF_ID = localStorage.getItem("SELF_ID") || "default";
+let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "default";
+let QKD_KEY = localStorage.getItem("QKD_KEY") || "12341234123412341234123412341234";
 
 export function decrypt(msg: string, key: string): string {
     const decipher = forge.cipher.createDecipher('AES-CBC', forge.util.createBuffer(key));
@@ -21,22 +20,20 @@ export function encrypt(msg: string, key: string): string {
     return forge.util.encode64(cipher.output.getBytes());
 }
 
-export function checkIfRegistered(): boolean {
-    let connection = getKeys();
-    connection.then((data) => {
-        console.log("Registered");
-        return true;
-    }).catch((error) => {
-        console.log("Not registered yet");
+export async function checkIfRegistered(): Promise<boolean> {
+    try {
+        let ret = await getKeys();
+    }
+    catch (error) {
+        console.error("Not registered", error);
         return false;
-    });
-    return false;
+    }
+    return true;
 }
 
-export function checkIfRegisteredAndRegister() {
-    while (!checkIfRegistered()) {
-        console.log("Registering User");
-        let self_id = prompt("Enter your ID", "self") || "self";
+export async function checkIfRegisteredAndRegister() {
+    while (! await checkIfRegistered()) {
+        let self_id = prompt("Enter your ID","self") || "self";
         let qkd_address = prompt("Enter QKD Address", "http://localhost:5000") || "http://localhost:5000";
         let qkd_key = prompt("Enter QKD Key", "12341234123412341234123412341234") || "12341234123412341234123412341234";
         saveToLocalStorage(self_id, qkd_address, qkd_key);
@@ -125,34 +122,3 @@ export async function getKeys() {
     }
 }
 
-
-// register User to QKD Server
-export async function registerUser() {
-    const msg = {
-        "tx_id": "self",
-        "ts": Date.now(),
-    };
-
-    try {
-        const encryptedMsg = encryptMessage(msg, QKD_PIN);
-        const response = await fetch(QKD_ADDRESS + "/users", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/octet-stream",
-                "Content-Transfer-Encoding": "base64"
-            },
-            body: encryptedMsg,
-        });
-
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        const data = await response.text();
-        const decryptedMsg = decryptMessage(data, QKD_PIN);
-        return decryptedMsg;
-    } catch (error) {
-        console.error('Error registering user:', error);
-        throw error;  // Re-throw the error to allow further handling if needed
-    }
-}

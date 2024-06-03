@@ -1,21 +1,17 @@
 import json
 import time
 from abc import ABC, abstractmethod
-from util import get_time_cache , get_user_registry , in_user_registry , store_time_cache , store_user_registry , userRegistry , load_pin
-from util import decrypt_msg , encrypt_msg
+from util import get_time_cache , store_time_cache , decrypt_msg , encrypt_msg
 
 class Msg_E(ABC):
 
-    def __init__(self, encrypted_msg: str , tx_id: str):
+    def __init__(self, encrypted_msg: str , tx_id_key: str):
         self._encrypted_msg = encrypted_msg
-        self._tx_id = tx_id # whats uncrypted
-
-        if self._tx_id and not in_user_registry(self._tx_id):
-            raise NoTxId
+        self._tx_id_key = tx_id_key # whats uncrypted
 
     def loads(self):
         try:
-            self.decrypt(get_user_registry(self._tx_id))
+            self.decrypt(self._tx_id_key)
             temp = self._loads()
             self.valid()
             store_time_cache(self.tx_id, self.ts)
@@ -32,8 +28,6 @@ class Msg_E(ABC):
         msg = cls(None, None)
         msg.ts = int(time.time())
         msg._construct( *args, **kwargs)
-        if not in_user_registry(msg.tx_id):
-            raise NoTxId
         return msg
         
     @abstractmethod
@@ -49,15 +43,14 @@ class Msg_E(ABC):
     
     def valid(self):
         if self.tx_id is not None and \
-            self._tx_id == self.tx_id and \
             get_time_cache(self.tx_id) < self.ts and \
             any( val is not None for val in self.__dict__.values() ):
                 return True
-        raise InvalidMsg
+        raise InvalidMsg("Invalid message")
     
-    def encrypt(self):
+    def encrypt(self, key: str):
         if self._encrypted_msg is None:
-            self._encrypted_msg = encrypt_msg(str(self), get_user_registry(self.tx_id))
+            self._encrypted_msg = encrypt_msg(str(self), key)
         return self._encrypted_msg
     
     def to_dict(self):
@@ -76,7 +69,7 @@ class Msg_S:
             self._msg = json.loads(self._raw_msg)
             return self._loads()
         except json.JSONDecodeError:
-            raise InvalidMsg
+            raise InvalidMsg("Invalid JSON")
 
     @abstractmethod
     def _loads(self):

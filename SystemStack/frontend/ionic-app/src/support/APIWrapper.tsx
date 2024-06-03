@@ -1,14 +1,17 @@
 import axios, { AxiosResponse } from "axios";
 import "../comms/client";
-import { registerUser , saveToLocalStorage, requestKey, getKeys, checkIfRegisteredElseAsk} from "../comms/client";
+import { registerUser , saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister} from "../comms/client";
 
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
     checkAuthentication : async () => {
         try {
-          await checkIfRegisteredElseAsk();
+          console.log("Checking Authentication");
+          checkIfRegistered();
           const s = await requestKey("1");
           console.log(s);
+          // wait 1 second
+          await new Promise(resolve => setTimeout(resolve, 1000));
           const r = await getKeys();
           console.log(r);
           return await axios.get(ApiWrapper.backendURI + 'check-authentication', {withCredentials: true});

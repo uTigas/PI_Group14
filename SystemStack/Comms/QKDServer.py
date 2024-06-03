@@ -7,6 +7,7 @@ from addressDB import *
 from reconInt import *
 from util import *
 from msg import *
+from keyDB import *
 
 PIN = None
 
@@ -16,12 +17,13 @@ async def lifespan(app: FastAPI):
     connect_to_db()
     logger.info("Connected to database.")
     init_db()
+    init_db_connection()
+    init_db_key()
+    init_db_user()
     logger.info("Database initialized.")
     load_pin()
     logger.info("PIN loaded.")
     load_address()
-    logger.info("Address loaded.")
-    load_user_registry()
     logger.info("User registry loaded.")
     yield
     disconnect_from_db()
@@ -46,12 +48,14 @@ async def get_request_body(request: Request):
 
 @app.get("/")
 def root():
+    logger.info("Root")
     return {"status": "Success"}
 
 @app.post("/keys/{tx_id}")
 def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
+    logger.info("Requesting keys %s", tx_id)
     try:
-        msg = GetKeyMsg(body,tx_id)
+        msg = GetKeyMsg(body,get_user_registry(tx_id))
         tx_id, rx_id = msg.loads()
     except InvalidMsg:
         return {"error": "Invalid message"}
@@ -71,10 +75,8 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
     store_key_cache(tx_id, rx_id, "generating")
 
     add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
-    logger.info(f"Requesting key from {address} {add} {address == add}")
     if address == add:
         key = generate_key(size=32)
-        logger.info("user" + str(get_key_cache_()))
         store_key_cache(tx_id, rx_id, key)
         store_key_cache(rx_id, tx_id, key)
         return {"status": "Success"}
@@ -102,6 +104,7 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
 
 @app.post("/recon")
 def reconn(body: bytes = Depends(get_request_body)):
+    logger.info("Recon message received")
     try:
         msg = ReconnMsg(body)
         tx_id, rx_id, desired_key = msg.loads()
@@ -123,8 +126,9 @@ def reconn(body: bytes = Depends(get_request_body)):
 
 @app.post("/keys/get/{tx_id}")
 def get_keys(tx_id: str ,body: bytes = Depends(get_request_body)):
+    logger.info("Getting keys from tx_id %s", tx_id)
     try:
-        msg = GetKeysMsg(body,tx_id)
+        msg = GetKeysMsg(body,get_user_registry(tx_id))
         tx_id = msg.loads()
     except InvalidMsg as e:
         return {"error": "Invalid message" , "msg": str(e) }
@@ -134,12 +138,13 @@ def get_keys(tx_id: str ,body: bytes = Depends(get_request_body)):
     keys = get_keys_from_tx_id(tx_id)
     temp = ReturnKeysMsg.construct(tx_id, keys)
 
-    return temp.encrypt()
+    return temp.encrypt( get_user_registry(tx_id) )
 
 @app.post("/keys/get/{tx_id}/{rx_id}")
 def get_key_from_tx_id(tx_id: str , rx_id: str , body: bytes = Depends(get_request_body)):
+    logger.info("Getting key from tx_id %s %s", tx_id, rx_id)
     try:
-        msg = GetKeysMsg(body,tx_id)
+        msg = GetKeysMsg(body,get_user_registry(tx_id))
         tx_id = msg.loads()
     except InvalidMsg:
         return {"error": "Invalid message"}
@@ -151,27 +156,24 @@ def get_key_from_tx_id(tx_id: str , rx_id: str , body: bytes = Depends(get_reque
         return {"error": "Key not found"}
     
     temp = ReturnKeysMsg.construct(tx_id, {rx_id: key})
-    return temp.encrypt()
+    return temp.encrypt( get_user_registry(tx_id) )
 
 @app.post("/users")
 def register_user(body: bytes = Depends(get_request_body)):
     logger.info("Registering new user")
     try:
-        msg = RegisterUserMsg(body,"self")
+        msg = RegisterUserMsg(body,get_user_registry("self"))
         msg.loads()
     except InvalidMsg as e:
         return {"error": "Invalid message" , "msg": str(e)}
-    add = "http://localhost:" + os.getenv("QKD_PORT", "8000")
-    logger.info(f"Registering new user registered with ID. Address: {add} , {ADDRESS}")
-
+    
+    add = get_address_()
     new_id , qkd_address = create_id(add)
     key = generate_key()
-
-    logger.info(f"New user registered with ID: {new_id}")
 
     try:
         store_user_registry(new_id, key)
     except ValueError:
         return {"error": "Key must be 16, 24 or 32 bytes long"}
     
-    return Response(content= ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt())
+    return Response(content= ReturnRegisterMsg.construct(new_id, qkd_address, key).encrypt(get_user_registry("self")), media_type="application/json")

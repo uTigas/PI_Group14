@@ -59,6 +59,7 @@ const App: React.FC = () => {
       fetchUserDetails();
     } 
   };
+  
 
   const fetchUserDetails = async () => {
     const response = await ApiWrapper.fetchUserDetails()

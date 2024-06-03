@@ -21,22 +21,25 @@ export function encrypt(msg: string, key: string): string {
     return forge.util.encode64(cipher.output.getBytes());
 }
 
-export async function checkIfRegisteredElseAsk() {
-    let ok = false;
-    while (!ok) {
-        try {
-            let connection = await getKeys();
-            console.log("Connection established");
-            ok = true;
-        }
-        catch (error) {
-            alert("Invalid Credentials");
-            console.log("Not registered yet");
-            let self_id = prompt("Enter your ID", "self") || "self";
-            let qkd_address = prompt("Enter QKD Address", "http://localhost:5000") || "http://localhost:5000";
-            let qkd_key = prompt("Enter QKD Key", "12341234123412341234123412341234") || "12341234123412341234123412341234";
-            saveToLocalStorage(self_id, qkd_address, qkd_key);
-        }
+export function checkIfRegistered(): boolean {
+    let connection = getKeys();
+    connection.then((data) => {
+        console.log("Registered");
+        return true;
+    }).catch((error) => {
+        console.log("Not registered yet");
+        return false;
+    });
+    return false;
+}
+
+export function checkIfRegisteredAndRegister() {
+    while (!checkIfRegistered()) {
+        console.log("Registering User");
+        let self_id = prompt("Enter your ID", "self") || "self";
+        let qkd_address = prompt("Enter QKD Address", "http://localhost:5000") || "http://localhost:5000";
+        let qkd_key = prompt("Enter QKD Key", "12341234123412341234123412341234") || "12341234123412341234123412341234";
+        saveToLocalStorage(self_id, qkd_address, qkd_key);
     }
 }
 
@@ -117,7 +120,7 @@ export async function getKeys() {
         const decryptedMsg = decryptMessage(data);
         return decryptedMsg;
     } catch (error) {
-        console.error('Error fetching key:', error);
+        console.error('Error fetching key: ', error);
         throw error;
     }
 }

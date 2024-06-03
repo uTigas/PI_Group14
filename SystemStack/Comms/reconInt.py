@@ -1,7 +1,7 @@
 import os
 import base64
 
-BASE_FOLDER = "GeneratedKeys"
+BASE_FOLDER = os.getenv("KEY_FOLDER", "GeneratedKeys")
 BASE_EXT = "b64"
 
 def get_key_file(tried_keys: list, ext = BASE_EXT) -> tuple[int, str]:

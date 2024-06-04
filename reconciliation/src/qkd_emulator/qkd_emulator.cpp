@@ -79,7 +79,7 @@ int main_cv(){
     param.readSystemInputParameters();
 
     int SEED = param.seed;
-    double noisePower = 0.25;
+    double noisePower = param.noisePower;
 
     Binary raw_signal = { "aux1.sgn", param.numberOfValuesPerFile };
 

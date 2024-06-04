@@ -1,6 +1,7 @@
-![QeeP Logo](/doc/qeep_logo.png)
 # QeeP + Quantum Key Reconciliation Application
 Repository for the development of 'Projeto de Informática' of Group 14, class of 2023/24.
+
+![QeeP Logo](/doc/qeep_logo.png)
 
 **Structure:**
   - **Reconciliation**: Quantum Reconciliation Application for the PTQCI & partners project **[DONE]** 

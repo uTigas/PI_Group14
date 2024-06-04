@@ -80,6 +80,14 @@ const ApiWrapper = {
       }
     },
 
+    fetchStats: async () => {
+      try{
+        return await axios.get(ApiWrapper.backendURI + 'stats', {withCredentials: true});
+      } catch (error){
+        console.error('Error fetching Stats', error);
+      }
+    },
+
     acceptInvite: async (formData : URLSearchParams) => {
       try {
         return await axios.post(ApiWrapper.backendURI + 'user/invites/accept', formData, {withCredentials: true});

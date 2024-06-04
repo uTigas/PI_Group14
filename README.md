@@ -1,13 +1,17 @@
-# PI_Group14
+![QeeP Logo](/doc/qeep_logo.png)]
+# QeeP + Quantum Key Reconciliation Application
 Repository for the development of 'Projeto de Informática' of Group 14, class of 2023/24.
 
 **Structure:**
   - **Reconciliation**: Quantum Reconciliation Application for the PTQCI & partners project **[DONE]** 
-  - **System Stack**: Full-Stack Quantum Data Managment And Share Environment **[IN REVIEW]** 
+  - **System Stack**: Full-Stack Quantum Data Managment And Share Environment **[DONE]** 
+  - **Doc**: Full Project Documentation & Links to Resources(Trailer, Demo, etc)
+    
+Due date at *4 June*.
 
-*Both flows du*e date at *4 June*.
+**Project Microsite** : www.sioproject.pt
 
-**Project Website** : https://www.sioproject.pt/
+**System Website** : www.qeep.pt
 
 ## Group Composition:
 
@@ -15,4 +19,4 @@ Repository for the development of 'Projeto de Informática' of Group 14, class o
 - David Cobileac, 102409 
 - Tiago Pereira, 108546
 - Vítor Santos, 107186
-- --- removed ---
+- --- removed member ---

@@ -1,15 +1,27 @@
-import { IonCard, IonCardContent, IonCol, IonContent, IonGrid, IonHeader, IonPage, IonRow, IonTitle } from '@ionic/react';
+import {
+  IonCard,
+  IonCardContent,
+  IonCol,
+  IonContent,
+  IonGrid,
+  IonHeader,
+  IonItemDivider,
+  IonPage,
+  IonRow,
+  IonText,
+  IonTitle
+} from '@ionic/react';
 import { AuthContext, UserContext } from '../App';
 import { useContext, useEffect, useState } from 'react';
 import AppAppBar from '../components/AppAppBar';
 import JoinUsContainer from '../components/JoinUsContainer';
-import './Home.css';
 import ApiWrapper from '../support/APIWrapper';
+import background from '../../resources/background.png';
 
 const Home: React.FC = () => {
   const logged = useContext(AuthContext);
   const user = useContext(UserContext);
-  
+
   const [stats, setStats] = useState({
     organizations: 0,
     requests: 0,
@@ -33,38 +45,136 @@ const Home: React.FC = () => {
     fetchStats();
   }, []);
 
+  const styles = {
+    page: {
+      background: '../../resources/background.png',
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    containerHome: {
+      width: '100%',
+      maxWidth: '1200px',
+      margin: 'auto'
+    },
+    statsCard: {
+      borderRadius: '10px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      marginTop: '20px',
+    },
+    centerText: {
+      marginBottom: '20px'
+    },
+    statText: {
+      fontSize: '18px',
+      margin: '10px 0',
+      fontWeight: 500
+    },
+    statLabel: {
+      color: '#007bff'
+    },
+    introCard: {
+      borderRadius: '10px',
+      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+      marginTop: '20px'
+    },
+    headerText: {
+      color: '#333',
+      fontSize: '24px',
+      fontWeight: 'bold',
+      marginBottom: '10px'
+    },
+    descriptionText: {
+      color: '#555',
+      fontSize: '16px',
+      marginBottom: '3px',
+      marginTop: '3px'
+    },
+    highlightText: {
+      color: '#007bff',
+      fontWeight: 'bold'
+    }
+  };
+
   return (
     <IonPage>
       <IonHeader>
-        <AppAppBar title='Home' />
+        <AppAppBar title="Home" />
       </IonHeader>
       <IonContent>
+        <div style={styles.page}>
         {logged && user ? (
-          <div className='containerHome'>
+          <div style={styles.containerHome}>
             <IonGrid>
               <IonRow>
-                <IonCol></IonCol>
+                <IonCol/>
                 <IonCol>
-                  <IonCard>
+                  <div style={{width: 500}}>
+                  <IonCard style={styles.introCard}>
                     <IonCardContent>
-                      <div className='center-text'>
-                        <IonTitle>Qeep Stats</IonTitle>
+                      <div style={styles.centerText}>
+                        <IonTitle style={styles.headerText}>Welcome to Qeep</IonTitle>
+                        <p style={styles.descriptionText}>
+                          Qeep is your secure solution for managing sensitive files and information. 
+                          Whether you're an organization or an individual, we provide a safe and 
+                          user-friendly platform to store and access your secrets.
+                        </p>
+                        <IonItemDivider/>
+                        <br/>
+                        <p style={styles.descriptionText}>
+                          <IonText color='primary'>Organizations:</IonText> Create vaults, manage access, and ensure 
+                          your data is protected.
+                        </p>
+                        <br/>
+                        <p style={styles.descriptionText}>
+                          <IonText color='primary'>Individuals:</IonText> Keep your personal documents and files safe 
+                          and accessible only to you.
+                        </p>
                       </div>
-                      <p>Organizations: {stats.organizations}</p>
-                      <p>Requests: {stats.requests}</p>
-                      <p>Size: {stats.size}</p>
-                      <p>Users: {stats.users}</p>
-                      <p>Vaults: {stats.vaults}</p>
                     </IonCardContent>
                   </IonCard>
+
+                  </div>
                 </IonCol>
-                <IonCol></IonCol>
+                <IonCol>
+                  <div style={{width: '350px'}}>
+                      <IonCard style={styles.statsCard}>
+                        <IonCardContent>
+                          <div style={styles.centerText}>
+                            <IonTitle style={styles.headerText}>Qeep Stats</IonTitle>
+                          </div>
+                          <p style={styles.descriptionText}>
+                            <IonText >Organizations:</IonText> {stats.organizations}
+                          </p>
+                          <IonItemDivider />
+                          <p style={styles.descriptionText}>
+                            <IonText >Requests:</IonText> {stats.requests}
+                          </p>
+                          <IonItemDivider />
+                          <p style={styles.descriptionText}>
+                            <IonText >Size:</IonText> {stats.size}
+                          </p>
+                          <IonItemDivider />
+                          <p style={styles.descriptionText}>
+                            <IonText >Users:</IonText> {stats.users}
+                          </p>
+                          <IonItemDivider />
+                          <p style={styles.descriptionText}>
+                            <IonText >Vaults:</IonText> {stats.vaults}
+                          </p>
+                        </IonCardContent>
+                      </IonCard>
+                  </div>
+                </IonCol>
+                <IonCol/>
               </IonRow>
             </IonGrid>
           </div>
         ) : (
           <JoinUsContainer />
         )}
+
+        </div>
       </IonContent>
     </IonPage>
   );

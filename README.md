@@ -21,3 +21,5 @@ Due date at *4 June*.
 - Tiago Pereira, 108546
 - Vítor Santos, 107186
 - --- removed member ---
+
+Project finalized at **05/06/2024**

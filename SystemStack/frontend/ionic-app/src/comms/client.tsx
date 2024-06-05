@@ -1,8 +1,9 @@
 import forge from 'node-forge';
 
-let SELF_ID = localStorage.getItem("SELF_ID") || "default";
-let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "default";
-let QKD_KEY = localStorage.getItem("QKD_KEY") || "12341234123412341234123412341234";
+export let SELF_ID = localStorage.getItem("SELF_ID") || "default";
+export let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "default";
+export let QKD_KEY = localStorage.getItem("QKD_KEY") || "12341234123412341234123412341234";
+export let SERVER_ID = "1";
 
 export function decrypt(msg: string, key: string): string {
     const decipher = forge.cipher.createDecipher('AES-CBC', forge.util.createBuffer(key));
@@ -121,4 +122,12 @@ export async function getKeys() {
         throw error;
     }
 }
+
+export function challengeMessage(KEY: string){
+    const msg = {
+        "tx_id": SELF_ID,
+        'challenge': encrypt(SELF_ID, KEY)
+    }
+    return msg
+} 
 

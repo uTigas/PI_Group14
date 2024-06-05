@@ -32,7 +32,6 @@ urlpatterns = [
     path('doc', schema_view.with_ui('swagger', cache_timeout=0), name="swagger-schema"),
     path('admin/', admin.site.urls),
     path('register', auth_views.register, name="register"),
-    re_path(r'^login/$', auth_views.systemLogin, name='login'),
     path('logout', auth_views.systemLogout, name="logout"),
     path('check-authentication', auth_views.check_authentication, name="check-authentication"),
     path('user', auth_views.fetch_user, name="user"),

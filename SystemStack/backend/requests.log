@@ -1,0 +1,71 @@
+2024-06-05 14:00:27,592 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py changed, reloading.
+2024-06-05 14:11:51,284 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:12:06,514 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:12:25,013 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:13:57,113 - django.request - ERROR localhost- Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 67, in register
+    statistics = Statistics.objects.get(id = 1)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+entities.models.Statistics.DoesNotExist: Statistics matching query does not exist.
+2024-06-05 14:15:28,617 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:15:38,056 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:15:56,006 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:16:00,062 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:16:04,013 - django.request - ERROR localhost- Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 67, in register
+    statistics = Statistics.objects.get(id = 1)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+entities.models.Statistics.DoesNotExist: Statistics matching query does not exist.
+2024-06-05 14:16:23,266 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:16:30,837 - django.request - ERROR localhost- Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 67, in register
+    statistics = Statistics.objects.filter(id = 1).first()
+AttributeError: 'QuerySet' object has no attribute 'fi'
+2024-06-05 14:17:00,282 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 14:19:25,970 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 18:54:09,652 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 18:57:28,156 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 18:57:29,467 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:01:46,670 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:01:48,931 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:57:39,503 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:57:40,877 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:57:58,146 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 19:57:59,216 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:06:08,701 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:06:09,456 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:07:14,617 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:07:15,704 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:12:03,949 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:26:27,133 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:26:27,692 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:26:59,226 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:27:00,836 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 20:28:17,331 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication

@@ -57,9 +57,9 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         return {"error": "No Tx ID found"}
         
     address = get_address(rx_id)
-    logger.info("Address found %s", address)
     if address is None:
         return {"error": "No Rx ID address found"}
+    logger.info("Address found %s", address)
     
     # if  get_key_cache(tx_id, rx_id) is not None:
     #     return {"error": "Key already exists"}
@@ -78,7 +78,7 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         key_file , key_file_name = get_key_file(tried_keys)
         logger.info(f"Trying key file {key_file_name} {address}")
         reconn_msg = ReconnMsg.construct(tx_id, rx_id, key_file)
-        response = requests.post(address + "/recon", headers={"Content-Type": "application/json"}, data=str(reconn_msg))
+        response = requests.post("http://" + address + "/recon", headers={"Content-Type": "application/json"}, data=str(reconn_msg))
         logger.info(f"Response from {address}: {response.status_code} {response.text}")
         if response.status_code == 200:
             break

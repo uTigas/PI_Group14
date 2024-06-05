@@ -1,22 +1,194 @@
-2024-06-03 02:24:52,352 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:25:11,488 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:25:25,140 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:25:25,142 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:25:25,153 - util - INFO - Requesting keys self
-2024-06-03 02:25:25,158 - util - INFO - Requesting keys self
-2024-06-03 02:25:26,416 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:25:26,416 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:27:51,908 - util - INFO - Requesting keys self
-2024-06-03 02:27:51,912 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:27:52,544 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:27:52,546 - util - INFO - Requesting keys self
-2024-06-03 02:27:52,551 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:27:52,553 - util - INFO - Requesting keys self
-2024-06-03 02:27:53,820 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:27:53,820 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:28:30,140 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:28:30,142 - util - INFO - Requesting keys self
-2024-06-03 02:28:30,143 - util - INFO - Requesting keys self
-2024-06-03 02:28:30,144 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:28:31,432 - util - INFO - Getting keys from tx_id self
-2024-06-03 02:28:31,432 - util - INFO - Getting keys from tx_id self
+2024-06-05 19:22:22,774 - util - INFO qkdserver1- Checking for key file 5 ['sym_tx0.b64', 'sym_tx1.b64', 'sym_tx2.b64', 'sym_tx3.b64', 'sym_tx4.b64', 'sym_tx5.b64', 'sym_tx6.b64', 'sym_tx7.b64']
+2024-06-05 19:22:22,776 - util - INFO qkdserver1- Checking file sym_tx0.b64
+2024-06-05 19:22:22,776 - util - INFO qkdserver1- Checking file 0
+2024-06-05 19:22:22,776 - util - INFO qkdserver1- Checking file sym_tx1.b64
+2024-06-05 19:22:22,776 - util - INFO qkdserver1- Checking file 1
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file sym_tx2.b64
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file 2
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file sym_tx3.b64
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file 3
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file sym_tx4.b64
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file 4
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file sym_tx5.b64
+2024-06-05 19:22:22,777 - util - INFO qkdserver1- Checking file 5
+2024-06-05 19:22:22,804 - util - INFO qkdserver1- Starting QKD Server
+2024-06-05 19:22:22,817 - util - INFO qkdserver1- Connected to database.
+2024-06-05 19:22:22,817 - util - INFO qkdserver1- Fetched ENV Variables: qkdserver1 & 1
+2024-06-05 19:22:22,835 - util - INFO qkdserver1- Database initialized.
+2024-06-05 19:22:22,993 - util - INFO qkdserver2- Checking for key file 5 ['sym_rx0.b64', 'sym_rx1.b64', 'sym_rx2.b64', 'sym_rx3.b64', 'sym_rx4.b64', 'sym_rx5.b64', 'sym_rx6.b64', 'sym_rx7.b64']
+2024-06-05 19:22:22,994 - util - INFO qkdserver2- Checking file sym_rx0.b64
+2024-06-05 19:22:22,995 - util - INFO qkdserver2- Checking file 0
+2024-06-05 19:22:22,995 - util - INFO qkdserver2- Checking file sym_rx1.b64
+2024-06-05 19:22:22,995 - util - INFO qkdserver2- Checking file 1
+2024-06-05 19:22:22,995 - util - INFO qkdserver2- Checking file sym_rx2.b64
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file 2
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file sym_rx3.b64
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file 3
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file sym_rx4.b64
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file 4
+2024-06-05 19:22:22,996 - util - INFO qkdserver2- Checking file sym_rx5.b64
+2024-06-05 19:22:22,997 - util - INFO qkdserver2- Checking file 5
+2024-06-05 19:22:23,024 - util - INFO qkdserver2- Starting QKD Server
+2024-06-05 19:22:23,036 - util - INFO qkdserver2- Connected to database.
+2024-06-05 19:22:23,036 - util - INFO qkdserver2- Fetched ENV Variables: qkdserver2 & localhost:5000
+2024-06-05 19:22:23,038 - util - ERROR qkdserver2- Error initializing database: invalid literal for int() with base 10: 'localhost:5000'
+2024-06-05 19:22:23,052 - util - INFO qkdserver2- Database initialized.
+2024-06-05 19:24:03,392 - util - INFO qkdserver1- Checking for key file 5 ['sym_tx0.b64', 'sym_tx1.b64', 'sym_tx2.b64', 'sym_tx3.b64', 'sym_tx4.b64', 'sym_tx5.b64', 'sym_tx6.b64', 'sym_tx7.b64']
+2024-06-05 19:24:03,397 - util - INFO qkdserver1- Checking file sym_tx0.b64
+2024-06-05 19:24:03,398 - util - INFO qkdserver1- Checking file 0
+2024-06-05 19:24:03,398 - util - INFO qkdserver1- Checking file sym_tx1.b64
+2024-06-05 19:24:03,398 - util - INFO qkdserver1- Checking file 1
+2024-06-05 19:24:03,399 - util - INFO qkdserver1- Checking file sym_tx2.b64
+2024-06-05 19:24:03,399 - util - INFO qkdserver1- Checking file 2
+2024-06-05 19:24:03,402 - util - INFO qkdserver1- Checking file sym_tx3.b64
+2024-06-05 19:24:03,403 - util - INFO qkdserver1- Checking file 3
+2024-06-05 19:24:03,404 - util - INFO qkdserver1- Checking file sym_tx4.b64
+2024-06-05 19:24:03,404 - util - INFO qkdserver1- Checking file 4
+2024-06-05 19:24:03,405 - util - INFO qkdserver1- Checking file sym_tx5.b64
+2024-06-05 19:24:03,405 - util - INFO qkdserver1- Checking file 5
+2024-06-05 19:24:03,482 - util - INFO qkdserver1- Starting QKD Server
+2024-06-05 19:24:03,510 - util - INFO qkdserver1- Connected to database.
+2024-06-05 19:24:03,511 - util - INFO qkdserver1- Fetched ENV Variables: qkdserver1 & 1
+2024-06-05 19:24:03,559 - util - INFO qkdserver1- Database initialized.
+2024-06-05 19:24:03,570 - util - INFO qkdserver2- Checking for key file 5 ['sym_rx0.b64', 'sym_rx1.b64', 'sym_rx2.b64', 'sym_rx3.b64', 'sym_rx4.b64', 'sym_rx5.b64', 'sym_rx6.b64', 'sym_rx7.b64']
+2024-06-05 19:24:03,573 - util - INFO qkdserver2- Checking file sym_rx0.b64
+2024-06-05 19:24:03,573 - util - INFO qkdserver2- Checking file 0
+2024-06-05 19:24:03,573 - util - INFO qkdserver2- Checking file sym_rx1.b64
+2024-06-05 19:24:03,574 - util - INFO qkdserver2- Checking file 1
+2024-06-05 19:24:03,574 - util - INFO qkdserver2- Checking file sym_rx2.b64
+2024-06-05 19:24:03,574 - util - INFO qkdserver2- Checking file 2
+2024-06-05 19:24:03,575 - util - INFO qkdserver2- Checking file sym_rx3.b64
+2024-06-05 19:24:03,575 - util - INFO qkdserver2- Checking file 3
+2024-06-05 19:24:03,575 - util - INFO qkdserver2- Checking file sym_rx4.b64
+2024-06-05 19:24:03,575 - util - INFO qkdserver2- Checking file 4
+2024-06-05 19:24:03,575 - util - INFO qkdserver2- Checking file sym_rx5.b64
+2024-06-05 19:24:03,576 - util - INFO qkdserver2- Checking file 5
+2024-06-05 19:24:03,641 - util - INFO qkdserver2- Starting QKD Server
+2024-06-05 19:24:03,663 - util - INFO qkdserver2- Connected to database.
+2024-06-05 19:24:03,664 - util - ERROR qkdserver2- Error initializing database: can only concatenate str (not "int") to str
+2024-06-05 19:24:03,693 - util - INFO qkdserver2- Database initialized.
+2024-06-05 19:25:04,848 - util - INFO qkdserver1- Checking for key file 5 ['sym_tx0.b64', 'sym_tx1.b64', 'sym_tx2.b64', 'sym_tx3.b64', 'sym_tx4.b64', 'sym_tx5.b64', 'sym_tx6.b64', 'sym_tx7.b64']
+2024-06-05 19:25:04,848 - util - INFO qkdserver2- Checking for key file 5 ['sym_rx0.b64', 'sym_rx1.b64', 'sym_rx2.b64', 'sym_rx3.b64', 'sym_rx4.b64', 'sym_rx5.b64', 'sym_rx6.b64', 'sym_rx7.b64']
+2024-06-05 19:25:04,851 - util - INFO qkdserver1- Checking file sym_tx0.b64
+2024-06-05 19:25:04,851 - util - INFO qkdserver2- Checking file sym_rx0.b64
+2024-06-05 19:25:04,851 - util - INFO qkdserver2- Checking file 0
+2024-06-05 19:25:04,851 - util - INFO qkdserver1- Checking file 0
+2024-06-05 19:25:04,851 - util - INFO qkdserver2- Checking file sym_rx1.b64
+2024-06-05 19:25:04,851 - util - INFO qkdserver1- Checking file sym_tx1.b64
+2024-06-05 19:25:04,852 - util - INFO qkdserver1- Checking file 1
+2024-06-05 19:25:04,852 - util - INFO qkdserver2- Checking file 1
+2024-06-05 19:25:04,852 - util - INFO qkdserver1- Checking file sym_tx2.b64
+2024-06-05 19:25:04,852 - util - INFO qkdserver1- Checking file 2
+2024-06-05 19:25:04,852 - util - INFO qkdserver2- Checking file sym_rx2.b64
+2024-06-05 19:25:04,852 - util - INFO qkdserver2- Checking file 2
+2024-06-05 19:25:04,852 - util - INFO qkdserver1- Checking file sym_tx3.b64
+2024-06-05 19:25:04,853 - util - INFO qkdserver1- Checking file 3
+2024-06-05 19:25:04,853 - util - INFO qkdserver2- Checking file sym_rx3.b64
+2024-06-05 19:25:04,853 - util - INFO qkdserver1- Checking file sym_tx4.b64
+2024-06-05 19:25:04,853 - util - INFO qkdserver2- Checking file 3
+2024-06-05 19:25:04,853 - util - INFO qkdserver2- Checking file sym_rx4.b64
+2024-06-05 19:25:04,853 - util - INFO qkdserver1- Checking file 4
+2024-06-05 19:25:04,853 - util - INFO qkdserver2- Checking file 4
+2024-06-05 19:25:04,853 - util - INFO qkdserver1- Checking file sym_tx5.b64
+2024-06-05 19:25:04,854 - util - INFO qkdserver1- Checking file 5
+2024-06-05 19:25:04,854 - util - INFO qkdserver2- Checking file sym_rx5.b64
+2024-06-05 19:25:04,854 - util - INFO qkdserver2- Checking file 5
+2024-06-05 19:25:04,922 - util - INFO qkdserver1- Starting QKD Server
+2024-06-05 19:25:04,922 - util - INFO qkdserver2- Starting QKD Server
+2024-06-05 19:25:04,991 - util - INFO qkdserver2- Connected to database.
+2024-06-05 19:25:04,991 - util - INFO qkdserver1- Connected to database.
+2024-06-05 19:25:04,992 - util - INFO qkdserver1- Fetched ENV Variables: qkdserver1 & 1
+2024-06-05 19:25:04,992 - util - ERROR qkdserver2- Error initializing database: can only concatenate str (not "int") to str
+2024-06-05 19:25:05,025 - util - INFO qkdserver2- Database initialized.
+2024-06-05 19:25:05,061 - util - INFO qkdserver1- Database initialized.
+2024-06-05 19:25:43,168 - util - INFO qkdserver2- Checking for key file 5 ['sym_rx0.b64', 'sym_rx1.b64', 'sym_rx2.b64', 'sym_rx3.b64', 'sym_rx4.b64', 'sym_rx5.b64', 'sym_rx6.b64', 'sym_rx7.b64']
+2024-06-05 19:25:43,168 - util - INFO qkdserver1- Checking for key file 5 ['sym_tx0.b64', 'sym_tx1.b64', 'sym_tx2.b64', 'sym_tx3.b64', 'sym_tx4.b64', 'sym_tx5.b64', 'sym_tx6.b64', 'sym_tx7.b64']
+2024-06-05 19:25:43,170 - util - INFO qkdserver2- Checking file sym_rx0.b64
+2024-06-05 19:25:43,170 - util - INFO qkdserver2- Checking file 0
+2024-06-05 19:25:43,170 - util - INFO qkdserver1- Checking file sym_tx0.b64
+2024-06-05 19:25:43,170 - util - INFO qkdserver1- Checking file 0
+2024-06-05 19:25:43,170 - util - INFO qkdserver2- Checking file sym_rx1.b64
+2024-06-05 19:25:43,170 - util - INFO qkdserver1- Checking file sym_tx1.b64
+2024-06-05 19:25:43,170 - util - INFO qkdserver2- Checking file 1
+2024-06-05 19:25:43,170 - util - INFO qkdserver2- Checking file sym_rx2.b64
+2024-06-05 19:25:43,170 - util - INFO qkdserver1- Checking file 1
+2024-06-05 19:25:43,171 - util - INFO qkdserver2- Checking file 2
+2024-06-05 19:25:43,171 - util - INFO qkdserver1- Checking file sym_tx2.b64
+2024-06-05 19:25:43,171 - util - INFO qkdserver2- Checking file sym_rx3.b64
+2024-06-05 19:25:43,171 - util - INFO qkdserver1- Checking file 2
+2024-06-05 19:25:43,171 - util - INFO qkdserver2- Checking file 3
+2024-06-05 19:25:43,171 - util - INFO qkdserver1- Checking file sym_tx3.b64
+2024-06-05 19:25:43,171 - util - INFO qkdserver2- Checking file sym_rx4.b64
+2024-06-05 19:25:43,171 - util - INFO qkdserver1- Checking file 3
+2024-06-05 19:25:43,171 - util - INFO qkdserver2- Checking file 4
+2024-06-05 19:25:43,171 - util - INFO qkdserver1- Checking file sym_tx4.b64
+2024-06-05 19:25:43,172 - util - INFO qkdserver2- Checking file sym_rx5.b64
+2024-06-05 19:25:43,172 - util - INFO qkdserver1- Checking file 4
+2024-06-05 19:25:43,172 - util - INFO qkdserver2- Checking file 5
+2024-06-05 19:25:43,172 - util - INFO qkdserver1- Checking file sym_tx5.b64
+2024-06-05 19:25:43,172 - util - INFO qkdserver1- Checking file 5
+2024-06-05 19:25:43,240 - util - INFO qkdserver1- Starting QKD Server
+2024-06-05 19:25:43,240 - util - INFO qkdserver2- Starting QKD Server
+2024-06-05 19:25:43,267 - util - INFO qkdserver2- Connected to database.
+2024-06-05 19:25:43,267 - util - INFO qkdserver1- Connected to database.
+2024-06-05 19:25:43,304 - util - INFO qkdserver2- Database initialized.
+2024-06-05 19:25:43,305 - util - INFO qkdserver1- Database initialized.
+2024-06-05 19:26:26,019 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:26:26,023 - util - INFO qkdserver1- Returning keys {}
+2024-06-05 19:26:26,568 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:26:26,571 - util - INFO qkdserver1- Returning keys {}
+2024-06-05 19:26:26,644 - util - INFO qkdserver1- Requesting keys self
+2024-06-05 19:26:27,681 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:26:27,685 - util - INFO qkdserver1- Returning keys {}
+2024-06-05 19:26:58,872 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:26:58,875 - util - INFO qkdserver1- Returning keys {}
+2024-06-05 19:26:58,890 - util - INFO qkdserver1- Requesting keys self
+2024-06-05 19:26:58,901 - util - INFO qkdserver1- Address found qkdserver2
+2024-06-05 19:26:58,927 - util - INFO qkdserver1- Trying key file sym_tx0.b64 qkdserver2
+2024-06-05 19:26:59,223 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:26:59,227 - util - INFO qkdserver1- Returning keys {'1': 'generating'}
+2024-06-05 19:26:59,267 - util - INFO qkdserver1- Requesting keys self
+2024-06-05 19:26:59,270 - util - INFO qkdserver1- Address found qkdserver2
+2024-06-05 19:26:59,291 - util - INFO qkdserver1- Trying key file sym_tx0.b64 qkdserver2
+2024-06-05 19:27:00,836 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:27:00,840 - util - INFO qkdserver1- Returning keys {'1': 'generating'}
+2024-06-05 19:27:00,878 - util - INFO qkdserver1- Requesting keys self
+2024-06-05 19:27:00,883 - util - INFO qkdserver1- Address found qkdserver2
+2024-06-05 19:27:00,903 - util - INFO qkdserver1- Trying key file sym_tx0.b64 qkdserver2
+2024-06-05 19:28:15,649 - util - INFO qkdserver2- Checking for key file 5 ['sym_rx0.b64', 'sym_rx1.b64', 'sym_rx2.b64', 'sym_rx3.b64', 'sym_rx4.b64', 'sym_rx5.b64', 'sym_rx6.b64', 'sym_rx7.b64']
+2024-06-05 19:28:15,652 - util - INFO qkdserver2- Checking file sym_rx0.b64
+2024-06-05 19:28:15,652 - util - INFO qkdserver2- Checking file 0
+2024-06-05 19:28:15,652 - util - INFO qkdserver2- Checking file sym_rx1.b64
+2024-06-05 19:28:15,652 - util - INFO qkdserver2- Checking file 1
+2024-06-05 19:28:15,653 - util - INFO qkdserver2- Checking file sym_rx2.b64
+2024-06-05 19:28:15,653 - util - INFO qkdserver2- Checking file 2
+2024-06-05 19:28:15,653 - util - INFO qkdserver2- Checking file sym_rx3.b64
+2024-06-05 19:28:15,653 - util - INFO qkdserver2- Checking file 3
+2024-06-05 19:28:15,653 - util - INFO qkdserver2- Checking file sym_rx4.b64
+2024-06-05 19:28:15,654 - util - INFO qkdserver2- Checking file 4
+2024-06-05 19:28:15,654 - util - INFO qkdserver2- Checking file sym_rx5.b64
+2024-06-05 19:28:15,654 - util - INFO qkdserver2- Checking file 5
+2024-06-05 19:28:15,691 - util - INFO qkdserver2- Starting QKD Server
+2024-06-05 19:28:15,708 - util - INFO qkdserver2- Connected to database.
+2024-06-05 19:28:15,738 - util - INFO qkdserver2- Database initialized.
+2024-06-05 19:28:15,862 - util - INFO qkdserver1- Checking for key file 5 ['sym_tx0.b64', 'sym_tx1.b64', 'sym_tx2.b64', 'sym_tx3.b64', 'sym_tx4.b64', 'sym_tx5.b64', 'sym_tx6.b64', 'sym_tx7.b64']
+2024-06-05 19:28:15,864 - util - INFO qkdserver1- Checking file sym_tx0.b64
+2024-06-05 19:28:15,864 - util - INFO qkdserver1- Checking file 0
+2024-06-05 19:28:15,864 - util - INFO qkdserver1- Checking file sym_tx1.b64
+2024-06-05 19:28:15,865 - util - INFO qkdserver1- Checking file 1
+2024-06-05 19:28:15,865 - util - INFO qkdserver1- Checking file sym_tx2.b64
+2024-06-05 19:28:15,865 - util - INFO qkdserver1- Checking file 2
+2024-06-05 19:28:15,865 - util - INFO qkdserver1- Checking file sym_tx3.b64
+2024-06-05 19:28:15,865 - util - INFO qkdserver1- Checking file 3
+2024-06-05 19:28:15,866 - util - INFO qkdserver1- Checking file sym_tx4.b64
+2024-06-05 19:28:15,866 - util - INFO qkdserver1- Checking file 4
+2024-06-05 19:28:15,866 - util - INFO qkdserver1- Checking file sym_tx5.b64
+2024-06-05 19:28:15,867 - util - INFO qkdserver1- Checking file 5
+2024-06-05 19:28:15,905 - util - INFO qkdserver1- Starting QKD Server
+2024-06-05 19:28:15,919 - util - INFO qkdserver1- Connected to database.
+2024-06-05 19:28:15,949 - util - INFO qkdserver1- Database initialized.
+2024-06-05 19:28:17,335 - util - INFO qkdserver1- Getting keys from tx_id self
+2024-06-05 19:28:17,339 - util - INFO qkdserver1- Returning keys {'1': 'generating'}
+2024-06-05 19:28:17,389 - util - INFO qkdserver1- Requesting keys self
+2024-06-05 19:28:17,394 - util - INFO qkdserver1- Address found qkdserver2
+2024-06-05 19:28:17,421 - util - INFO qkdserver1- Trying key file sym_tx0.b64 qkdserver2

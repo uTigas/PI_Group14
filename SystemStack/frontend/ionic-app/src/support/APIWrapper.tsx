@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import "../comms/client";
-import { saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister} from "../comms/client";
+import { saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister, SELF_ID, SERVER_ID} from "../comms/client";
 
 let one = false;
 
@@ -23,7 +23,7 @@ const ApiWrapper = {
           if (!one) {
             one = true;
             await checkIfRegisteredAndRegister();
-            const s = await requestKey("1");
+            const s = await requestKey(SERVER_ID);
             console.log(s);
 
             // wait 1 second
@@ -31,7 +31,7 @@ const ApiWrapper = {
             const r = await getKeys();
             console.log(r);
           }
-          const challenge = {'id': SELFID}
+          const challenge = {'id': SELF_ID}
           return await axios.post(ApiWrapper.backendURI + 'check-authentication', challenge, {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);

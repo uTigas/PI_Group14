@@ -2,7 +2,7 @@ import requests
 from msg import RegisterUserMsg, ReturnRegisterMsg
 import qrcode
 
-qkd_address = "localhost:5000"
+qkd_address = "localhost:5001"
 
 def generate_qr_code(data: str):
     qr = qrcode.QRCode(

@@ -22,4 +22,4 @@ Due date at *4 June*.
 - Vítor Santos, 107186
 - --- removed member ---
 
-Project finalized at **05/06/2024**
+Project finalized at **05/06/2024** - Final Report available at **/doc**

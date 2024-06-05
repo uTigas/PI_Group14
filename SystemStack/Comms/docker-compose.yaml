@@ -10,6 +10,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD_ADDRESS}
       POSTGRES_USER: ${POSTGRES_USER_ADDRESS}
       POSTGRES_DB: ${POSTGRES_DB_ADDRESS}
+
     networks:
       - qkd_net
     volumes:
@@ -30,6 +31,9 @@ services:
       POSTGRES_USER_ADDRESS: ${POSTGRES_USER_ADDRESS}
       POSTGRES_DB_ADDRESS: ${POSTGRES_DB_ADDRESS}
       POSTGRES_PORT_ADDRESS: ${POSTGRES_PORT_ADDRESS}
+      SERVER_ID: ${SERVER_ID}
+      SERVER_ADDRESS: ${SERVER_ADDRESS}
+      SERVER_KEY: ${SERVER_KEY}
     networks:
       - qkd_net
     depends_on:
@@ -52,6 +56,7 @@ services:
       POSTGRES_USER_ADDRESS: ${POSTGRES_USER_ADDRESS}
       POSTGRES_DB_ADDRESS: ${POSTGRES_DB_ADDRESS}
       POSTGRES_PORT_ADDRESS: ${POSTGRES_PORT_ADDRESS}
+      
     networks:
       - qkd_net
     depends_on:

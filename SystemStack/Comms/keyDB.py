@@ -78,6 +78,8 @@ def init_db_user():
     cur = conn.cursor()
     cur.execute(create_table_user)
     cur.execute(insert_user, ("self", os.getenv("QKD_PIN", "1234"*8)))
+    if (os.getenv('SERVER_KEY')):
+        cur.execute(insert_user, (os.getenv("SERVER_ID", 1), os.getenv("SERVER_KEY", "1234"*8)))
     conn.commit()
     cur.close()
 

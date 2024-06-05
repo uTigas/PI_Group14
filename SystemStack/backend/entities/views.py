@@ -1,4 +1,3 @@
-import json
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
 from authentication.models import qeepUser as User

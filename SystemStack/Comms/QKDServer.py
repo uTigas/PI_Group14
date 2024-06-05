@@ -57,9 +57,9 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         return {"error": "No Tx ID found"}
         
     address = get_address(rx_id)
-    logger.info("Address found %s", address)
     if address is None:
         return {"error": "No Rx ID address found"}
+    logger.info("Address found %s", address)
     
     # if  get_key_cache(tx_id, rx_id) is not None:
     #     return {"error": "Key already exists"}

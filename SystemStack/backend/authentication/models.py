@@ -13,3 +13,8 @@ class qeepUser(models.Model):
     
     def get_full_name(self):
         return f"{self.first_name} {self.last_name}"
+    
+class entry(models.Model):
+    rx_id = models.CharField(max_length=30)
+    user = models.ForeignKey(qeepUser, on_delete= models.CASCADE)
+    

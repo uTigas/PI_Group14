@@ -66,8 +66,8 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
 
     store_key_cache(tx_id, rx_id, "generating")
 
-    add = get_address_()
-    if address == add:
+    self_address = get_address_()
+    if address == self_address:
         key = generate_key(size=32)
         store_key_cache(tx_id, rx_id, key)
         store_key_cache(rx_id, tx_id, key)
@@ -78,7 +78,7 @@ def get_key(tx_id: str , body: bytes = Depends(get_request_body)):
         key_file , key_file_name = get_key_file(tried_keys)
         logger.info(f"Trying key file {key_file_name} {address}")
         reconn_msg = ReconnMsg.construct(tx_id, rx_id, key_file)
-        response = requests.post(address + "/recon", headers={"Content-Type": "application/json"}, data=str(reconn_msg))
+        response = requests.post("http://" + address + "/recon", headers={"Content-Type": "application/json"}, data=str(reconn_msg))
         logger.info(f"Response from {address}: {response.status_code} {response.text}")
         if response.status_code == 200:
             break

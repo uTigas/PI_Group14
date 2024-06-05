@@ -37,7 +37,7 @@ ax[1].axvline(0, color='black',alpha=0.5)
 ax[1].axhline(0, color='black',alpha=0.5)
 
 # alpha of scatter to 0.1 to see the density of points
-ax[1].scatter(clone[:,0], clone[:,1], c='b', label='clone',alpha=0.1, s=2)
+ax[1].scatter(clone[:,0], clone[:,1], c='b', label='clone',alpha=0.2, s=2)
 ax[1].scatter(sim[:,0], sim[:,1], c='r', label='sim')
 ax[1].legend()
 

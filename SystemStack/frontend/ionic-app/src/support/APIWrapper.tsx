@@ -1,6 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import "../comms/client";
-import { registerUser , saveToLocalStorage, requestKey, getKeys} from "../comms/client";
+import { saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister} from "../comms/client";
+
+let one = false;
 
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
@@ -18,11 +20,19 @@ const ApiWrapper = {
 
     checkAuthentication : async () => {
         try {
-          //TODO: change to register endpoint
-          const response = await registerUser();
-          console.log(response);
-          saveToLocalStorage(response.user,response.qkd_address,response.key);
-          return await axios.get(ApiWrapper.backendURI + 'check-authentication', {withCredentials: true});
+          if (!one) {
+            one = true;
+            await checkIfRegisteredAndRegister();
+            const s = await requestKey("1");
+            console.log(s);
+
+            // wait 1 second
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            const r = await getKeys();
+            console.log(r);
+          }
+          const challenge = {'id': SELFID}
+          return await axios.post(ApiWrapper.backendURI + 'check-authentication', challenge, {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);
         }

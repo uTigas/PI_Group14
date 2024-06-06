@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import { UserContext } from '../App';
 import ApiWrapper from '../support/APIWrapper';
 import { checkmarkOutline, closeOutline, refresh } from 'ionicons/icons';
+import Invites from '../components/chat/Invites';
 
 const Chats: React.FC = () => {
   const [activeChat, setActiveChat] = useState<any>(null);
@@ -143,23 +144,10 @@ const Chats: React.FC = () => {
       <IonContent>
         <IonSplitPane when='xs' contentId='main'>
           <IonMenu contentId='main'>
-            <IonHeader>
-              <IonInput className='ion-text-center' placeholder='Enter username...' onIonChange={(e) => setInvited(e.detail.value)}></IonInput>
-              <IonSegmentButton onClick={() => {inviteChat()}}>Send Chat Invite</IonSegmentButton>
-              {error ? (<IonText className='ion-text-center' color={'danger'}>FAILED! Invalid username or already sent this Invite.</IonText>):(<></>)}
-            </IonHeader>
             <IonContent>
-              <IonList>
-                {invites.map((invite: any) => (
-                  <IonItem key={invite.id}>
-                    <IonAvatar slot="start">
-                      <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt={`Avatar of ${invite.username}`} />
-                    </IonAvatar>
-                    <IonText><strong>{invite.inviter_name}</strong> wants to chat!</IonText>
-                    <IonButton fill='outline' shape='round' color={'success'} onClick={() => acceptInvite(invite.id)}><IonIcon icon={checkmarkOutline}/></IonButton>
-                    <IonButton fill='outline' shape='round' color={'danger'} onClick={() => refuseInvite(invite.id)}><IonIcon icon={closeOutline} /></IonButton>
-                  </IonItem>
-                ))}
+              <IonButton fill='outline' id='invites' expand='block'color='success'>Invites {invites.length > 0 ? '('+invites.length+')' : ''}</IonButton>
+              <Invites invites={invites} fetchInvites={fetchInvites} fetchContacts={fetchContacts} trigger='invites'/>
+              <IonList lines='full'>
                 {contacts.map((contact: any) => (
                   <IonItem key={contact.id} button onClick={() => {setActiveChat(contact), setMessage('')}}>
                     <IonAvatar slot="start">
@@ -182,20 +170,31 @@ const Chats: React.FC = () => {
                       {activeChat.name}
                   </IonTitle>
                 </IonToolbar>
-              </IonHeader><IonContent className='ion-padding'>
-              <div className="ChatContainer">
-                {messages.map((message: any) => (
-                  <div 
-                    key={message.id} 
-                    className={`ChatBubble ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}
-                  >
-                    <div className="MessageContent">
-                      <strong>{message.message}</strong>
-                      <IonText> {format(message.ts, "HH:MM")}</IonText>
+              </IonHeader>
+              <IonContent color='light' className='ion-padding'>
+                    {messages.map((message, index) => 
+                        <div key={index} className={`message ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}>
+                          <div className='ChatBubble'>
+                            <IonLabel>{message.message}</IonLabel>
+                            <br />
+                            <IonText> {format(message.ts, "HH:MM")}</IonText>
+                          </div>
+                        </div>
+                    )}
+                  {/*
+                  {messages.map((message: any) => (
+                    <div
+                      key={message.id}
+                      className={`ChatBubble ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}
+                    >
+                      <div className="MessageContent">
+                        <strong>{message.message}</strong>
+                        <br />
+                        <IonText style={{ float: 'right' }}> {format(message.ts, "HH:MM")}</IonText>
+                      </div>
                     </div>
-                  </div>
-                ))}
-                </div>
+                  ))}
+                  */ }
                 </IonContent><IonFooter>
                   <IonToolbar>
                     <IonGrid>

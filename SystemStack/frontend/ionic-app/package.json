@@ -32,6 +32,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.1.1",
+    "react-native-camera": "^4.2.1",
+    "react-native-qrcode-scanner": "^1.5.5",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4"
   },

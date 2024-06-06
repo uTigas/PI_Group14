@@ -5,6 +5,7 @@ import {
   IonContent,
   IonGrid,
   IonHeader,
+  IonImg,
   IonItemDivider,
   IonPage,
   IonRow,
@@ -17,6 +18,8 @@ import AppAppBar from '../components/AppAppBar';
 import JoinUsContainer from '../components/JoinUsContainer';
 import ApiWrapper from '../support/APIWrapper';
 import background from '../../resources/background.png';
+
+import shield from '../../resources/security-shield.png'
 
 const Home: React.FC = () => {
   const logged = useContext(AuthContext);
@@ -47,7 +50,6 @@ const Home: React.FC = () => {
 
   const styles = {
     page: {
-      background: '../../resources/background.png',
       height: '100%',
       display: 'flex',
       flexDirection: 'column',
@@ -74,9 +76,10 @@ const Home: React.FC = () => {
       color: '#007bff'
     },
     introCard: {
-      borderRadius: '10px',
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-      marginTop: '20px'
+      boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+      marginTop: '40px',
+      marginLeft: '40px',
+      width: '500px'
     },
     headerText: {
       color: '#333',
@@ -107,9 +110,8 @@ const Home: React.FC = () => {
           <div style={styles.containerHome}>
             <IonGrid>
               <IonRow>
-                <IonCol/>
-                <IonCol>
-                  <div style={{width: 500}}>
+                <IonCol size='auto'>
+                  <div>
                   <IonCard style={styles.introCard}>
                     <IonCardContent>
                       <div style={styles.centerText}>
@@ -125,7 +127,6 @@ const Home: React.FC = () => {
                           <IonText color='primary'>Organizations:</IonText> Create vaults, manage access, and ensure 
                           your data is protected.
                         </p>
-                        <br/>
                         <p style={styles.descriptionText}>
                           <IonText color='primary'>Individuals:</IonText> Keep your personal documents and files safe 
                           and accessible only to you.
@@ -133,15 +134,19 @@ const Home: React.FC = () => {
                       </div>
                     </IonCardContent>
                   </IonCard>
-
                   </div>
                 </IonCol>
+                <IonCol >
+                    <IonImg src={shield} alt="Logo"  style={{width: '350px', float: 'right', 'marginRight': '30px'}}/> </IonCol>
+                </IonRow>
+                        <IonItemDivider/>
+                <IonRow>
                 <IonCol>
-                  <div style={{width: '350px'}}>
+                  <div>
                       <IonCard style={styles.statsCard}>
                         <IonCardContent>
                           <div style={styles.centerText}>
-                            <IonTitle style={styles.headerText}>Qeep Stats</IonTitle>
+                            <IonTitle>System  Statistics</IonTitle>
                           </div>
                           <p style={styles.descriptionText}>
                             <IonText >Organizations:</IonText> {stats.organizations}
@@ -166,7 +171,6 @@ const Home: React.FC = () => {
                       </IonCard>
                   </div>
                 </IonCol>
-                <IonCol/>
               </IonRow>
             </IonGrid>
           </div>

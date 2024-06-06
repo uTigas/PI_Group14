@@ -28,11 +28,15 @@ ion-item-divider{
   margin: 8px;
   padding: 8px;
   border-radius: 8px;
-  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.sent .ChatBubble{
+  background: #6193ea;
 }
 
 .ChatBubble.sent {
-  background-color: #4cdeee; 
+  background: #6193ea;
   max-width: 55%;
   width: fit-content;
   flex-direction: row-reverse;

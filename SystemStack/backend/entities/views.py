@@ -453,6 +453,7 @@ def getVaultItems(request):
         except  models.OrganizationVault.DoesNotExist:
             return JsonResponse({"error": "Vault not found"}, status=404)
         except Exception as e:
+            print("HEREEE" + str(e))
             return JsonResponse({"error": "An error occurred"}, status=500)   
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)

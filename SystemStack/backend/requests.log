@@ -1639,3 +1639,81 @@ TypeError: In order to allow non-dict objects to be serialized set the safe para
 2024-06-06 02:32:50,807 - django.request - WARNING localhost- Not Found: /accounts/login/
 2024-06-06 02:32:53,524 - django.request - ERROR localhost- Internal Server Error: /vault
 2024-06-06 02:32:53,596 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:35:17,762 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 02:40:04,144 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:40:04,201 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:23,486 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:23,537 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:34,905 - django.request - ERROR localhost- Internal Server Error: /vault/upload
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "warehouse_item" does not exist
+LINE 1: INSERT INTO "warehouse_item" ("author", "vault", "name", "fi...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\warehouse\views.py", line 30, in uploadFile
+    item.save(using='warehouse')
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "warehouse_item" does not exist
+LINE 1: INSERT INTO "warehouse_item" ("author", "vault", "name", "fi...
+                    ^
+
+2024-06-06 02:48:36,667 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:36,770 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:38,616 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:48:38,672 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:49:21,564 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:49:21,613 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:49:22,892 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:49:22,952 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:50:01,260 - django.request - ERROR localhost- Internal Server Error: /organization-vault
+2024-06-06 02:50:01,319 - django.request - ERROR localhost- Internal Server Error: /organization-vault
+2024-06-06 02:50:10,748 - django.request - WARNING localhost- Not Found: /organization/members/invite
+2024-06-06 02:50:40,902 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:50:40,951 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:51:36,721 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:51:36,792 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:59:10,717 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 02:59:13,804 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:59:13,848 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:59:30,151 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 02:59:31,575 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:59:31,628 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 03:03:22,113 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 03:03:22,182 - django.request - ERROR localhost- Internal Server Error: /vault

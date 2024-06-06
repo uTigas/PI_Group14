@@ -228,7 +228,6 @@ const ApiWrapper = {
         try {
           element.message = decryptMessage(element.message, key)   
         } catch (error) {
-          console.log('Found Invalid Message')
         }
       });
 

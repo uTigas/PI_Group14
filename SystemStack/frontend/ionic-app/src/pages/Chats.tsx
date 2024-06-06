@@ -18,6 +18,7 @@ const Chats: React.FC = () => {
   const userDetails = useContext(UserContext);
   const [error, setError] = useState<boolean>(false);
   const inputRef = useRef<HTMLIonInputElement>(null)
+  const scroll = useRef<HTMLSpanElement>(null);
 
   const inviteChat = async () => {
     if (invited != ''){
@@ -82,6 +83,7 @@ const Chats: React.FC = () => {
           async (response) => {
             const decrypted_msgs = await ApiWrapper.decryptChat(response!.data.messages, activeChat.rx_id)
             setMessages(decrypted_msgs)
+            scroll.current?.scrollIntoView({ behavior: 'smooth' })
           }
         )
       } else {
@@ -183,6 +185,7 @@ const Chats: React.FC = () => {
                           </div>
                         </div>
                     )}
+                  <span ref={scroll}></span>
                   {/*
                   {messages.map((message: any) => (
                     <div
@@ -202,7 +205,7 @@ const Chats: React.FC = () => {
                     <IonGrid>
                       <IonRow>
                         <IonCol>
-                          <IonInput ref={inputRef} clearInput={true} aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)}></IonInput>
+                          <IonInput ref={inputRef} clearInput={true} aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)} onKeyUp={(e) => {if (e.key === "Enter") {sendMessage(), inputRef.current!.value=''}}}></IonInput>
                         </IonCol>
                         <IonCol size='auto' className='ion-text-end'>
                           <IonButton fill='outline' onClick={() => {sendMessage(), inputRef.current!.value=''}}>Send</IonButton>

@@ -77,8 +77,9 @@ const Chats: React.FC = () => {
       const response = ApiWrapper.fetchMessages(activeChat.id);
       if (response) {
         response.then(
-          (response) => {
-            setMessages(response!.data.messages)
+          async (response) => {
+            const decrypted_msgs = await ApiWrapper.decryptChat(response!.data.messages, activeChat.rx_id)
+            setMessages(decrypted_msgs)
           }
         )
       } else {
@@ -106,6 +107,7 @@ const Chats: React.FC = () => {
   const sendMessage = () => {
     const formData = new FormData;
     if (message != ''){
+      formData.append('rx_id', activeChat.rx_id)
       formData.append('message', message) 
       formData.append('chat', activeChat.id)
       ApiWrapper.sendMessage(formData)

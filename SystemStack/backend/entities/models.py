@@ -96,6 +96,6 @@ class ChatInvite(models.Model):
 class ChatMessage(models.Model):
     chat = models.ForeignKey(Chat, related_name='chatter2', on_delete=models.CASCADE)
     sender = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
-    message = models.BinaryField()
+    message = models.CharField(max_length=1000)
     timestamp = models.DateTimeField(auto_now_add=True)
 

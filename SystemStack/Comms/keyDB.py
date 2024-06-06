@@ -18,10 +18,10 @@ select_all = """SELECT * FROM keys;"""
 
 conn = None
 
-def init_db_connection():
+def init_db_connection(db = "keys1.db"):
     global conn
     if conn is None:
-        conn = sqlite3.connect(os.getenv("KEY_DB", "keys1.db"), check_same_thread=False)
+        conn = sqlite3.connect(os.getenv("KEY_DB", db), check_same_thread=False)
     return conn
 
 def init_db_key():

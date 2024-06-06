@@ -1,6 +1,6 @@
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
-from authentication.models import qeepUser as User
+from authentication.models import entry, qeepUser as User
 from warehouse.models import Item
 from entities.forms import OrganizationForm, OrganizationVaultForm
 from django.contrib.auth.decorators import login_required
@@ -466,10 +466,12 @@ def getChats(request):
             raw = models.ChatInvite.objects.filter((Q(inviter=request.user) | Q(user=request.user)) & Q(status = models.Status.ACCEPTED))
             for c in raw:
                 u = c.chat.user1 if c.chat.user1 != user else c.chat.user2
+                rx_id = entry.objects.filter(user = u).first().rx_id
                 chats.append({
                     'id': c.chat.id,
                     'username': u.username,
                     'name': u.get_full_name(),
+                    'rx_id': rx_id,
                 }) 
             return JsonResponse({"chats": list(chats)}, status = 200)
         except Exception as e:

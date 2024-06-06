@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonInput, IonButton, IonItem, IonLabel, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList } from '@ionic/react';
 import { personOutline, mailOutline, callOutline, textOutline } from 'ionicons/icons';
 import ApiWrapper from '../support/APIWrapper';
+import { Redirect } from 'react-router';
 
 const RegisterPage = () => {
   const [username, setUsername] = useState('');
@@ -51,6 +52,7 @@ const RegisterPage = () => {
     if (newErrors.length == 0){
       //TODO: Procede to Registration in QKD
       ApiWrapper.register(form);
+      history.back()
       //Register in Server
 
     }

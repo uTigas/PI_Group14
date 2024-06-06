@@ -69,3 +69,1573 @@ AttributeError: 'QuerySet' object has no attribute 'fi'
 2024-06-05 20:26:59,226 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
 2024-06-05 20:27:00,836 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
 2024-06-05 20:28:17,331 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:41:33,363 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:41:34,221 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:42:37,867 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:42:39,076 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:48:11,550 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 23:48:26,370 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-05 23:59:04,390 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:59:26,178 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-05 23:59:44,316 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-06 00:00:39,079 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:00:43,989 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-06 00:00:59,865 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:01:03,747 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-06 00:01:26,586 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:02:14,386 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:02:18,495 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-06 00:02:28,102 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:02:29,829 - django.security.csrf - WARNING localhost- Forbidden (Origin checking failed - http://localhost:8100 does not match any trusted origins.): /check-authentication
+2024-06-06 00:02:52,300 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:02:57,047 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 24, in check_authentication
+    id = request.POST.get["id"]
+TypeError: 'method' object is not subscriptable
+2024-06-06 00:03:34,233 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:03:39,922 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:03:51,155 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 23, in check_authentication
+    id = request.POST.get["id"]
+TypeError: 'method' object is not subscriptable
+2024-06-06 00:04:15,020 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:04:17,862 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 27, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:07:03,676 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 27, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:07:03,832 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 27, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:08:32,392 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:08:35,187 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:17:20,534 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:24:27,111 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:24:40,808 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:25:36,603 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:25:37,948 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:25:41,129 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:28:22,315 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:28:28,840 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:30:08,824 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:30:15,264 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\msg.py", line 54, in encrypt
+    self._encrypted_msg = encrypt_msg(str(self), key)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 41, in encrypt_msg
+    cipher = AES.new(key.encode(encoding='utf-8'), AES.MODE_CBC , iv='0000000000000000'.encode())
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 228, in new
+    return _create_cipher(sys.modules[__name__], key, mode, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\__init__.py", line 79, in _create_cipher
+    return modes[mode](factory, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\_mode_cbc.py", line 274, in _create_cbc_cipher
+    cipher_state = factory._create_base_cipher(kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Cipher\AES.py", line 90, in _create_base_cipher
+    raise ValueError("Incorrect AES key length (%d bytes)" % len(key))
+ValueError: Incorrect AES key length (0 bytes)
+2024-06-06 00:30:45,728 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:31:28,497 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py changed, reloading.
+2024-06-06 00:31:46,280 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py changed, reloading.
+2024-06-06 00:31:56,045 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:32:41,800 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:32:47,035 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    print("HERE:" + response )
+TypeError: can only concatenate str (not "Response") to str
+2024-06-06 00:32:56,901 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:33:00,160 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    print("HERE:" + str(response.data) )
+AttributeError: 'Response' object has no attribute 'data'
+2024-06-06 00:33:10,973 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:33:14,672 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:33:18,138 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:33:25,622 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:33:29,134 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:34:15,559 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:34:19,128 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:34:29,840 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:34:35,687 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:34:52,550 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:34:56,610 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:35:45,686 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py changed, reloading.
+2024-06-06 00:35:49,791 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:36:10,776 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:36:14,139 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:36:50,081 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:36:54,820 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:36:57,133 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:37:20,542 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:37:23,139 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 28, in check_authentication
+    print("HERE:" + response.status_code )
+TypeError: can only concatenate str (not "int") to str
+2024-06-06 00:38:34,756 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:38:39,777 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:39:20,148 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:39:25,379 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:40:02,355 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:40:05,159 - django.request - WARNING localhost- Unauthorized: /check-authentication
+2024-06-06 00:42:55,022 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:45:34,187 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:47:27,963 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:47:33,925 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:47:39,249 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:48:08,166 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:48:12,322 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:48:47,018 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:48:51,036 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:48:54,566 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:49:01,817 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:49:52,143 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:49:54,631 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 46, in check_authentication
+    print("USername: " + username)
+TypeError: can only concatenate str (not "entry") to str
+2024-06-06 00:50:01,679 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:50:04,166 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:50:26,548 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 00:50:30,202 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 00:52:19,364 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 00:54:01,162 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\models.py changed, reloading.
+2024-06-06 01:06:08,977 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:06:23,358 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:06:23,460 - django.request - WARNING localhost- Not Found: /favicon.ico
+2024-06-06 01:06:45,923 - django.request - WARNING localhost- Not Found: /accounts/user
+2024-06-06 01:07:19,347 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:07:38,944 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:07:40,525 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:07:41,152 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:07:41,803 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:07:42,000 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:07:45,854 - django.request - ERROR localhost- Internal Server Error: /user
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 79, in fetch_user
+    user = model_to_dict(qeepUser.objects.get(username = request.user))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 649, in get
+    raise self.model.DoesNotExist(
+authentication.models.qeepUser.DoesNotExist: qeepUser matching query does not exist.
+2024-06-06 01:09:45,142 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:10:09,784 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 01:10:11,877 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:10:16,194 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:10:19,289 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:10:25,242 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\django_config\settings.py changed, reloading.
+2024-06-06 01:11:42,995 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:11:52,569 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:11:58,682 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 46, in check_authentication
+    print("USER: " + user)
+TypeError: can only concatenate str (not "qeepUser") to str
+2024-06-06 01:12:06,833 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:12:09,590 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 48, in check_authentication
+    print("Session: " + request.session)
+TypeError: can only concatenate str (not "SessionStore") to str
+2024-06-06 01:12:21,007 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:12:32,032 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:12:32,109 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:13:10,188 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 41, in check_authentication
+    user = entry.objects.filter(rx_id=id).first().user
+AttributeError: 'NoneType' object has no attribute 'user'
+2024-06-06 01:13:14,285 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 37, in check_authentication
+    if id != util.decrypt_msg(challenge, user_key).replace("\"",""):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\comms\util.py", line 37, in decrypt_msg
+    return unpad(cipher.decrypt(base64.b64decode(msg)), 16, style = 'pkcs7').decode(encoding='utf-8')
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\Crypto\Util\Padding.py", line 92, in unpad
+    raise ValueError("Padding is incorrect.")
+ValueError: Padding is incorrect.
+2024-06-06 01:14:07,146 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 41, in check_authentication
+    user = entry.objects.filter(rx_id=id).first().user
+AttributeError: 'NoneType' object has no attribute 'user'
+2024-06-06 01:14:15,353 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 41, in check_authentication
+    user = entry.objects.filter(rx_id=id).first().user
+AttributeError: 'NoneType' object has no attribute 'user'
+2024-06-06 01:14:51,819 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 608, in sendMessage
+    models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape str to binary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 615, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:16:51,763 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 608, in sendMessage
+    models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape str to binary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 615, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:19:08,371 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:19:14,684 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 609, in sendMessage
+    models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape str to binary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:19:33,116 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py changed, reloading.
+2024-06-06 01:20:00,989 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:20:03,825 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 604, in sendMessage
+    print("Chat: " + chat.user1)
+TypeError: can only concatenate str (not "qeepUser") to str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:20:56,921 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\models.py changed, reloading.
+2024-06-06 01:21:08,142 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\models.py changed, reloading.
+2024-06-06 01:24:50,862 - django.request - ERROR localhost- Internal Server Error: /chats/invites
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapper_view
+    if test_func(request.user):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 51, in <lambda>
+    lambda u: u.is_authenticated,
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:24:50,877 - django.request - ERROR localhost- Internal Server Error: /chats
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapper_view
+    if test_func(request.user):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 51, in <lambda>
+    lambda u: u.is_authenticated,
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:24:51,042 - django.request - ERROR localhost- Internal Server Error: /chats
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapper_view
+    if test_func(request.user):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 51, in <lambda>
+    lambda u: u.is_authenticated,
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:24:51,060 - django.request - ERROR localhost- Internal Server Error: /chats/invites
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 22, in _wrapper_view
+    if test_func(request.user):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 51, in <lambda>
+    lambda u: u.is_authenticated,
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:24:51,685 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 16, in check_authentication
+    if request.user.is_authenticated:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:24:54,049 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 187, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 16, in check_authentication
+    if request.user.is_authenticated:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 33, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\middleware.py", line 13, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 209, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\__init__.py", line 62, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 53, in __getitem__
+    return self._session[key]
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\base.py", line 192, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 42, in load
+    s = self._get_session_from_db()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\sessions\backends\db.py", line 32, in _get_session_from_db
+    return self.model.objects.get(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2024-06-06 01:25:07,501 - django.request - ERROR localhost- Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedTable: relation "authentication_qeepuser" does not exist
+LINE 1: INSERT INTO "authentication_qeepuser" ("password", "last_log...
+                    ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 58, in register
+    user = qeepUser.objects.create(username= form['username'], first_name= form['first_name'], last_name= form['last_name'], email= form['email'], phone= form['phone'],)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\base_user.py", line 78, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: relation "authentication_qeepuser" does not exist
+LINE 1: INSERT INTO "authentication_qeepuser" ("password", "last_log...
+                    ^
+
+2024-06-06 01:27:35,227 - django.request - ERROR localhost- Internal Server Error: /register
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "authentication_qeepuser_pkey"
+DETAIL:  Key (username)=(Tigas) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 58, in register
+    user = qeepUser.objects.create(username= form['username'], first_name= form['first_name'], last_name= form['last_name'], email= form['email'], phone= form['phone'],)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\base_user.py", line 78, in save
+    super().save(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "authentication_qeepuser_pkey"
+DETAIL:  Key (username)=(Tigas) already exists.
+
+2024-06-06 01:27:35,683 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:27:35,701 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:27:35,712 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:27:35,735 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:27:38,722 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:27:38,774 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:27:57,802 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:27:57,848 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:28:23,283 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:28:23,295 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:28:23,309 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:28:23,321 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 01:28:25,627 - django.request - ERROR localhost- Internal Server Error: /check-authentication
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\authentication\views.py", line 41, in check_authentication
+    user = entry.objects.filter(rx_id=id).first().user
+AttributeError: 'NoneType' object has no attribute 'user'
+2024-06-06 01:28:41,450 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:28:41,522 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:29:01,443 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 604, in sendMessage
+    print("Chat: " + chat.user1)
+TypeError: can only concatenate str (not "qeepUser") to str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:29:01,756 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 604, in sendMessage
+    print("Chat: " + chat.user1)
+TypeError: can only concatenate str (not "qeepUser") to str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:29:42,289 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:29:54,375 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 608, in sendMessage
+    models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape str to binary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 615, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:30:21,811 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:30:32,158 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 609, in sendMessage
+    models.ChatMessage.objects.create(message= request.POST.get('message'), chat= chat, sender= request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 822, in save
+    self.save_base(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 909, in save_base
+    updated = self._save_table(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1067, in _save_table
+    results = self._do_insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\base.py", line 1108, in _do_insert
+    return manager._insert(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\models\sql\compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape str to binary
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:31:07,504 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:31:12,744 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 607, in sendMessage
+    print("Username: " + request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 437, in __radd__
+    return other + self
+TypeError: can only concatenate str (not "qeepUser") to str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:31:45,446 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\models.py changed, reloading.
+2024-06-06 01:31:49,174 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\models.py changed, reloading.
+2024-06-06 01:33:06,157 - django.request - ERROR localhost- Internal Server Error: /chat/message
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 607, in sendMessage
+    print("Username: " + request.user)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 253, in inner
+    return func(_wrapped, *args)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\utils\functional.py", line 437, in __radd__
+    return other + self
+TypeError: can only concatenate str (not "qeepUser") to str
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py", line 616, in sendMessage
+    return JsonResponse({"An error occurred"}, status=500)
+  File "C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\venv\lib\site-packages\django\http\response.py", line 726, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2024-06-06 01:33:35,188 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:38:50,258 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:39:30,410 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:30,463 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:40,439 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:40,488 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:42,885 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:39:42,977 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 01:39:44,131 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:44,187 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:53,889 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:54,336 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:54,422 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:58,722 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:39:58,759 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:40:41,322 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:40:43,161 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:40:43,243 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:41:01,110 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:41:03,775 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:41:03,840 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:41:15,352 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:41:17,098 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:41:17,147 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:41:58,877 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:42:00,640 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:00,696 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:11,090 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:42:12,872 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:12,954 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:27,462 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:42:29,083 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:29,138 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:48,273 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:42:49,934 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:42:50,019 - django.request - ERROR localhost- Internal Server Error: /chats
+2024-06-06 01:43:04,512 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 01:43:12,838 - django.utils.autoreload - INFO localhost- C:\Users\tiago\OneDrive\UA\3 Ano\PI\PI_Group14\SystemStack\backend\entities\views.py changed, reloading.
+2024-06-06 02:27:38,854 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:38,856 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:38,876 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:38,880 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:40,378 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:40,381 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:40,396 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:27:40,398 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:32:50,788 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:32:50,791 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:32:50,805 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:32:50,807 - django.request - WARNING localhost- Not Found: /accounts/login/
+2024-06-06 02:32:53,524 - django.request - ERROR localhost- Internal Server Error: /vault
+2024-06-06 02:32:53,596 - django.request - ERROR localhost- Internal Server Error: /vault

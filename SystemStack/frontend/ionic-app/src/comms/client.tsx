@@ -3,7 +3,7 @@ import forge from 'node-forge';
 export let SELF_ID = localStorage.getItem("SELF_ID") || "default";
 export let QKD_ADDRESS = localStorage.getItem("QKD_ADDRESS") || "default";
 export let QKD_KEY = localStorage.getItem("QKD_KEY") || "12341234123412341234123412341234";
-export let SERVER_ID = 1;
+export let SERVER_ID = "1";
 
 export function decrypt(msg: string, key: string): string {
     const decipher = forge.cipher.createDecipher('AES-CBC', forge.util.createBuffer(key));

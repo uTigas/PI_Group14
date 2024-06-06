@@ -1,14 +1,15 @@
 import axios, { AxiosResponse } from "axios";
 import "../comms/client";
-import { saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister, SELF_ID, SERVER_ID} from "../comms/client";
+import { saveToLocalStorage, requestKey, getKeys, checkIfRegistered, checkIfRegisteredAndRegister, SELF_ID, SERVER_ID, encrypt, encryptMessage, decrypt, decryptMessage} from "../comms/client";
 
 let one = false;
-
+let key_cache: { [key: string]: string } = {}
 const ApiWrapper = {
     backendURI : 'http://localhost:8000/',
-    
+
     register: async (formData : FormData) => {
       try {
+        formData.append('id', SELF_ID)
         const response = await axios.post(ApiWrapper.backendURI + "register", formData, {
           withCredentials: true
         });
@@ -24,15 +25,17 @@ const ApiWrapper = {
             one = true;
             await checkIfRegisteredAndRegister();
             const s = await requestKey(SERVER_ID);
-            console.log(s);
+            console.log("key" + s);
 
             // wait 1 second
             await new Promise(resolve => setTimeout(resolve, 1000));
             const r = await getKeys();
-            console.log(r);
+            const challenge = encryptMessage(SELF_ID, r['keys'][SERVER_ID].trim());
+            const formData = new FormData;
+            formData.append('id', SELF_ID)
+            formData.append('challenge', challenge)
+            return await axios.post(ApiWrapper.backendURI + 'check-authentication', formData, {withCredentials: true});
           }
-          const challenge = {'id': SELF_ID}
-          return await axios.post(ApiWrapper.backendURI + 'check-authentication', challenge, {withCredentials: true});
         } catch (error) {
           console.error('Error checking authentication:', error);
         }
@@ -212,8 +215,36 @@ const ApiWrapper = {
       return await axios.get(ApiWrapper.backendURI + `chat?chatId=${id}`, {withCredentials: true});
     },
 
+    decryptChat: async (chat: any[], rx_id: string) => {
+      const key = await ApiWrapper.fetch_key(rx_id);
+      chat.forEach((element) => {
+        try {
+          element.message = decryptMessage(element.message, key)   
+        } catch (error) {
+          console.log('Found Invalid Message')
+        }
+      });
+
+      return chat;
+    },
+
+    fetch_key: async (rx_id : string) => {
+      if (!(rx_id && rx_id in key_cache)){
+        await requestKey(rx_id!)
+        key_cache= (await getKeys())!.keys
+      }
+      return key_cache[rx_id]
+    },
     
     sendMessage: async (formData : FormData) => {
+      const rx_id = formData.get('rx_id')?.toString()
+      let message = formData.get('message')
+      let key = await ApiWrapper.fetch_key(rx_id!)
+
+      message = encryptMessage(message, key)
+      formData.set('message', message!.toString())
+      console.log(decryptMessage(message!.toString(), key))
+
       return await axios.post(ApiWrapper.backendURI + 'chat/message', formData, {withCredentials: true});
     },
 }

@@ -16,13 +16,13 @@ logging.basicConfig(filename='requests.log', level=logging.INFO, format=f'%(asct
 logger = logging.getLogger(__name__)
 
 def get_qkd_server_key_():
-    return os.getenv("QKD_KEY","")
+    return os.getenv("QKD_KEY","1234"*8)
 
 def get_server_id_():
-    return os.getenv("SELF_ID","")
+    return os.getenv("SELF_ID","1")
 
 def get_qkd_server_address_():
-    return os.getenv("QKD_ADDRESS","http://localhost") + ":" + os.getenv("QKD_PORT", "000")
+    return os.getenv("QKD_ADDRESS","http://localhost") + ":" + os.getenv("QKD_PORT", "5000")
 
 def store_time_cache(tx_id, time):
     global timeCache

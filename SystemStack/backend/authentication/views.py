@@ -11,47 +11,41 @@ import authentication.comms.util as util
 import authentication.comms.msg as msg
 import requests
 
+@csrf_exempt
 def check_authentication(request):
     if request.user.is_authenticated:
         return JsonResponse({'is_authenticated': True})
     else:
         #TODO: Implement solution for MITM Attack problem on return of auth session
         #Not Logged In? Proceed to login.
-
-        next = request.POST.get('next')
         if request.method == "POST":
-            id = request.POST.get["id"]
-            challenge = request.POST.get["challenge"]
-            
+            next = request.POST.get('next')
+            id = request.POST.get("id")
+            challenge = request.POST.get("challenge")
             #Go to Database and fetch User's key to check validity of message
             response = requests.post(util.get_qkd_server_address_() + "/keys/get/" + util.get_server_id_() + "/" + id,
                                     data = msg.GetKeyMsg.construct(util.get_server_id_(), id).encrypt(util.get_qkd_server_key_()))
-            
             if response.status_code != 200:
                 return JsonResponse({"error":"Invalid Credentials!"}, status = 401)
             
             try:
-                user_key = str(msg.ReturnKeysMsg(response.data, util.get_qkd_server_key_()).loads().get(id))
+                user_key = str(msg.ReturnKeysMsg(response.text.replace("\"",""), util.get_qkd_server_key_()).loads().get(id))
             except:
                 return JsonResponse({"error":"An Error Occurred decoding Message!"}, status = 401)
                 
-            #Check challenge
-            if id != util.decrypt_msg(challenge, user_key):
+            #Check challenge        
+            if id != util.decrypt_msg(challenge, user_key).replace("\"",""):
                 return JsonResponse({"error":"Invalid Credentials!"}, status = 401)
             
             if True:
-                username = entry.objects.filter(rx_id=id).first()
-                if not username:
+                user = entry.objects.filter(rx_id=id).first().user
+                if not user:
                     return JsonResponse({"error":"No Account Created!"}, status = 401)
 
-                user = authenticate(request, username=username)
-                if user is not None:
-                    login(request, user)
-                    if next == None:
-                        response = redirect('http://localhost:8100')  
-                    else:
-                        response = redirect(next)  
-                    return response  
+                login(request, user)
+                response = JsonResponse({'is_authenticated': True})
+                response.set_cookie('sessionid', request.session.session_key)
+                return response  
             
         return JsonResponse({'is_authenticated': False})
     
@@ -61,7 +55,8 @@ def register(response):
     if response.method == "POST":
         form = response.POST
         with transaction.atomic():
-            qeepUser.objects.create(username= form['username'], first_name= form['first_name'], last_name= form['last_name'], email= form['email'], phone= form['phone'],)
+            user = qeepUser.objects.create(username= form['username'], first_name= form['first_name'], last_name= form['last_name'], email= form['email'], phone= form['phone'],)
+            entry.objects.create(user = user, rx_id = form['id'])
             statistics = Statistics.objects.filter(id = 1).first()
             if not statistics:
                 statistics = Statistics.objects.create(id = 1)

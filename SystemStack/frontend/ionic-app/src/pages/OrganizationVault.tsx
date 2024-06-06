@@ -1,58 +1,92 @@
-import { IonAlert, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonListHeader, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle } from "@ionic/react"
+import { IonAlert, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCol, IonContent, IonGrid, IonHeader, IonIcon, IonInput, IonItem, IonItemDivider, IonLabel, IonList, IonListHeader, IonModal, IonPage, IonPopover, IonRow, IonSearchbar, IonText, IonTitle, SearchbarInputEventDetail } from "@ionic/react"
 import { useParams } from "react-router";
 import "../support/General.css";
-import { addOutline, arrowBack, arrowDown, arrowUpOutline, cloud, cloudOutline, createOutline, download, fileTray, fileTrayOutline, trashBin, trashBinOutline } from "ionicons/icons";
+import { addOutline, arrowBack, arrowDown, arrowUpOutline, cloud, cloudDownloadOutline, cloudOutline, createOutline, download, fileTray, fileTrayOutline, trashBin, trashBinOutline } from "ionicons/icons";
 import UploadComponent from "../components/UploadComponent";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import ApiWrapper from "../support/APIWrapper";
+import { IonSearchbarCustomEvent } from '@ionic/core';
 import { UserContext } from "../App";
 import { format } from "date-fns";
 import Common from "../support/Common";
 import AppAppBar from "../components/AppAppBar";
+import { OverlayEventDetail } from "@ionic/react/dist/types/components/react-component-lib/interfaces";
 
-const  OrganizationVault: React.FC = () => {
-    const { id: vaultId }  = useParams<{ id: string }>();
+const OrganizationVault: React.FC = () => {
+    const { id: vaultId } = useParams<{ id: string }>();
     const [items, setItems] = useState<any[]>([]);
     const [organizations, setOrganizations] = useState<any[]>([]);
     const [members, setMembers] = useState<any[]>([]);
     const [title, setTitle] = useState<string>("");
     const [fileName, setFileName] = useState<string>("");
+    const modal = useRef<HTMLIonModalElement>(null);
 
     const userDetails = useContext(UserContext);
     const fetchOrganizationVaultDetails = async () => {
         try {
             const response = await ApiWrapper.fetchOrganizationVaultDetails(vaultId);
-            if (response){
+            if (response) {
                 console.log(response);
-                setOrganizations(response.data.organizations)
-                setMembers(response.data.members)
+                setOrganizations(response.data.organizations);
+                setMembers(response.data.members);
                 setItems(response.data.items);
+                setResults(response.data.items);
             }
         } catch (error) {
-            
+
         }
     }
 
-    const downloadFile = async (id: string, name: string, type: string, ) => {
+    function onWillDismiss(ev: CustomEvent<OverlayEventDetail>) { }
+
+    const downloadFile = async (id: string, name: string, type: string,) => {
         try {
             const response = await ApiWrapper.downloadItem(id)
             const blob = new Blob([response!.data], { type: response!.headers['content-type'] });
-            
+
             const url = window.URL.createObjectURL(blob);
-            
+
             const link = document.createElement('a');
             link.href = url;
-            link.setAttribute('download', `${name}.${type}`); 
+            link.setAttribute('download', `${name}.${type}`);
             document.body.appendChild(link);
             link.click();
-            
+
             window.URL.revokeObjectURL(url);
             document.body.removeChild(link);
-            
+
         } catch (error) {
             console.error('Error downloading file:', error);
         }
     }
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(10);
+    const [results, setResults] = useState<any[]>([])
+
+    function handleItemInput(ev: IonSearchbarCustomEvent<SearchbarInputEventDetail>): void {
+        const target = ev.target as HTMLIonSearchbarElement;
+        const query = target ? target.value!.toLowerCase() : '';
+        setResults(items.filter((d) => d.name.toLowerCase().indexOf(query) > -1));
+        setCurrentPage(1);
+    }
+
+    const handlePageChange = (newPage: number) => {
+        setCurrentPage(newPage);
+    };
+
+    const paginatedResults = results.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    const renderPagination = () => {
+        const totalPages = Math.ceil(results.length / itemsPerPage);
+        const pages = [];
+        for (let i = 1; i <= totalPages; i++) {
+            pages.push(
+                <a key={i} className={i == currentPage ? 'active' : ''} onClick={() => handlePageChange(i)}>{i}</a>
+            );
+        }
+        return pages;
+    };
 
     const deleteItem = (id: string) => {
         const formData = new FormData;
@@ -83,9 +117,9 @@ const  OrganizationVault: React.FC = () => {
 
     useEffect(() => {
         fetchOrganizationVaultDetails();
-    },[])
+    }, [])
 
-    return(
+    return (
         <IonPage>
             <IonHeader>
                 <AppAppBar title={"Organization/Vault"} />
@@ -108,13 +142,13 @@ const  OrganizationVault: React.FC = () => {
                                         <IonTitle>Items</IonTitle>
                                         <IonRow>
                                             <IonCol>
-                                                <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for Items...'></IonSearchbar>
+                                                <IonSearchbar mode="ios" animated={true} color='' placeholder='Search for a specific Item...' onIonInput={(ev) => handleItemInput(ev)}></IonSearchbar>
                                             </IonCol>
                                             <IonCol size="auto">
-                                                <IonButton className="create-org" color={'success'} shape="round" fill='outline' id="click-trigger">Add<IonIcon icon={addOutline} /></IonButton>
-                                                <IonPopover trigger="click-trigger" triggerAction="click">
-                                                    <UploadComponent vaultId={vaultId} user={""} />
-                                                </IonPopover>
+                                                <IonModal ref={modal} trigger="click-trigger-org" onWillDismiss={(ev) => onWillDismiss(ev)}>
+                                                    <UploadComponent refModal={modal} vaultId={vaultId} user={""} />
+                                                </IonModal>
+                                                <IonButton className="create-org" color={'success'} fill='outline' shape="round" id="click-trigger-org">New<IonIcon icon={addOutline} /></IonButton>
                                             </IonCol>
 
                                         </IonRow>
@@ -125,10 +159,11 @@ const  OrganizationVault: React.FC = () => {
                                             <IonCol><IonLabel><h2>Creation</h2></IonLabel></IonCol>
                                             <IonCol></IonCol>
                                         </IonRow>
-                                        <IonItemDivider/>
-                                        {items.length !== 0 ? (
-                                            items.map((item) => (
+                                        {paginatedResults.length !== 0 ? (
+                                            paginatedResults.map((item) => (
                                                 <div key={item.id}>
+                                                    <IonItemDivider>
+                                                    </IonItemDivider>
                                                     <IonRow>
                                                         <IonCol className='appt_col'>
                                                             <IonLabel>{item.name}</IonLabel>
@@ -140,12 +175,13 @@ const  OrganizationVault: React.FC = () => {
                                                             <IonLabel>{item.type}</IonLabel>
                                                         </IonCol>
                                                         <IonCol className='appt_col'>
-                                                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:MM")}</IonLabel>
+                                                            <IonLabel>{format(item.createdAt, "dd-MM-yyyy HH:mm")}</IonLabel>
                                                         </IonCol>
                                                         <IonCol>
-                                                            <div className="appt_button">
-                                                                <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
+                                                            <div className='appt_button'>
+                                                                <IonButton onClick={() => downloadFile(item.id, item.name, item.type)} id={"download-" + item.id} shape='round' fill='outline' color={'primary'} size='small'><IonIcon size="medium" icon={cloudDownloadOutline} /></IonButton>
                                                                 <IonButton id={"rename-" + item.id} shape='round' fill='outline' color={'success'} size='small'><IonIcon size="medium" icon={createOutline} /></IonButton>
+                                                                <IonButton id={"delete-" + item.id} shape='round' fill='outline' color={'danger'} size='small'><IonIcon size="medium" icon={trashBinOutline} /></IonButton>
                                                                 <IonAlert
                                                                     trigger={"delete-" + item.id}
                                                                     trigger-action="click"
@@ -179,17 +215,25 @@ const  OrganizationVault: React.FC = () => {
                                                                         <IonButton color={'success'} fill='outline' onClick={() => { if (fileName != '') renameItem(item.id) }}>Rename</IonButton>
                                                                     </IonItem>
                                                                 </IonPopover>
-                                                            </div>
 
+                                                            </div>
                                                         </IonCol>
                                                     </IonRow>
-                                                    <IonItemDivider>
-                                                    </IonItemDivider>
                                                 </div>
                                             ))
                                         ) : (
                                             <IonText>No Items stored yet. Start uploading! </IonText>
                                         )}
+                                        <IonRow>
+                                            {results.length > 0 ? (
+                                                <div className="pagination ion-margin-top">
+                                                    <a onClick={() => { currentPage > 1 ? setCurrentPage(currentPage - 1) : false }}>&laquo;</a>
+                                                    {renderPagination()}
+                                                    <a onClick={() => { currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage + 1) : false }}>&raquo;</a>
+                                                </div>
+                                            ) : (<></>)}
+
+                                        </IonRow>
                                     </IonGrid>
                                 </IonCardContent>
                             </IonCard>

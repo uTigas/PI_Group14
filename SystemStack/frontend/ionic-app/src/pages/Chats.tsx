@@ -1,11 +1,12 @@
 import { IonButton, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonInput, IonItem, IonList, IonMenu, IonPage, IonRow, IonSplitPane, IonTitle, IonToolbar, IonAvatar, IonLabel, IonText, IonSegmentButton, IonIcon } from '@ionic/react';
 import AppAppBar from '../components/AppAppBar';
 import './Chats.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { format } from 'date-fns';
 import { UserContext } from '../App';
 import ApiWrapper from '../support/APIWrapper';
 import { checkmarkOutline, closeOutline, refresh } from 'ionicons/icons';
+import Invites from '../components/chat/Invites';
 
 const Chats: React.FC = () => {
   const [activeChat, setActiveChat] = useState<any>(null);
@@ -16,15 +17,16 @@ const Chats: React.FC = () => {
   const [invites, setInvites] = useState<any[]>([]);
   const userDetails = useContext(UserContext);
   const [error, setError] = useState<boolean>(false);
+  const inputRef = useRef<HTMLIonInputElement>(null)
 
-
-  const inviteChat = () => {
+  const inviteChat = async () => {
     if (invited != ''){
       setError(false);
       const formData = new FormData;
       formData.append('username', invited);
       const response = ApiWrapper.inviteChat(formData);
-      if (response){
+      if (await response){
+        refresh()
         response.catch(
           (error) => {
             setError(true)
@@ -90,32 +92,36 @@ const Chats: React.FC = () => {
     }
   }
 
-  const acceptInvite = (id:string) => {
+  const acceptInvite = async (id:string) => {
     const formData = new FormData;
     formData.append('invite',id) 
-    ApiWrapper.acceptChatInvite(formData)
-    refresh()
+    const response = ApiWrapper.acceptChatInvite(formData)
+    if(await response)
+      refresh()
   }
   
-  const refuseInvite = (id:string) => {
+  const refuseInvite = async (id:string) => {
     const formData = new FormData;
     formData.append('invite',id) 
-    ApiWrapper.refuseChatInvite(formData)
-    refresh()
+    const response = ApiWrapper.refuseChatInvite(formData)
+    if(await response)
+      refresh()
   }
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const formData = new FormData;
     if (message != ''){
       formData.append('rx_id', activeChat.rx_id)
       formData.append('message', message) 
       formData.append('chat', activeChat.id)
-      ApiWrapper.sendMessage(formData)
+      const response = ApiWrapper.sendMessage(formData)
+      if(await response)
+        refresh()
     }
-    refresh()
   }
   
   const refresh = () => {
+    setMessage('')
     fetchContacts()
     fetchInvites()
     if (activeChat)
@@ -125,11 +131,13 @@ const Chats: React.FC = () => {
   useEffect(()=>{
     refresh()
   },[])
+  
   useEffect(()=>{
     if (activeChat !== null) {
       fetchChat();
     }
   },[activeChat])
+
   return (
     <IonPage>
       <IonHeader>
@@ -138,23 +146,10 @@ const Chats: React.FC = () => {
       <IonContent>
         <IonSplitPane when='xs' contentId='main'>
           <IonMenu contentId='main'>
-            <IonHeader>
-              <IonInput className='ion-text-center' placeholder='Enter username...' onIonChange={(e) => setInvited(e.detail.value)}></IonInput>
-              <IonSegmentButton onClick={() => {inviteChat()}}>Send Chat Invite</IonSegmentButton>
-              {error ? (<IonText className='ion-text-center' color={'danger'}>FAILED! Invalid username or already sent this Invite.</IonText>):(<></>)}
-            </IonHeader>
             <IonContent>
-              <IonList>
-                {invites.map((invite: any) => (
-                  <IonItem key={invite.id}>
-                    <IonAvatar slot="start">
-                      <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt={`Avatar of ${invite.username}`} />
-                    </IonAvatar>
-                    <IonText><strong>{invite.inviter_name}</strong> wants to chat!</IonText>
-                    <IonButton fill='outline' shape='round' color={'success'} onClick={() => acceptInvite(invite.id)}><IonIcon icon={checkmarkOutline}/></IonButton>
-                    <IonButton fill='outline' shape='round' color={'danger'} onClick={() => refuseInvite(invite.id)}><IonIcon icon={closeOutline} /></IonButton>
-                  </IonItem>
-                ))}
+              <IonButton fill='outline' id='invites' expand='block'color='success'>Invites {invites.length > 0 ? '('+invites.length+')' : ''}</IonButton>
+              <Invites invites={invites} fetchInvites={fetchInvites} fetchContacts={fetchContacts} trigger='invites'/>
+              <IonList lines='full'>
                 {contacts.map((contact: any) => (
                   <IonItem key={contact.id} button onClick={() => {setActiveChat(contact), setMessage('')}}>
                     <IonAvatar slot="start">
@@ -177,29 +172,40 @@ const Chats: React.FC = () => {
                       {activeChat.name}
                   </IonTitle>
                 </IonToolbar>
-              </IonHeader><IonContent className='ion-padding'>
-              <div className="ChatContainer">
-                {messages.map((message: any) => (
-                  <div 
-                    key={message.id} 
-                    className={`ChatBubble ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}
-                  >
-                    <div className="MessageContent">
-                      <strong>{message.message}</strong>
-                      <IonText> {format(message.ts, "HH:MM")}</IonText>
+              </IonHeader>
+              <IonContent color='light' className='ion-padding'>
+                    {messages.map((message, index) => 
+                        <div key={index} className={`message ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}>
+                          <div className='ChatBubble'>
+                            <IonLabel>{message.message}</IonLabel>
+                            <br />
+                            <IonText> {format(message.ts, "HH:MM")}</IonText>
+                          </div>
+                        </div>
+                    )}
+                  {/*
+                  {messages.map((message: any) => (
+                    <div
+                      key={message.id}
+                      className={`ChatBubble ${message.sender !== userDetails?.username ? 'received' : 'sent'}`}
+                    >
+                      <div className="MessageContent">
+                        <strong>{message.message}</strong>
+                        <br />
+                        <IonText style={{ float: 'right' }}> {format(message.ts, "HH:MM")}</IonText>
+                      </div>
                     </div>
-                  </div>
-                ))}
-                </div>
+                  ))}
+                  */ }
                 </IonContent><IonFooter>
                   <IonToolbar>
                     <IonGrid>
                       <IonRow>
                         <IonCol>
-                          <IonInput aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)}></IonInput>
+                          <IonInput ref={inputRef} clearInput={true} aria-label="text" placeholder='Enter text' onIonChange={(e) => setMessage(e.detail.value)}></IonInput>
                         </IonCol>
                         <IonCol size='auto' className='ion-text-end'>
-                          <IonButton fill='outline' onClick={() => sendMessage()}>Send</IonButton>
+                          <IonButton fill='outline' onClick={() => {sendMessage(), inputRef.current!.value=''}}>Send</IonButton>
                         </IonCol>
                       </IonRow>
                     </IonGrid>

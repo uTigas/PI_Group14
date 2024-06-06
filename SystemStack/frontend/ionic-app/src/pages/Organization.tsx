@@ -220,12 +220,13 @@ const Organization: React.FC = () => {
                                                             </IonToolbar>
                                                         </IonHeader>
                                                         <IonContent className="ion-padding">
-                                                            <IonItem><IonLabel color={'primary'}>Definition</IonLabel></IonItem>
+                                                            <IonItem><IonLabel color={'primary'}>Definition<IonIcon icon={helpCircle} size='medium'></IonIcon></IonLabel></IonItem>
                                                             <IonItem>
                                                                 <IonInput
                                                                     label="Vault&#39;s name"
                                                                     type="text"
                                                                     value={name}
+                                                                    placeholder="A name for your vault"
                                                                     labelPlacement="stacked"
                                                                     onIonChange={(e) => {
                                                                         setName(e.detail.value!);
@@ -236,6 +237,7 @@ const Organization: React.FC = () => {
                                                                 <IonTextarea
                                                                     label="Short description"
                                                                     labelPlacement="stacked"
+                                                                    placeholder="Short description describing your new vault"
                                                                     value={description}
                                                                     onIonChange={(e) => {
                                                                         setDescription(e.detail.value!);
@@ -296,10 +298,10 @@ const Organization: React.FC = () => {
                                                 <IonCol><IonLabel><h2>Description</h2></IonLabel></IonCol>
                                                 <IonCol></IonCol>
                                             </IonRow>
-                                            <IonItemDivider></IonItemDivider>
                                             {paginatedResults.length !== 0 ? (
                                                 paginatedResults.map((item, index) => (
                                                     <IonRow key={item.vault.id}>
+                                                        <IonItemDivider></IonItemDivider>
                                                         <IonCol className="appt_col" size="4">
                                                                 <IonLabel>{item.vault.name}</IonLabel>
                                                         </IonCol>
@@ -311,7 +313,6 @@ const Organization: React.FC = () => {
                                                         <IonCol size="4">
                                                             <IonButton shape="round" fill="outline" className="appt_button" href={"/organization/vault/" + item.vault.id}>Access<IonIcon icon={enterOutline}></IonIcon></IonButton>
                                                         </IonCol>
-                                                        <IonItemDivider></IonItemDivider>
                                                     </IonRow>
                                                 ))
                                             ) : (
@@ -319,7 +320,7 @@ const Organization: React.FC = () => {
                                             )}
                                         </IonGrid>
                                         <IonRow>
-                                            <div className="pagination">
+                                            <div className="pagination ion-margin-top">
                                                 <a onClick={() => { currentPage > 1 ? setCurrentPage(currentPage - 1) : false }}>&laquo;</a>
                                                 {renderPagination()}
                                                 <a onClick={() => { currentPage < Math.ceil(results.length / itemsPerPage) ? setCurrentPage(currentPage + 1) : false }}>&raquo;</a>
@@ -430,10 +431,10 @@ const Organization: React.FC = () => {
                                             <IonCol><IonLabel><h2>Role</h2></IonLabel></IonCol>
                                             <IonCol><IonLabel><h2>Joined</h2></IonLabel></IonCol>
                                         </IonRow>
-                                        <IonItemDivider></IonItemDivider>
                                         {members.length !== 0 ? (
                                             members.map((item, index) => (
                                                 <div key={item.username}>
+                                                    <IonItemDivider />
                                                     <IonRow>
                                                         <IonCol className="appt_col">
                                                             <IonLabel>{item.name}</IonLabel>
@@ -445,7 +446,6 @@ const Organization: React.FC = () => {
                                                             <IonLabel>{format(new Date(item.joined), "dd-MM-yyyy")}</IonLabel>
                                                         </IonCol>
                                                     </IonRow>
-                                                    <IonItemDivider />
                                                 </div>
                                             ))
                                         ) : (

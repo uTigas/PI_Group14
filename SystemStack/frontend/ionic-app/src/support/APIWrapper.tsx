@@ -111,6 +111,14 @@ const ApiWrapper = {
       }
     },
 
+    fetchStats: async () => {
+      try{
+        return await axios.get(ApiWrapper.backendURI + 'stats', {withCredentials: true});
+      } catch (error){
+        console.error('Error fetching Stats', error);
+      }
+    },
+
     acceptInvite: async (formData : URLSearchParams) => {
       try {
         return await axios.post(ApiWrapper.backendURI + 'user/invites/accept', formData, {withCredentials: true});
@@ -154,7 +162,6 @@ const ApiWrapper = {
 
     fetchOrganizationVaultDetails: async (id: string) => {
       return await axios.get(ApiWrapper.backendURI + `organization-vault?vaultId=${id}`, {withCredentials: true});
-      
     },
 
     downloadItem: async (id: string) => {

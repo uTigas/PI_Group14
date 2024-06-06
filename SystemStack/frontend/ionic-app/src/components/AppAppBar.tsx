@@ -1,8 +1,9 @@
 import React, { useState, useContext, useId } from 'react';
 import { AuthContext, UserContext } from '../App';
-import { IonButton, IonCol, IonGrid, IonIcon, IonItem, IonLabel, IonList, IonPopover, IonRow, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCol, IonGrid, IonIcon, IonImg, IonItem, IonLabel, IonList, IonPopover, IonRow, IonTitle, IonToolbar } from '@ionic/react';
 import { cogOutline, contrastOutline, exit, personCircle } from 'ionicons/icons';
 import ApiWrapper from '../support/APIWrapper';
+import logo from '../../resources/logo.png';
 
 const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
     const logged = useContext(AuthContext);
@@ -18,7 +19,10 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
             <IonGrid>
                 <IonRow className="ion-align-items-center">
                     <IonCol size='auto' className="ion-text-center">
-                        <IonTitle>{title}</IonTitle>
+                        <IonImg src={logo} alt="Logo" style={{ height: '60px' }} />
+                    </IonCol>
+                    <IonCol size='auto'>
+                        <IonTitle style={{ padding: 0 }}>{title}</IonTitle>
                     </IonCol>
                     {logged && userDetails ? (
                         <>

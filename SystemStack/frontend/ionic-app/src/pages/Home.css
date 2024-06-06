@@ -6,11 +6,15 @@
   opacity: 0.8; /* 80% opacity */
 }
 
-.container {
-  text-align: center;
+.containerHome {
+  text-align: left;
   position: absolute;
   left: 0;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.center-text {
+  text-align: center;
 }

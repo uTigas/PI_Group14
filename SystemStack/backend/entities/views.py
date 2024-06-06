@@ -437,7 +437,7 @@ def getOrganizationVaultDetails(request):
             
 
             return JsonResponse({"members": members, "organizations": organizations, "items": list(items)}, status = 200)
-        except Item.DoesNotExist:
+        except models.OrganizationVault.DoesNotExist:
             return JsonResponse({"error": "Vault not found"}, status=404)
         except Exception as e:
             return JsonResponse({"error": "An error occurred"}, status=500)
@@ -463,7 +463,7 @@ def getChats(request):
         try:
             user = User.objects.get(username = request.user)
             chats = []
-            raw = models.ChatInvite.objects.filter((Q(inviter=request.user) | Q(user=request.user)) & Q(status = models.Status.ACCEPTED))
+            raw = models.ChatInvite.objects.filter((Q(inviter=request.user, status__in=[models.Status.ACCEPTED, models.Status.PENDING]) | Q(user=request.user, status = models.Status.ACCEPTED)))
             for c in raw:
                 u = c.chat.user1 if c.chat.user1 != user else c.chat.user2
                 rx_id = entry.objects.filter(user = u).first().rx_id

@@ -25,18 +25,22 @@ ion-split-pane {
 }
 
 .pagination a {
-  color: black;
+  border: 2px solid white;
+  border-radius: 13px;
+  color: #939393;
   float: left;
-  padding: 8px 16px;
   text-decoration: none;
+  padding: 5px 10px;
+  margin-right: 5px;
 }
 
 .pagination a.active {
-  background-color: #6193ea;
-  color: white;
+  border: 2px solid #6193ea;
+  background-color: white;
+  color: #6193ea;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {background-color: rgb(228, 228, 228);}
 
 .vault-text {
   height: 100%;

@@ -147,8 +147,6 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-LOGIN_URL = 'auth/login/'
-
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:8100',  # Ionic App Address
 ]
@@ -161,3 +159,5 @@ SESSION_COOKIE_AGE = 3600 #Expire Session after 1h
 
 
 FILE_UPLOAD_MAX_MEMORY_SIZE= 20000000 #max of 20MB in memory 
+
+AUTH_USER_MODEL = 'authentication.qeepUser'

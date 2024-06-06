@@ -1,7 +1,6 @@
 from django import forms
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
+from authentication.models import qeepUser
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
@@ -10,9 +9,8 @@ class RegisterForm(UserCreationForm):
     phone = forms.Field()
 
     class Meta:
-        model = User
-        fields = ["username", "first_name", "last_name", "email", "phone", "password1", "password2"]
+        model = qeepUser
+        fields = ["username", "first_name", "last_name", "email", "phone"]
 
 class LoginForm(forms.Form):
     username = forms.CharField()
-    password = forms.CharField(widget=forms.PasswordInput)

@@ -35,6 +35,7 @@ class QkdEmulatorInputParameters : public SystemInputParameters{
         t_integer numberOfValuesPerFile{ 1024 };
         t_integer qber{ 40 };
         t_integer seed{ 123456789 };
+        t_real noisePower{ 0.0 };
 
         t_string defaultInputFname{ "input_parameters_0.txt" };
 
@@ -58,5 +59,6 @@ class QkdEmulatorInputParameters : public SystemInputParameters{
             addInputParameter("numberOfValuesPerFile", &numberOfValuesPerFile);
             addInputParameter("qber", &qber);
             addInputParameter("seed", &seed);
+            addInputParameter("noisePower", &noisePower);
         }
 };

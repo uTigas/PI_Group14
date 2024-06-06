@@ -16,6 +16,6 @@ const AboutUs: React.FC = () => {
       </IonContent>
     </IonPage>
   );
-};
+};  
 
 export default AboutUs;

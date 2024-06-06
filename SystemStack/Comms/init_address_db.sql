@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS address (
+    id SERIAL PRIMARY KEY,
+    address TEXT NOT NULL
+);

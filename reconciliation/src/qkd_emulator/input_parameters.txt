@@ -1,4 +1,4 @@
-keyType=Binary
+keyType=Real
 fileType=ASCII
 counterFirstValue=0
 counterLastValue=MAX_INT 
@@ -7,3 +7,4 @@ rxFilesName=bin_rx_
 numberOfValuesPerFile=1024
 qber=0.4
 seed=123456789
+noisePower=0.5

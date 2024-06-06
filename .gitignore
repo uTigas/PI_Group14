@@ -5,3 +5,4 @@ env/
 *.sgn
 *.dat
 *.o
+*.b64

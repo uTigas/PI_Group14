@@ -153,10 +153,6 @@ const Home: React.FC = () => {
                           </p>
                           <IonItemDivider />
                           <p style={styles.descriptionText}>
-                            <IonText >Requests:</IonText> {stats.requests}
-                          </p>
-                          <IonItemDivider />
-                          <p style={styles.descriptionText}>
                             <IonText >Size:</IonText> {stats.size}
                           </p>
                           <IonItemDivider />

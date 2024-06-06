@@ -1,3 +1,7 @@
 
-# I DONT CARE ABOUT THEM KEYS
 *.o
+
+*.sgn
+*.dat
+*.o
+*.b64

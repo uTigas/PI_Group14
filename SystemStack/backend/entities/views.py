@@ -1,36 +1,20 @@
-import json
 from django.forms import model_to_dict
 from django.http import HttpResponse, JsonResponse
-from django.contrib.auth.models import User
+from authentication.models import entry, qeepUser as User
 from warehouse.models import Item
 from entities.forms import OrganizationForm, OrganizationVaultForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.db import transaction
-from drf_yasg.utils import swagger_auto_schema
-from rest_framework.decorators import api_view
 from django.db.models import Q
 
 import entities.models as models
-@api_view(['GET'])
-@swagger_auto_schema(
-    operation_summary="Get vault items",
-    operation_description="Retrieves items stored in a specific vault.",
-    tags=['Vault'],
-)
 def getStatistics(request):
     stats = models.Statistics.objects.filter(id = 1).first()
     if not stats:
         stats = models.Statistics.objects.create(id = 1)
     return JsonResponse(model_to_dict(stats), status =  200) 
 
-@api_view(['GET'])
-@swagger_auto_schema(
-    summary="Get vault items",
-    description="Retrieves items stored in a specific vault.",
-    tags=['Vault'],
-    login_required=True,
-)
 @login_required
 def getOrganizations(request):
     if request.method == 'GET':
@@ -469,6 +453,7 @@ def getVaultItems(request):
         except  models.OrganizationVault.DoesNotExist:
             return JsonResponse({"error": "Vault not found"}, status=404)
         except Exception as e:
+            print("HEREEE" + str(e))
             return JsonResponse({"error": "An error occurred"}, status=500)   
     else:
         return JsonResponse({'error': 'Method not allowed'}, status=405)
@@ -482,10 +467,12 @@ def getChats(request):
             raw = models.ChatInvite.objects.filter((Q(inviter=request.user, status__in=[models.Status.ACCEPTED, models.Status.PENDING]) | Q(user=request.user, status = models.Status.ACCEPTED)))
             for c in raw:
                 u = c.chat.user1 if c.chat.user1 != user else c.chat.user2
+                rx_id = entry.objects.filter(user = u).first().rx_id
                 chats.append({
                     'id': c.chat.id,
                     'username': u.username,
                     'name': u.get_full_name(),
+                    'rx_id': rx_id,
                 }) 
             return JsonResponse({"chats": list(chats)}, status = 200)
         except Exception as e:

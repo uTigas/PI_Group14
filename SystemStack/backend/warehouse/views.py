@@ -3,7 +3,8 @@ import os
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.http import FileResponse, HttpResponse, JsonResponse
-from entities.models import OrganizationVault, Statistics, User
+from entities.models import OrganizationVault, Statistics
+from authentication.models import qeepUser as User
 from warehouse.models import Item
 from django.forms import model_to_dict
 from django.db import transaction

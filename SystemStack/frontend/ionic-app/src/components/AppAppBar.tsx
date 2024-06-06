@@ -63,7 +63,7 @@ const AppAppBar: React.FC<{ title: string }> = ({ title }) => {
                         </>
                     ) : (
                         <IonCol className="ion-text-end">
-                            <IonButton href={ApiWrapper.backendURI + "login"} color="success">Login</IonButton>
+                            <IonButton href='/register' color="primary">Register</IonButton>
                         </IonCol>
                     )}
                 </IonRow>

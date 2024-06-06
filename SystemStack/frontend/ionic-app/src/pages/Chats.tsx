@@ -83,7 +83,6 @@ const Chats: React.FC = () => {
           async (response) => {
             const decrypted_msgs = await ApiWrapper.decryptChat(response!.data.messages, activeChat.rx_id)
             setMessages(decrypted_msgs)
-            scroll.current?.scrollIntoView({ behavior: 'smooth' })
           }
         )
       } else {
@@ -133,6 +132,10 @@ const Chats: React.FC = () => {
   useEffect(()=>{
     refresh()
   },[])
+
+  useEffect(()=>{
+    scroll.current?.scrollIntoView({ behavior: 'smooth' })
+  },[messages])
   
   useEffect(()=>{
     if (activeChat !== null) {
